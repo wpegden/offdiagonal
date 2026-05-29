@@ -2,6 +2,7 @@ import Tablet.BinarySequenceWeight
 import Tablet.BinarySequenceWeightSnoc
 import Tablet.ProductDigraphFixedSequenceTupleCount
 import Tablet.ProductDigraphFixedSequenceTupleCountLastVertexBound
+import Tablet.ProductDigraphFixedSequenceTupleCountZeroBitBound
 import Tablet.ProductDigraphSparseEdgeChoiceBound
 import Tablet.ProductDigraphVertexCard
 import Tablet.SparseNeighborhoodSetBound
@@ -76,4 +77,14 @@ theorem ProductDigraphShrinkingSequenceBound {V : Type u} [Fintype V]
             (((dF * n : ℕ) : ℝ)) := by
     intro m w _hw
     exact hOneStepLastVertex w
+  have hOneStepFalse :
+      ∀ {m : ℕ} (w : Fin (m + 1) → Bool),
+        w (Fin.last m) = false →
+        ((ProductDigraphFixedSequenceTupleCount F G n dG (m + 1) w : ℕ) : ℝ) ≤
+          ((ProductDigraphFixedSequenceTupleCount F G n dG m
+            (fun i : Fin m => w i.castSucc) : ℕ) : ℝ) *
+            (((8 : ℝ) * eta) * (((dF * n : ℕ) : ℝ))) := by
+    intro m w hw
+    exact ProductDigraphFixedSequenceTupleCountZeroBitBound F G n dF dG m
+      lambdaF lambdaG eta hF hG hn hdF hdG heta w hw
   sorry

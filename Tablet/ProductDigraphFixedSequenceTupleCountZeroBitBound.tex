@@ -1,0 +1,51 @@
+\begin{helper}
+Let \(F\) and \(G\) be \((n,d(F),\lambda(F))\)- and \((n,d(G),\lambda(G))\)-graphs on the same finite vertex set, with \(n>0\) and \(d(F),d(G)>0\), and let
+\[
+  \eta=\max\left\{\frac{\lambda(G)^2}{d(G)^2},
+  \frac{\lambda(F)\lambda(G)}{d(F)d(G)}\right\}.
+\]
+Let \(w\in\{0,1\}^{m+1}\) have last bit \(0\), and let \(w'\in\{0,1\}^m\) be the prefix \(w'_i=w_i\). Then the number of product-digraph forward independent \((m+1)\)-tuples with shrinking sequence \(w\) is at most the number of forward independent \(m\)-tuples with shrinking sequence \(w'\), multiplied by
+\[
+  (8\eta)(d(F)n).
+\]
+\end{helper}
+\begin{proof}
+Let \(C(m+1,w)\) and \(C(m,w')\) be the fixed-sequence tuple sets counted by \(\noderef{ProductDigraphFixedSequenceTupleCount}\). Every tuple \(v=(v_0,\ldots,v_m)\in C(m+1,w)\) has prefix \(p=(v_0,\ldots,v_{m-1})\in C(m,w')\): by \(\noderef{ProductDigraphTupleHasShrinkingSequence}\), forward independence restricts to prefixes, and the shrinking test at a prefix index only quantifies over earlier prefix indices.
+
+Fix such a prefix \(p\). Define
+\[
+  B_p=\{b:\text{ for every }j<m,\; a_jb\notin E(G)\},
+\]
+where \(a_j\) is the first coordinate of the product vertex \(p_j\). Define
+\[
+  A_p=\left\{u:\ e_G(\{u\},B_p)\le \frac{d(G)|B_p|}{2n}\right\}.
+\]
+These are exactly the surviving second-coordinate set and the sparse first-coordinate set determined by the prefix.
+
+Now take a full tuple \(v\in C(m+1,w)\) extending the prefix \(p\), and write its last vertex as \(v_m=(a_m,b_m)\). Since \(v_m\) is a product-digraph vertex, \(\noderef{ProductDigraphVertex}\) gives \(a_mb_m\in E(F)\). Since the full tuple is forward independent in \(\noderef{ProductDigraph}\), no earlier product vertex has a product-digraph edge to \(v_m\); by the definition of \(\noderef{ProductDigraph}\), this means \(a_jb_m\notin E(G)\) for every \(j<m\). Hence \(b_m\in B_p\).
+
+It remains to show \(a_m\in A_p\). The last shrinking bit is \(0\). By \(\noderef{ProductDigraphTupleHasShrinkingSequence}\), the last bit is \(1\) exactly when
+\[
+  \frac{d(G)|B_p|}{2n}<e_G(\{a_m\},B_p).
+\]
+Because the last bit is not \(1\), this strict inequality is false, and therefore
+\[
+  e_G(\{a_m\},B_p)\le \frac{d(G)|B_p|}{2n}.
+\]
+Thus \(a_m\in A_p\).
+
+For the fixed prefix \(p\), every possible last vertex therefore determines an ordered \(F\)-edge \((a_m,b_m)\in (A_p\times B_p)\cap E(F)\), and this determination is injective. Hence the number of possible last vertices is at most
+\[
+  e_F(A_p,B_p).
+\]
+The defining equivalence for \(A_p\) is precisely the hypothesis needed to apply \(\noderef{ProductDigraphSparseEdgeChoiceBound}\), so
+\[
+  e_F(A_p,B_p)\le (8\eta)(d(F)n).
+\]
+
+Finally, inject each full tuple into the pair consisting of its prefix \(p\in C(m,w')\) and the corresponding ordered \(F\)-edge in \((A_p\times B_p)\cap E(F)\). Summing the just-proved bound over all prefixes gives
+\[
+  |C(m+1,w)|\le |C(m,w')|\,(8\eta)(d(F)n),
+\]
+which is the desired zero-bit extension bound.
+\end{proof}
