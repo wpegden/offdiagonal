@@ -1,0 +1,27 @@
+\begin{helper}
+Let \(F\) be an \((n,d(F),\lambda(F))\)-loop graph on a finite vertex set.
+Then the product-digraph vertex type
+\[
+  \{(a,b)\in V^2:ab\in E(F)\}
+\]
+from \(\noderef{ProductDigraphVertex}\) has cardinality \(d(F)n\).
+\end{helper}
+\begin{proof}
+The product-digraph vertices can be counted by first choosing the first
+coordinate.  More explicitly, \(\noderef{ProductDigraphVertex}\) identifies
+the vertex type with the disjoint union, over \(a\in V\), of the fiber
+\[
+  \{b\in V:ab\in E(F)\}.
+\]
+For each fixed \(a\), this fiber has cardinality
+\(\deg_F(a)\), which is the degree defined in \(\noderef{LoopGraphDegree}\).
+Since \(F\) is an \((n,d(F),\lambda(F))\)-loop graph, the regularity clause in
+\(\noderef{LoopGraphNdLambda}\) gives \(\deg_F(a)=d(F)\) for every \(a\), and
+the vertex-count clause gives \(|V|=n\).  Therefore
+\[
+  \left|\{(a,b)\in V^2:ab\in E(F)\}\right|
+  =\sum_{a\in V} d(F)
+  =d(F)|V|
+  =d(F)n.
+\]
+\end{proof}

@@ -1,6 +1,7 @@
 import Tablet.BinarySequenceWeight
 import Tablet.ProductDigraphFixedSequenceTupleCount
 import Tablet.ProductDigraphSparseEdgeChoiceBound
+import Tablet.ProductDigraphVertexCard
 import Tablet.SparseNeighborhoodSetBound
 
 -- [TABLET NODE: ProductDigraphShrinkingSequenceBound]
@@ -21,6 +22,7 @@ theorem ProductDigraphShrinkingSequenceBound {V : Type u} [Fintype V]
         ((dF * n : ℕ) : ℝ) ^ t := by
 -- BODY
   classical
+  letI : Fintype (ProductDigraphVertex F) := Fintype.ofFinite _
   have hSparseChoice :
       ∀ A B : Finset V,
         (∀ u : V, u ∈ A ↔
@@ -31,4 +33,7 @@ theorem ProductDigraphShrinkingSequenceBound {V : Type u} [Fintype V]
     intro A B hA
     exact ProductDigraphSparseEdgeChoiceBound F G n dF dG lambdaF lambdaG eta
       hF hG hn hdF hdG heta A B hA
+  have hOneBitChoice :
+      Fintype.card (ProductDigraphVertex F) = dF * n :=
+    ProductDigraphVertexCard F n dF lambdaF hF
   sorry

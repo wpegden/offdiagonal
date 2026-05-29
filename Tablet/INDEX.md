@@ -59,11 +59,12 @@
 | ProductDigraph | definition | definition | closed | - | - | Digraph, ProductDigraphVertex |
 | ProductDigraphFixedSequenceTupleCount | definition | definition | closed | - | - | ProductDigraphTupleHasShrinkingSequence |
 | ProductDigraphForwardIndependentBound | lemma | proof | open | - | - | ForwardIndependentTupleCount, HsFreePair, ProductDigraph, ProductDigraphShrinkingSequenceBound, ProductDigraphTransitiveFree, ProductDigraphVertex, TransitiveTournamentFree |
-| ProductDigraphShrinkingSequenceBound | lemma | proof | open | - | - | BinarySequenceWeight, ProductDigraphFixedSequenceTupleCount, ProductDigraphSparseEdgeChoiceBound, SparseNeighborhoodSetBound |
+| ProductDigraphShrinkingSequenceBound | lemma | proof | open | - | - | BinarySequenceWeight, ProductDigraphFixedSequenceTupleCount, ProductDigraphSparseEdgeChoiceBound, ProductDigraphVertexCard, SparseNeighborhoodSetBound |
 | ProductDigraphSparseEdgeChoiceBound | helper | proof | closed | - | - | SparseNeighborhoodSetBound |
 | ProductDigraphTransitiveFree | lemma | proof | closed | - | - | HsFreePair, ProductDigraph, TransitiveTournamentFree |
 | ProductDigraphTupleHasShrinkingSequence | definition | definition | closed | - | - | ForwardIndependentTuple, LoopGraphEdgeCountBetween, ProductDigraph |
 | ProductDigraphVertex | definition | definition | closed | - | - | LoopGraph |
+| ProductDigraphVertexCard | helper | proof | closed | - | - | LoopGraphNdLambda, ProductDigraphVertex |
 | RamseyFromGraphPair | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, ProductDigraphForwardIndependentBound, SamplingKsFreeRamseyBound |
 | RamseyNumber | definition | definition | closed | - | - | RamseyProperty |
 | RamseyProperty | definition | definition | closed | - | - | Preamble |
@@ -74,4 +75,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 70 nodes | **Closed:** 55 | **Open:** 15
+**Total:** 71 nodes | **Closed:** 56 | **Open:** 15
