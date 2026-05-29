@@ -28,6 +28,8 @@
 | LoopGraph | definition | - | closed |
 | LoopGraphAdjacencyAction | definition | - | closed |
 | LoopGraphAdjacencyActionSelfAdjoint | proof | - | closed |
+| LoopGraphAdjacencyEuclideanInner | proof | - | closed |
+| LoopGraphAdjacencyEuclideanOperator | definition | - | closed |
 | LoopGraphComplement | definition | - | closed |
 | LoopGraphDegree | definition | - | closed |
 | LoopGraphEdgeCountBetween | definition | - | closed |
@@ -66,4 +68,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 45/61 closed
+**Summary:** 47/63 closed

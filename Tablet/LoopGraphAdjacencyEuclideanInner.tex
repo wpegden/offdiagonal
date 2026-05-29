@@ -1,0 +1,24 @@
+\begin{helper}
+Let \(G\) be a loop graph on a finite vertex set \(V\), and let \(T_G\) be the
+Euclidean-space adjacency operator from \(\noderef{LoopGraphAdjacencyEuclideanOperator}\).
+For real-valued functions \(f,g\colon V\to\mathbb R\),
+\[
+  \langle f,T_Gg\rangle_{\ell^2(V)}
+  =
+  \sum_{v\in V} f(v)(A_Gg)(v).
+\]
+\end{helper}
+\begin{proof}
+By the definition of \(T_G\) in \(\noderef{LoopGraphAdjacencyEuclideanOperator}\),
+the vector \(T_Gg\) has \(v\)-coordinate \((A_Gg)(v)\) for every \(v\in V\).
+The real Euclidean inner product on \(\ell^2(V)\) is the finite sum of pointwise
+products of the two coordinate functions.  Therefore
+\[
+  \langle f,T_Gg\rangle_{\ell^2(V)}
+  =
+  \sum_{v\in V} f(v)\,(T_Gg)(v)
+  =
+  \sum_{v\in V} f(v)(A_Gg)(v),
+\]
+which is the desired identity.
+\end{proof}

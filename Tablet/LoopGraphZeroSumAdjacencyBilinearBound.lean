@@ -1,6 +1,7 @@
 import Tablet.LoopGraphNdLambda
 import Tablet.LoopGraphAdjacencyActionSelfAdjoint
 import Tablet.LoopGraphNdLambdaAdjacencyActionZeroSum
+import Tablet.LoopGraphAdjacencyEuclideanInner
 
 -- [TABLET NODE: LoopGraphZeroSumAdjacencyBilinearBound]
 
@@ -26,4 +27,9 @@ theorem LoopGraphZeroSumAdjacencyBilinearBound {V : Type u} [Fintype V]
   have hg_invariant :
       (∑ v : V, LoopGraphAdjacencyAction G g v) = 0 :=
     LoopGraphNdLambdaAdjacencyActionZeroSum G n d lambda hG g hg
+  have hEuclideanInner :
+      inner ℝ (WithLp.toLp 2 f : EuclideanSpace ℝ V)
+        (LoopGraphAdjacencyEuclideanOperator G (WithLp.toLp 2 g)) =
+        ∑ v : V, f v * LoopGraphAdjacencyAction G g v :=
+    LoopGraphAdjacencyEuclideanInner G f g
   sorry

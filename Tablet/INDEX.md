@@ -26,6 +26,8 @@
 | LoopGraph | definition | definition | closed | - | - | Preamble |
 | LoopGraphAdjacencyAction | definition | definition | closed | - | - | LoopGraph |
 | LoopGraphAdjacencyActionSelfAdjoint | helper | proof | closed | - | - | LoopGraphAdjacencyAction, LoopGraphSymmetric |
+| LoopGraphAdjacencyEuclideanInner | helper | proof | closed | - | - | LoopGraphAdjacencyEuclideanOperator |
+| LoopGraphAdjacencyEuclideanOperator | definition | definition | closed | - | - | LoopGraphAdjacencyAction |
 | LoopGraphComplement | definition | definition | closed | - | - | LoopGraph |
 | LoopGraphDegree | definition | definition | closed | - | - | LoopGraph |
 | LoopGraphEdgeCountBetween | definition | definition | closed | - | - | LoopGraph |
@@ -36,7 +38,7 @@
 | LoopGraphNdLambdaAdjacencyOne | helper | proof | closed | - | - | LoopGraphAdjacencyAction, LoopGraphNdLambda |
 | LoopGraphNonprincipalEigenvalue | definition | definition | closed | - | - | LoopGraphAdjacencyAction |
 | LoopGraphSymmetric | definition | definition | closed | - | - | LoopGraph |
-| LoopGraphZeroSumAdjacencyBilinearBound | helper | proof | open | - | - | LoopGraphAdjacencyActionSelfAdjoint, LoopGraphNdLambda, LoopGraphNdLambdaAdjacencyActionZeroSum |
+| LoopGraphZeroSumAdjacencyBilinearBound | helper | proof | open | - | - | LoopGraphAdjacencyActionSelfAdjoint, LoopGraphAdjacencyEuclideanInner, LoopGraphNdLambda, LoopGraphNdLambdaAdjacencyActionZeroSum |
 | MainTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, PolarityGraphParameters, RamseyFromGraphPair |
 | MulticolorRamseyNumber | definition | definition | closed | - | - | MulticolorRamseyProperty |
 | MulticolorRamseyProperty | definition | definition | closed | - | - | Preamble |
@@ -65,4 +67,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 61 nodes | **Closed:** 45 | **Open:** 16
+**Total:** 63 nodes | **Closed:** 47 | **Open:** 16

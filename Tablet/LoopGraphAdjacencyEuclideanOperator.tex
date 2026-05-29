@@ -1,0 +1,14 @@
+\begin{definition}
+Let \(G\) be a loop graph on a finite vertex set \(V\).  The Euclidean-space
+adjacency operator \(T_G\) is the real linear map on \(\ell^2(V)\) which sends a
+vector \(x\) to the vector whose \(v\)-coordinate is
+\[
+  (T_Gx)(v)=(A_Gx)(v)
+  =\sum_{w\in V}
+    \begin{cases}
+      x(w), & \text{if } vw\in E(G),\\
+      0, & \text{otherwise}.
+    \end{cases}
+\]
+Here \(A_G\) is the adjacency action defined in \(\noderef{LoopGraphAdjacencyAction}\).
+\end{definition}
