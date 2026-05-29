@@ -1,17 +1,105 @@
 \begin{lemma}
-Let \(s,n\ge 3\), and suppose \(F\) and \(G\) are \((n,d(F),\lambda(F))\)- and \((n,d(G),\lambda(G))\)-graphs on the same vertex set. If \((F,G)\) is \(H_s\)-free, set
+Let \(s,n\ge 3\), and suppose \(F\) and \(G\) are \((n,d(F),\lambda(F))\)- and \((n,d(G),\lambda(G))\)-graphs on the same vertex set, with \(d(F),d(G)>0\). If \((F,G)\) is \(H_s\)-free, set
 \[
   \eta=\max\left\{\frac{\lambda(G)^2}{d(G)^2},
   \frac{\lambda(F)\lambda(G)}{d(F)d(G)}\right\},
   \qquad
   w=\frac{4n\log n}{d(G)}.
 \]
+Assume also that \(0\le \eta\le 1\).
 Then there is a \(T_s\)-free digraph \(D\) on \(d(F)n\) vertices such that, for all \(k\ge w\),
 \[
   \overrightarrow{i_k}(D)\le 16^k \eta^{k-w}(d(F)n)^k.
 \]
 \end{lemma}
 \begin{proof}
-SKETCH:
-Construct \(D=D(F,G)\). It is \(T_s\)-free by \noderef{ProductDigraphTransitiveFree}. For every forward independent tuple, define the sets \(B_i\), \(A_i\), and the shrinking sequence as in the paper. There can be at most \(w\) shrinking steps, since otherwise the \(B_i\) sets shrink below size \(1\). For each fixed shrinking sequence, \noderef{ProductDigraphShrinkingSequenceBound} gives \((8\eta)^{k-|z|}(d(F)n)^k\). Summing over all binary strings with at most \(w\) ones gives the advertised \(16^k\eta^{k-w}(d(F)n)^k\) bound.
+Let \(W\) be the product vertex set from \(\noderef{ProductDigraphVertex}\), namely
+\[
+  W=\{(a,b): a,b\in V,\ ab\in E(F)\},
+\]
+and let \(D=D(F,G)\) be the product digraph on \(W\) defined in \(\noderef{ProductDigraph}\). By \(\noderef{ProductDigraph}\), an arc
+\[
+  (a_1,b_1)\to(a_2,b_2)
+\]
+in \(D\) is exactly the assertion \(a_1b_2\in E(G)\).
+
+We first record the two structural properties of \(D\). Since \(F\) is an \((n,d(F),\lambda(F))\)-graph, \(\noderef{LoopGraphNdLambda}\) gives \(|V|=n\), and \(\noderef{LoopGraphDegree}\) gives exactly \(d(F)\) choices of \(b\) with \(ab\in E(F)\) for each fixed \(a\in V\). Therefore
+\[
+  |W|=d(F)n.
+\]
+Also, \(\noderef{ProductDigraphTransitiveFree}\), applied to the hypothesis that \((F,G)\) is \(H_s\)-free, gives that \(D\) is \(T_s\)-free.
+
+It remains to bound the number of forward independent tuples. Fix \(k\ge w\), and let
+\[
+  \mathbf v=(v_1,\ldots,v_k)
+\]
+be a forward independent \(k\)-tuple in \(D\). Write \(v_i=(a_i,b_i)\). By \(\noderef{ProductDigraphTupleHasShrinkingSequence}\), the tuple \(\mathbf v\) has a unique binary shrinking sequence
+\[
+  z^{\mathbf v}\in\{0,1\}^k,
+\]
+where a true bit is exactly the large-neighborhood case
+\[
+  |N_G(a_i)\cap B_i|>\frac{d(G)|B_i|}{2n},
+  \qquad
+  B_i=V\setminus\bigcup_{j<i}N_G(a_j).
+\]
+The same definition includes the forward-independence condition, so every tuple counted by \(\noderef{ForwardIndependentTupleCount}\) is counted by exactly one fixed-sequence class from \(\noderef{ProductDigraphFixedSequenceTupleCount}\).
+
+We next prove that the weight of \(z^{\mathbf v}\) is at most \(w\). By \(\noderef{BinarySequenceWeight}\), this weight is the number of true, or large-neighborhood, indices. For every \(i\), the vertex \(b_i\) belongs to \(B_i\): if \(j<i\), forward independence and the arc definition of \(D\) imply \(a_jb_i\notin E(G)\). Hence \(B_i\) is nonempty for every \(i\). When \(z^{\mathbf v}_i=1\), the large-neighborhood inequality gives
+\[
+  |N_G(a_i)\cap B_i|>\frac{d(G)}{2n}|B_i|.
+\]
+Since
+\[
+  B_{i+1}=B_i\setminus N_G(a_i),
+\]
+we get
+\[
+  |B_{i+1}|<\left(1-\frac{d(G)}{2n}\right)|B_i|
+\]
+at every true bit. The graph \(G\) has degree \(d(G)\) on an \(n\)-vertex set by \(\noderef{LoopGraphNdLambda}\) and \(\noderef{LoopGraphDegree}\), so \(0<d(G)\le n\). Thus \(0<d(G)/(2n)\le1/2\), and repeated application of the preceding inequality shows that after \(r\) true bits,
+\[
+  |B_i|\le n\left(1-\frac{d(G)}{2n}\right)^r
+  \le n\exp\left(-\frac{r\,d(G)}{2n}\right).
+\]
+Suppose, for contradiction, that the tuple has \(r>w\) true bits in total. Among the first \(k-1\) positions there are at least \(r-1>w-1\) true bits, so the preceding estimate applied to \(B_k\) gives
+\[
+  |B_k|
+  < n\exp\left(-\frac{(w-1)d(G)}{2n}\right).
+\]
+Using \(w=4n\log n/d(G)\), this upper bound is
+\[
+  n\exp\left(-2\log n+\frac{d(G)}{2n}\right)
+  \le n\exp(-2\log n+1/2)
+  =\frac{\sqrt e}{n}<1,
+\]
+because \(d(G)\le n\) and \(n\ge3\). This contradicts \(b_k\in B_k\), proved above. Therefore every forward independent \(k\)-tuple has shrinking-sequence weight at most \(w\).
+
+We can now partition the forward independent \(k\)-tuples according to their shrinking sequence. The preceding paragraph shows that only binary sequences \(z\in\{0,1\}^k\) with \(|z|\le w\) occur, so by \(\noderef{ForwardIndependentTupleCount}\), \(\noderef{ProductDigraphTupleHasShrinkingSequence}\), and \(\noderef{ProductDigraphFixedSequenceTupleCount}\),
+\[
+  \overrightarrow{i_k}(D)
+  \le \sum_{\substack{z\in\{0,1\}^k\\ |z|\le w}}
+      C(k,z),
+\]
+where \(C(k,z)\) denotes the fixed-sequence tuple count. For each such \(z\), \(\noderef{ProductDigraphShrinkingSequenceBound}\) applies, using \(n>0\), \(d(F)>0\), and \(d(G)>0\), and gives
+\[
+  C(k,z)\le (8\eta)^{k-|z|}(d(F)n)^k.
+\]
+
+Finally we estimate the sum. Since \(0\le\eta\le1\), \(k\ge w\), and \(|z|\le w\), we have
+\[
+  \eta^{k-|z|}\le \eta^{k-w}.
+\]
+Also \(8^{k-|z|}\le 8^k\). Hence
+\[
+  (8\eta)^{k-|z|}(d(F)n)^k
+  \le 8^k\eta^{k-w}(d(F)n)^k
+\]
+for every occurring \(z\). There are at most \(2^k\) binary sequences of length \(k\), so
+\[
+  \overrightarrow{i_k}(D)
+  \le 2^k\cdot 8^k\eta^{k-w}(d(F)n)^k
+  =16^k\eta^{k-w}(d(F)n)^k.
+\]
+This proves the required bound for the fixed \(k\), and since \(k\ge w\) was arbitrary, the lemma follows.
 \end{proof}
