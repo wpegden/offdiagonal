@@ -10,7 +10,7 @@
 | Digraph | definition | - | closed |
 | DigraphLoopless | definition | - | closed |
 | DigraphOrderedGraph | definition | - | closed |
-| DigraphOrderedGraphCliqueFree | proof | - | open |
+| DigraphOrderedGraphCliqueFree | proof | - | closed |
 | DigraphOrderedGraphIndependentSetBound | proof | - | open |
 | DigraphToGraphIndependentSetBound | proof | - | closed |
 | ExpanderMixingLemma | proof | - | open |
@@ -55,4 +55,4 @@
 | SparseNeighborhoodSetBound | proof | - | open |
 | TransitiveTournamentFree | definition | - | closed |
 
-**Summary:** 30/50 closed
+**Summary:** 31/50 closed

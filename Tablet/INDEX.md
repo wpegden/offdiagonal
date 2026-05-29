@@ -8,7 +8,7 @@
 | Digraph | definition | definition | closed | - | - | Preamble |
 | DigraphLoopless | definition | definition | closed | - | - | Digraph |
 | DigraphOrderedGraph | definition | definition | closed | - | - | Digraph |
-| DigraphOrderedGraphCliqueFree | helper | proof | open | - | - | DigraphOrderedGraph, TransitiveTournamentFree |
+| DigraphOrderedGraphCliqueFree | helper | proof | closed | - | - | DigraphOrderedGraph, TransitiveTournamentFree |
 | DigraphOrderedGraphIndependentSetBound | helper | proof | open | - | - | DigraphOrderedGraph, ForwardIndependentTupleCount, SimpleGraphIndependentSetCount |
 | DigraphToGraphIndependentSetBound | lemma | proof | closed | - | - | DigraphOrderedGraphCliqueFree, DigraphOrderedGraphIndependentSetBound |
 | ExpanderMixingLemma | lemma | proof | open | - | - | LoopGraphEdgeCountBetween, LoopGraphNdLambda |
@@ -54,4 +54,4 @@
 | SparseNeighborhoodSetBound | lemma | proof | open | - | - | ExpanderMixingLemma |
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 
-**Total:** 50 nodes | **Closed:** 30 | **Open:** 20
+**Total:** 50 nodes | **Closed:** 31 | **Open:** 19
