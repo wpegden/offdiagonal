@@ -2,6 +2,39 @@
 If \((F,G)\) is \(H_s\)-free, then the product digraph \(D(F,G)\) is \(T_s\)-free.
 \end{lemma}
 \begin{proof}
-SKETCH:
-A transitive tournament in \(D(F,G)\), ordered by its tournament order, consists of product vertices \((a_i,b_i)\). Each product vertex gives \(a_i b_i\in E(F)\), and each forward tournament arc gives \(a_i b_j\in E(G)\) for \(i<j\). These data are exactly an \(H_s\) configuration in \((F,G)\), contradicting the hypothesis.
+Write \(D=D(F,G)\). We prove that \(D\) is \(T_s\)-free by contradiction. By \(\noderef{TransitiveTournamentFree}\), it is enough to rule out an injective ordered \(s\)-tuple
+\[
+  x_1,\ldots,x_s\in V(D)
+\]
+such that \(x_i\to x_j\) is an arc of \(D\) for every \(i<j\). Suppose such a tuple exists.
+
+By \(\noderef{ProductDigraphVertex}\), every vertex of \(D\) is an ordered pair of vertices of the common vertex set of \(F\) and \(G\), together with the assertion that this pair is an \(F\)-edge. Thus, for each \(i\), write
+\[
+  x_i=(a_i,b_i)
+\]
+with
+\[
+  a_i b_i\in E(F). \tag{1}
+\]
+Here and below we suppress the subtype certificate in the notation; equation (1) is exactly the certificate supplied by the product-vertex definition.
+
+Now fix indices \(i<j\). The assumed transitive tournament gives an arc \(x_i\to x_j\) in \(D\). By the arc definition of the product digraph in \(\noderef{ProductDigraph}\), applied to
+\[
+  x_i=(a_i,b_i),\qquad x_j=(a_j,b_j),
+\]
+this arc is precisely the assertion
+\[
+  a_i b_j\in E(G). \tag{2}
+\]
+Since \(i<j\) was arbitrary, (2) holds for every ordered pair \(i<j\).
+
+Combining (1) for all \(i\) with (2) for all \(i<j\), the two \(s\)-tuples
+\[
+  a_1,\ldots,a_s
+  \qquad\text{and}\qquad
+  b_1,\ldots,b_s
+\]
+form exactly the forbidden \(H_s\) configuration for the ordered pair \((F,G)\): each matching pair \(a_i b_i\) is an edge of \(F\), and each cross pair \(a_i b_j\) with \(i<j\) is an edge of \(G\). This contradicts \(\noderef{HsFreePair}\) and the hypothesis that \((F,G)\) is \(H_s\)-free.
+
+Therefore no such transitive tournament tuple exists. By \(\noderef{TransitiveTournamentFree}\), the product digraph \(D(F,G)\) is \(T_s\)-free.
 \end{proof}
