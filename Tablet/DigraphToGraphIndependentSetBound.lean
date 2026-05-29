@@ -1,6 +1,5 @@
-import Tablet.ForwardIndependentTupleCount
-import Tablet.SimpleGraphIndependentSetCount
-import Tablet.TransitiveTournamentFree
+import Tablet.DigraphOrderedGraphCliqueFree
+import Tablet.DigraphOrderedGraphIndependentSetBound
 
 -- [TABLET NODE: DigraphToGraphIndependentSetBound]
 
@@ -15,4 +14,7 @@ theorem DigraphToGraphIndependentSetBound {W : Type u} [Fintype W]
           (Real.exp 1 / (k : ℝ)) ^ k *
             ((ForwardIndependentTupleCount D k : ℕ) : ℝ) := by
 -- BODY
-  sorry
+  classical
+  rcases DigraphOrderedGraphIndependentSetBound (D := D) (k := k) hk with ⟨r, hbound⟩
+  refine ⟨DigraphOrderedGraph D r, ?_, hbound⟩
+  exact DigraphOrderedGraphCliqueFree (D := D) (s := s) (r := r) hD

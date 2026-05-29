@@ -9,7 +9,10 @@
 | ComplementPolarityPairHsFree | proof | - | closed |
 | Digraph | definition | - | closed |
 | DigraphLoopless | definition | - | closed |
-| DigraphToGraphIndependentSetBound | proof | - | open |
+| DigraphOrderedGraph | definition | - | closed |
+| DigraphOrderedGraphCliqueFree | proof | - | open |
+| DigraphOrderedGraphIndependentSetBound | proof | - | open |
+| DigraphToGraphIndependentSetBound | proof | - | closed |
 | ExpanderMixingLemma | proof | - | open |
 | F2ForwardIndependentLinearBound | proof | - | open |
 | F2ForwardIndependentNearDiagonalBound | proof | - | open |
@@ -52,4 +55,4 @@
 | SparseNeighborhoodSetBound | proof | - | open |
 | TransitiveTournamentFree | definition | - | closed |
 
-**Summary:** 28/47 closed
+**Summary:** 30/50 closed

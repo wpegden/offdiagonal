@@ -1,0 +1,18 @@
+\begin{helper}
+Let \(D\) be a \(T_s\)-free digraph on a finite vertex set \(W\), and let \(r:W\to\mathbb N\) be any ranking function. Then the ordered graph \(\Gamma(D,r)\) from \(\noderef{DigraphOrderedGraph}\) is \(K_s\)-free.
+\end{helper}
+\begin{proof}
+Assume for contradiction that \(\Gamma(D,r)\) contains a clique \(S\) of size \(s\). By the meaning of a \(K_s\)-clique, \(S\) has exactly \(s\) vertices and every two distinct vertices of \(S\) are adjacent in \(\Gamma(D,r)\).
+
+First note that the ranks of the vertices of \(S\) are pairwise distinct. Indeed, if \(u,v\in S\) are distinct and \(r(u)=r(v)\), then neither \(r(u)<r(v)\) nor \(r(v)<r(u)\) holds. The definition of \(\Gamma(D,r)\) in \(\noderef{DigraphOrderedGraph}\) then gives that \(u\) and \(v\) are not adjacent, contradicting that \(S\) is a clique.
+
+Since \(S\) is finite and the ranks on \(S\) are pairwise distinct, list its elements in increasing rank order as
+\[
+  v_1,\ldots,v_s,
+  \qquad
+  r(v_1)<\cdots<r(v_s).
+\]
+This list is injective and contains exactly the elements of \(S\). For every pair \(i<j\), the vertices \(v_i\) and \(v_j\) are adjacent in \(\Gamma(D,r)\). Because \(r(v_i)<r(v_j)\), the second alternative in the definition of \(\Gamma(D,r)\) is impossible, and the first alternative gives the directed edge \((v_i,v_j)\in A(D)\).
+
+Thus the injective ordered \(s\)-tuple \(v_1,\ldots,v_s\) has every earlier-to-later arc in \(D\). This is precisely a transitive tournament of size \(s\) in the sense of \(\noderef{TransitiveTournamentFree}\), contradicting the hypothesis that \(D\) is \(T_s\)-free. Therefore no such clique \(S\) exists.
+\end{proof}

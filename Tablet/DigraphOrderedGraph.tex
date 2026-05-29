@@ -1,0 +1,10 @@
+\begin{definition}
+Let \(D\) be a digraph on a vertex set \(V\), and let \(r:V\to\mathbb N\) be a ranking function. The ordered graph \(\Gamma(D,r)\) is the simple graph on \(V\) in which two distinct vertices \(u,v\) are adjacent exactly when the lower-ranked vertex has a directed edge in \(D\) to the higher-ranked vertex. Equivalently,
+\[
+  uv\in E(\Gamma(D,r))
+  \quad\Longleftrightarrow\quad
+  \bigl(r(u)<r(v)\text{ and }(u,v)\in A(D)\bigr)
+  \ \text{or}\
+  \bigl(r(v)<r(u)\text{ and }(v,u)\in A(D)\bigr).
+\]
+\end{definition}

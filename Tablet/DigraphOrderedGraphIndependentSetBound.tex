@@ -1,0 +1,46 @@
+\begin{helper}
+Let \(D\) be a digraph on a finite vertex set \(W\), and let \(k\ge1\). Then there exists a ranking function \(r:W\to\mathbb N\) such that the ordered graph \(\Gamma(D,r)\) from \(\noderef{DigraphOrderedGraph}\) satisfies
+\[
+  i_k(\Gamma(D,r))
+  \le
+  \left(\frac e k\right)^k\overrightarrow{i_k}(D).
+\]
+\end{helper}
+\begin{proof}
+Choose a uniformly random permutation \(\pi\) of \(W\). Let \(r_\pi(w)\) be the position of \(w\) in this permutation, so \(r_\pi:W\to\mathbb N\) is injective and orders the vertices exactly as \(\pi\) does. For this ranking, the graph \(\Gamma(D,r_\pi)\) from \(\noderef{DigraphOrderedGraph}\) has an edge between \(u\) and \(v\) precisely when the earlier of \(u,v\) in the \(\pi\)-order sends an arc in \(D\) to the later one.
+
+We compute the expectation of \(i_k(\Gamma(D,r_\pi))\). By \(\noderef{SimpleGraphIndependentSetCount}\), this number counts the \(k\)-element subsets \(S\subseteq W\) that are independent in \(\Gamma(D,r_\pi)\). Fix such a \(k\)-element subset \(S\). For a given permutation \(\pi\), list the elements of \(S\) in increasing \(\pi\)-order as
+\[
+  v_1,\ldots,v_k.
+\]
+The set \(S\) is independent in \(\Gamma(D,r_\pi)\) if and only if no pair \(v_i,v_j\) with \(i<j\) is adjacent in \(\Gamma(D,r_\pi)\). Since \(v_i\) is earlier than \(v_j\), the definition of \(\Gamma(D,r_\pi)\) says that this is equivalent to saying that there is no arc \((v_i,v_j)\in A(D)\) for any \(i<j\). By \(\noderef{ForwardIndependentTuple}\), this is exactly the assertion that the ordered tuple \((v_1,\ldots,v_k)\) is forward independent in \(D\).
+
+As \(\pi\) ranges uniformly over all permutations of \(W\), the induced order of the fixed \(k\)-element set \(S\) is uniform over its \(k!\) possible orders. Hence the probability that \(S\) is independent in \(\Gamma(D,r_\pi)\) is
+\[
+  \frac{\#\{\text{forward independent orderings of the elements of }S\}}{k!}.
+\]
+Summing this equality over all \(k\)-element subsets \(S\) and using linearity of expectation gives
+\[
+  \mathbb E_\pi\, i_k(\Gamma(D,r_\pi))
+  =
+  \frac{\#\{\text{forward independent ordered \(k\)-tuples with distinct entries}\}}{k!}.
+\]
+The definition \(\noderef{ForwardIndependentTupleCount}\) counts all forward independent ordered \(k\)-tuples \(W^k\to W\), including the distinct-entry tuples just counted and possibly also tuples with repeated entries. Therefore
+\[
+  \mathbb E_\pi\, i_k(\Gamma(D,r_\pi))
+  \le
+  \frac{\overrightarrow{i_k}(D)}{k!}.
+\]
+
+For \(k\ge1\), the standard factorial estimate \(k!\ge(k/e)^k\) gives
+\[
+  \frac{1}{k!}\le \left(\frac e k\right)^k.
+\]
+Therefore
+\[
+  \mathbb E_\pi\, i_k(\Gamma(D,r_\pi))
+  \le
+  \left(\frac e k\right)^k\overrightarrow{i_k}(D).
+\]
+If every permutation \(\pi\) produced a ranking with larger independent-set count than the right-hand side, then the average would also be larger than the right-hand side. Hence some permutation \(\pi\) gives a ranking \(r=r_\pi\) satisfying the displayed inequality.
+\end{proof}

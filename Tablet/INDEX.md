@@ -7,7 +7,10 @@
 | ComplementPolarityPairHsFree | lemma | proof | closed | - | - | HsFreePair, LoopGraphComplement, PolarityGraphSkewFree |
 | Digraph | definition | definition | closed | - | - | Preamble |
 | DigraphLoopless | definition | definition | closed | - | - | Digraph |
-| DigraphToGraphIndependentSetBound | lemma | proof | open | - | - | ForwardIndependentTupleCount, SimpleGraphIndependentSetCount, TransitiveTournamentFree |
+| DigraphOrderedGraph | definition | definition | closed | - | - | Digraph |
+| DigraphOrderedGraphCliqueFree | helper | proof | open | - | - | DigraphOrderedGraph, TransitiveTournamentFree |
+| DigraphOrderedGraphIndependentSetBound | helper | proof | open | - | - | DigraphOrderedGraph, ForwardIndependentTupleCount, SimpleGraphIndependentSetCount |
+| DigraphToGraphIndependentSetBound | lemma | proof | closed | - | - | DigraphOrderedGraphCliqueFree, DigraphOrderedGraphIndependentSetBound |
 | ExpanderMixingLemma | lemma | proof | open | - | - | LoopGraphEdgeCountBetween, LoopGraphNdLambda |
 | F2ForwardIndependentLinearBound | lemma | proof | open | - | - | F2ForwardIndependentTuples |
 | F2ForwardIndependentNearDiagonalBound | lemma | proof | open | - | - | F2ForwardIndependentTuples |
@@ -51,4 +54,4 @@
 | SparseNeighborhoodSetBound | lemma | proof | open | - | - | ExpanderMixingLemma |
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 
-**Total:** 47 nodes | **Closed:** 28 | **Open:** 19
+**Total:** 50 nodes | **Closed:** 30 | **Open:** 20
