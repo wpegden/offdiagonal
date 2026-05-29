@@ -10,8 +10,132 @@ vertices such that
 \]
 \end{lemma}
 \begin{proof}
-SKETCH:
-Take the polarity graph \(G(s-2,2)\). Over \(\mathbb F_2\), its vertices may be identified with the nonzero vectors in \(\mathbb F_2^{s-1}\), and adjacency is orthogonality. Let \(D\) have vertices \((x,y)\) with \(xy\notin E(G)\), and put an arc \((x,y)\to(x',y')\) precisely when \(xy'\in E(G)\). The digraph is loopless and \(T_s\)-free by the same forbidden-configuration argument as \noderef{ComplementPolarityPairHsFree}. Its number of vertices is \(2|E(\overline G)|=(2^{s-1}-1)(2^{s-2}-1)\), giving the displayed \(N\).
+Put \(p=s-1\). Since \(4\le s\le k\), we have \(p\ge3\) and \(k\ge1\). Work in the \(p\)-dimensional vector space \(\mathbb F_2^p\), with its standard dot product \(\langle\cdot,\cdot\rangle\). Let
+\[
+  U=\{(x,y):x,y\in\mathbb F_2^p\setminus\{0\},\ \langle x,y\rangle=1\}.
+\]
+For each fixed nonzero \(x\), the map \(y\mapsto\langle x,y\rangle\) is a nonzero linear functional on \(\mathbb F_2^p\). Its kernel has \(2^{p-1}\) elements, so exactly \(2^{p-1}\) vectors \(y\) satisfy \(\langle x,y\rangle=1\); none of these \(y\)'s is zero. Hence
+\[
+  |U|=(2^p-1)2^{p-1}.
+\]
+Set
+\[
+  N=(2^p-1)(2^{p-1}-1)
+    =2^{2s-3}-2^{s-1}-2^{s-2}+1.
+\]
+Since \(N\le |U|\), choose a subset \(W\subseteq U\) with exactly \(N\) elements. Define a digraph \(D\) on the finite vertex set \(W\) as follows: for vertices
+\[
+  (x,y),(x',y')\in W,
+\]
+put an arc \((x,y)\to(x',y')\) precisely when
+\[
+  \langle x,y'\rangle=0.
+\]
+This is the \(q=2\) polarity-graph construction written in vector coordinates, restricted to the chosen \(N\)-element vertex set.
 
-A forward independent \(k\)-tuple gives vectors \((a_i,b_i)\) satisfying \(\langle a_j,b_i\rangle=1\) for all \(j\le i\). Classify such tuples by the rank sequence \(r_i=\dim\langle a_1,\ldots,a_i\rangle\). If the final rank is \(t\), then there are at most \(\binom{k}{t}\) possible valid rank sequences. For a fixed sequence, the choices for the \(a_i\)'s and \(b_i\)'s are bounded by \(2^{(s-1)(t+k)-\binom{t+1}{2}}\). Summing over \(t=1,\ldots,s-1\) gives the result.
+We first verify the structural properties of \(D\). If \((x,y)\in W\), then \((x,y)\in U\), so \(\langle x,y\rangle=1\). A loop at \((x,y)\) would require \(\langle x,y\rangle=0\) by the arc definition, which is impossible. Thus \(D\) is loopless in the sense of \(\noderef{DigraphLoopless}\).
+
+Next we prove that \(D\) is \(T_s\)-free. By \(\noderef{TransitiveTournamentFree}\), it is enough to rule out an injective ordered \(s\)-tuple of vertices
+\[
+  v_1,\ldots,v_s\in W
+\]
+such that \(v_i\to v_j\) is an arc whenever \(i<j\). Suppose, for contradiction, that such a tuple exists. Write
+\[
+  v_i=(a_i,b_i)\qquad(1\le i\le s).
+\]
+Because \(v_i\in W\subseteq U\), we have
+\[
+  \langle a_i,b_i\rangle=1 \qquad\text{for every } i. \tag{1}
+\]
+Because \(v_i\to v_j\) is an arc for every \(i<j\), the definition of the arcs of \(D\) gives
+\[
+  \langle a_i,b_j\rangle=0 \qquad\text{for every } i<j. \tag{2}
+\]
+Form the \(s\times s\) matrix
+\[
+  M=(\langle a_i,b_j\rangle)_{1\le i,j\le s}.
+\]
+Equations (1) and (2) say that \(M\) has diagonal entries equal to \(1\) and entries above the diagonal equal to \(0\). Thus \(M\) is lower triangular with all diagonal entries \(1\), so \(M\) has rank \(s\) over \(\mathbb F_2\). On the other hand, if \(A\) is the \(s\times p\) matrix whose \(i\)-th row is \(a_i\), and \(B\) is the \(p\times s\) matrix whose \(j\)-th column is \(b_j\), then \(M=AB\). Therefore
+\[
+  \operatorname{rank}(M)\le p=s-1,
+\]
+contradicting \(\operatorname{rank}(M)=s\). Hence no such transitive tournament exists, and \(D\) is \(T_s\)-free.
+
+It remains to bound the number of forward independent \(k\)-tuples. By \(\noderef{ForwardIndependentTupleCount}\), \(\overrightarrow{i_k}(D)\) counts ordered \(k\)-tuples
+\[
+  (v_1,\ldots,v_k)\in W^k
+\]
+which are forward independent in the sense of \(\noderef{ForwardIndependentTuple}\). Fix such a tuple and write \(v_i=(a_i,b_i)\). Since \(v_i\in W\subseteq U\), we have
+\[
+  \langle a_i,b_i\rangle=1 \qquad\text{for all } i. \tag{3}
+\]
+If \(j<i\), forward independence says that there is no arc \(v_j\to v_i\). By the arc definition, the arc \(v_j\to v_i\) would be exactly the condition \(\langle a_j,b_i\rangle=0\). Since the only elements of \(\mathbb F_2\) are \(0\) and \(1\), the absence of this arc implies
+\[
+  \langle a_j,b_i\rangle=1 \qquad\text{for all } j<i. \tag{4}
+\]
+Combining (3) and (4), every forward independent tuple gives a \(2k\)-tuple
+\[
+  (a_1,b_1,\ldots,a_k,b_k)\in(\mathbb F_2^p)^{2k}
+\]
+such that
+\[
+  \langle a_j,b_i\rangle=1
+  \qquad\text{whenever }1\le j\le i\le k. \tag{5}
+\]
+Call any \(2k\)-tuple satisfying (5) bad. The map from a forward independent tuple \((v_1,\ldots,v_k)\) to \((a_1,b_1,\ldots,a_k,b_k)\) is injective, so it suffices to upper-bound the number of bad \(2k\)-tuples.
+
+Let \((a_1,b_1,\ldots,a_k,b_k)\) be bad. Define its rank sequence by
+\[
+  r_0=0,\qquad
+  r_i=\dim\operatorname{span}\{a_1,\ldots,a_i\}
+  \quad(1\le i\le k).
+\]
+Since \(\langle a_1,b_1\rangle=1\), the vector \(a_1\) is nonzero, so \(r_1=1\). For every \(i\), adjoining \(a_i\) either leaves the span unchanged or increases its dimension by one; hence
+\[
+  r_i\in\{r_{i-1},r_{i-1}+1\}.
+\]
+Also \(r_k\le p\). Therefore a rank sequence of a bad tuple is valid in the following sense: it starts with \(r_0=0\), has \(r_1=1\), changes by either \(0\) or \(1\) at each step, and has final value \(t=r_k\) satisfying \(1\le t\le p=s-1\).
+
+Fix a valid rank sequence \(\mathbf r=(r_0,\ldots,r_k)\) with final value \(t=r_k\). We count bad tuples with this rank sequence by choosing the pairs \((a_i,b_i)\) one index at a time. Suppose that the earlier pairs have already been chosen with ranks \(r_0,\ldots,r_{i-1}\).
+
+If \(r_i=r_{i-1}+1\), then \(a_i\) is required to increase the span. We use the crude upper bound \(2^p\) for the number of possible choices of \(a_i\). Once \(a_i\) is chosen, the conditions
+\[
+  \langle a_j,b_i\rangle=1\qquad(1\le j\le i)
+\]
+impose affine linear equations on \(b_i\) whose coefficient span has dimension \(r_i\). Thus there are either no solutions or exactly \(2^{p-r_i}\) solutions; in either case there are at most \(2^{p-r_i}\) choices for \(b_i\). Hence an index at which the rank increases contributes at most
+\[
+  2^p\cdot 2^{p-r_i}
+\]
+choices.
+
+If \(r_i=r_{i-1}\), then \(a_i\) lies in the existing \(r_i\)-dimensional span, so there are at most \(2^{r_i}\) choices for \(a_i\). For the same affine-linear-equation reason as above, after choosing \(a_i\) there are at most \(2^{p-r_i}\) choices for \(b_i\). Thus a non-increase index contributes at most
+\[
+  2^{r_i}\cdot 2^{p-r_i}=2^p
+\]
+choices.
+
+At the rank-increase indices, the values of \(r_i\) are exactly \(1,2,\ldots,t\). There are \(k-t\) non-increase indices. Therefore the number of bad \(2k\)-tuples with the fixed rank sequence \(\mathbf r\) is at most
+\[
+  \left(\prod_{h=1}^{t}2^{2p-h}\right)2^{p(k-t)}
+  =2^{2pt-\binom{t+1}{2}+pk-pt}
+  =2^{p(t+k)-\binom{t+1}{2}}. \tag{6}
+\]
+
+For a fixed final rank \(t\), a valid rank sequence is determined by the set of indices at which the rank increases, and there are at most \(\binom{k}{t}\) such sets. Combining this with (6), the number of bad \(2k\)-tuples is at most
+\[
+  \sum_{t=1}^{p}\binom{k}{t}
+    2^{p(t+k)-\binom{t+1}{2}}.
+\]
+Since \(p=s-1\), this is exactly
+\[
+  \sum_{t=1}^{s-1}\binom{k}{t}
+    2^{(s-1)(t+k)-\binom{t+1}{2}}.
+\]
+Every forward independent \(k\)-tuple in \(D\) injects into the set of bad \(2k\)-tuples, so by \(\noderef{ForwardIndependentTupleCount}\),
+\[
+  \overrightarrow{i_k}(D)\le
+  \sum_{t=1}^{s-1}\binom{k}{t}
+    2^{(s-1)(t+k)-\binom{t+1}{2}}.
+\]
+The constructed digraph \(D\) is loopless, \(T_s\)-free, has exactly \(N\) vertices, and satisfies the displayed bound, so the lemma follows.
 \end{proof}
