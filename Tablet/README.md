@@ -54,8 +54,8 @@
 | RandomHomomorphismColoringBound | proof | - | open |
 | SamplingKsFreeRamseyBound | proof | - | open |
 | SimpleGraphIndependentSetCount | definition | - | closed |
-| SparseNeighborhoodSetBound | proof | - | open |
+| SparseNeighborhoodSetBound | proof | - | closed |
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 36/53 closed
+**Summary:** 37/53 closed

@@ -53,8 +53,8 @@
 | RandomHomomorphismColoringBound | lemma | proof | open | - | - | F2ForwardIndependentNearDiagonalBound, NoMonochromaticCliqueColoring |
 | SamplingKsFreeRamseyBound | lemma | proof | open | - | - | RamseyNumber, SimpleGraphIndependentSetCount |
 | SimpleGraphIndependentSetCount | definition | definition | closed | - | - | Preamble |
-| SparseNeighborhoodSetBound | lemma | proof | open | - | - | ExpanderMixingLemma |
+| SparseNeighborhoodSetBound | lemma | proof | closed | - | - | ExpanderMixingLemma |
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 53 nodes | **Closed:** 36 | **Open:** 17
+**Total:** 53 nodes | **Closed:** 37 | **Open:** 16
