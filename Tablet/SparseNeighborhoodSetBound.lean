@@ -6,7 +6,7 @@ universe u
 
 theorem SparseNeighborhoodSetBound {V : Type u} [Fintype V]
     (G : LoopGraph V) (n d : ℕ) (lambda : ℝ)
-    (hG : LoopGraphNdLambda G n d lambda) (A B : Finset V)
+    (hG : LoopGraphNdLambda G n d lambda) (hn : 0 < n) (hd : 0 < d) (A B : Finset V)
     (hA : ∀ u : V, u ∈ A ↔
       ((LoopGraphEdgeCountBetween G ({u} : Finset V) B : ℕ) : ℝ) ≤
         ((d : ℝ) * (B.card : ℝ)) / (2 * (n : ℝ))) :

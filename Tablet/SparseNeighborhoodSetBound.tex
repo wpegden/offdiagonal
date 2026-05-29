@@ -1,5 +1,5 @@
 \begin{lemma}
-Let \(G\) be an \((n,d,\lambda)\)-graph and \(B\subseteq V(G)\). Define
+Let \(G\) be an \((n,d,\lambda)\)-graph with \(n>0\) and \(d>0\), and let \(B\subseteq V(G)\). Define
 \[
   A=\{u\in V(G): |N_G(u)\cap B|\le d|B|/(2n)\}.
 \]
@@ -9,6 +9,48 @@ Then
 \]
 \end{lemma}
 \begin{proof}
-SKETCH:
-Apply \noderef{ExpanderMixingLemma} to the sets \(A\) and \(B\). By definition of \(A\), \(e_G(A,B)\le d|A||B|/(2n)\). Expander mixing gives \(d|A||B|/n-e_G(A,B)\le \lambda\sqrt{|A||B|}\). Combining the two inequalities yields \(d|A||B|/(2n)\le \lambda\sqrt{|A||B|}\), and squaring gives the stated bound.
+Put
+\[
+  X=|A||B|,\qquad m=e_G(A,B),\qquad q=\frac d n X.
+\]
+For \(u\in A\), the definition of \(A\) gives
+\[
+  |N_G(u)\cap B|\le \frac{d|B|}{2n}.
+\]
+By \(\noderef{LoopGraphEdgeCountBetween}\), the number \(e_G(A,B)\) is obtained by summing \(|N_G(u)\cap B|\) over all \(u\in A\), because \(e_G(A,B)\) counts ordered pairs \((u,b)\in A\times B\) with \(ub\in E(G)\). Therefore
+\[
+  m=e_G(A,B)
+    \le \sum_{u\in A}\frac{d|B|}{2n}
+    =\frac{d|A||B|}{2n}
+    =\frac q2 .
+\]
+Since \(d>0\), \(n>0\), and \(X\ge 0\), we also have \(q\ge 0\). Thus \(m\le q/2\) implies \(q-m\ge q/2\ge 0\), so
+\[
+  |m-q|=q-m\ge \frac q2=\frac{dX}{2n}.
+\]
+Applying \(\noderef{ExpanderMixingLemma}\) to the same sets \(A\) and \(B\) gives
+\[
+  |m-q|\le \lambda\sqrt{X}.
+\]
+Combining the last two displayed inequalities yields
+\[
+  \frac{dX}{2n}\le \lambda\sqrt X. \tag{1}
+\]
+If \(X=0\), then the desired inequality is immediate, since the right side
+\[
+  \frac{4\lambda^2}{d^2}n^2
+\]
+is nonnegative: it is a product and quotient of squares, and \(d^2>0\). We may therefore assume \(X>0\). Then \(\sqrt X>0\), so dividing (1) by \(\sqrt X\) gives
+\[
+  \frac{d\sqrt X}{2n}\le \lambda .
+\]
+The left hand side is nonnegative, hence \(\lambda\ge 0\). Squaring the inequality is therefore legitimate and gives
+\[
+  \frac{d^2X}{4n^2}\le \lambda^2 .
+\]
+Finally, \(4n^2/d^2>0\), so multiplying both sides by this positive number gives
+\[
+  X\le \frac{4\lambda^2}{d^2}n^2.
+\]
+Since \(X=|A||B|\), this is exactly the claimed bound.
 \end{proof}
