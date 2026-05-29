@@ -1,10 +1,11 @@
 \begin{definition}
-Let \(F\) and \(G\) be loop graphs on the same finite vertex set, let \(D(F,G)\) be their product digraph, and let \(v=(v_1,\ldots,v_t)\) be a tuple of vertices of \(D(F,G)\), where \(v_i=(a_i,b_i)\). The tuple \(v\) has shrinking sequence \(z\in\{0,1\}^t\) if \(v\) is forward independent and, for each index \(i\), \(z_i=1\) exactly when
-\[
-  |N_G(a_i)\cap B_i|\le \frac{d(G)|B_i|}{2n},
-\]
-where
+Let \(F\) and \(G\) be loop graphs on the same finite vertex set, let \(D(F,G)\) be their product digraph, and let \(v=(v_1,\ldots,v_t)\) be a tuple of vertices of \(D(F,G)\), where \(v_i=(a_i,b_i)\). For each index \(i\), put
 \[
   B_i=V\setminus\bigcup_{j<i}N_G(a_j).
 \]
+The tuple \(v\) has shrinking sequence \(z\in\{0,1\}^t\) if \(v\) is forward independent and, for each \(i\), the bit \(z_i=1\) exactly in the large-neighborhood case
+\[
+  |N_G(a_i)\cap B_i|> \frac{d(G)|B_i|}{2n}.
+\]
+Equivalently, the bit \(z_i=0\) exactly when \(a_i\) lies in the sparse set \(A_i=\{u\in V: |N_G(u)\cap B_i|\le d(G)|B_i|/(2n)\}\).
 \end{definition}

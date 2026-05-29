@@ -15,10 +15,10 @@ noncomputable def ProductDigraphTupleHasShrinkingSequence {V : Type u} [Fintype 
     ForwardIndependentTuple (ProductDigraph F G) v ∧
       ∀ i : Fin t,
         (z i = true ↔
-          ((LoopGraphEdgeCountBetween G ({(v i).val.1} : Finset V)
-            (Finset.univ.filter
-              (fun b : V => ∀ j : Fin t, j < i → ¬ G (v j).val.1 b)) : ℕ) : ℝ) ≤
-            ((dG : ℝ) *
+          ((dG : ℝ) *
               ((((Finset.univ.filter
                 (fun b : V => ∀ j : Fin t, j < i → ¬ G (v j).val.1 b)).card : ℕ) : ℝ))) /
-              (2 * (n : ℝ)))
+              (2 * (n : ℝ)) <
+            ((LoopGraphEdgeCountBetween G ({(v i).val.1} : Finset V)
+              (Finset.univ.filter
+                (fun b : V => ∀ j : Fin t, j < i → ¬ G (v j).val.1 b)) : ℕ) : ℝ))
