@@ -6,6 +6,39 @@ For every field \(K\) and every \(t\), the polarity graph \(G(t,K)\) has no skew
 such that \(a_i b_j\in E(G(t,K))\) for all \(i<j\), while \(a_i b_i\notin E(G(t,K))\) for every \(i\).
 \end{lemma}
 \begin{proof}
-SKETCH:
-Choose nonzero vector representatives \(x_i,y_i\). If such a configuration existed, then \(\langle x_i,y_j\rangle=0\) for every \(i<j\) and \(\langle x_i,y_i\rangle\ne 0\) for every \(i\). To show \(y_1,\ldots,y_{t+2}\) are linearly independent, take a nontrivial relation and let \(i\) be the first index with nonzero coefficient. Inner-producting the relation with \(x_i\) kills all later terms and leaves the nonzero coefficient times \(\langle x_i,y_i\rangle\), a contradiction. Thus \(t+2\) vectors would be linearly independent in a vector space of dimension \(t+1\), impossible.
+Assume, for contradiction, that \(G(t,K)\) has a skew bipartite configuration of size \(t+2\). By the definition of no skew bipartite configuration in \(\noderef{NoSkewBipartiteConfiguration}\), this means that there are projective points
+\[
+  a_1,b_1,\ldots,a_{t+2},b_{t+2}
+\]
+such that \(a_i b_j\in E(G(t,K))\) whenever \(i<j\), and \(a_i b_i\notin E(G(t,K))\) for every \(i\).
+
+Choose nonzero vector representatives \(x_i\in K^{t+1}\) for \(a_i\) and \(y_i\in K^{t+1}\) for \(b_i\). By the definition of the polarity graph in \(\noderef{PolarityGraph}\), adjacency of two projective points is exactly orthogonality of any, equivalently every, choice of nonzero representatives. Therefore the off-diagonal edge condition gives
+\[
+  \langle x_i,y_j\rangle=0 \qquad\text{for all } 1\le i<j\le t+2,
+\]
+and the diagonal nonedge condition gives
+\[
+  \langle x_i,y_i\rangle\ne 0 \qquad\text{for all } 1\le i\le t+2.
+\]
+The nonedge implication is legitimate because multiplying representatives by nonzero scalars only multiplies the dot product by a nonzero scalar, so the property of being zero or nonzero is independent of the chosen representatives.
+
+We claim that \(y_1,\ldots,y_{t+2}\) are linearly independent. Suppose instead that there is a nontrivial linear relation
+\[
+  \sum_{j=1}^{t+2}\alpha_j y_j=0
+\]
+with coefficients \(\alpha_j\in K\), not all zero. Let \(i\) be the least index with \(\alpha_i\ne 0\). Then \(\alpha_j=0\) for every \(j<i\), so the same relation may be written as
+\[
+  \alpha_i y_i+\sum_{j=i+1}^{t+2}\alpha_j y_j=0.
+\]
+Take the dot product of this equality with \(x_i\). By linearity in the second coordinate,
+\[
+  0=\alpha_i\langle x_i,y_i\rangle+\sum_{j=i+1}^{t+2}\alpha_j\langle x_i,y_j\rangle.
+\]
+For every summand in the displayed sum we have \(i<j\), so the off-diagonal orthogonality already proved gives \(\langle x_i,y_j\rangle=0\). Hence
+\[
+  0=\alpha_i\langle x_i,y_i\rangle.
+\]
+Since \(K\) is a field and \(\langle x_i,y_i\rangle\ne 0\), this forces \(\alpha_i=0\), contradicting the choice of \(i\). Thus no nontrivial relation exists, and \(y_1,\ldots,y_{t+2}\) are linearly independent.
+
+This is impossible in the vector space \(K^{t+1}\), whose dimension is \(t+1\): every linearly independent family in a finite-dimensional vector space has cardinality at most the dimension, but the family above has \(t+2\) vectors. The assumed skew bipartite configuration therefore cannot exist, proving that \(G(t,K)\) has no skew bipartite configuration of size \(t+2\).
 \end{proof}
