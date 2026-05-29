@@ -1,0 +1,24 @@
+\begin{helper}
+Let \(G\) be an \((n,d,\lambda)\)-loop graph and let \(B\subseteq V(G)\). Then
+\[
+  \sum_{v\in V(G)} (A_G1_B)(v)=d|B|.
+\]
+\end{helper}
+\begin{proof}
+Let \(1_B\) be the indicator function of \(B\). By \(\noderef{LoopGraphAdjacencyAction}\),
+\[
+  \sum_{v\in V(G)}(A_G1_B)(v)
+  =
+  \sum_{v\in V(G)}\sum_{\substack{b\in V(G)\\ vb\in E(G)}}1_B(b).
+\]
+Interchanging the two finite sums gives
+\[
+  \sum_{b\in V(G)}1_B(b)\,
+    |\{v\in V(G):vb\in E(G)\}|.
+\]
+By the symmetry clause in \(\noderef{LoopGraphNdLambda}\), interpreted through \(\noderef{LoopGraphSymmetric}\), the condition \(vb\in E(G)\) is equivalent to \(bv\in E(G)\). Hence the inner cardinality is the degree of \(b\), in the loop-counting sense of \(\noderef{LoopGraphDegree}\). By the regularity clause in \(\noderef{LoopGraphNdLambda}\), this degree is \(d\) for every \(b\). Therefore the last displayed sum is
+\[
+  \sum_{b\in V(G)}1_B(b)d=d\sum_{b\in V(G)}1_B(b)=d|B|.
+\]
+Loops are counted once throughout: a loop at \(b\) contributes the single term \(v=b\) to both the adjacency action and the degree.
+\end{proof}

@@ -1,0 +1,83 @@
+\begin{helper}
+Let \(G\) be an \((n,d,\lambda)\)-loop graph. If \(f,g\colon V(G)\to\mathbb R\) satisfy
+\[
+  \sum_{v\in V(G)}f(v)=0,
+  \qquad
+  \sum_{v\in V(G)}g(v)=0,
+\]
+then
+\[
+  \left|\sum_{v\in V(G)} f(v)(A_Gg)(v)\right|
+  \le
+  \lambda
+  \left(\sqrt{\sum_{v\in V(G)} f(v)^2}\right)
+  \left(\sqrt{\sum_{v\in V(G)} g(v)^2}\right).
+\]
+\end{helper}
+\begin{proof}
+Use the standard real inner product on functions \(V(G)\to\mathbb R\),
+\[
+  \langle r,s\rangle=\sum_{v\in V(G)}r(v)s(v),
+\]
+and write \(T=A_G\) for the adjacency action from \(\noderef{LoopGraphAdjacencyAction}\).
+
+First \(T\) is self-adjoint. Indeed, by \(\noderef{LoopGraphAdjacencyAction}\),
+\[
+\begin{aligned}
+  \langle r,Ts\rangle
+  &=\sum_v r(v)\sum_w {\bf 1}_{vw\in E(G)}s(w)  \\
+  &=\sum_{v,w}{\bf 1}_{vw\in E(G)}r(v)s(w).
+\end{aligned}
+\]
+The symmetry clause in \(\noderef{LoopGraphNdLambda}\), interpreted through \(\noderef{LoopGraphSymmetric}\), says \(vw\in E(G)\) if and only if \(wv\in E(G)\). Swapping \(v\) and \(w\) in the finite double sum therefore gives
+\[
+  \langle r,Ts\rangle=\langle Tr,s\rangle.
+\]
+
+Let
+\[
+  W=\left\{h:V(G)\to\mathbb R:\sum_v h(v)=0\right\}.
+\]
+The hypotheses say \(f,g\in W\). By the degree clause in \(\noderef{LoopGraphNdLambda}\), interpreted through \(\noderef{LoopGraphDegree}\), the adjacency action sends the constant-one function to \(d\) times the constant-one function. Thus for any \(h\in W\),
+\[
+  \sum_v (Th)(v)=\langle {\bf 1},Th\rangle
+  =\langle T{\bf 1},h\rangle
+  =d\langle {\bf 1},h\rangle=0.
+\]
+So \(W\) is \(T\)-invariant. The restriction of \(T\) to the finite-dimensional real inner product space \(W\) is still self-adjoint. By the finite-dimensional spectral theorem for self-adjoint operators, \(W\) has an orthonormal basis \(e_1,\dots,e_m\) consisting of eigenvectors of this restriction, say \(Te_i=\mu_i e_i\).
+
+Each \(e_i\) has norm \(1\), so it is nonzero; it also lies in \(W\), so its coordinate sum is \(0\). Therefore every \(\mu_i\) is a non-principal adjacency eigenvalue in the sense of \(\noderef{LoopGraphNonprincipalEigenvalue}\). The eigenvalue-bound clause of \(\noderef{LoopGraphNdLambda}\) gives
+\[
+  |\mu_i|\le \lambda
+  \qquad\text{for every }i.
+\]
+The final clause of \(\noderef{LoopGraphNdLambda}\) gives \(\lambda\ge 0\).
+
+Expand \(f=\sum_i a_i e_i\) and \(g=\sum_i b_i e_i\). Since the \(e_i\) are orthonormal and \(Te_i=\mu_i e_i\),
+\[
+  \langle f,Tg\rangle
+  =
+  \sum_i \mu_i a_i b_i.
+\]
+Hence
+\[
+  |\langle f,Tg\rangle|
+  \le
+  \sum_i |\mu_i|\,|a_i|\,|b_i|
+  \le
+  \lambda\sum_i |a_i|\,|b_i|.
+\]
+By Cauchy's inequality,
+\[
+  \sum_i |a_i|\,|b_i|
+  \le
+  \sqrt{\sum_i a_i^2}\sqrt{\sum_i b_i^2}.
+\]
+Finally, Parseval's identity for the orthonormal basis gives
+\[
+  \sum_i a_i^2=\langle f,f\rangle=\sum_v f(v)^2,
+  \qquad
+  \sum_i b_i^2=\langle g,g\rangle=\sum_v g(v)^2.
+\]
+Substituting these identities into the preceding bound proves the claimed inequality.
+\end{proof}

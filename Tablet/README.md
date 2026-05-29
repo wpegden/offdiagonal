@@ -15,7 +15,7 @@
 | DigraphOrderedGraphIndependentSetFactorialBound | proof | - | closed |
 | DigraphOrderedGraphIndependentSetToForwardTuple | proof | - | closed |
 | DigraphToGraphIndependentSetBound | proof | - | closed |
-| ExpanderMixingLemma | proof | - | open |
+| ExpanderMixingLemma | proof | - | closed |
 | F2ForwardIndependentLinearBound | proof | - | open |
 | F2ForwardIndependentNearDiagonalBound | proof | - | open |
 | F2ForwardIndependentTuples | proof | - | open |
@@ -32,9 +32,11 @@
 | LoopGraphEdgeCountBetween | definition | - | closed |
 | LoopGraphEdgeCountBetweenAdjacencyIndicator | proof | - | closed |
 | LoopGraphNdLambda | definition | - | closed |
+| LoopGraphNdLambdaAdjacencyIndicatorSum | proof | - | closed |
 | LoopGraphNdLambdaAdjacencyOne | proof | - | closed |
 | LoopGraphNonprincipalEigenvalue | definition | - | closed |
 | LoopGraphSymmetric | definition | - | closed |
+| LoopGraphZeroSumAdjacencyBilinearBound | proof | - | open |
 | MainTheorem | proof | - | open |
 | MulticolorRamseyNumber | definition | - | closed |
 | MulticolorRamseyProperty | definition | - | closed |
@@ -62,4 +64,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 41/57 closed
+**Summary:** 43/59 closed
