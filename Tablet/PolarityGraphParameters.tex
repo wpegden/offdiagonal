@@ -13,7 +13,7 @@ Put
   d=\frac{q^t-1}{q-1},\qquad
   a=\frac{q^{t-1}-1}{q-1}.
 \]
-By \(\noderef{LoopGraphNdLambda}\), it is enough to prove that \(G(t,K)\) has \(n\) vertices, is symmetric, has degree \(d\) at every vertex, and has every non-principal adjacency eigenvalue bounded in absolute value by \(\sqrt{d-a}\).
+By \(\noderef{LoopGraphNdLambda}\), it is enough to prove all five clauses in the \((n,d,\lambda)\)-graph definition: \(G(t,K)\) has \(n\) vertices, is symmetric, has degree \(d\) at every vertex, has every non-principal adjacency eigenvalue bounded in absolute value by \(\sqrt{d-a}\), and has \(\lambda=\sqrt{d-a}\ge 0\).
 
 We first count vertices. By \(\noderef{PolarityGraph}\), the vertices of \(G(t,K)\) are projective points in \(K^{t+1}\), that is, nonzero vectors modulo multiplication by a nonzero scalar. Since \(K\) has \(q\) elements, the vector space \(K^{t+1}\) has \(q^{t+1}\) vectors and hence \(q^{t+1}-1\) nonzero vectors. Each projective point has exactly \(q-1\) nonzero representatives, one for each element of \(K^\times\). Therefore the number of projective points, and hence the number of vertices of \(G(t,K)\), is
 \[
@@ -57,6 +57,13 @@ because \(Jf\) is the zero function when the coordinate sum of \(f\) is zero. Si
 \[
   \lambda=\sqrt{d-a}
   =\sqrt{\,\frac{q^t-1}{q-1}-\frac{q^{t-1}-1}{q-1}\,}.
+\]
+It remains only to verify the final nonnegativity clause in \(\noderef{LoopGraphNdLambda}\). The displayed value of \(\lambda\) is a real square root. By the standard nonnegative square-root convention, \(\sqrt r\ge 0\) for every real radicand \(r\) for which this notation is used; in particular,
+\[
+  \lambda
+  =
+  \sqrt{\,\frac{q^t-1}{q-1}-\frac{q^{t-1}-1}{q-1}\,}
+  \ge 0.
 \]
 All clauses in the definition of an \((n,d,\lambda)\)-graph from \(\noderef{LoopGraphNdLambda}\) are verified.
 \end{proof}
