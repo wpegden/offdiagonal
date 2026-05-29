@@ -45,7 +45,7 @@ where a true bit is exactly the large-neighborhood case
 \]
 The same definition includes the forward-independence condition, so every tuple counted by \(\noderef{ForwardIndependentTupleCount}\) is counted by exactly one fixed-sequence class from \(\noderef{ProductDigraphFixedSequenceTupleCount}\).
 
-We next prove that the weight of \(z^{\mathbf v}\) is at most \(w\). By \(\noderef{BinarySequenceWeight}\), this weight is the number of true, or large-neighborhood, indices. For every \(i\), the vertex \(b_i\) belongs to \(B_i\): if \(j<i\), forward independence and the arc definition of \(D\) imply \(a_jb_i\notin E(G)\). Hence \(B_i\) is nonempty for every \(i\). When \(z^{\mathbf v}_i=1\), the large-neighborhood inequality gives
+We next prove that the weight of \(z^{\mathbf v}\) is at most \(w\). By \(\noderef{BinarySequenceWeight}\), this weight is the number of true, or large-neighborhood, indices. For every \(i\), the vertex \(b_i\) belongs to \(B_i\): if \(j<i\), then \(\noderef{ForwardIndependentTuple}\) applied to the forward independent tuple \(\mathbf v\) says that there is no arc \(v_j\to v_i\), and the arc definition in \(\noderef{ProductDigraph}\) therefore implies \(a_jb_i\notin E(G)\). Hence \(B_i\) is nonempty for every \(i\). When \(z^{\mathbf v}_i=1\), the large-neighborhood inequality gives
 \[
   |N_G(a_i)\cap B_i|>\frac{d(G)}{2n}|B_i|.
 \]
