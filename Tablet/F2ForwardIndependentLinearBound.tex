@@ -5,14 +5,75 @@ Let \(C>1\) be fixed and set \(k=\lceil Cs\rceil\). For sufficiently large \(s\)
 \]
 \end{lemma}
 \begin{proof}
-SKETCH:
-Use the sum from \noderef{F2ForwardIndependentTuples}. The quadratic expression
+Fix \(C>1\). For each \(s\), set
 \[
-  (s-1)(t+k)-\binom{t+1}{2}
+  k=\lceil Cs\rceil.
 \]
-is maximized at \(t=s-3/2\), where it is at most \((s-1)k+\frac12(s-3/2)^2\). Bounding the binomial coefficient sum crudely by \(2^k\) yields
+Choose \(s_0\ge4\) large enough that \(s\le k\) for every \(s\ge s_0\). This is possible because \(C>1\), so \(Cs>s\) for every positive \(s\), and hence \(\lceil Cs\rceil\ge s\). Now fix \(s\ge s_0\).
+
+Since \(4\le s\le k\), \(\noderef{F2ForwardIndependentTuples}\) applies. It gives a finite vertex set and a digraph \(D\) which is loopless and \(T_s\)-free, has exactly
 \[
-  \overrightarrow{i_k}(D)\le 2^k2^{(s-1)k+\frac12(s-3/2)^2}\le 2^{sk+s^2/2}
+  2^{2s-3}-2^{s-1}-2^{s-2}+1
 \]
-for all sufficiently large \(s\).
+vertices, and satisfies the initial summation bound
+\[
+  \overrightarrow{i_k}(D)\le
+  \sum_{t=1}^{s-1}
+    \binom{k}{t}2^{(s-1)(t+k)-\binom{t+1}{2}}. \tag{1}
+\]
+It remains only to estimate the sum in (1).
+
+For \(1\le t\le s-1\), put
+\[
+  q(t)=(s-1)(t+k)-\binom{t+1}{2}.
+\]
+As a real function of \(t\),
+\[
+  q(t)=(s-1)k-\frac12t^2+\left(s-\frac32\right)t.
+\]
+This is a concave quadratic. Its derivative is
+\[
+  -t+s-\frac32,
+\]
+so the real maximum occurs at \(t=s-\frac32\), and the maximum value is
+\[
+  (s-1)k+\frac12\left(s-\frac32\right)^2. \tag{2}
+\]
+Therefore every summand in (1) satisfies
+\[
+  \binom{k}{t}2^{q(t)}
+  \le
+  \binom{k}{t}\,
+  2^{(s-1)k+\frac12(s-\frac32)^2}. \tag{3}
+\]
+
+Because \(s\le k\), the indices \(1,\ldots,s-1\) are among \(0,\ldots,k\). Hence
+\[
+  \sum_{t=1}^{s-1}\binom{k}{t}\le
+  \sum_{t=0}^{k}\binom{k}{t}=2^k. \tag{4}
+\]
+Combining (1), (3), and (4), we get
+\[
+\begin{aligned}
+  \overrightarrow{i_k}(D)
+  &\le
+  2^{(s-1)k+\frac12(s-\frac32)^2}
+  \sum_{t=1}^{s-1}\binom{k}{t}  \\
+  &\le
+  2^k\cdot
+  2^{(s-1)k+\frac12(s-\frac32)^2}  \\
+  &=
+  2^{sk+\frac12(s-\frac32)^2}.
+\end{aligned}
+\]
+Finally, for \(s\ge4\),
+\[
+  \left(s-\frac32\right)^2\le s^2.
+\]
+Thus
+\[
+  \overrightarrow{i_k}(D)
+  \le 2^{sk+s^2/2}.
+\]
+The same application of \(\noderef{F2ForwardIndependentTuples}\) supplied the looplessness, \(T_s\)-freeness, and exact vertex count of \(D\). Since \(k=\lceil Cs\rceil\), this proves the claimed estimate for all \(s\ge s_0\).
 \end{proof}
