@@ -15,11 +15,14 @@ theorem RamseyFromGraphPair {V : Type u} [Fintype V]
     (heta : eta =
       max (lambdaG ^ 2 / (dG : ℝ) ^ 2)
         (lambdaF * lambdaG / ((dF : ℝ) * (dG : ℝ))))
-    (hw : w = 4 * (n : ℝ) * Real.log (n : ℝ) / (dG : ℝ))
-    (hk_low : w ≤ (k : ℝ))
-    (hk_high : (k : ℝ) ≤ eta * (dF : ℝ) * (n : ℝ)) :
-    (1 / 50 : ℝ) * (k : ℝ) *
-        Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) - 1 ≤
-      (RamseyNumber s k : ℝ) := by
+    (hw : w = 4 * (n : ℝ) * Real.log (n : ℝ) / (dG : ℝ)) :
+    ((w ≤ (k : ℝ) ∧ (k : ℝ) ≤ eta * (dF : ℝ) * (n : ℝ)) →
+      (1 / 50 : ℝ) * (k : ℝ) *
+          Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) - 1 ≤
+        (RamseyNumber s k : ℝ)) ∧
+      (((k : ℝ) ≤ eta * (dF : ℝ) * (n : ℝ) ∧
+          (100 : ℝ) * (n : ℝ) * (Real.log (n : ℝ)) ^ 2 / (dG : ℝ) ≤
+            (k : ℝ)) →
+        (k : ℝ) / (100 * eta) - 1 ≤ (RamseyNumber s k : ℝ)) := by
 -- BODY
   sorry
