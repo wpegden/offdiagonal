@@ -1,4 +1,5 @@
 import Tablet.BinarySequenceWeight
+import Tablet.BinarySequenceWeightSnoc
 import Tablet.ProductDigraphFixedSequenceTupleCount
 import Tablet.ProductDigraphSparseEdgeChoiceBound
 import Tablet.ProductDigraphVertexCard
@@ -36,4 +37,25 @@ theorem ProductDigraphShrinkingSequenceBound {V : Type u} [Fintype V]
   have hOneBitChoice :
       Fintype.card (ProductDigraphVertex F) = dF * n :=
     ProductDigraphVertexCard F n dF lambdaF hF
+  have hWeightSnoc :
+      ∀ {m : ℕ} (w : Fin (m + 1) → Bool),
+        BinarySequenceWeight w =
+          BinarySequenceWeight (fun i : Fin m => w i.castSucc) +
+            (if w (Fin.last m) = true then 1 else 0) := by
+    intro m w
+    exact BinarySequenceWeightSnoc w
+  have hWeightLastFalse :
+      ∀ {m : ℕ} (w : Fin (m + 1) → Bool),
+        w (Fin.last m) = false →
+          BinarySequenceWeight w =
+            BinarySequenceWeight (fun i : Fin m => w i.castSucc) := by
+    intro m w hw
+    simpa [hw] using (BinarySequenceWeightSnoc w)
+  have hWeightLastTrue :
+      ∀ {m : ℕ} (w : Fin (m + 1) → Bool),
+        w (Fin.last m) = true →
+          BinarySequenceWeight w =
+            BinarySequenceWeight (fun i : Fin m => w i.castSucc) + 1 := by
+    intro m w hw
+    simpa [hw] using (BinarySequenceWeightSnoc w)
   sorry

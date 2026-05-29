@@ -3,6 +3,7 @@
 | Name | Env | Kind | Status | Labels | Title | Imports |
 |------|-----|------|--------|--------|-------|---------|
 | BinarySequenceWeight | definition | definition | closed | - | - | Preamble |
+| BinarySequenceWeightSnoc | helper | proof | closed | - | - | BinarySequenceWeight |
 | CloseToDiagonalTheorem | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, F2ForwardIndependentNearDiagonalBound, SamplingKsFreeRamseyBound |
 | ComplementPolarityPairHsFree | lemma | proof | closed | - | - | HsFreePair, LoopGraphComplement, PolarityGraphSkewFree |
 | Digraph | definition | definition | closed | - | - | Preamble |
@@ -59,7 +60,7 @@
 | ProductDigraph | definition | definition | closed | - | - | Digraph, ProductDigraphVertex |
 | ProductDigraphFixedSequenceTupleCount | definition | definition | closed | - | - | ProductDigraphTupleHasShrinkingSequence |
 | ProductDigraphForwardIndependentBound | lemma | proof | open | - | - | ForwardIndependentTupleCount, HsFreePair, ProductDigraph, ProductDigraphShrinkingSequenceBound, ProductDigraphTransitiveFree, ProductDigraphVertex, TransitiveTournamentFree |
-| ProductDigraphShrinkingSequenceBound | lemma | proof | open | - | - | BinarySequenceWeight, ProductDigraphFixedSequenceTupleCount, ProductDigraphSparseEdgeChoiceBound, ProductDigraphVertexCard, SparseNeighborhoodSetBound |
+| ProductDigraphShrinkingSequenceBound | lemma | proof | open | - | - | BinarySequenceWeight, BinarySequenceWeightSnoc, ProductDigraphFixedSequenceTupleCount, ProductDigraphSparseEdgeChoiceBound, ProductDigraphVertexCard, SparseNeighborhoodSetBound |
 | ProductDigraphSparseEdgeChoiceBound | helper | proof | closed | - | - | SparseNeighborhoodSetBound |
 | ProductDigraphTransitiveFree | lemma | proof | closed | - | - | HsFreePair, ProductDigraph, TransitiveTournamentFree |
 | ProductDigraphTupleHasShrinkingSequence | definition | definition | closed | - | - | ForwardIndependentTuple, LoopGraphEdgeCountBetween, ProductDigraph |
@@ -75,4 +76,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 71 nodes | **Closed:** 56 | **Open:** 15
+**Total:** 72 nodes | **Closed:** 57 | **Open:** 15

@@ -1,0 +1,17 @@
+\begin{helper}
+Let \(z\in\{0,1\}^{t+1}\), and let \(z'\in\{0,1\}^t\) be the prefix defined by
+\[
+  z'_i=z_i\qquad (i<t).
+\]
+Then
+\[
+  |z|=|z'|+
+  \begin{cases}
+  1,&\text{if the last bit of }z\text{ is }1,\\
+  0,&\text{if the last bit of }z\text{ is }0.
+  \end{cases}
+\]
+\end{helper}
+\begin{proof}
+By \(\noderef{BinarySequenceWeight}\), the weight of a binary sequence is the number of indices at which the sequence is \(1\). The indices of a sequence of length \(t+1\) split into the first \(t\) indices and the final index. The first \(t\) indices contribute exactly \(|z'|\), because \(z'\) is defined by restricting \(z\) to those indices. The final index contributes one precisely when the last bit of \(z\) is \(1\), and otherwise contributes zero. Adding these disjoint contributions gives the displayed formula.
+\end{proof}
