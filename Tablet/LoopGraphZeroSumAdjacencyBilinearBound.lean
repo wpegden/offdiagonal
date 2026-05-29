@@ -87,4 +87,113 @@ theorem LoopGraphZeroSumAdjacencyBilinearBound {V : Type u} [Fintype V]
       (hBasisNonzero i) (by
         simp [TW, LoopGraphZeroSumAdjacencyEuclideanOperator] at hEigEuclidean
         exact hEigEuclidean)
+  have hLambda : 0 ≤ lambda := hG.2.2.2.2
+  have hOperatorNormBound :
+      ∀ x : W, ‖TW x‖ ≤ lambda * ‖x‖ := by
+    intro x
+    have hCoordSq :
+        ∀ i : Fin (Module.finrank ℝ W),
+          ((B.repr (TW x)).ofLp i) ^ 2 ≤
+            lambda ^ 2 * ((B.repr x).ofLp i) ^ 2 := by
+      intro i
+      have hcoord :
+          ((B.repr (TW x)).ofLp i) =
+            (hTW_symmetric.eigenvalues rfl i : ℝ) * ((B.repr x).ofLp i) := by
+        simpa [B] using hTW_symmetric.eigenvectorBasis_apply_self_apply rfl x i
+      have hmu := hEigenBasisEigenvalueBound i
+      have hmu_sq :
+          (hTW_symmetric.eigenvalues rfl i : ℝ) ^ 2 ≤ lambda ^ 2 := by
+        have hnonneg : 0 ≤ |(hTW_symmetric.eigenvalues rfl i : ℝ)| :=
+          abs_nonneg _
+        have hsquare :
+            |(hTW_symmetric.eigenvalues rfl i : ℝ)| ^ 2 =
+              (hTW_symmetric.eigenvalues rfl i : ℝ) ^ 2 := by
+          exact sq_abs _
+        nlinarith
+      have hxcoord_nonneg : 0 ≤ ((B.repr x).ofLp i) ^ 2 := sq_nonneg _
+      calc
+        ((B.repr (TW x)).ofLp i) ^ 2 =
+            ((hTW_symmetric.eigenvalues rfl i : ℝ) * (B.repr x).ofLp i) ^ 2 := by
+              rw [hcoord]
+        _ = ((hTW_symmetric.eigenvalues rfl i : ℝ) ^ 2) *
+            ((B.repr x).ofLp i) ^ 2 := by
+              ring
+        _ ≤ lambda ^ 2 * ((B.repr x).ofLp i) ^ 2 := by
+              exact mul_le_mul_of_nonneg_right hmu_sq hxcoord_nonneg
+    have hCoordSumSq :
+        (∑ i : Fin (Module.finrank ℝ W), ((B.repr (TW x)).ofLp i) ^ 2) ≤
+          lambda ^ 2 * ∑ i : Fin (Module.finrank ℝ W), ((B.repr x).ofLp i) ^ 2 := by
+      calc
+        (∑ i : Fin (Module.finrank ℝ W), ((B.repr (TW x)).ofLp i) ^ 2) ≤
+            ∑ i : Fin (Module.finrank ℝ W),
+              lambda ^ 2 * ((B.repr x).ofLp i) ^ 2 := by
+              exact Finset.sum_le_sum (fun i _ => hCoordSq i)
+        _ = lambda ^ 2 *
+            ∑ i : Fin (Module.finrank ℝ W), ((B.repr x).ofLp i) ^ 2 := by
+              rw [Finset.mul_sum]
+    have hNormSqRepr :
+        ‖B.repr (TW x)‖ ^ 2 ≤ lambda ^ 2 * ‖B.repr x‖ ^ 2 := by
+      rw [EuclideanSpace.real_norm_sq_eq, EuclideanSpace.real_norm_sq_eq]
+      exact hCoordSumSq
+    have hNormSq :
+        ‖TW x‖ ^ 2 ≤ lambda ^ 2 * ‖x‖ ^ 2 := by
+      simpa using hNormSqRepr
+    have hNormSqTarget :
+        ‖TW x‖ ^ 2 ≤ (lambda * ‖x‖) ^ 2 := by
+      nlinarith
+    have habs : |‖TW x‖| ≤ |lambda * ‖x‖| := (sq_le_sq).mp hNormSqTarget
+    have hleft_abs : |‖TW x‖| = ‖TW x‖ :=
+      abs_of_nonneg (norm_nonneg (TW x))
+    have hright_abs : |lambda * ‖x‖| = lambda * ‖x‖ :=
+      abs_of_nonneg (mul_nonneg hLambda (norm_nonneg x))
+    rw [hleft_abs, hright_abs] at habs
+    exact habs
+  have hEuclideanBilinearBound :
+      |inner ℝ fW (TW gW)| ≤ lambda * (‖fW‖ * ‖gW‖) := by
+    have hCauchy : |inner ℝ fW (TW gW)| ≤ ‖fW‖ * ‖TW gW‖ :=
+      abs_real_inner_le_norm fW (TW gW)
+    have hNormG : ‖TW gW‖ ≤ lambda * ‖gW‖ :=
+      hOperatorNormBound gW
+    calc
+      |inner ℝ fW (TW gW)| ≤ ‖fW‖ * ‖TW gW‖ := hCauchy
+      _ ≤ ‖fW‖ * (lambda * ‖gW‖) := by
+        exact mul_le_mul_of_nonneg_left hNormG (norm_nonneg fW)
+      _ = lambda * (‖fW‖ * ‖gW‖) := by
+        ring
+  have hInnerSubmodule :
+      inner ℝ fW (TW gW) =
+        inner ℝ (WithLp.toLp 2 f : EuclideanSpace ℝ V)
+          (LoopGraphAdjacencyEuclideanOperator G (WithLp.toLp 2 g)) := by
+    change inner ℝ (fW : EuclideanSpace ℝ V)
+        ((TW gW : W) : EuclideanSpace ℝ V) =
+      inner ℝ (WithLp.toLp 2 f : EuclideanSpace ℝ V)
+        (LoopGraphAdjacencyEuclideanOperator G (WithLp.toLp 2 g))
+    rw [hTWg_coe]
+  have hFiniteSumBilinear :
+      |(∑ v : V, f v * LoopGraphAdjacencyAction G g v)| ≤
+        lambda * (‖fW‖ * ‖gW‖) := by
+    rw [← hEuclideanInner, ← hInnerSubmodule]
+    exact hEuclideanBilinearBound
+  have hfW_norm :
+      ‖fW‖ = Real.sqrt (∑ v : V, f v ^ 2) := by
+    have hfEuclideanNorm :
+        ‖(WithLp.toLp 2 f : EuclideanSpace ℝ V)‖ =
+          Real.sqrt (∑ v : V, f v ^ 2) := by
+      rw [EuclideanSpace.norm_eq]
+      congr 1
+      apply Finset.sum_congr rfl
+      intro v hv
+      simp [Real.norm_eq_abs, sq_abs]
+    simpa [fW] using hfEuclideanNorm
+  have hgW_norm :
+      ‖gW‖ = Real.sqrt (∑ v : V, g v ^ 2) := by
+    have hgEuclideanNorm :
+        ‖(WithLp.toLp 2 g : EuclideanSpace ℝ V)‖ =
+          Real.sqrt (∑ v : V, g v ^ 2) := by
+      rw [EuclideanSpace.norm_eq]
+      congr 1
+      apply Finset.sum_congr rfl
+      intro v hv
+      simp [Real.norm_eq_abs, sq_abs]
+    simpa [gW] using hgEuclideanNorm
   sorry
