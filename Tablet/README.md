@@ -12,6 +12,7 @@
 | DigraphOrderedGraph | definition | - | closed |
 | DigraphOrderedGraphCliqueFree | proof | - | closed |
 | DigraphOrderedGraphIndependentSetBound | proof | - | open |
+| DigraphOrderedGraphIndependentSetToForwardTuple | proof | - | closed |
 | DigraphToGraphIndependentSetBound | proof | - | closed |
 | ExpanderMixingLemma | proof | - | open |
 | F2ForwardIndependentLinearBound | proof | - | open |
@@ -55,4 +56,4 @@
 | SparseNeighborhoodSetBound | proof | - | open |
 | TransitiveTournamentFree | definition | - | closed |
 
-**Summary:** 31/50 closed
+**Summary:** 32/51 closed

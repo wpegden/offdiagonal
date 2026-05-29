@@ -9,7 +9,8 @@
 | DigraphLoopless | definition | definition | closed | - | - | Digraph |
 | DigraphOrderedGraph | definition | definition | closed | - | - | Digraph |
 | DigraphOrderedGraphCliqueFree | helper | proof | closed | - | - | DigraphOrderedGraph, TransitiveTournamentFree |
-| DigraphOrderedGraphIndependentSetBound | helper | proof | open | - | - | DigraphOrderedGraph, ForwardIndependentTupleCount, SimpleGraphIndependentSetCount |
+| DigraphOrderedGraphIndependentSetBound | helper | proof | open | - | - | DigraphOrderedGraph, DigraphOrderedGraphIndependentSetToForwardTuple, ForwardIndependentTupleCount, SimpleGraphIndependentSetCount |
+| DigraphOrderedGraphIndependentSetToForwardTuple | helper | proof | closed | - | - | DigraphOrderedGraph, ForwardIndependentTuple |
 | DigraphToGraphIndependentSetBound | lemma | proof | closed | - | - | DigraphOrderedGraphCliqueFree, DigraphOrderedGraphIndependentSetBound |
 | ExpanderMixingLemma | lemma | proof | open | - | - | LoopGraphEdgeCountBetween, LoopGraphNdLambda |
 | F2ForwardIndependentLinearBound | lemma | proof | open | - | - | F2ForwardIndependentTuples |
@@ -54,4 +55,4 @@
 | SparseNeighborhoodSetBound | lemma | proof | open | - | - | ExpanderMixingLemma |
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 
-**Total:** 50 nodes | **Closed:** 31 | **Open:** 19
+**Total:** 51 nodes | **Closed:** 32 | **Open:** 19

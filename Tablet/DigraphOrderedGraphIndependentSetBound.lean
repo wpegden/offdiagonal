@@ -1,4 +1,5 @@
 import Tablet.DigraphOrderedGraph
+import Tablet.DigraphOrderedGraphIndependentSetToForwardTuple
 import Tablet.ForwardIndependentTupleCount
 import Tablet.SimpleGraphIndependentSetCount
 
