@@ -44,6 +44,8 @@
 | LoopGraphSymmetric | definition | - | closed |
 | LoopGraphZeroSumAdjacencyBilinearBound | proof | - | open |
 | LoopGraphZeroSumAdjacencyEuclideanOperator | definition | - | closed |
+| LoopGraphZeroSumEuclideanEigenpairNonprincipal | proof | - | closed |
+| LoopGraphZeroSumEuclideanEigenvalueBound | proof | - | closed |
 | MainTheorem | proof | - | open |
 | MulticolorRamseyNumber | definition | - | closed |
 | MulticolorRamseyProperty | definition | - | closed |
@@ -71,4 +73,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 50/66 closed
+**Summary:** 52/68 closed

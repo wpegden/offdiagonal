@@ -1,0 +1,35 @@
+\begin{helper}
+Let \(G\) be a loop graph, and let \(T_G\) be the Euclidean adjacency operator
+from \(\noderef{LoopGraphAdjacencyEuclideanOperator}\).  If \(x\) is a nonzero
+vector in the zero-sum subspace \(W_0(V(G))\) and
+\[
+  T_Gx=\mu x,
+\]
+then \(\mu\) is a non-principal eigenvalue of \(G\) in the sense of
+\(\noderef{LoopGraphNonprincipalEigenvalue}\).
+\end{helper}
+\begin{proof}
+Define \(f\colon V(G)\to\mathbb R\) by \(f(v)=x(v)\).  Since \(x\neq 0\) in
+the zero-sum subspace, some coordinate of \(x\) is nonzero; otherwise every
+coordinate would be zero and function extensionality would give \(x=0\).  Thus
+there is a vertex \(v\) with \(f(v)\neq 0\).
+
+The membership \(x\in W_0(V(G))\), using
+\(\noderef{LoopGraphEuclideanZeroSumSubmodule}\), gives
+\[
+  \sum_{v\in V(G)} f(v)=0.
+\]
+The eigen-equation \(T_Gx=\mu x\) gives, coordinate by coordinate,
+\[
+  (T_Gx)(v)=\mu x(v).
+\]
+By the definition of \(T_G\) in \(\noderef{LoopGraphAdjacencyEuclideanOperator}\),
+the left side is the adjacency action of \(G\) applied to the coordinate
+function \(f\).  Therefore
+\[
+  \text{adjacency-action}_G(f)(v)=\mu f(v)
+\]
+for every \(v\).  The function \(f\) is nonzero, has zero coordinate sum, and
+satisfies the adjacency eigenvector equation, which is exactly the definition
+of \(\noderef{LoopGraphNonprincipalEigenvalue}\).
+\end{proof}

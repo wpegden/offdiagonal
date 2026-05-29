@@ -3,6 +3,7 @@ import Tablet.LoopGraphAdjacencyActionSelfAdjoint
 import Tablet.LoopGraphNdLambdaAdjacencyActionZeroSum
 import Tablet.LoopGraphAdjacencyEuclideanInner
 import Tablet.LoopGraphZeroSumAdjacencyEuclideanOperator
+import Tablet.LoopGraphZeroSumEuclideanEigenvalueBound
 
 -- [TABLET NODE: LoopGraphZeroSumAdjacencyBilinearBound]
 
@@ -44,4 +45,10 @@ theorem LoopGraphZeroSumAdjacencyBilinearBound {V : Type u} [Fintype V]
   have hTWg_coe :
       ((TW gW : W) : EuclideanSpace ℝ V) =
         LoopGraphAdjacencyEuclideanOperator G (WithLp.toLp 2 g) := rfl
+  have hEuclideanEigenvalueBound :
+      ∀ (mu : ℝ) (x : W), x ≠ 0 →
+        LoopGraphAdjacencyEuclideanOperator G (x : EuclideanSpace ℝ V) =
+          mu • (x : EuclideanSpace ℝ V) → |mu| ≤ lambda := by
+    intro mu x hx hEigen
+    exact LoopGraphZeroSumEuclideanEigenvalueBound G n d lambda mu hG x hx hEigen
   sorry
