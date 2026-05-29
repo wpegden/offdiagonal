@@ -19,6 +19,8 @@
 | F2ForwardIndependentLinearBound | proof | - | open |
 | F2ForwardIndependentNearDiagonalBound | proof | - | open |
 | F2ForwardIndependentTuples | proof | - | open |
+| FinsetCenteredIndicatorNormSqLeCard | proof | - | closed |
+| FinsetCenteredIndicatorSumZero | proof | - | closed |
 | ForwardIndependentTuple | definition | - | closed |
 | ForwardIndependentTupleCount | definition | - | closed |
 | HsFreePair | definition | - | closed |
@@ -28,7 +30,9 @@
 | LoopGraphComplement | definition | - | closed |
 | LoopGraphDegree | definition | - | closed |
 | LoopGraphEdgeCountBetween | definition | - | closed |
+| LoopGraphEdgeCountBetweenAdjacencyIndicator | proof | - | closed |
 | LoopGraphNdLambda | definition | - | closed |
+| LoopGraphNdLambdaAdjacencyOne | proof | - | closed |
 | LoopGraphNonprincipalEigenvalue | definition | - | closed |
 | LoopGraphSymmetric | definition | - | closed |
 | MainTheorem | proof | - | open |
@@ -58,4 +62,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 37/53 closed
+**Summary:** 41/57 closed

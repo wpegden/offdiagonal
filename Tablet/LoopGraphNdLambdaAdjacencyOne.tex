@@ -1,0 +1,9 @@
+\begin{helper}
+Let \(G\) be an \((n,d,\lambda)\)-loop graph. Then the adjacency action sends the constant-one function to the constant function with value \(d\): for every vertex \(v\),
+\[
+  (A_G\mathbf 1)(v)=d.
+\]
+\end{helper}
+\begin{proof}
+By \(\noderef{LoopGraphNdLambda}\), every vertex of \(G\) has degree \(d\). Fix a vertex \(v\). By \(\noderef{LoopGraphAdjacencyAction}\), \((A_G\mathbf 1)(v)\) is the sum over all vertices \(w\) adjacent from \(v\) of the value \(\mathbf 1(w)=1\), with non-neighbors contributing \(0\). This sum is therefore exactly the number of vertices \(w\) with \(vw\in E(G)\). By \(\noderef{LoopGraphDegree}\), that number is \(\deg_G(v)\), and the degree condition from \(\noderef{LoopGraphNdLambda}\) gives \(\deg_G(v)=d\). Thus \((A_G\mathbf 1)(v)=d\).
+\end{proof}

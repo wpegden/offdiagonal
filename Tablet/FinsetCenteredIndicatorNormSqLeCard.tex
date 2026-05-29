@@ -1,0 +1,37 @@
+\begin{helper}
+Let \(V\) be a finite nonempty set and let \(A\subseteq V\). Then
+\[
+  \sum_{v\in V}\left(1_A(v)-\frac{|A|}{|V|}\right)^2\le |A|.
+\]
+\end{helper}
+\begin{proof}
+Write \(N=|V|\) and \(a=|A|\). Since \(V\) is nonempty, \(N>0\). Let \(c=a/N\). The ordinary indicator satisfies
+\[
+  \sum_{v\in V}1_A(v)=a
+\]
+and, because \(1_A(v)\) is always \(0\) or \(1\),
+\[
+  \sum_{v\in V}1_A(v)^2=a.
+\]
+Expanding the square and summing gives
+\[
+\begin{aligned}
+  \sum_{v\in V}(1_A(v)-c)^2
+  &= \sum_{v\in V}1_A(v)^2
+     -2c\sum_{v\in V}1_A(v)
+     +\sum_{v\in V}c^2  \\
+  &= a-2c a+Nc^2.
+\end{aligned}
+\]
+Substituting \(c=a/N\) yields
+\[
+  a-2\frac aN a+N\left(\frac aN\right)^2
+  =
+  a-\frac{a^2}{N}.
+\]
+The term \(a^2/N\) is nonnegative because \(N>0\). Hence
+\[
+  \sum_{v\in V}\left(1_A(v)-\frac{|A|}{|V|}\right)^2
+  =a-\frac{a^2}{N}\le a=|A|.
+\]
+\end{proof}

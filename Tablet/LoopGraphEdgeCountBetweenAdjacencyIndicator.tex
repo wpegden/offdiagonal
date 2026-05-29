@@ -1,0 +1,18 @@
+\begin{helper}
+For a finite loop graph \(G\) and subsets \(A,B\subseteq V(G)\),
+\[
+  e_G(A,B)=\sum_{a\in A} (A_G1_B)(a),
+\]
+where \(1_B\) is the indicator function of \(B\).
+\end{helper}
+\begin{proof}
+By \(\noderef{LoopGraphEdgeCountBetween}\), \(e_G(A,B)\) counts the ordered pairs \((a,b)\in A\times B\) such that \(ab\in E(G)\). Splitting those ordered pairs according to their first coordinate gives
+\[
+  e_G(A,B)=\sum_{a\in A} e_G(\{a\},B).
+\]
+For a fixed \(a\), the term \(e_G(\{a\},B)\) is the number of vertices \(b\in B\) with \(ab\in E(G)\). By \(\noderef{LoopGraphAdjacencyAction}\), \((A_G1_B)(a)\) is the sum over all vertices \(b\) of \(1_B(b)\) if \(ab\in E(G)\), and \(0\) otherwise. This sum contributes \(1\) exactly for the vertices \(b\in B\) adjacent from \(a\), and contributes \(0\) for all other vertices. Hence \(e_G(\{a\},B)=(A_G1_B)(a)\). Substituting this identity into the first-coordinate decomposition proves
+\[
+  e_G(A,B)=\sum_{a\in A}(A_G1_B)(a).
+\]
+Loops cause no extra factor: if \(a=b\) and \(aa\in E(G)\), then the ordered pair \((a,a)\) is counted once and the diagonal adjacency term is also summed once.
+\end{proof}

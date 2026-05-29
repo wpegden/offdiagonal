@@ -13,10 +13,12 @@
 | DigraphOrderedGraphIndependentSetFactorialBound | helper | proof | closed | - | - | DigraphOrderedGraph, ForwardIndependentTupleCount, SimpleGraphIndependentSetCount, TupleIncreasingPermutationFiberCount |
 | DigraphOrderedGraphIndependentSetToForwardTuple | helper | proof | closed | - | - | DigraphOrderedGraph, ForwardIndependentTuple |
 | DigraphToGraphIndependentSetBound | lemma | proof | closed | - | - | DigraphOrderedGraphCliqueFree, DigraphOrderedGraphIndependentSetBound |
-| ExpanderMixingLemma | lemma | proof | open | - | - | LoopGraphEdgeCountBetween, LoopGraphNdLambda |
+| ExpanderMixingLemma | lemma | proof | open | - | - | FinsetCenteredIndicatorNormSqLeCard, FinsetCenteredIndicatorSumZero, LoopGraphEdgeCountBetween, LoopGraphEdgeCountBetweenAdjacencyIndicator, LoopGraphNdLambda, LoopGraphNdLambdaAdjacencyOne |
 | F2ForwardIndependentLinearBound | lemma | proof | open | - | - | F2ForwardIndependentTuples |
 | F2ForwardIndependentNearDiagonalBound | lemma | proof | open | - | - | F2ForwardIndependentTuples |
 | F2ForwardIndependentTuples | lemma | proof | open | - | - | DigraphLoopless, ForwardIndependentTupleCount, TransitiveTournamentFree |
+| FinsetCenteredIndicatorNormSqLeCard | helper | proof | closed | - | - | Preamble |
+| FinsetCenteredIndicatorSumZero | helper | proof | closed | - | - | Preamble |
 | ForwardIndependentTuple | definition | definition | closed | - | - | Digraph |
 | ForwardIndependentTupleCount | definition | definition | closed | - | - | ForwardIndependentTuple |
 | HsFreePair | definition | definition | closed | - | - | LoopGraph |
@@ -26,7 +28,9 @@
 | LoopGraphComplement | definition | definition | closed | - | - | LoopGraph |
 | LoopGraphDegree | definition | definition | closed | - | - | LoopGraph |
 | LoopGraphEdgeCountBetween | definition | definition | closed | - | - | LoopGraph |
+| LoopGraphEdgeCountBetweenAdjacencyIndicator | helper | proof | closed | - | - | LoopGraphAdjacencyAction, LoopGraphEdgeCountBetween |
 | LoopGraphNdLambda | definition | definition | closed | - | - | LoopGraphDegree, LoopGraphNonprincipalEigenvalue, LoopGraphSymmetric |
+| LoopGraphNdLambdaAdjacencyOne | helper | proof | closed | - | - | LoopGraphAdjacencyAction, LoopGraphNdLambda |
 | LoopGraphNonprincipalEigenvalue | definition | definition | closed | - | - | LoopGraphAdjacencyAction |
 | LoopGraphSymmetric | definition | definition | closed | - | - | LoopGraph |
 | MainTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, PolarityGraphParameters, RamseyFromGraphPair |
@@ -57,4 +61,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 53 nodes | **Closed:** 37 | **Open:** 16
+**Total:** 57 nodes | **Closed:** 41 | **Open:** 16

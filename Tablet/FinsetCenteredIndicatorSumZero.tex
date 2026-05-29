@@ -1,0 +1,21 @@
+\begin{helper}
+Let \(V\) be a finite nonempty set and let \(A\subseteq V\). Then the centered indicator
+\[
+  v\mapsto 1_A(v)-\frac{|A|}{|V|}
+\]
+has coordinate sum \(0\).
+\end{helper}
+\begin{proof}
+The sum of the ordinary indicator \(1_A\) over all vertices is \(|A|\), since exactly the elements of \(A\) contribute \(1\). The constant function with value \(|A|/|V|\) has total sum
+\[
+  |V|\cdot \frac{|A|}{|V|}=|A|,
+\]
+because \(V\) is nonempty and hence \(|V|\ne 0\). Therefore
+\[
+  \sum_{v\in V}\left(1_A(v)-\frac{|A|}{|V|}\right)
+  =
+  \sum_{v\in V}1_A(v)-\sum_{v\in V}\frac{|A|}{|V|}
+  =
+  |A|-|A|=0.
+\]
+\end{proof}
