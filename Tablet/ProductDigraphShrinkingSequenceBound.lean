@@ -1,5 +1,6 @@
 import Tablet.BinarySequenceWeight
 import Tablet.ProductDigraphFixedSequenceTupleCount
+import Tablet.ProductDigraphSparseEdgeChoiceBound
 import Tablet.SparseNeighborhoodSetBound
 
 -- [TABLET NODE: ProductDigraphShrinkingSequenceBound]
@@ -19,4 +20,15 @@ theorem ProductDigraphShrinkingSequenceBound {V : Type u} [Fintype V]
       ((8 : ℝ) * eta) ^ (t - BinarySequenceWeight z) *
         ((dF * n : ℕ) : ℝ) ^ t := by
 -- BODY
+  classical
+  have hSparseChoice :
+      ∀ A B : Finset V,
+        (∀ u : V, u ∈ A ↔
+          ((LoopGraphEdgeCountBetween G ({u} : Finset V) B : ℕ) : ℝ) ≤
+            ((dG : ℝ) * (B.card : ℝ)) / (2 * (n : ℝ))) →
+        ((LoopGraphEdgeCountBetween F A B : ℕ) : ℝ) ≤
+          ((8 : ℝ) * eta) * (((dF * n : ℕ) : ℝ)) := by
+    intro A B hA
+    exact ProductDigraphSparseEdgeChoiceBound F G n dF dG lambdaF lambdaG eta
+      hF hG hn hdF hdG heta A B hA
   sorry

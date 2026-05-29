@@ -1,0 +1,68 @@
+\begin{helper}
+Let \(F\) and \(G\) be \((n,d(F),\lambda(F))\)- and
+\((n,d(G),\lambda(G))\)-loop graphs on the same finite vertex set, with
+\(n>0\), \(d(F)>0\), and \(d(G)>0\).  Set
+\[
+  \eta=\max\left\{\frac{\lambda(G)^2}{d(G)^2},
+  \frac{\lambda(F)\lambda(G)}{d(F)d(G)}\right\}.
+\]
+If \(B\subseteq V\) and
+\[
+  A=\left\{u\in V:
+    e_G(\{u\},B)\le \frac{d(G)|B|}{2n}\right\},
+\]
+then
+\[
+  e_F(A,B)\le 8\eta\,d(F)n .
+\]
+\end{helper}
+\begin{proof}
+Put \(X=|A||B|\),
+\[
+  m=e_F(A,B),\qquad q=\frac{d(F)}{n}X .
+\]
+The hypothesis defining \(A\) is exactly the sparse-neighborhood hypothesis
+for \(\noderef{SparseNeighborhoodSetBound}\) applied to \(G\), so
+\[
+  X\le 4\frac{\lambda(G)^2}{d(G)^2}n^2. \tag{1}
+\]
+Apply \(\noderef{ExpanderMixingLemma}\) to \(F\) with the sets \(A\) and \(B\).
+Since \(m\ge 0\), the mixing estimate implies
+\[
+  m\le q+\lambda(F)\sqrt X. \tag{2}
+\]
+
+By the definition of \(\eta\),
+\[
+  \frac{\lambda(G)^2}{d(G)^2}\le \eta,\qquad
+  \frac{\lambda(F)\lambda(G)}{d(F)d(G)}\le \eta. \tag{3}
+\]
+Multiplying (1) by \(d(F)/n\), which is nonnegative because \(d(F)>0\) and
+\(n>0\), and then using the first inequality in (3), gives
+\[
+  q=\frac{d(F)}n X
+  \le 4\eta\,d(F)n. \tag{4}
+\]
+
+The last clause in each \((n,d,\lambda)\)-graph hypothesis, from
+\(\noderef{LoopGraphNdLambda}\), gives \(\lambda(F),\lambda(G)\ge0\).  From
+(1) and monotonicity of square roots,
+\[
+  \sqrt X\le \frac{2\lambda(G)n}{d(G)}. \tag{5}
+\]
+Multiplying (5) by \(\lambda(F)\ge0\), then using the second inequality in
+(3) and \(d(F),d(G),n>0\), gives
+\[
+  \lambda(F)\sqrt X
+  \le \frac{2\lambda(F)\lambda(G)n}{d(G)}
+  \le 2\eta d(F)n
+  \le 4\eta d(F)n. \tag{6}
+\]
+Combining (2), (4), and (6), we obtain
+\[
+  e_F(A,B)=m
+  \le 4\eta d(F)n+4\eta d(F)n
+  =8\eta d(F)n,
+\]
+as required.
+\end{proof}

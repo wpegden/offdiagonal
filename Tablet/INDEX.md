@@ -59,7 +59,8 @@
 | ProductDigraph | definition | definition | closed | - | - | Digraph, ProductDigraphVertex |
 | ProductDigraphFixedSequenceTupleCount | definition | definition | closed | - | - | ProductDigraphTupleHasShrinkingSequence |
 | ProductDigraphForwardIndependentBound | lemma | proof | open | - | - | ForwardIndependentTupleCount, HsFreePair, ProductDigraph, ProductDigraphShrinkingSequenceBound, ProductDigraphTransitiveFree, ProductDigraphVertex, TransitiveTournamentFree |
-| ProductDigraphShrinkingSequenceBound | lemma | proof | open | - | - | BinarySequenceWeight, ProductDigraphFixedSequenceTupleCount, SparseNeighborhoodSetBound |
+| ProductDigraphShrinkingSequenceBound | lemma | proof | open | - | - | BinarySequenceWeight, ProductDigraphFixedSequenceTupleCount, ProductDigraphSparseEdgeChoiceBound, SparseNeighborhoodSetBound |
+| ProductDigraphSparseEdgeChoiceBound | helper | proof | closed | - | - | SparseNeighborhoodSetBound |
 | ProductDigraphTransitiveFree | lemma | proof | closed | - | - | HsFreePair, ProductDigraph, TransitiveTournamentFree |
 | ProductDigraphTupleHasShrinkingSequence | definition | definition | closed | - | - | ForwardIndependentTuple, LoopGraphEdgeCountBetween, ProductDigraph |
 | ProductDigraphVertex | definition | definition | closed | - | - | LoopGraph |
@@ -73,4 +74,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 69 nodes | **Closed:** 54 | **Open:** 15
+**Total:** 70 nodes | **Closed:** 55 | **Open:** 15
