@@ -1,4 +1,5 @@
 import Tablet.HsFreePair
+import Tablet.ForwardIndependentTupleCount
 import Tablet.ProductDigraph
 import Tablet.ProductDigraphShrinkingSequenceBound
 import Tablet.ProductDigraphTransitiveFree
@@ -11,6 +12,7 @@ universe u
 
 theorem ProductDigraphForwardIndependentBound {V : Type u} [Fintype V]
     (F G : LoopGraph V) (s n dF dG : ℕ) (lambdaF lambdaG eta w : ℝ)
+    (hs : 3 ≤ s) (hn : 3 ≤ n)
     (hF : LoopGraphNdLambda F n dF lambdaF)
     (hG : LoopGraphNdLambda G n dG lambdaG)
     (hFG : HsFreePair F G s)

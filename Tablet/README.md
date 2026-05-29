@@ -4,6 +4,7 @@
 
 | Name | Kind | Title | Status |
 |------|------|-------|--------|
+| BinarySequenceWeight | definition | - | closed |
 | CloseToDiagonalTheorem | proof | - | open |
 | ComplementPolarityPairHsFree | proof | - | open |
 | Digraph | definition | - | closed |
@@ -36,9 +37,11 @@
 | PolarityGraphParameters | proof | - | open |
 | PolarityGraphSkewFree | proof | - | open |
 | ProductDigraph | definition | - | closed |
+| ProductDigraphFixedSequenceTupleCount | definition | - | closed |
 | ProductDigraphForwardIndependentBound | proof | - | open |
 | ProductDigraphShrinkingSequenceBound | proof | - | open |
 | ProductDigraphTransitiveFree | proof | - | open |
+| ProductDigraphTupleHasShrinkingSequence | definition | - | closed |
 | ProductDigraphVertex | definition | - | closed |
 | RamseyFromGraphPair | proof | - | open |
 | RamseyNumber | definition | - | closed |
@@ -49,4 +52,4 @@
 | SparseNeighborhoodSetBound | proof | - | open |
 | TransitiveTournamentFree | definition | - | closed |
 
-**Summary:** 24/44 closed
+**Summary:** 27/47 closed

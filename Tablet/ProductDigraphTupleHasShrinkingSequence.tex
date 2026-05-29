@@ -1,0 +1,10 @@
+\begin{definition}
+Let \(F\) and \(G\) be loop graphs on the same finite vertex set, let \(D(F,G)\) be their product digraph, and let \(v=(v_1,\ldots,v_t)\) be a tuple of vertices of \(D(F,G)\), where \(v_i=(a_i,b_i)\). The tuple \(v\) has shrinking sequence \(z\in\{0,1\}^t\) if \(v\) is forward independent and, for each index \(i\), \(z_i=1\) exactly when
+\[
+  |N_G(a_i)\cap B_i|\le \frac{d(G)|B_i|}{2n},
+\]
+where
+\[
+  B_i=V\setminus\bigcup_{j<i}N_G(a_j).
+\]
+\end{definition}

@@ -1,5 +1,10 @@
 \begin{lemma}
-In the product-digraph counting argument, fix a binary shrinking sequence \(z\in\{0,1\}^t\). The number of forward independent \(t\)-tuples whose shrinking sequence is \(z\) is at most
+Let \(F\) and \(G\) be \((n,d(F),\lambda(F))\)- and \((n,d(G),\lambda(G))\)-graphs on the same finite vertex set, and set
+\[
+  \eta=\max\left\{\frac{\lambda(G)^2}{d(G)^2},
+  \frac{\lambda(F)\lambda(G)}{d(F)d(G)}\right\}.
+\]
+For the product digraph \(D(F,G)\), fix a binary shrinking sequence \(z\in\{0,1\}^t\). The number of forward independent \(t\)-tuples whose shrinking sequence is \(z\) is at most
 \[
   (8\eta)^{t-|z|}(d(F)n)^t.
 \]

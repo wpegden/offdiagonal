@@ -2,6 +2,7 @@
 
 | Name | Env | Kind | Status | Labels | Title | Imports |
 |------|-----|------|--------|--------|-------|---------|
+| BinarySequenceWeight | definition | definition | closed | - | - | Preamble |
 | CloseToDiagonalTheorem | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, F2ForwardIndependentNearDiagonalBound, SamplingKsFreeRamseyBound |
 | ComplementPolarityPairHsFree | lemma | proof | open | - | - | HsFreePair, LoopGraphComplement, PolarityGraphSkewFree |
 | Digraph | definition | definition | closed | - | - | Preamble |
@@ -35,9 +36,11 @@
 | PolarityGraphSkewFree | lemma | proof | open | - | - | NoSkewBipartiteConfiguration, PolarityGraph |
 | Preamble | preamble | preamble | closed | - | - | - |
 | ProductDigraph | definition | definition | closed | - | - | Digraph, ProductDigraphVertex |
-| ProductDigraphForwardIndependentBound | lemma | proof | open | - | - | HsFreePair, ProductDigraph, ProductDigraphShrinkingSequenceBound, ProductDigraphTransitiveFree, ProductDigraphVertex, TransitiveTournamentFree |
-| ProductDigraphShrinkingSequenceBound | lemma | proof | open | - | - | ForwardIndependentTupleCount, SparseNeighborhoodSetBound |
+| ProductDigraphFixedSequenceTupleCount | definition | definition | closed | - | - | ProductDigraphTupleHasShrinkingSequence |
+| ProductDigraphForwardIndependentBound | lemma | proof | open | - | - | ForwardIndependentTupleCount, HsFreePair, ProductDigraph, ProductDigraphShrinkingSequenceBound, ProductDigraphTransitiveFree, ProductDigraphVertex, TransitiveTournamentFree |
+| ProductDigraphShrinkingSequenceBound | lemma | proof | open | - | - | BinarySequenceWeight, ProductDigraphFixedSequenceTupleCount, SparseNeighborhoodSetBound |
 | ProductDigraphTransitiveFree | lemma | proof | open | - | - | HsFreePair, ProductDigraph, TransitiveTournamentFree |
+| ProductDigraphTupleHasShrinkingSequence | definition | definition | closed | - | - | ForwardIndependentTuple, LoopGraphEdgeCountBetween, ProductDigraph |
 | ProductDigraphVertex | definition | definition | closed | - | - | LoopGraph |
 | RamseyFromGraphPair | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, ProductDigraphForwardIndependentBound, SamplingKsFreeRamseyBound |
 | RamseyNumber | definition | definition | closed | - | - | RamseyProperty |
@@ -48,4 +51,4 @@
 | SparseNeighborhoodSetBound | lemma | proof | open | - | - | ExpanderMixingLemma |
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 
-**Total:** 44 nodes | **Closed:** 24 | **Open:** 20
+**Total:** 47 nodes | **Closed:** 27 | **Open:** 20
