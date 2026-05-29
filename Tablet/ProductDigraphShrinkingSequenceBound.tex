@@ -1,5 +1,5 @@
 \begin{lemma}
-Let \(F\) and \(G\) be \((n,d(F),\lambda(F))\)- and \((n,d(G),\lambda(G))\)-graphs on the same finite vertex set, and set
+Let \(F\) and \(G\) be \((n,d(F),\lambda(F))\)- and \((n,d(G),\lambda(G))\)-graphs on the same finite vertex set, with \(n>0\) and \(d(F),d(G)>0\), and set
 \[
   \eta=\max\left\{\frac{\lambda(G)^2}{d(G)^2},
   \frac{\lambda(F)\lambda(G)}{d(F)d(G)}\right\}.
@@ -10,6 +10,135 @@ For the product digraph \(D(F,G)\), fix a binary shrinking sequence \(z\in\{0,1\
 \]
 \end{lemma}
 \begin{proof}
-SKETCH:
-Proceed by induction on \(t\). Given a forward independent prefix, the set \(B_i\) consists of vertices not hit by the forbidden \(G\)-neighbourhoods of earlier first coordinates, and \(A_i\) consists of vertices with at most half the expected number of \(G\)-neighbours in \(B_i\). By \(\noderef{ProductDigraphTupleHasShrinkingSequence}\), a next bit equal to \(1\) is the large-neighborhood case, so we use the trivial bound \(d(F)n\) for the next product vertex. A next bit equal to \(0\) is exactly the sparse-set case, so the next vertex must lie in \(E_F(A_i,B_i)\), and \(\noderef{SparseNeighborhoodSetBound}\) together with expander mixing for \(F\) gives at most \(8\eta d(F)n\) choices. Multiplying these stepwise bounds gives one factor \(8\eta\) for each zero bit and one factor \(1\) for each one bit, hence \((8\eta)^{t-|z|}(d(F)n)^t\).
+Let \(D=D(F,G)\), and for a binary string \(z\in\{0,1\}^t\) write
+\[
+  C(t,z)
+\]
+for the fixed-sequence tuple count in \(\noderef{ProductDigraphFixedSequenceTupleCount}\). Thus \(C(t,z)\) counts exactly the forward independent \(t\)-tuples of vertices of \(D\) whose shrinking sequence is \(z\), in the sense of \(\noderef{ProductDigraphTupleHasShrinkingSequence}\). We prove
+\[
+  C(t,z)\le (8\eta)^{t-|z|}(d(F)n)^t
+\]
+by induction on \(t\), uniformly in the binary string \(z\).
+
+For \(t=0\), there is exactly one empty tuple. The empty binary string has weight \(0\) by \(\noderef{BinarySequenceWeight}\), so the desired bound reads
+\[
+  1\le (8\eta)^0(d(F)n)^0=1.
+\]
+This proves the base case.
+
+Now assume \(t\ge 1\), and let \(z\in\{0,1\}^t\). Let \(z'\in\{0,1\}^{t-1}\) be the prefix obtained by deleting the last bit. Any \(t\)-tuple
+\[
+  \mathbf v=(v_1,\ldots,v_t)
+\]
+counted by \(C(t,z)\) has a prefix
+\[
+  \mathbf v'=(v_1,\ldots,v_{t-1})
+\]
+counted by \(C(t-1,z')\). Indeed, \(\noderef{ProductDigraphTupleHasShrinkingSequence}\) says that the shrinking bit at each index is determined only by the earlier first coordinates, and the forward-independence condition for the prefix is inherited from the forward-independence condition for the full tuple. Therefore the prefix has exactly the shrinking sequence \(z'\).
+
+Fix such a prefix \(\mathbf v'\), and write
+\[
+  v_i=(a_i,b_i)
+\]
+for its product vertices. Define
+\[
+  B_t=V\setminus\bigcup_{i<t}N_G(a_i),
+  \qquad
+  A_t=\left\{u\in V:\ |N_G(u)\cap B_t|
+      \le \frac{d(G)|B_t|}{2n}\right\}.
+\]
+These two sets are determined entirely by the prefix \(\mathbf v'\). We now bound the number of possible last vertices \(v_t=(a_t,b_t)\).
+
+First suppose the last bit of \(z\) is \(0\). By the convention in \(\noderef{ProductDigraphTupleHasShrinkingSequence}\), the zero bit is exactly the sparse-set case, so \(a_t\in A_t\). Also, because \(v_t\) is a vertex of the product digraph, \(\noderef{ProductDigraph}\) and \(\noderef{ProductDigraphVertex}\) give
+\[
+  a_t b_t\in E(F).
+\]
+Finally, since the full tuple is forward independent in \(D\), no earlier vertex \(v_i\) has an arc to \(v_t\). By the arc definition of \(D(F,G)\) in \(\noderef{ProductDigraph}\), this means \(a_i b_t\notin E(G)\) for every \(i<t\), and hence \(b_t\in B_t\). Thus every possible last vertex in the zero-bit case is counted by
+\[
+  e_F(A_t,B_t),
+\]
+the ordered edge count from \(A_t\) to \(B_t\) in \(F\), as defined in \(\noderef{LoopGraphEdgeCountBetween}\).
+
+Apply \(\noderef{SparseNeighborhoodSetBound}\) to the graph \(G\) and the set \(B_t\). The definition of \(A_t\) is exactly the sparse-neighborhood hypothesis in that lemma, so
+\[
+  |A_t||B_t|\le \frac{4\lambda(G)^2}{d(G)^2}n^2. \tag{1}
+\]
+Apply \(\noderef{ExpanderMixingLemma}\) to \(F\) with the sets \(A_t\) and \(B_t\). Since \(e_F(A_t,B_t)\) is the ordered count from \(\noderef{LoopGraphEdgeCountBetween}\), the mixing lemma gives
+\[
+  e_F(A_t,B_t)
+  \le \frac{d(F)}{n}|A_t||B_t|
+      +\lambda(F)\sqrt{|A_t||B_t|}.
+\]
+We spell out the numerical estimate. From (1) and \(n,d(G)>0\),
+\[
+  \frac{d(F)}{n}|A_t||B_t|
+  \le 4n\,\frac{d(F)\lambda(G)^2}{d(G)^2}.
+\]
+Also, since the \(\lambda\)-parameters in an \((n,d,\lambda)\)-graph are nonnegative spectral bounds by \(\noderef{LoopGraphNdLambda}\), (1) gives
+\[
+  \sqrt{|A_t||B_t|}\le \frac{2\lambda(G)n}{d(G)}.
+\]
+Hence
+\[
+  \lambda(F)\sqrt{|A_t||B_t|}
+  \le 2n\,\frac{\lambda(F)\lambda(G)}{d(G)}
+  \le 4n\,\frac{\lambda(F)\lambda(G)}{d(G)}.
+\]
+Combining these two estimates with the previous mixing bound gives
+\[
+  e_F(A_t,B_t)
+  \le 4n\left(\frac{d(F)\lambda(G)^2}{d(G)^2}
+        +\frac{\lambda(F)\lambda(G)}{d(G)}\right)
+\]
+Finally, by the definition of \(\eta\) and \(d(F)>0\),
+\[
+  \frac{\lambda(G)^2}{d(G)^2}\le \eta,
+  \qquad
+  \frac{\lambda(F)\lambda(G)}{d(F)d(G)}\le \eta.
+\]
+Multiplying the second inequality by \(d(F)\) and adding the two displayed bounds yields
+\[
+  e_F(A_t,B_t)\le 8\eta\, d(F)n. \tag{2}
+\]
+Thus, for each fixed prefix in the zero-bit case, there are at most \(8\eta\,d(F)n\) choices for \(v_t\).
+
+By the induction hypothesis, the number of possible prefixes is at most
+\[
+  (8\eta)^{(t-1)-|z'|}(d(F)n)^{t-1}.
+\]
+Multiplying by the zero-bit choice bound (2) gives
+\[
+  (8\eta)^{(t-1)-|z'|}(d(F)n)^{t-1}
+  \cdot 8\eta\,d(F)n.
+\]
+Since the last bit is \(0\), \(\noderef{BinarySequenceWeight}\) gives \(|z|=|z'|\). Hence the last displayed expression is
+\[
+  (8\eta)^{t-|z|}(d(F)n)^t,
+\]
+which is the desired bound in the zero-bit case.
+
+It remains to consider the case where the last bit of \(z\) is \(1\). In this case \(\noderef{ProductDigraphTupleHasShrinkingSequence}\) places the last first-coordinate \(a_t\) in the large-neighborhood case. We do not use any sparse estimate; we only use the trivial bound on the number of possible product vertices. By \(\noderef{ProductDigraphVertex}\), a vertex of \(D(F,G)\) is an ordered pair \((a,b)\) with \(ab\in E(F)\). Since \(F\) is an \((n,d(F),\lambda(F))\)-graph, \(\noderef{LoopGraphNdLambda}\) and \(\noderef{LoopGraphDegree}\) say that there are \(n\) choices for \(a\) and, for each \(a\), exactly \(d(F)\) choices for \(b\) with \(ab\in E(F)\). Therefore
+\[
+  |V(D)|=d(F)n,
+\]
+so for each fixed prefix there are at most \(d(F)n\) choices for \(v_t\).
+
+The induction hypothesis again gives at most
+\[
+  (8\eta)^{(t-1)-|z'|}(d(F)n)^{t-1}
+\]
+prefixes. Multiplying by the trivial \(d(F)n\) choices for the final vertex gives
+\[
+  (8\eta)^{(t-1)-|z'|}(d(F)n)^t.
+\]
+Since the last bit is \(1\), \(\noderef{BinarySequenceWeight}\) gives \(|z|=|z'|+1\), so
+\[
+  (t-1)-|z'|=t-|z|.
+\]
+Thus the last displayed expression is exactly
+\[
+  (8\eta)^{t-|z|}(d(F)n)^t.
+\]
+
+The induction is complete, and therefore the displayed bound holds for every fixed binary shrinking sequence \(z\).
 \end{proof}

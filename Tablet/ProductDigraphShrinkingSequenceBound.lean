@@ -10,6 +10,7 @@ theorem ProductDigraphShrinkingSequenceBound {V : Type u} [Fintype V]
     (F G : LoopGraph V) (n dF dG t : ℕ) (lambdaF lambdaG eta : ℝ)
     (hF : LoopGraphNdLambda F n dF lambdaF)
     (hG : LoopGraphNdLambda G n dG lambdaG)
+    (hn : 0 < n) (hdF : 0 < dF) (hdG : 0 < dG)
     (heta : eta =
       max (lambdaG ^ 2 / (dG : ℝ) ^ 2)
         (lambdaF * lambdaG / ((dF : ℝ) * (dG : ℝ))))
