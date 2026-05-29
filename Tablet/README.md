@@ -55,5 +55,6 @@
 | SimpleGraphIndependentSetCount | definition | - | closed |
 | SparseNeighborhoodSetBound | proof | - | open |
 | TransitiveTournamentFree | definition | - | closed |
+| TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 32/51 closed
+**Summary:** 33/52 closed

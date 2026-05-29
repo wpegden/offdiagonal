@@ -2,6 +2,7 @@ import Tablet.DigraphOrderedGraph
 import Tablet.DigraphOrderedGraphIndependentSetToForwardTuple
 import Tablet.ForwardIndependentTupleCount
 import Tablet.SimpleGraphIndependentSetCount
+import Tablet.TupleIncreasingPermutationFiberCount
 
 -- [TABLET NODE: DigraphOrderedGraphIndependentSetBound]
 

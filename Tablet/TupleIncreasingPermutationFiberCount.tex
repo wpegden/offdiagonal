@@ -1,0 +1,32 @@
+\begin{helper}
+Let \(W\) be a finite vertex set, let \(v:\{1,\ldots,k\}\to W\) be an injective tuple, and let \(r:W\to\mathbb N\) be a ranking function that is injective on the range of \(v\). Among the \(k!\) permutations of the tuple positions, the permutations \(\sigma\) for which
+\[
+  r(v_{\sigma(1)})<r(v_{\sigma(2)})<\cdots<r(v_{\sigma(k)})
+\]
+form a one-element fiber. Equivalently,
+\[
+  k!\cdot
+  \#\{\sigma\in\operatorname{Sym}(\{1,\ldots,k\}): r(v_{\sigma(1)})<\cdots<r(v_{\sigma(k)})\}
+  =
+  \#\operatorname{Sym}(\{1,\ldots,k\}).
+\]
+\end{helper}
+\begin{proof}
+Write \(f(i)=r(v_i)\). Since \(v\) is injective and \(r\) is injective on the range of \(v\), the values \(f(1),\ldots,f(k)\) are pairwise distinct.
+
+First we prove uniqueness. Suppose \(\sigma\) and \(\tau\) are two permutations of the positions such that both sequences
+\[
+  f(\sigma(1)),\ldots,f(\sigma(k))
+  \quad\text{and}\quad
+  f(\tau(1)),\ldots,f(\tau(k))
+\]
+are strictly increasing. Each sequence lists the same set \(\{f(1),\ldots,f(k)\}\), because \(\sigma\) and \(\tau\) are permutations. A finite set of distinct integers has a unique increasing listing: the first term is its least element, and after removing the first \(m\) least elements, the next term is the least remaining element. Hence \(f(\sigma(i))=f(\tau(i))\) for every \(i\). Since the \(f(i)\) are pairwise distinct, \(\sigma(i)=\tau(i)\) for every \(i\), so \(\sigma=\tau\). Thus there is at most one increasing permutation.
+
+Now list the set \(\{f(1),\ldots,f(k)\}\) in increasing order as
+\[
+  \rho_1<\rho_2<\cdots<\rho_k .
+\]
+For each \(i\), choose the unique position \(\sigma(i)\) with \(f(\sigma(i))=\rho_i\). This defines a permutation of the \(k\) positions, because every position has one of the ranks \(\rho_i\) and the ranks are distinct. By construction \(f(\sigma(1))<\cdots<f(\sigma(k))\), so an increasing permutation exists.
+
+Therefore the set of increasing permutations has cardinality exactly \(1\). The total number of permutations of \(k\) positions is \(k!\). Multiplying the one-element fiber by \(k!\) gives exactly the total number of permutations, which is the claimed identity.
+\end{proof}
