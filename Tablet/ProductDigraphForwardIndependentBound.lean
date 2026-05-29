@@ -556,4 +556,91 @@ theorem ProductDigraphForwardIndependentBound {V : Type u} [Fintype V]
             (1 : ℝ) ≤ (((survivingSet v lastTrue).card : ℕ) : ℝ) := by
           exact_mod_cast (Nat.succ_le_of_lt (hsurvivingSet_card_pos v lastTrue))
         exact (not_lt_of_ge hcard_ge_one) hcard_lt_one
+    have hforwardCount_le_fixedSequenceSum :
+        ForwardIndependentTupleCount (ProductDigraph F G) k ≤
+          ∑ z : Fin k → Bool, ProductDigraphFixedSequenceTupleCount F G n dG k z := by
+      let target :=
+        Sigma (fun z : Fin k → Bool =>
+          {u : Fin k → ProductDigraphVertex F //
+            ProductDigraphTupleHasShrinkingSequence F G n dG u z})
+      have hcard_le :
+          Fintype.card
+              {u : Fin k → ProductDigraphVertex F //
+                ForwardIndependentTuple (ProductDigraph F G) u} ≤
+            Fintype.card target := by
+        refine Fintype.card_le_of_injective
+          (fun v : {u : Fin k → ProductDigraphVertex F //
+              ForwardIndependentTuple (ProductDigraph F G) u} =>
+            (⟨shrinkingSequence v, ⟨v.val, hshrinkingSequence v⟩⟩ : target)) ?_
+        intro v₁ v₂ hv
+        apply Subtype.ext
+        exact congrArg
+          (fun x : target => x.2.val) hv
+      have htarget_card :
+          Fintype.card target =
+            ∑ z : Fin k → Bool, ProductDigraphFixedSequenceTupleCount F G n dG k z := by
+        dsimp [target]
+        simp [ProductDigraphFixedSequenceTupleCount]
+      change
+        Fintype.card
+            {u : Fin k → ProductDigraphVertex F //
+              ForwardIndependentTuple (ProductDigraph F G) u} ≤
+          ∑ z : Fin k → Bool, ProductDigraphFixedSequenceTupleCount F G n dG k z
+      simpa [htarget_card] using hcard_le
+    let restrictedSequences :=
+      {z : Fin k → Bool // ((BinarySequenceWeight z : ℕ) : ℝ) ≤ w}
+    have hforwardCount_le_restrictedFixedSequenceSum :
+        ForwardIndependentTupleCount (ProductDigraph F G) k ≤
+          ∑ z : restrictedSequences,
+            ProductDigraphFixedSequenceTupleCount F G n dG k z.val := by
+      let target :=
+        Sigma (fun z : restrictedSequences =>
+          {u : Fin k → ProductDigraphVertex F //
+            ProductDigraphTupleHasShrinkingSequence F G n dG u z.val})
+      have hcard_le :
+          Fintype.card
+              {u : Fin k → ProductDigraphVertex F //
+                ForwardIndependentTuple (ProductDigraph F G) u} ≤
+            Fintype.card target := by
+        refine Fintype.card_le_of_injective
+          (fun v : {u : Fin k → ProductDigraphVertex F //
+              ForwardIndependentTuple (ProductDigraph F G) u} =>
+            (⟨⟨shrinkingSequence v, hshrinkingWeightBound v⟩,
+              ⟨v.val, hshrinkingSequence v⟩⟩ : target)) ?_
+        intro v₁ v₂ hv
+        apply Subtype.ext
+        exact congrArg
+          (fun x : target => x.2.val) hv
+      have htarget_card :
+          Fintype.card target =
+            ∑ z : restrictedSequences,
+              ProductDigraphFixedSequenceTupleCount F G n dG k z.val := by
+        dsimp [target]
+        simp [ProductDigraphFixedSequenceTupleCount]
+      change
+        Fintype.card
+            {u : Fin k → ProductDigraphVertex F //
+              ForwardIndependentTuple (ProductDigraph F G) u} ≤
+          ∑ z : restrictedSequences,
+            ProductDigraphFixedSequenceTupleCount F G n dG k z.val
+      simpa [htarget_card] using hcard_le
+    have hforwardCount_le_restrictedFixedSequenceEstimateSum :
+        ((ForwardIndependentTupleCount (ProductDigraph F G) k : ℕ) : ℝ) ≤
+          ∑ z : restrictedSequences,
+            ((8 : ℝ) * eta) ^ (k - BinarySequenceWeight z.val) *
+              ((dF * n : ℕ) : ℝ) ^ k := by
+      calc
+        ((ForwardIndependentTupleCount (ProductDigraph F G) k : ℕ) : ℝ)
+            ≤ ((∑ z : restrictedSequences,
+                ProductDigraphFixedSequenceTupleCount F G n dG k z.val : ℕ) : ℝ) := by
+              exact_mod_cast hforwardCount_le_restrictedFixedSequenceSum
+        _ = ∑ z : restrictedSequences,
+              ((ProductDigraphFixedSequenceTupleCount F G n dG k z.val : ℕ) : ℝ) := by
+              exact_mod_cast (Finset.sum_congr rfl (fun _ _ => rfl))
+        _ ≤ ∑ z : restrictedSequences,
+              ((8 : ℝ) * eta) ^ (k - BinarySequenceWeight z.val) *
+                ((dF * n : ℕ) : ℝ) ^ k := by
+              exact Finset.sum_le_sum (fun z _hz =>
+                ProductDigraphShrinkingSequenceBound F G n dF dG k lambdaF lambdaG eta
+                  hF hG hn_pos hdF hdG heta z.val)
     sorry
