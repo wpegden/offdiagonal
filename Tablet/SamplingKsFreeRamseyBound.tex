@@ -1,5 +1,5 @@
 \begin{lemma}
-Suppose \(G\) is a \(K_s\)-free graph on \(n\) vertices and \(p\in[0,1]\) satisfies
+Suppose \(G\) is a \(K_s\)-free graph on \(n\) vertices, let \(k\ge 1\), and let \(p\in[0,1]\) satisfy
 \[
   p^k i_k(G)\le 1.
 \]
@@ -9,6 +9,40 @@ Then
 \]
 \end{lemma}
 \begin{proof}
-SKETCH:
-Keep each vertex independently with probability \(p\), and let \(G'\) be the induced subgraph. It remains \(K_s\)-free. The expectation of \(|V(G')|-i_k(G')\) is \(pn-p^k i_k(G)\), which is at least \(pn-1\). Hence some induced subgraph has \(|V|-i_k\ge pn-1\). Delete one vertex from every independent \(k\)-set in that subgraph. The resulting graph is still \(K_s\)-free, has no independent set of size \(k\), and has more than \(pn-1\) vertices, giving the stated Ramsey lower bound.
+Choose a random subset \(U\subseteq V(G)\) by keeping each vertex independently with probability \(p\), and let \(G'=G[U]\) be the induced subgraph on \(U\). Every clique of \(G'\) is also a clique of \(G\), because \(G'\) is induced from \(G\). Since \(G\) is \(K_s\)-free, \(G'\) is \(K_s\)-free for every outcome \(U\).
+
+For each vertex \(v\in V(G)\), let \(X_v\) be the indicator of the event \(v\in U\). Then \(\mathbb E X_v=p\), so by linearity of expectation
+\[
+  \mathbb E |V(G')|=\mathbb E |U|=\sum_{v\in V(G)}\mathbb E X_v=pn.
+\]
+By \(\noderef{SimpleGraphIndependentSetCount}\), \(i_k(G)\) is the number of independent \(k\)-sets in \(G\). For each independent \(k\)-set \(I\) of \(G\), let \(Y_I\) be the indicator of the event \(I\subseteq U\). Since the \(k\) vertices of \(I\) are retained independently and \(p\in[0,1]\), we have \(\mathbb E Y_I=p^k\). The independent \(k\)-sets of \(G'\) are exactly the independent \(k\)-sets \(I\) of \(G\) with \(I\subseteq U\). Hence
+\[
+  i_k(G')=\sum_{I} Y_I,
+\]
+where the sum is over the independent \(k\)-sets of \(G\), and another application of linearity gives
+\[
+  \mathbb E i_k(G')=p^k i_k(G).
+\]
+Therefore
+\[
+  \mathbb E\bigl(|V(G')|-i_k(G')\bigr)
+  =pn-p^k i_k(G)\ge pn-1
+\]
+by the hypothesis \(p^k i_k(G)\le 1\). Since this expectation is an average over the finitely many possible choices of \(U\), there is an outcome \(U_0\) such that the induced graph \(F=G[U_0]\) satisfies
+\[
+  |V(F)|-i_k(F)\ge pn-1.
+\]
+As above, \(F\) is \(K_s\)-free.
+
+Now delete vertices from \(F\) as follows. For each independent \(k\)-set \(I\) in \(F\), choose one vertex \(v_I\in I\); this is possible because \(k\ge1\), so every independent \(k\)-set is nonempty. Let \(D=\{v_I : I \text{ is an independent } k\text{-set of }F\}\), and let \(H=F[V(F)\setminus D]\). Then \(H\) is an induced subgraph of \(F\), so it is still \(K_s\)-free. Also, \(H\) has no independent set of size \(k\): if \(J\subseteq V(H)\) were independent of size \(k\), then \(J\) would be one of the independent \(k\)-sets of \(F\), so the chosen vertex \(v_J\) would lie in both \(J\) and \(D\), contradicting \(J\subseteq V(H)=V(F)\setminus D\).
+
+There is at most one chosen vertex for each independent \(k\)-set of \(F\), so \(|D|\le i_k(F)\). Consequently
+\[
+  |V(H)|=|V(F)|-|D|\ge |V(F)|-i_k(F)\ge pn-1.
+\]
+By \(\noderef{RamseyProperty}\), \(H\) witnesses that the Ramsey property fails at \(N=|V(H)|\): it is a graph on \(N\) vertices with neither a \(K_s\) nor an independent \(k\)-set. We now show that this forces \(r(s,k)>N\). If instead \(r(s,k)\le N\), choose \(r(s,k)\) vertices of \(H\) and take the induced subgraph on them. This induced subgraph still has no \(K_s\) and no independent \(k\)-set, because both properties would also be present in \(H\). But by \(\noderef{RamseyNumber}\), \(r(s,k)\) is the least size at which \(\noderef{RamseyProperty}\) holds, so every graph on \(r(s,k)\) vertices must contain a \(K_s\) or an independent \(k\)-set. This contradiction proves
+\[
+  r(s,k)>N=|V(H)|.
+\]
+Combining this with \(|V(H)|\ge pn-1\) gives \(r(s,k)>pn-1\), as required.
 \end{proof}
