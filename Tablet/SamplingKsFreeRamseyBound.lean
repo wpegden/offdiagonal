@@ -105,4 +105,22 @@ theorem SamplingKsFreeRamseyBound {V : Type u} [Fintype V]
       rw [hH_card]
       exact Nat.sub_le_sub_left hdeleted_card_le_count (Fintype.card W)
     exact ⟨Hverts, inferInstance, H, hH_KsFree, hH_no_independent, hH_card_ge⟩
+  let bernoulliWeight : Finset V → ℝ :=
+    fun U => p ^ U.card * (1 - p) ^ (Fintype.card V - U.card)
+  have hbernoulliWeight_nonneg :
+      ∀ U : Finset V, 0 ≤ bernoulliWeight U := by
+    intro U
+    dsimp [bernoulliWeight]
+    exact mul_nonneg (pow_nonneg hp0 _)
+      (pow_nonneg (by linarith : 0 ≤ (1 : ℝ) - p) _)
+  have hbernoulliWeight_total :
+      (∑ U : Finset V, bernoulliWeight U) = 1 := by
+    dsimp [bernoulliWeight]
+    calc
+      (∑ U : Finset V,
+          p ^ U.card * (1 - p) ^ (Fintype.card V - U.card))
+          = (p + (1 - p)) ^ Fintype.card V := by
+            exact Fintype.sum_pow_mul_eq_add_pow V p (1 - p)
+      _ = 1 := by
+            ring_nf
   sorry
