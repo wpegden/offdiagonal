@@ -45,7 +45,7 @@
 | ProductDigraphFixedSequenceTupleCount | definition | - | closed |
 | ProductDigraphForwardIndependentBound | proof | - | open |
 | ProductDigraphShrinkingSequenceBound | proof | - | open |
-| ProductDigraphTransitiveFree | proof | - | open |
+| ProductDigraphTransitiveFree | proof | - | closed |
 | ProductDigraphTupleHasShrinkingSequence | definition | - | closed |
 | ProductDigraphVertex | definition | - | closed |
 | RamseyFromGraphPair | proof | - | open |
@@ -58,4 +58,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 35/53 closed
+**Summary:** 36/53 closed
