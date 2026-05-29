@@ -12,4 +12,5 @@ noncomputable def LoopGraphNdLambda {V : Type u} [Fintype V]
   Fintype.card V = n ∧
     LoopGraphSymmetric G ∧
       (∀ v : V, LoopGraphDegree G v = d) ∧
-        ∀ mu : ℝ, LoopGraphNonprincipalEigenvalue G mu → |mu| ≤ lambda
+        (∀ mu : ℝ, LoopGraphNonprincipalEigenvalue G mu → |mu| ≤ lambda) ∧
+          0 ≤ lambda
