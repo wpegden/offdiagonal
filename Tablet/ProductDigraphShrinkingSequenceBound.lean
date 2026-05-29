@@ -87,4 +87,86 @@ theorem ProductDigraphShrinkingSequenceBound {V : Type u} [Fintype V]
     intro m w hw
     exact ProductDigraphFixedSequenceTupleCountZeroBitBound F G n dF dG m
       lambdaF lambdaG eta hF hG hn hdF hdG heta w hw
-  sorry
+  let a : ℝ := (8 : ℝ) * eta
+  let b : ℝ := (((dF * n : ℕ) : ℝ))
+  have heta_nonneg : 0 ≤ eta := by
+    have hleft :
+        lambdaG ^ 2 / (dG : ℝ) ^ 2 ≤ eta := by
+      rw [heta]
+      exact le_max_left _ _
+    have hfirst_nonneg :
+        0 ≤ lambdaG ^ 2 / (dG : ℝ) ^ 2 := by
+      exact div_nonneg (sq_nonneg _) (sq_nonneg _)
+    exact le_trans hfirst_nonneg hleft
+  have ha_nonneg : 0 ≤ a := by
+    dsimp [a]
+    exact mul_nonneg (by norm_num) heta_nonneg
+  have hb_nonneg : 0 ≤ b := by
+    dsimp [b]
+    positivity
+  change
+    ((ProductDigraphFixedSequenceTupleCount F G n dG t z : ℕ) : ℝ) ≤
+      a ^ (t - BinarySequenceWeight z) * b ^ t
+  induction t with
+  | zero =>
+      simp [ProductDigraphFixedSequenceTupleCount, ProductDigraphTupleHasShrinkingSequence,
+        BinarySequenceWeight]
+      refine Fintype.card_le_one_iff_subsingleton.mpr ?_
+      exact ⟨fun x y => by
+        apply Subtype.ext
+        funext i
+        exact Fin.elim0 i⟩
+  | succ m ih =>
+      let zp : Fin m → Bool := fun i : Fin m => z i.castSucc
+      have hih :
+          ((ProductDigraphFixedSequenceTupleCount F G n dG m zp : ℕ) : ℝ) ≤
+            a ^ (m - BinarySequenceWeight zp) * b ^ m := ih zp
+      have hweight_le : BinarySequenceWeight zp ≤ m := by
+        simpa [BinarySequenceWeight] using
+          (Finset.card_filter_le (Finset.univ : Finset (Fin m))
+            (fun i : Fin m => zp i = true))
+      by_cases hlast : z (Fin.last m) = true
+      · have hstep :
+            ((ProductDigraphFixedSequenceTupleCount F G n dG (m + 1) z : ℕ) : ℝ) ≤
+              ((ProductDigraphFixedSequenceTupleCount F G n dG m zp : ℕ) : ℝ) * b := by
+          simpa [b, zp] using hOneStepTrue z hlast
+        have hcombined :
+            ((ProductDigraphFixedSequenceTupleCount F G n dG (m + 1) z : ℕ) : ℝ) ≤
+              (a ^ (m - BinarySequenceWeight zp) * b ^ m) * b := by
+          exact le_trans hstep (mul_le_mul_of_nonneg_right hih hb_nonneg)
+        have hweight : BinarySequenceWeight z = BinarySequenceWeight zp + 1 := by
+          simpa [zp] using hWeightLastTrue z hlast
+        have hexp :
+            (m + 1) - BinarySequenceWeight z = m - BinarySequenceWeight zp := by
+          rw [hweight]
+          omega
+        calc
+          ((ProductDigraphFixedSequenceTupleCount F G n dG (m + 1) z : ℕ) : ℝ)
+              ≤ (a ^ (m - BinarySequenceWeight zp) * b ^ m) * b := hcombined
+          _ = a ^ ((m + 1) - BinarySequenceWeight z) * b ^ (m + 1) := by
+              rw [hexp, pow_succ]
+              ring
+      · have hlast_false : z (Fin.last m) = false := by
+          cases hbit : z (Fin.last m) <;> simp [hbit] at hlast ⊢
+        have hab_nonneg : 0 ≤ a * b := mul_nonneg ha_nonneg hb_nonneg
+        have hstep :
+            ((ProductDigraphFixedSequenceTupleCount F G n dG (m + 1) z : ℕ) : ℝ) ≤
+              ((ProductDigraphFixedSequenceTupleCount F G n dG m zp : ℕ) : ℝ) * (a * b) := by
+          simpa [a, b, zp, mul_assoc] using hOneStepFalse z hlast_false
+        have hcombined :
+            ((ProductDigraphFixedSequenceTupleCount F G n dG (m + 1) z : ℕ) : ℝ) ≤
+              (a ^ (m - BinarySequenceWeight zp) * b ^ m) * (a * b) := by
+          exact le_trans hstep (mul_le_mul_of_nonneg_right hih hab_nonneg)
+        have hweight : BinarySequenceWeight z = BinarySequenceWeight zp := by
+          simpa [zp] using hWeightLastFalse z hlast_false
+        have hexp :
+            (m + 1) - BinarySequenceWeight z =
+              (m - BinarySequenceWeight zp) + 1 := by
+          rw [hweight]
+          omega
+        calc
+          ((ProductDigraphFixedSequenceTupleCount F G n dG (m + 1) z : ℕ) : ℝ)
+              ≤ (a ^ (m - BinarySequenceWeight zp) * b ^ m) * (a * b) := hcombined
+          _ = a ^ ((m + 1) - BinarySequenceWeight z) * b ^ (m + 1) := by
+              rw [hexp, pow_succ, pow_succ]
+              ring

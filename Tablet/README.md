@@ -63,7 +63,7 @@
 | ProductDigraphFixedSequenceTupleCountLastVertexBound | proof | - | closed |
 | ProductDigraphFixedSequenceTupleCountZeroBitBound | proof | - | closed |
 | ProductDigraphForwardIndependentBound | proof | - | open |
-| ProductDigraphShrinkingSequenceBound | proof | - | open |
+| ProductDigraphShrinkingSequenceBound | proof | - | closed |
 | ProductDigraphSparseEdgeChoiceBound | proof | - | closed |
 | ProductDigraphTransitiveFree | proof | - | closed |
 | ProductDigraphTupleHasShrinkingSequence | definition | - | closed |
@@ -79,4 +79,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 59/74 closed
+**Summary:** 60/74 closed
