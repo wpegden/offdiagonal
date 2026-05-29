@@ -7,6 +7,56 @@ Let \(K\) be a finite field of order \(q\), let \(t\ge 2\), and let \(G(t,K)\) b
 \]
 \end{lemma}
 \begin{proof}
-SKETCH:
-The projective space has one point for each nonzero vector modulo multiplication by a nonzero scalar, so the number of points is \((q^{t+1}-1)/(q-1)\). For a fixed nonzero vector \(x\), the orthogonal hyperplane \(x^\perp\) has \(q^t\) vectors, one of which is zero, so the degree is \((q^t-1)/(q-1)\). If \(x\) and \(y\) represent distinct projective points, then they are linearly independent, and the common orthogonal space \(x^\perp\cap y^\perp\) has \(q^{t-1}\) vectors, giving \(a=(q^{t-1}-1)/(q-1)\) common neighbours. Therefore the adjacency matrix \(A\) satisfies \(A^2=aJ+(d-a)I\). On the all-ones vector \(A\) has eigenvalue \(d\); on the orthogonal complement of the all-ones vector, \(J\) vanishes, so all remaining eigenvalues have absolute value \(\sqrt{d-a}\).
+Put
+\[
+  n=\frac{q^{t+1}-1}{q-1},\qquad
+  d=\frac{q^t-1}{q-1},\qquad
+  a=\frac{q^{t-1}-1}{q-1}.
+\]
+By \(\noderef{LoopGraphNdLambda}\), it is enough to prove that \(G(t,K)\) has \(n\) vertices, is symmetric, has degree \(d\) at every vertex, and has every non-principal adjacency eigenvalue bounded in absolute value by \(\sqrt{d-a}\).
+
+We first count vertices. By \(\noderef{PolarityGraph}\), the vertices of \(G(t,K)\) are projective points in \(K^{t+1}\), that is, nonzero vectors modulo multiplication by a nonzero scalar. Since \(K\) has \(q\) elements, the vector space \(K^{t+1}\) has \(q^{t+1}\) vectors and hence \(q^{t+1}-1\) nonzero vectors. Each projective point has exactly \(q-1\) nonzero representatives, one for each element of \(K^\times\). Therefore the number of projective points, and hence the number of vertices of \(G(t,K)\), is
+\[
+  \frac{q^{t+1}-1}{q-1}=n.
+\]
+
+The graph is symmetric in the sense of \(\noderef{LoopGraphSymmetric}\). Indeed, by \(\noderef{PolarityGraph}\), two vertices represented by nonzero vectors \(x\) and \(y\) are adjacent exactly when \(\langle x,y\rangle=0\). The dot product is symmetric, so \(\langle x,y\rangle=0\) if and only if \(\langle y,x\rangle=0\). Thus every edge \(xy\) is also an edge \(yx\).
+
+Next fix a vertex \(v\), represented by a nonzero vector \(x\in K^{t+1}\). The neighbors of \(v\) are exactly the projective points represented by nonzero vectors \(y\) with \(\langle x,y\rangle=0\), by \(\noderef{PolarityGraph}\). The map \(y\mapsto \langle x,y\rangle\) is a nonzero linear functional on the \((t+1)\)-dimensional \(K\)-vector space \(K^{t+1}\), so its kernel \(x^\perp\) is a \(t\)-dimensional hyperplane. Thus \(x^\perp\) has \(q^t\) vectors, of which exactly one is zero. The remaining \(q^t-1\) vectors split into projective classes of size \(q-1\), so \(v\) has
+\[
+  \frac{q^t-1}{q-1}=d
+\]
+neighbors. This is precisely the degree convention of \(\noderef{LoopGraphDegree}\): a loop at \(v\), which occurs when \(x\in x^\perp\), contributes the single projective point \(v\) once to the neighbor count. Hence every vertex has degree \(d\).
+
+We now count common neighbors of two distinct vertices. Let \(v\ne w\) be represented by nonzero vectors \(x\) and \(y\). Since \(v\) and \(w\) are distinct projective points, \(x\) and \(y\) are linearly independent. The two linear functionals \(z\mapsto \langle x,z\rangle\) and \(z\mapsto \langle y,z\rangle\) are therefore linearly independent: a linear dependence between them would give a nontrivial linear dependence between \(x\) and \(y\), using nondegeneracy of the standard dot product. Consequently
+\[
+  x^\perp\cap y^\perp
+\]
+has codimension \(2\) in \(K^{t+1}\), hence dimension \(t-1\). It contains \(q^{t-1}\) vectors, \(q^{t-1}-1\) of them nonzero, and these nonzero vectors split into projective classes of size \(q-1\). Thus every pair of distinct vertices has exactly
+\[
+  a=\frac{q^{t-1}-1}{q-1}
+\]
+common neighbors.
+
+Let \(A\) denote the adjacency action of \(G(t,K)\) on real-valued functions, as in \(\noderef{LoopGraphAdjacencyAction}\), and let \(J\) denote the all-ones averaging-sum operator \(Jf(v)=\sum_w f(w)\). For any function \(f\) and any vertex \(v\), applying the adjacency action twice gives
+\[
+  A^2 f(v)=\sum_w c(v,w)f(w),
+\]
+where \(c(v,w)\) is the number of common neighbors of \(v\) and \(w\), with loops included once exactly as in the adjacency-action definition. If \(w=v\), then \(c(v,v)\) is the degree of \(v\), namely \(d\). If \(w\ne v\), then the preceding paragraph gives \(c(v,w)=a\). Hence, for every \(f\) and every \(v\),
+\[
+  A^2 f(v)=d f(v)+a\sum_{w\ne v}f(w)
+          =a\sum_w f(w)+(d-a)f(v).
+\]
+Equivalently, \(A^2=aJ+(d-a)I\).
+
+It remains to check the non-principal eigenvalue bound in \(\noderef{LoopGraphNdLambda}\). Let \(\mu\) be a non-principal adjacency eigenvalue in the sense of \(\noderef{LoopGraphNonprincipalEigenvalue}\). Then there is a nonzero real-valued function \(f\) on the vertex set such that \(\sum_w f(w)=0\) and \(Af=\mu f\). Applying \(A\) again and using the identity just proved gives
+\[
+  \mu^2 f=A^2f=aJf+(d-a)f=(d-a)f,
+\]
+because \(Jf\) is the zero function when the coordinate sum of \(f\) is zero. Since \(f\) is not the zero function, some coordinate is nonzero, and the displayed equality forces \(\mu^2=d-a\). Therefore \(|\mu|=\sqrt{d-a}\), so in particular \(|\mu|\le \sqrt{d-a}\). This proves the required non-principal eigenvalue bound with
+\[
+  \lambda=\sqrt{d-a}
+  =\sqrt{\,\frac{q^t-1}{q-1}-\frac{q^{t-1}-1}{q-1}\,}.
+\]
+All clauses in the definition of an \((n,d,\lambda)\)-graph from \(\noderef{LoopGraphNdLambda}\) are verified.
 \end{proof}
