@@ -1,0 +1,41 @@
+\begin{helper}
+Let \(D\) be a digraph on a finite vertex set \(W\), and let \(k\ge 0\). Then there is a ranking function \(r:W\to\mathbb N\) such that
+\[
+  k!\, i_k(\Gamma(D,r))\le \overrightarrow{i_k}(D),
+\]
+where \(\Gamma(D,r)\) is the ordered graph from \(\noderef{DigraphOrderedGraph}\), \(i_k\) is the count from \(\noderef{SimpleGraphIndependentSetCount}\), and \(\overrightarrow{i_k}\) is the count from \(\noderef{ForwardIndependentTupleCount}\).
+\end{helper}
+\begin{proof}
+Choose one fixed injective base ranking \(b:W\to\mathbb N\). For every permutation \(\tau\) of \(W\), define \(r_\tau(w)=b(\tau(w))\). Thus each \(r_\tau\) is injective on all of \(W\).
+
+For such a \(\tau\), let \(I_\tau\) be the set of \(k\)-element independent sets of \(\Gamma(D,r_\tau)\), counted by \(\noderef{SimpleGraphIndependentSetCount}\). We compare two finite sets. The first consists of triples \((\tau,S,\sigma)\), where \(\tau\) is a permutation of \(W\), \(S\in I_\tau\), and \(\sigma\) is a permutation of the \(k\) positions. Its cardinality is
+\[
+  \sum_\tau |I_\tau|\,k!.
+\]
+The second consists of pairs \((v,\pi)\), where \(v:\{1,\ldots,k\}\to W\) is forward independent in \(D\) and \(\pi\) is a permutation of \(W\). Its cardinality is
+\[
+  \overrightarrow{i_k}(D)\,|\operatorname{Sym}(W)|.
+\]
+
+We inject the first set into the second. Given \((\tau,S,\sigma)\), list the elements of \(S\) in increasing \(r_\tau\)-order as
+\[
+  v_1,\ldots,v_k .
+\]
+Since \(r_\tau\) is injective, this list is well defined and injective, and its range is exactly \(S\). Because \(S\) is independent in \(\Gamma(D,r_\tau)\), the same argument as in \(\noderef{DigraphOrderedGraphIndependentSetToForwardTuple}\) shows that \(v\) is forward independent in \(D\): if \(i<j\) and \((v_i,v_j)\) were an arc of \(D\), then \(v_i\) would be adjacent to \(v_j\) in \(\Gamma(D,r_\tau)\), contradicting independence of \(S\). Send \((\tau,S,\sigma)\) to the pair \((v,\pi)\), where \(\pi\) is the permutation of \(W\) obtained by first applying \(\sigma\) to the listed vertices \(v_1,\ldots,v_k\), fixing all other vertices, and then applying \(\tau\).
+
+This map is injective. From the image pair, \(v\) is known, so \(S=\{v_1,\ldots,v_k\}\) is known. It remains to recover \(\sigma\) and \(\tau\) from \(\pi\). The original listing \(v_1,\ldots,v_k\) was increasing for \(r_\tau\). Equivalently, after applying \(\pi\), the inverse position permutation \(\sigma^{-1}\) is the unique permutation of the \(k\) positions for which
+\[
+  b(\pi(v_{\sigma^{-1}(1)}))<\cdots<b(\pi(v_{\sigma^{-1}(k)})).
+\]
+The uniqueness and existence of this increasing position permutation is exactly the finite fiber statement of \(\noderef{TupleIncreasingPermutationFiberCount}\), applied to the injective tuple \(\pi\circ v\) and the injective ranking \(b\). Thus \(\sigma\) is recovered, and then \(\tau\) is recovered by undoing the corresponding extension of \(\sigma\) on the range of \(v\). Hence the map is injective.
+
+Therefore
+\[
+  \sum_\tau |I_\tau|\,k!
+  \le
+  \overrightarrow{i_k}(D)\,|\operatorname{Sym}(W)|
+  =
+  \sum_\tau \overrightarrow{i_k}(D).
+\]
+Since the set of permutations of \(W\) is nonempty, if every \(\tau\) satisfied \(|I_\tau|\,k!>\overrightarrow{i_k}(D)\), then summing over all \(\tau\) would contradict the displayed inequality. Hence some \(\tau\) satisfies \(|I_\tau|\,k!\le \overrightarrow{i_k}(D)\). Taking \(r=r_\tau\) proves the claim.
+\end{proof}

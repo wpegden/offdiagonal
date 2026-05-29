@@ -11,7 +11,8 @@
 | DigraphLoopless | definition | - | closed |
 | DigraphOrderedGraph | definition | - | closed |
 | DigraphOrderedGraphCliqueFree | proof | - | closed |
-| DigraphOrderedGraphIndependentSetBound | proof | - | open |
+| DigraphOrderedGraphIndependentSetBound | proof | - | closed |
+| DigraphOrderedGraphIndependentSetFactorialBound | proof | - | closed |
 | DigraphOrderedGraphIndependentSetToForwardTuple | proof | - | closed |
 | DigraphToGraphIndependentSetBound | proof | - | closed |
 | ExpanderMixingLemma | proof | - | open |
@@ -57,4 +58,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 33/52 closed
+**Summary:** 35/53 closed

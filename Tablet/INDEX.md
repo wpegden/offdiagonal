@@ -9,7 +9,8 @@
 | DigraphLoopless | definition | definition | closed | - | - | Digraph |
 | DigraphOrderedGraph | definition | definition | closed | - | - | Digraph |
 | DigraphOrderedGraphCliqueFree | helper | proof | closed | - | - | DigraphOrderedGraph, TransitiveTournamentFree |
-| DigraphOrderedGraphIndependentSetBound | helper | proof | open | - | - | DigraphOrderedGraph, DigraphOrderedGraphIndependentSetToForwardTuple, ForwardIndependentTupleCount, SimpleGraphIndependentSetCount, TupleIncreasingPermutationFiberCount |
+| DigraphOrderedGraphIndependentSetBound | helper | proof | closed | - | - | DigraphOrderedGraph, DigraphOrderedGraphIndependentSetFactorialBound, DigraphOrderedGraphIndependentSetToForwardTuple, ForwardIndependentTupleCount, SimpleGraphIndependentSetCount, TupleIncreasingPermutationFiberCount |
+| DigraphOrderedGraphIndependentSetFactorialBound | helper | proof | closed | - | - | DigraphOrderedGraph, ForwardIndependentTupleCount, SimpleGraphIndependentSetCount, TupleIncreasingPermutationFiberCount |
 | DigraphOrderedGraphIndependentSetToForwardTuple | helper | proof | closed | - | - | DigraphOrderedGraph, ForwardIndependentTuple |
 | DigraphToGraphIndependentSetBound | lemma | proof | closed | - | - | DigraphOrderedGraphCliqueFree, DigraphOrderedGraphIndependentSetBound |
 | ExpanderMixingLemma | lemma | proof | open | - | - | LoopGraphEdgeCountBetween, LoopGraphNdLambda |
@@ -56,4 +57,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 52 nodes | **Closed:** 33 | **Open:** 19
+**Total:** 53 nodes | **Closed:** 35 | **Open:** 18
