@@ -6,6 +6,108 @@ Let \(G\) be an \((n,d,\lambda)\)-graph, with loops allowed, and let \(A,B\subse
 \]
 \end{lemma}
 \begin{proof}
-SKETCH:
-This is the standard expander mixing lemma. Write the indicator functions of \(A\) and \(B\) as their projections onto the all-ones direction plus orthogonal components. The regularity term gives exactly \(d|A||B|/n\), and the contribution from the orthogonal components is bounded by \(\lambda\) times the product of their Euclidean norms, which is at most \(\lambda\sqrt{|A||B|}\). The same matrix proof works with loops because loops are represented as diagonal entries of the adjacency matrix.
+Let \(V=V(G)\). By \(\noderef{LoopGraphNdLambda}\), the graph has \(|V|=n\), is symmetric, every vertex has degree \(d\), and every non-principal adjacency eigenvalue has absolute value at most \(\lambda\). We use the standard inner product on real-valued functions on \(V\),
+\[
+  \langle f,g\rangle=\sum_{v\in V} f(v)g(v),
+\]
+with norm \(\|f\|^2=\langle f,f\rangle\). Let \(\mathbf 1\) be the constant-one function, and let \(T=A_G\) be the adjacency action from \(\noderef{LoopGraphAdjacencyAction}\).
+
+If \(n=0\), then \(V\) is empty, so \(A=B=\emptyset\). By \(\noderef{LoopGraphEdgeCountBetween}\), \(e_G(A,B)=0\), and both sides of the desired inequality are \(0\). Thus assume \(n>0\).
+
+We first record the linear-algebra consequences of the \((n,d,\lambda)\)-graph hypotheses. By the degree condition in \(\noderef{LoopGraphNdLambda}\), interpreted through \(\noderef{LoopGraphDegree}\), every row of the adjacency matrix has exactly \(d\) ones, loops included once. Therefore
+\[
+  T\mathbf 1=d\,\mathbf 1. \tag{1}
+\]
+By the symmetry condition in \(\noderef{LoopGraphNdLambda}\), interpreted through \(\noderef{LoopGraphSymmetric}\), the adjacency matrix is symmetric, so \(T\) is self-adjoint for the above inner product. Hence the orthogonal complement
+\[
+  \mathbf 1^\perp=\{f:\sum_{v\in V}f(v)=0\}
+\]
+is \(T\)-invariant, and the restriction of \(T\) to \(\mathbf 1^\perp\) has an orthonormal eigenbasis. The eigenvalues appearing on this subspace are precisely the non-principal adjacency eigenvalues in the sense of \(\noderef{LoopGraphNonprincipalEigenvalue}\), so \(\noderef{LoopGraphNdLambda}\) gives
+\[
+  \|Tf\|\le \lambda\|f\|
+  \qquad\text{for every }f\in\mathbf 1^\perp. \tag{2}
+\]
+Here \(\lambda\) is the nonnegative spectral bound in the \((n,d,\lambda)\)-graph convention.
+
+Let \(1_A\) and \(1_B\) be the indicator functions of \(A\) and \(B\). By \(\noderef{LoopGraphAdjacencyAction}\),
+\[
+  (T1_B)(v)=\sum_{\substack{w\in V\\ vw\in E(G)}}1_B(w).
+\]
+Therefore
+\[
+  \langle 1_A,T1_B\rangle
+  =
+  |\{(a,b)\in A\times B:ab\in E(G)\}|
+  =
+  e_G(A,B), \tag{3}
+\]
+where the last equality is exactly \(\noderef{LoopGraphEdgeCountBetween}\). If \(a=b\) and \(aa\in E(G)\), the diagonal adjacency entry contributes once to the sum above and once to the ordered pair count, so loops are handled by the same identity.
+
+Decompose the two indicator functions into their all-ones components and zero-sum parts:
+\[
+  1_A=\alpha\mathbf 1+f,\qquad
+  1_B=\beta\mathbf 1+g,
+\]
+where
+\[
+  \alpha=\frac{|A|}{n},\qquad \beta=\frac{|B|}{n}.
+\]
+Then
+\[
+  \sum_{v\in V} f(v)=|A|-\alpha n=0,
+  \qquad
+  \sum_{v\in V} g(v)=|B|-\beta n=0,
+\]
+so \(f,g\in\mathbf 1^\perp\).
+
+Using (1), self-adjointness of \(T\), and the zero-sum identities for \(f\) and \(g\), we compute
+\[
+\begin{aligned}
+  \langle 1_A,T1_B\rangle
+  &=\langle \alpha\mathbf 1+f,\ T(\beta\mathbf 1+g)\rangle\\
+  &=\alpha\beta\langle \mathbf 1,T\mathbf 1\rangle
+    +\alpha\langle \mathbf 1,Tg\rangle
+    +\beta\langle f,T\mathbf 1\rangle
+    +\langle f,Tg\rangle\\
+  &=\alpha\beta\,d\,\langle\mathbf 1,\mathbf 1\rangle+\langle f,Tg\rangle\\
+  &=\frac d n |A||B|+\langle f,Tg\rangle.
+\end{aligned} \tag{4}
+\]
+Indeed, \(\langle\mathbf 1,\mathbf 1\rangle=n\), while
+\[
+  \langle \mathbf 1,Tg\rangle=\langle T\mathbf 1,g\rangle
+  =d\langle\mathbf 1,g\rangle=0
+\]
+and similarly \(\langle f,T\mathbf 1\rangle=0\).
+
+Combining (3) and (4), it remains to bound \(|\langle f,Tg\rangle|\). By Cauchy's inequality and (2),
+\[
+  |\langle f,Tg\rangle|
+  \le \|f\|\,\|Tg\|
+  \le \lambda\|f\|\,\|g\|. \tag{5}
+\]
+It remains only to estimate the two norms. Since \(1_A\) takes the value \(1\) on \(A\) and \(0\) off \(A\),
+\[
+\begin{aligned}
+  \|f\|^2
+  &=\sum_{v\in V}\left(1_A(v)-\frac{|A|}{n}\right)^2\\
+  &=|A|-\frac{|A|^2}{n}
+  \le |A|.
+\end{aligned} \tag{6}
+\]
+The same calculation gives
+\[
+  \|g\|^2=|B|-\frac{|B|^2}{n}\le |B|. \tag{7}
+\]
+Taking square roots in (6) and (7), and substituting into (5), gives
+\[
+  |\langle f,Tg\rangle|
+  \le \lambda\sqrt{|A|}\sqrt{|B|}
+  =\lambda\sqrt{|A||B|}.
+\]
+Using (3) and (4), this is precisely
+\[
+  \left|e_G(A,B)-\frac d n |A||B|\right|
+    \le \lambda\sqrt{|A||B|}.
+\]
 \end{proof}
