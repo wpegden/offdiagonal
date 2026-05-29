@@ -5,6 +5,70 @@ Suppose \(D\) is a \(T_s\)-free digraph on \(n\) vertices. Then, for every \(k\g
 \]
 \end{lemma}
 \begin{proof}
-SKETCH:
-Choose a uniformly random permutation \(\pi\) of the vertices of \(D\), and put an undirected edge \(uv\) in \(G\) whenever one of the corresponding arcs of \(D\) points forward in the order \(\pi\). A \(K_s\) in \(G\), ordered by \(\pi\), would give a \(T_s\) in \(D\), so \(G\) is \(K_s\)-free. Every independent \(k\)-set of \(G\), when listed in increasing \(\pi\)-order, gives a forward independent \(k\)-tuple of \(D\). Conversely each fixed forward independent ordered tuple is increasing with probability \(1/k!\). Linearity of expectation gives \(\mathbb E i_k(G)=\overrightarrow{i_k}(D)/k!\le(e/k)^k\overrightarrow{i_k}(D)\), so some \(G\) has at most this many independent \(k\)-sets.
+Let \(W=V(D)\). Choose a uniformly random permutation \(\pi\) of the finite set \(W\). For a fixed permutation \(\pi\), define a simple graph \(G_\pi\) on the same vertex set \(W\) as follows: for distinct vertices \(u,v\), put an undirected edge \(uv\) in \(G_\pi\) exactly when the earlier vertex in the \(\pi\)-order has an arc in \(D\) to the later vertex. Equivalently, if \(\pi(u)<\pi(v)\), then \(uv\) is an edge of \(G_\pi\) exactly when \((u,v)\in A(D)\), and if \(\pi(v)<\pi(u)\), then \(uv\) is an edge exactly when \((v,u)\in A(D)\).
+
+We first prove that \(G_\pi\) is \(K_s\)-free for every \(\pi\). Suppose, for contradiction, that \(G_\pi\) contains a clique of size \(s\). List its vertices in increasing \(\pi\)-order as
+\[
+  v_1,\ldots,v_s.
+\]
+These vertices are distinct. Since they form a clique in \(G_\pi\), every pair \(v_i,v_j\) with \(i<j\) is an edge of \(G_\pi\). Because \(v_i\) is earlier than \(v_j\) in the \(\pi\)-order, the definition of \(G_\pi\) gives an arc
+\[
+  (v_i,v_j)\in A(D)
+  \qquad\text{for every }i<j.
+\]
+Thus \(v_1,\ldots,v_s\) is an injective ordered \(s\)-tuple spanning a transitive tournament in \(D\), contradicting the \(T_s\)-freeness of \(D\) from \(\noderef{TransitiveTournamentFree}\). Hence \(G_\pi\) is \(K_s\)-free.
+
+We now estimate the expected number of independent \(k\)-sets in \(G_\pi\). By \(\noderef{SimpleGraphIndependentSetCount}\), \(i_k(G_\pi)\) counts independent vertex sets of size \(k\). Fix a \(k\)-element subset \(S\subseteq W\). For a permutation \(\pi\), list the elements of \(S\) in increasing \(\pi\)-order:
+\[
+  S=\{v_1,\ldots,v_k\},\qquad
+  \pi(v_1)<\cdots<\pi(v_k).
+\]
+The set \(S\) is independent in \(G_\pi\) if and only if there is no edge of \(G_\pi\) between any \(v_i\) and \(v_j\) with \(i<j\). By the definition of \(G_\pi\), this is exactly the assertion that there is no arc
+\[
+  (v_i,v_j)\in A(D)
+  \qquad\text{with }i<j.
+\]
+Therefore, by \(\noderef{ForwardIndependentTuple}\), whenever \(S\) is independent in \(G_\pi\), the ordered tuple
+\[
+  (v_1,\ldots,v_k)
+\]
+is forward independent in \(D\). Conversely, if the increasing \(\pi\)-order tuple of \(S\) is forward independent, then no earlier-to-later arc occurs among vertices of \(S\), so no edge of \(G_\pi\) occurs inside \(S\), and \(S\) is independent.
+
+As \(\pi\) ranges uniformly over all permutations of \(W\), the induced ordering of the fixed set \(S\) is uniform over its \(k!\) possible orderings. Thus the probability that \(S\) is independent in \(G_\pi\) is
+\[
+  \frac{\#\{\text{forward independent orderings of }S\}}{k!}.
+\]
+Summing this probability over all \(k\)-element subsets \(S\) and using linearity of expectation gives
+\[
+  \mathbb E_\pi\, i_k(G_\pi)
+  =
+  \frac{\#\{\text{forward independent ordered \(k\)-tuples with distinct entries}\}}{k!}.
+\]
+The definition \(\noderef{ForwardIndependentTupleCount}\) counts all forward independent ordered \(k\)-tuples of vertices of \(D\); if repeated entries are included in that count, this only makes the count larger. Hence
+\[
+  \mathbb E_\pi\, i_k(G_\pi)
+  \le
+  \frac{\overrightarrow{i_k}(D)}{k!}. \tag{1}
+\]
+
+For \(k\ge1\), the standard factorial estimate
+\[
+  k!\ge \left(\frac{k}{e}\right)^k
+\]
+gives
+\[
+  \frac{1}{k!}\le \left(\frac e k\right)^k. \tag{2}
+\]
+Combining (1) and (2),
+\[
+  \mathbb E_\pi\, i_k(G_\pi)
+  \le
+  \left(\frac e k\right)^k\overrightarrow{i_k}(D).
+\]
+Therefore at least one permutation \(\pi\) satisfies
+\[
+  i_k(G_\pi)\le
+  \left(\frac e k\right)^k\overrightarrow{i_k}(D);
+\]
+otherwise the average would be larger than the displayed bound. For this choice of \(\pi\), the graph \(G=G_\pi\) is \(K_s\)-free by the first paragraph and satisfies the required independent-set bound.
 \end{proof}
