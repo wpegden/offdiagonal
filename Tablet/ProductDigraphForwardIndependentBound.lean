@@ -96,6 +96,35 @@ theorem ProductDigraphForwardIndependentBound {V : Type u} [Fintype V]
             ≤ ({(v.val i).val.1} ×ˢ survivingSet v i).card :=
               Finset.card_filter_le _ _
         _ = (survivingSet v i).card := by simp
+    have hsingleton_edge_count_eq_filter :
+        ∀ (v : {v : Fin k → ProductDigraphVertex F //
+          ForwardIndependentTuple (ProductDigraph F G) v}) (i : Fin k),
+          LoopGraphEdgeCountBetween G ({(v.val i).val.1} : Finset V) (survivingSet v i) =
+            ((survivingSet v i).filter (fun b : V => G (v.val i).val.1 b)).card := by
+      intro v i
+      unfold LoopGraphEdgeCountBetween
+      refine Finset.card_bij (fun p _hp => p.2) ?_ ?_ ?_
+      · intro p hp
+        have hp_filter := Finset.mem_filter.mp hp
+        have hp_prod := Finset.mem_product.mp hp_filter.1
+        have hp1 : p.1 = (v.val i).val.1 := by simpa using hp_prod.1
+        have hp2 : p.2 ∈ survivingSet v i := hp_prod.2
+        exact Finset.mem_filter.mpr ⟨hp2, by simpa [hp1] using hp_filter.2⟩
+      · intro p hp q hq hpq
+        have hp_filter := Finset.mem_filter.mp hp
+        have hq_filter := Finset.mem_filter.mp hq
+        have hp_prod := Finset.mem_product.mp hp_filter.1
+        have hq_prod := Finset.mem_product.mp hq_filter.1
+        apply Prod.ext
+        · have hp1 : p.1 = (v.val i).val.1 := by simpa using hp_prod.1
+          have hq1 : q.1 = (v.val i).val.1 := by simpa using hq_prod.1
+          rw [hp1, hq1]
+        · exact hpq
+      · intro b hb
+        have hb' := Finset.mem_filter.mp hb
+        refine ⟨((v.val i).val.1, b), ?_, rfl⟩
+        exact Finset.mem_filter.mpr
+          ⟨Finset.mem_product.mpr ⟨by simp, hb'.1⟩, hb'.2⟩
     have htrue_large_neighborhood :
         ∀ (v : {v : Fin k → ProductDigraphVertex F //
           ForwardIndependentTuple (ProductDigraph F G) v}) (i : Fin k),
@@ -148,6 +177,52 @@ theorem ProductDigraphForwardIndependentBound {V : Type u} [Fintype V]
             omega
           have hji_eq : j = i := Fin.ext hval_eq
           simpa [hji_eq] using hb_i
+    have htrue_shrink_recurrence :
+        ∀ (v : {v : Fin k → ProductDigraphVertex F //
+          ForwardIndependentTuple (ProductDigraph F G) v}) (i : Fin k)
+          (hi : i.val + 1 < k),
+          shrinkingSequence v i = true →
+            (((survivingSet v ⟨i.val + 1, hi⟩).card : ℕ) : ℝ) <
+              (1 - (dG : ℝ) / (2 * (n : ℝ))) *
+                (((survivingSet v i).card : ℕ) : ℝ) := by
+      intro v i hi hbit
+      have hnext_card :
+          (survivingSet v ⟨i.val + 1, hi⟩).card =
+            (survivingSet v i).card -
+              LoopGraphEdgeCountBetween G ({(v.val i).val.1} : Finset V)
+                (survivingSet v i) := by
+        have hsucc_card := congrArg Finset.card (hsurvivingSet_succ v i hi)
+        have hpartition :=
+          Finset.card_filter_add_card_filter_not
+            (s := survivingSet v i) (p := fun b : V => G (v.val i).val.1 b)
+        rw [hsucc_card, hsingleton_edge_count_eq_filter v i]
+        omega
+      have hnext_card_real :
+          (((survivingSet v ⟨i.val + 1, hi⟩).card : ℕ) : ℝ) =
+            ((survivingSet v i).card : ℝ) -
+              ((LoopGraphEdgeCountBetween G ({(v.val i).val.1} : Finset V)
+                (survivingSet v i) : ℕ) : ℝ) := by
+        rw [hnext_card]
+        rw [Nat.cast_sub (hsingleton_edge_count_le_surviving v i)]
+      have hlarge := htrue_large_neighborhood v i hbit
+      calc
+        (((survivingSet v ⟨i.val + 1, hi⟩).card : ℕ) : ℝ)
+            = ((survivingSet v i).card : ℝ) -
+                ((LoopGraphEdgeCountBetween G ({(v.val i).val.1} : Finset V)
+                  (survivingSet v i) : ℕ) : ℝ) := hnext_card_real
+        _ < ((survivingSet v i).card : ℝ) -
+              ((dG : ℝ) * (((survivingSet v i).card : ℕ) : ℝ)) /
+                (2 * (n : ℝ)) := by linarith
+        _ = (1 - (dG : ℝ) / (2 * (n : ℝ))) *
+              (((survivingSet v i).card : ℕ) : ℝ) := by ring
+    have hsurvivingSet_succ_card_le :
+        ∀ (v : {v : Fin k → ProductDigraphVertex F //
+          ForwardIndependentTuple (ProductDigraph F G) v}) (i : Fin k)
+          (hi : i.val + 1 < k),
+          (survivingSet v ⟨i.val + 1, hi⟩).card ≤ (survivingSet v i).card := by
+      intro v i hi
+      rw [hsurvivingSet_succ v i hi]
+      exact Finset.card_filter_le _ _
     have hdG_le_n : dG ≤ n := by
       have hVpos : 0 < Fintype.card V := by
         rw [hG.1]
@@ -160,10 +235,30 @@ theorem ProductDigraphForwardIndependentBound {V : Type u} [Fintype V]
         dG = LoopGraphDegree G v0 := (hG.2.2.1 v0).symm
         _ ≤ Fintype.card V := hdegree_le_card
         _ = n := hG.1
+    let shrinkFactor : ℝ := 1 - (dG : ℝ) / (2 * (n : ℝ))
+    have hn_pos : 0 < n := by linarith
+    have hnR_pos : 0 < (n : ℝ) := by exact_mod_cast hn_pos
+    have hdGR_pos : 0 < (dG : ℝ) := by exact_mod_cast hdG
+    have hhalf_degree_le_one :
+        (dG : ℝ) / (2 * (n : ℝ)) ≤ 1 := by
+      have hdGnR : (dG : ℝ) ≤ (n : ℝ) := by exact_mod_cast hdG_le_n
+      have hnR_nonneg : 0 ≤ (n : ℝ) := le_of_lt hnR_pos
+      have hden_pos : 0 < 2 * (n : ℝ) := by positivity
+      rw [div_le_iff₀ hden_pos]
+      nlinarith
+    have hhalf_degree_pos :
+        0 < (dG : ℝ) / (2 * (n : ℝ)) := by positivity
+    have hshrinkFactor_nonneg : 0 ≤ shrinkFactor := by
+      dsimp [shrinkFactor]
+      linarith
+    have hshrinkFactor_lt_one : shrinkFactor < 1 := by
+      dsimp [shrinkFactor]
+      linarith
+    have hshrinkFactor_le_exp :
+        shrinkFactor ≤ Real.exp (-((dG : ℝ) / (2 * (n : ℝ)))) := by
+      dsimp [shrinkFactor]
+      simpa using Real.one_sub_le_exp_neg ((dG : ℝ) / (2 * (n : ℝ)))
     have hw_nonneg : 0 ≤ w := by
-      have hn_pos : 0 < n := by linarith
-      have hnR_pos : 0 < (n : ℝ) := by exact_mod_cast hn_pos
-      have hdGR_pos : 0 < (dG : ℝ) := by exact_mod_cast hdG
       have hlog_nonneg : 0 ≤ Real.log (n : ℝ) := by
         exact Real.log_nonneg (by exact_mod_cast (show (1 : ℕ) ≤ n by linarith))
       rw [hw]
