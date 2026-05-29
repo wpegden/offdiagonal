@@ -4,7 +4,7 @@ import Tablet.NoMonochromaticCliqueColoring
 -- [TABLET NODE: RandomHomomorphismColoringBound]
 
 theorem RandomHomomorphismColoringBound :
-    ∀ ell s n : ℕ, 3 ≤ ell →
+    ∀ ell : ℕ, 3 ≤ ell → ∃ s0 : ℕ, ∀ s n : ℕ, s0 ≤ s →
       (n : ℝ) ≤ Real.rpow 2 (((s : ℝ) / 2 - 4) * ((ell - 1 : ℕ) : ℝ)) →
         ∃ color : Sym2 (Fin n) → Fin ell,
           NoMonochromaticCliqueColoring s ell n color := by

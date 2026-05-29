@@ -1,15 +1,69 @@
 \begin{lemma}
-Let \(\ell\ge 3\), and let
+For every fixed \(\ell\ge 3\), there is \(s_0\) such that for all \(s\ge s_0\), if
 \[
-  n\le 2^{(s/2-4)(\ell-1)}.
+  n\le 2^{(s/2-4)(\ell-1)},
 \]
-Then there is an \(\ell\)-coloring of the edges of \(K_n\) with no monochromatic clique of size \(s\).
+then there is an \(\ell\)-coloring of the edges of \(K_n\) with no monochromatic clique of size \(s\).
 \end{lemma}
 \begin{proof}
-SKETCH:
-Let \(D\) be the \(T_s\)-free loopless digraph supplied by \noderef{F2ForwardIndependentNearDiagonalBound} with \(k=s\), so \(N=(1+o(1))2^{2s-3}\) and \(\overrightarrow{i_s}(D)\le 2^{3s^2/2-5s/2+o(s)}\). Choose independent random maps \(\phi_c:[n]\to V(D)\) for \(c=1,\ldots,\ell-1\). For an edge \(ij\), use the least color \(c<\ell\) for which \((\phi_c(i),\phi_c(j))\) is an arc, and use color \(\ell\) if no such color exists. A monochromatic \(K_s\) in a color \(c<\ell\), ordered by vertex labels, would map to a copy of \(T_s\) in \(D\), impossible. For color \(\ell\), a fixed \(s\)-set survives only when each of the \(\ell-1\) mapped \(s\)-tuples is forward independent. Hence the expected number of color-\(\ell\) \(K_s\)'s is at most
+Fix \(\ell\ge 3\). Apply \(\noderef{F2ForwardIndependentNearDiagonalBound}\) with \(\varepsilon=1\) and \(a=0\). Since \(0\le \delta s\) for every \(s\), there is \(s_1\) such that, for every \(s\ge s_1\), there is a finite loopless \(T_s\)-free digraph \(D\) with
 \[
-  \binom ns\left(\frac{\overrightarrow{i_s}(D)}{N^s}\right)^{\ell-1}<1
+  N=|V(D)|=2^{2s-3}-2^{s-1}-2^{s-2}+1
 \]
-for the displayed choice of \(n\). Therefore some coloring has no monochromatic \(K_s\).
+and
+\[
+  \overrightarrow{i_s}(D)\le
+  2^{\frac32s^2-\frac52s+s}\le 2^{\frac32s^2}.
+\]
+Increase \(s_1\), if necessary, so that for all \(s\ge s_1\),
+\[
+  N>2^{2s-4}.
+\]
+For example, it is enough to require \(s\ge4\): then \(3\cdot 2^{s-2}\le 2^{2s-4}\), and hence
+\[
+  2^{2s-3}-2^{s-1}-2^{s-2}+1
+  =2\cdot 2^{2s-4}-3\cdot 2^{s-2}+1
+  \ge 2^{2s-4}+1
+  >2^{2s-4}.
+\]
+
+Now fix \(s\ge s_1\) and \(n\le 2^{(s/2-4)(\ell-1)}\). If \(n<s\), then any edge-coloring of \(K_n\) has no monochromatic \(K_s\), so assume \(n\ge s\). For each color \(c=1,\ldots,\ell-1\), choose independently and uniformly at random a map
+\[
+  \phi_c:\{1,\ldots,n\}\to V(D).
+\]
+Given an edge \(ij\) with \(i<j\), color \(ij\) by the least \(c\in\{1,\ldots,\ell-1\}\) such that \((\phi_c(i),\phi_c(j))\) is an arc of \(D\). If no such \(c\) exists, color \(ij\) with the final color \(\ell\).
+
+We first check colors \(1,\ldots,\ell-1\). Suppose vertices \(v_1<\cdots<v_s\) form a monochromatic \(K_s\) in some color \(c<\ell\). Then, by the definition of the coloring, for every \(i<j\) we have an arc
+\[
+  \phi_c(v_i)\to \phi_c(v_j)
+\]
+in \(D\). Since \(D\) is loopless, cited from \(\noderef{F2ForwardIndependentNearDiagonalBound}\) through its loopless conclusion and matching \(\noderef{DigraphLoopless}\), these arcs force the vertices \(\phi_c(v_1),\ldots,\phi_c(v_s)\) to be pairwise distinct: if two of them were equal, the corresponding required arc would be a loop. Hence the ordered tuple \((\phi_c(v_1),\ldots,\phi_c(v_s))\) is an injective copy of the transitive tournament \(T_s\) in \(D\), contradicting the \(T_s\)-free conclusion of \(\noderef{F2ForwardIndependentNearDiagonalBound}\) and the definition \(\noderef{TransitiveTournamentFree}\). Thus no color \(c<\ell\) contains a monochromatic \(K_s\).
+
+It remains to rule out color \(\ell\). Fix an \(s\)-element set \(S=\{v_1<\cdots<v_s\}\subseteq \{1,\ldots,n\}\). For this set to be monochromatic in color \(\ell\), no color \(c<\ell\) may put an arc on any edge \(v_i v_j\) with \(i<j\). Equivalently, for each \(c<\ell\), the ordered tuple
+\[
+  (\phi_c(v_1),\ldots,\phi_c(v_s))
+\]
+is forward independent in \(D\), in the sense of \(\noderef{ForwardIndependentTuple}\). For a fixed \(c\), the tuple is uniformly distributed among the \(N^s\) ordered \(s\)-tuples of vertices of \(D\). By \(\noderef{ForwardIndependentTupleCount}\), the probability that it is forward independent is
+\[
+  \frac{\overrightarrow{i_s}(D)}{N^s}.
+\]
+The maps \(\phi_c\) are independent for different \(c\), so the probability that \(S\) is monochromatic in color \(\ell\) is at most
+\[
+  \left(\frac{\overrightarrow{i_s}(D)}{N^s}\right)^{\ell-1}.
+\]
+Therefore the expected number of color-\(\ell\) monochromatic \(K_s\)'s is at most
+\[
+  \binom ns\left(\frac{\overrightarrow{i_s}(D)}{N^s}\right)^{\ell-1}.
+\]
+
+Using \(\binom ns\le n^s\), the assumed bound on \(n\), the estimate on \(\overrightarrow{i_s}(D)\), and \(N>2^{2s-4}\), this expectation is strictly less than
+\[
+  n^s
+  \left(\frac{2^{3s^2/2}}{(2^{2s-4})^s}\right)^{\ell-1}
+  \le
+  2^{(s^2/2-4s)(\ell-1)}
+  2^{(-s^2/2+4s)(\ell-1)}
+  =1.
+\]
+Hence the expected number of color-\(\ell\) monochromatic \(K_s\)'s is less than \(1\). Since the number of such cliques is a nonnegative integer-valued random variable, some choice of the maps \(\phi_1,\ldots,\phi_{\ell-1}\) gives zero color-\(\ell\) monochromatic \(K_s\)'s. For that choice, the previous paragraph also rules out monochromatic \(K_s\)'s in the first \(\ell-1\) colors. Therefore the resulting coloring has no monochromatic \(K_s\), exactly as required by \(\noderef{NoMonochromaticCliqueColoring}\).
 \end{proof}
