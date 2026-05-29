@@ -7,19 +7,201 @@ Let \(s\to\infty\) and let \(a\) be a nonnegative integer such that \(a=o(s)\). 
 Equivalently, the formal statement uses the usual uniform \(\varepsilon\)-form for the \(1+o(1)\) lower factor when \(a/s\) is sufficiently small.
 \end{theorem}
 \begin{proof}
-SKETCH:
-Set \(k=s+a\). By \noderef{F2ForwardIndependentNearDiagonalBound}, there is a \(T_s\)-free digraph \(D\) on
+We prove the displayed \(1+o(1)\) assertion in the uniform
+\(\varepsilon\)-form stated in the Lean theorem. Fix \(\varepsilon>0\). If
+\(\varepsilon\ge1\), the factor \(1-\varepsilon\) is nonpositive, while
+Ramsey numbers are nonnegative by \(\noderef{RamseyNumber}\); in this case
+any positive choice of \(\delta\) and any \(s_0\ge1\) suffices. Hence assume
+throughout that \(0<\varepsilon<1\).
+
+Choose auxiliary constants
 \[
-  N=2^{2s-3}-2^{s-1}-2^{s-2}+1=(1+o(1))2^{2s-3}
+  0<\rho<1,\qquad \eta>0,\qquad 0<\delta_1\le \frac12
 \]
-vertices with
+so small that
 \[
-  \overrightarrow{i_k}(D)\le 2^{3s^2/2+as-5s/2+o(s)}.
+  (1-\rho)2^{-\eta-\frac52\delta_1}\ge 1-\frac{\varepsilon}{2}. \tag{1}
 \]
-Use \noderef{DigraphToGraphIndependentSetBound} to obtain a \(K_s\)-free graph \(G\) with \(i_k(G)\le(e/k)^k\overrightarrow{i_k}(D)\). If \(i_k(G)=0\), then \(r(s,k)\ge N\), which is stronger. Otherwise, \noderef{SamplingKsFreeRamseyBound} with \(p=i_k(G)^{-1/k}\) gives
+This is possible because the left hand side tends to \(1\) as
+\(\rho,\eta,\delta_1\) tend to \(0\). Apply
+\(\noderef{F2ForwardIndependentNearDiagonalBound}\) with the positive error
+parameter \(\eta\). We obtain \(\delta_0>0\) and \(s_1\) such that, whenever
+\(s\ge s_1\) and \(0\le a\le\delta_0s\), there is a loopless \(T_s\)-free
+digraph with the exact F2 vertex count and the corresponding
+forward-independent tuple bound. Set
 \[
-  r(s,s+a)\ge (1+o(1))2^{2s-3}\frac{s}{e}
-  2^{(-3s^2/2-as+5s/2+o(s))/(s+a)}.
+  \delta=\min(\delta_0,\delta_1).
 \]
-Expanding the exponent gives the displayed lower bound.
+We will enlarge \(s_1\) to a final threshold \(s_0\). For \(s\ge4\), put
+\[
+  N_s=2^{2s-3}-2^{s-1}-2^{s-2}+1.
+\]
+Since
+\[
+  \frac{N_s}{2^{2s-3}}
+  =1-2^{2-s}-2^{1-s}+2^{3-2s}\longrightarrow 1,
+\]
+we may require, by increasing \(s_0\), that
+\[
+  s_0\ge4,\qquad
+  N_s\ge (1-\rho)2^{2s-3}\qquad(s\ge s_0). \tag{2}
+\]
+Also define
+\[
+  B_{s,a}=\frac{s}{e}\,
+  2^{\frac{s+a-1}{2}-\frac{a^2}{2s}}.
+\]
+Because \(\delta\le1/2\), for \(0\le a\le\delta s\) we have
+\[
+  \frac{s+a-1}{2}-\frac{a^2}{2s}
+  \ge \frac{s-1}{2}-\frac{\delta^2s}{2}
+  \ge \frac{3s}{8}-\frac12,
+\]
+so \(B_{s,a}\to\infty\) uniformly in the range \(0\le a\le\delta s\).
+Enlarge \(s_0\) again so that
+\[
+  B_{s,a}\ge \frac{2}{\varepsilon}
+  \qquad(s\ge s_0,\;0\le a\le\delta s). \tag{3}
+\]
+Finally, since \(N_s\) grows like \(2^{2s}\) while
+\[
+  B_{s,a}\le \frac{s}{e}2^{(s+a-1)/2}
+  \le \frac{s}{e}2^{3s/4}
+\]
+in the same range, enlarge \(s_0\) once more so that
+\[
+  N_s\ge (1-\varepsilon)B_{s,a}
+  \qquad(s\ge s_0,\;0\le a\le\delta s). \tag{4}
+\]
+
+Now fix integers \(s,a\) with \(s\ge s_0\) and \(0\le a\le\delta s\), and
+put
+\[
+  k=s+a.
+\]
+Since \(s_0\) was chosen at least \(4\), we have \(k\ge s\ge1\). Because
+\(\delta\le\delta_0\), the hypotheses of
+\(\noderef{F2ForwardIndependentNearDiagonalBound}\) are satisfied. Thus
+there are a finite vertex set \(W\) and a loopless \(T_s\)-free digraph
+\(D\) on \(W\) such that
+\[
+  |W|=N_s
+\]
+and
+\[
+  \overrightarrow{i_k}(D)\le
+  2^E,\qquad
+  E=\frac32s^2+as-\frac52s+\eta s. \tag{5}
+\]
+The looplessness and \(T_s\)-freeness are part of the same cited statement.
+
+Apply \(\noderef{DigraphToGraphIndependentSetBound}\) to this \(D\), with
+the above \(s\) and \(k\). It gives a \(K_s\)-free simple graph \(G\) on the
+same vertex set \(W\) satisfying
+\[
+  i_k(G)\le \left(\frac e k\right)^k\overrightarrow{i_k}(D).
+\]
+Together with (5), this gives
+\[
+  i_k(G)\le \left(\frac e k\right)^k 2^E. \tag{6}
+\]
+
+First suppose \(i_k(G)=0\). By \(\noderef{SimpleGraphIndependentSetCount}\),
+this means that \(G\) has no independent set of size \(k\). Together with
+the \(K_s\)-freeness supplied by \(\noderef{DigraphToGraphIndependentSetBound}\),
+the definition of \(\noderef{RamseyProperty}\) says that the
+Ramsey property \(R(s,k,N_s)\) fails. If \(r(s,k)\le N_s\), then an induced
+subgraph of \(G\) on \(r(s,k)\) vertices would also have neither a \(K_s\)
+nor an independent \(k\)-set, contradicting the definition of
+\(\noderef{RamseyNumber}\) as the least size at which
+\(\noderef{RamseyProperty}\) holds. Hence \(r(s,k)>N_s\). By (4),
+\[
+  r(s,k)>(1-\varepsilon)B_{s,a},
+\]
+which is stronger than the required weak inequality.
+
+It remains to handle the case \(i_k(G)>0\). Set
+\[
+  p=i_k(G)^{-1/k}.
+\]
+Since \(i_k(G)\) is a positive integer and \(k\ge1\), we have
+\[
+  0<p\le1,\qquad p^k i_k(G)=1.
+\]
+Therefore the hypotheses of \(\noderef{SamplingKsFreeRamseyBound}\) hold
+for this \(G,s,k,p\), and it gives
+\[
+  pN_s-1<r(s,k). \tag{7}
+\]
+From (6) and positivity of \(i_k(G)\),
+\[
+  p=i_k(G)^{-1/k}\ge
+  \frac{k}{e}\,2^{-E/k}. \tag{8}
+\]
+Combining (2) and (8), and using \(k=s+a\ge s\), we get
+\[
+\begin{aligned}
+  pN_s
+  &\ge
+  (1-\rho)2^{2s-3}\frac{k}{e}2^{-E/k}  \\
+  &\ge
+  (1-\rho)\frac{s}{e}
+  2^{\,2s-3-E/(s+a)}. \tag{9}
+\end{aligned}
+\]
+We now expand the exponent in (9). Since \(k=s+a\),
+\[
+\begin{aligned}
+  2s-3-\frac{E}{s+a}
+  &=
+  2s-3
+  -\frac{\frac32s^2+as-\frac52s+\eta s}{s+a} \\
+  &=
+  \frac{s+a-1}{2}
+  -\frac{a^2+5a}{2(s+a)}
+  -\frac{\eta s}{s+a}. \tag{10}
+\end{aligned}
+\]
+Comparing (10) with the target exponent gives
+\[
+\begin{aligned}
+  &\left(\frac{s+a-1}{2}
+  -\frac{a^2+5a}{2(s+a)}
+  -\frac{\eta s}{s+a}\right)
+  -
+  \left(\frac{s+a-1}{2}-\frac{a^2}{2s}\right) \\
+  &\qquad =
+  \frac{a^3}{2s(s+a)}
+  -\frac{5a}{2(s+a)}
+  -\frac{\eta s}{s+a} \\
+  &\qquad \ge
+  -\frac{5}{2}\delta-\eta,
+\end{aligned} \tag{11}
+\]
+because \(a\le\delta s\), \(s/(s+a)\le1\), and the first term is
+nonnegative. Equations (9)--(11) imply
+\[
+  pN_s\ge
+  (1-\rho)2^{-\frac52\delta-\eta}B_{s,a}.
+\]
+Since \(\delta\le\delta_1\), (1) gives
+\[
+  pN_s\ge \left(1-\frac{\varepsilon}{2}\right)B_{s,a}. \tag{12}
+\]
+Using (3), we may absorb the final \(-1\):
+\[
+  pN_s-1
+  \ge
+  \left(1-\frac{\varepsilon}{2}\right)B_{s,a}-1
+  \ge
+  (1-\varepsilon)B_{s,a}. \tag{13}
+\]
+Combining (7) and (13), and recalling \(k=s+a\), yields
+\[
+  (1-\varepsilon)\frac{s}{e}
+  2^{\frac{s+a-1}{2}-\frac{a^2}{2s}}
+  \le r(s,s+a).
+\]
+This is precisely the required uniform \(\varepsilon\)-form of the
+close-to-diagonal bound.
 \end{proof}
