@@ -1,0 +1,18 @@
+\begin{helper}
+Let \(F\) and \(G\) be loop graphs on the same finite vertex set, and suppose that \(F\) is an \((n,d(F),\lambda(F))\)-graph. Let \(w\in\{0,1\}^{m+1}\), and let \(w'\in\{0,1\}^m\) be the prefix \(w'_i=w_i\) for \(i<m\). Then the number of product-digraph forward independent \((m+1)\)-tuples with shrinking sequence \(w\) is at most the number of forward independent \(m\)-tuples with shrinking sequence \(w'\), multiplied by \(d(F)n\).
+\end{helper}
+\begin{proof}
+Let \(C(m+1,w)\) be the fixed-sequence tuple set counted by \(\noderef{ProductDigraphFixedSequenceTupleCount}\), and let \(C(m,w')\) be the corresponding prefix set. A tuple \(v=(v_0,\ldots,v_m)\) in \(C(m+1,w)\) has prefix \(v'=(v_0,\ldots,v_{m-1})\). We first check that \(v'\in C(m,w')\).
+
+By \(\noderef{ProductDigraphTupleHasShrinkingSequence}\), membership in \(C(m+1,w)\) includes forward independence in the product digraph. Restricting a forward independent tuple to its first \(m\) entries preserves forward independence, since every ordered pair of prefix indices is also an ordered pair of indices of the full tuple. For the shrinking-sequence condition, fix a prefix index \(i<m\). The set of surviving second coordinates used at index \(i\) is defined by quantifying over earlier indices \(j<i\). These earlier indices are the same whether computed in the prefix tuple \(v'\) or in the full tuple \(v\), because every \(j<i<m\) is one of the prefix indices and the final index \(m\) is not earlier than \(i\). Therefore the edge-count comparison defining the \(i\)-th shrinking bit is the same in \(v'\) as in \(v\), and since \(w'_i=w_i\), the prefix has shrinking sequence \(w'\).
+
+Now define a map
+\[
+  C(m+1,w)\longrightarrow C(m,w')\times V(D(F,G))
+\]
+by sending a full tuple to its prefix and its last vertex. This map is injective: the prefix determines the first \(m\) entries, and the last vertex determines the remaining entry. Hence
+\[
+  |C(m+1,w)|\le |C(m,w')|\,|V(D(F,G))|.
+\]
+Finally, \(\noderef{ProductDigraphVertexCard}\) gives \(|V(D(F,G))|=d(F)n\), because vertices of \(D(F,G)\) are exactly ordered \(F\)-edges and \(F\) is \(d(F)\)-regular on \(n\) vertices. Substituting this identity gives the claimed bound.
+\end{proof}

@@ -60,6 +60,7 @@
 | PolarityGraphSkewFree | proof | - | open |
 | ProductDigraph | definition | - | closed |
 | ProductDigraphFixedSequenceTupleCount | definition | - | closed |
+| ProductDigraphFixedSequenceTupleCountLastVertexBound | proof | - | closed |
 | ProductDigraphForwardIndependentBound | proof | - | open |
 | ProductDigraphShrinkingSequenceBound | proof | - | open |
 | ProductDigraphSparseEdgeChoiceBound | proof | - | closed |
@@ -77,4 +78,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 57/72 closed
+**Summary:** 58/73 closed
