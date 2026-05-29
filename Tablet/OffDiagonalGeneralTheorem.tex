@@ -5,19 +5,196 @@ For every \(\delta>0\), there exists a constant \(L\) such that for all positive
 \]
 \end{theorem}
 \begin{proof}
-SKETCH:
-Assume \(\delta<1/10\) and choose \(L\) large. For given \(s,k\), take a power of two \(q\) satisfying
+Fix \(\delta>0\). Choose a number \(\delta_0\) with
 \[
-  q\le \frac{\delta}{100}\frac{k/s}{\log(k/s)}\le 2q,
+  0<\delta_0\le \delta
+  \qquad\text{and}\qquad
+  \delta_0<1/10.
 \]
-so \(q\ge(k/s)^{1-\delta/2}\). Put \(G=G(s-2,q)\) and \(F=\overline G\). The \(H_s\)-freeness again comes from \noderef{ComplementPolarityPairHsFree}. The exact formulas in \noderef{PolarityGraphParameters}, with \(t=s-2\), give the needed large-\(q\) estimates for \(n\), \(d(G)\), and \(\lambda(G)\). In particular \(d(F)\ge n/2\), \(\lambda(F)=\lambda(G)\), and
+It is enough to prove the theorem with \(\delta_0\) in place of \(\delta\), because once \(k/s\ge1\), the inequality
 \[
-  1/(16q^{s-3})\le\eta\le16/q^{s-3},\qquad
-  w\le\delta k/5.
+  \left(\frac{k}{s}\right)^{(1-\delta_0)s}
+  \ge
+  \left(\frac{k}{s}\right)^{(1-\delta)s}
 \]
-The paper's two-case estimate, depending on whether \(s\le\sqrt k\), gives \(k\le\eta d(F)n\). Applying the first part of \noderef{RamseyFromGraphPair} gives
+follows from \(\delta_0\le\delta\).
+
+Choose \(L\) large enough, depending only on \(\delta_0\), so that all estimates below hold whenever \(x\ge L\). In particular we require \(L\ge4\), the quantity
 \[
-  r(s,k)\ge \frac1{50}k(q^{s-3}/16)^{1-\delta/5}-1,
+  \frac{\delta_0}{100}\frac{x}{\log x}
 \]
-which is at least \((k/s)^{(1-\delta)s}\) when \(L\) is large enough.
+to be at least \(2\), the inequality
+\[
+  \frac{\delta_0}{200}\frac{x}{\log x}
+  \ge x^{1-\delta_0/2}, \tag{1}
+\]
+and the final elementary comparison in the last paragraph of the proof. These requirements are possible because \(x^{\delta_0/2}/\log x\to\infty\) and because the exponent margin appearing at the end grows linearly in \(s\).
+
+Let \(s,k\) be positive integers with \(s\ge L\) and \(k\ge Ls\), and put
+\[
+  x=\frac{k}{s}.
+\]
+Then \(x\ge L\). Let \(q\) be the largest power of \(2\) not exceeding
+\[
+  \frac{\delta_0}{100}\frac{x}{\log x}.
+\]
+Since this last quantity is at least \(2\), such a power of \(2\) with \(q\ge2\) exists and satisfies
+\[
+  q\le \frac{\delta_0}{100}\frac{x}{\log x}\le 2q. \tag{2}
+\]
+Because \(q\) is a power of \(2\), there is a finite field \(K\) of order \(q\). The right inequality in (2) and (1) give
+\[
+  q\ge \frac{\delta_0}{200}\frac{x}{\log x}
+  \ge x^{1-\delta_0/2}. \tag{3}
+\]
+
+Set
+\[
+  t=s-2,\qquad G=G(t,K),\qquad F=\overline G,
+\]
+where the complement is the loop-graph complement from \(\noderef{LoopGraphComplement}\). Since \(s\ge L\ge4\), we have \(t\ge2\). By \(\noderef{ComplementPolarityPairHsFree}\), the pair \((F,G)\) is \(H_s\)-free.
+
+Define
+\[
+  n=\frac{q^{t+1}-1}{q-1},\qquad
+  d_G=\frac{q^t-1}{q-1},\qquad
+  a=\frac{q^{t-1}-1}{q-1},\qquad
+  \lambda_G=\sqrt{d_G-a}.
+\]
+The parameter statement \(\noderef{PolarityGraphParameters}\) gives that \(G\) is an \((n,d_G,\lambda_G)\)-graph in the sense of \(\noderef{LoopGraphNdLambda}\). Since
+\[
+  n=1+q+\cdots+q^t,\qquad
+  d_G=1+q+\cdots+q^{t-1},\qquad
+  d_G-a=q^{t-1},
+\]
+we have, for \(q\) large enough,
+\[
+  \frac{q^t}{2}\le n\le2q^t,\qquad
+  d_G\ge \frac{q^{t-1}}{2},\qquad
+  \lambda_G^2=q^{t-1}. \tag{4}
+\]
+
+We next verify the corresponding \((n,d_F,\lambda_F)\)-graph statement for \(F\), with
+\[
+  d_F=n-d_G=q^t,\qquad \lambda_F=\lambda_G.
+\]
+The vertex set is unchanged by \(\noderef{LoopGraphComplement}\), so \(F\) has \(n\) vertices. The graph \(G\) is symmetric by its \(\noderef{LoopGraphNdLambda}\) conclusion, and the complement of a symmetric loop graph is symmetric: if \(xy\in E(F)\), then \(xy\notin E(G)\); if \(yx\in E(G)\), symmetry of \(G\) would imply \(xy\in E(G)\), a contradiction, so \(yx\notin E(G)\), hence \(yx\in E(F)\). This is exactly \(\noderef{LoopGraphSymmetric}\) for \(F\).
+
+For degrees, \(\noderef{LoopGraphDegree}\) counts, for each vertex \(v\), the vertices adjacent to \(v\), with a loop counted once. Among the \(n\) possible vertices \(w\), exactly \(d_G\) satisfy \(vw\in E(G)\), and by \(\noderef{LoopGraphComplement}\) the remaining \(n-d_G\) satisfy \(vw\in E(F)\). Thus every vertex of \(F\) has degree \(d_F=n-d_G=q^t\). In particular, since \(n\le2q^t\),
+\[
+  d_F\ge n/2. \tag{5}
+\]
+
+It remains, for \(F\), to bound non-principal adjacency eigenvalues. Let \(A_G\) and \(A_F\) be the adjacency actions of \(G\) and \(F\), as in \(\noderef{LoopGraphAdjacencyAction}\). For any real-valued function \(f\) with coordinate sum \(0\),
+\[
+  A_F f(v)=\sum_{w:\,vw\in E(F)}f(w)
+          =\sum_w f(w)-\sum_{w:\,vw\in E(G)}f(w)
+          =-A_G f(v).
+\]
+Thus, if \(\mu\) is a non-principal adjacency eigenvalue of \(F\) in the sense of \(\noderef{LoopGraphNonprincipalEigenvalue}\), with zero-sum eigenfunction \(f\), then \(-\mu\) is a non-principal adjacency eigenvalue of \(G\). Since \(G\) is an \((n,d_G,\lambda_G)\)-graph, \(|-\mu|\le\lambda_G\), and hence \(|\mu|\le\lambda_G=\lambda_F\). This verifies the final clause of \(\noderef{LoopGraphNdLambda}\) for \(F\).
+
+Now set
+\[
+  \eta=\max\left\{\frac{\lambda_G^2}{d_G^2},
+  \frac{\lambda_F\lambda_G}{d_Fd_G}\right\},
+  \qquad
+  w=\frac{4n\log n}{d_G}.
+\]
+Using (4), (5), and \(\lambda_F=\lambda_G\), the first term in the maximum satisfies
+\[
+  \frac{1}{16q^{t-1}}\le
+  \frac{\lambda_G^2}{d_G^2}
+  \le
+  \frac{16}{q^{t-1}},
+\]
+after increasing \(L\) if necessary, and the second term is no larger than the same upper bound. Since \(t-1=s-3\), we get
+\[
+  \frac{1}{16q^{s-3}}\le \eta\le \frac{16}{q^{s-3}}. \tag{6}
+\]
+For \(L\) large this also gives \(\eta\le1\). Moreover \(n\ge q^t\), so \(n^2\ge q^{2t}\), and for \(q^{t+1}\ge16\) the lower bound in (6) implies
+\[
+  n^{-2}\le \eta. \tag{7}
+\]
+
+We also need \(w\le k\). From (4),
+\[
+  w=\frac{4n\log n}{d_G}\le 16q\log n.
+\]
+Since \(n\le2q^t\), \(t=s-2\), and \(L\) is large, we have \(\log n\le s\log q\). Also \(q\le x\), so \(\log q\le\log x\). Therefore, using (2),
+\[
+  w\le16s q\log q
+    \le16s\left(\frac{\delta_0}{100}\frac{x}{\log x}\right)\log x
+    =\frac{4\delta_0}{25}k
+    \le \frac{\delta_0}{5}k. \tag{8}
+\]
+Since \(\delta_0<1/10\), this gives \(w\le k\).
+
+We now prove the remaining size condition \(k\le \eta d_F n\). From (4), (5), and (6),
+\[
+  \eta d_F n
+  \ge \frac{1}{16q^{s-3}}\cdot\frac n2\cdot n
+  \ge 2^{-7}q^{s-1}. \tag{9}
+\]
+Here we used \(t=s-2\) and \(n\ge q^t/2\).
+
+There are two cases. First suppose \(s\le\sqrt{k}\). By (3) and (9),
+\[
+  \eta d_F n
+  \ge 2^{-7}\left(\frac{k}{s}\right)^{(1-\delta_0/2)(s-1)}.
+\]
+Since \(s\le\sqrt{k}\), we have \(k/s\ge\sqrt{k}\). For \(s\) large, \((1-\delta_0/2)(s-1)/2\ge s/4\), so the last display is at least \(k^{s/4}\), after absorbing the fixed factor \(2^{-7}\) into the choice of \(L\). Since \(s\ge4\), \(k^{s/4}\ge k\). Thus \(k\le\eta d_F n\) in this case.
+
+Now suppose \(s\ge\sqrt{k}\). Since \(x=k/s\ge L\), (3) and (9) give
+\[
+  \eta d_F n\ge 2^{-7}L^{(1-\delta_0/2)(s-1)}.
+\]
+Increasing \(L\) if necessary, the right side is at least \(L^{s/2}\). Because \(s\ge\sqrt{k}\), this is at least \(L^{\sqrt{k}/2}\), and for \(L\) large the inequality \(L^{\sqrt{k}/2}\ge k\) holds for all \(k\) arising from \(k\ge Ls\). Hence \(k\le\eta d_F n\) in the second case as well.
+
+All hypotheses of the first conclusion of \(\noderef{RamseyFromGraphPair}\) are now verified: \(s,n\ge3\), \(k\ge1\), \(d_G>0\), \(F\) and \(G\) are the required \((n,d_F,\lambda_F)\)- and \((n,d_G,\lambda_G)\)-graphs, \((F,G)\) is \(H_s\)-free, (6) and (7) give \(n^{-2}\le\eta\le1\), (8) gives \(w\le k\), and the preceding paragraph gives \(k\le\eta d_F n\). Therefore
+\[
+  r(s,k)\ge \frac{1}{50}k\,\eta^{(w-k)/k}-1. \tag{10}
+\]
+
+Let \(\alpha=(k-w)/k\). By (8), \(\alpha\ge1-\delta_0/5\), and \(0\le\alpha\le1\). Since \((w-k)/k=-\alpha\), the upper bound in (6) gives
+\[
+  \eta^{(w-k)/k}
+  =\eta^{-\alpha}
+  \ge \left(\frac{q^{s-3}}{16}\right)^\alpha
+  \ge \left(\frac{q^{s-3}}{16}\right)^{1-\delta_0/5},
+\]
+where the last inequality uses that \(q^{s-3}/16\ge1\), ensured by the choice of \(L\). Combining this with (10) and then using (3),
+\[
+  r(s,k)
+  \ge \frac{1}{50}k
+      \left(\frac{q^{s-3}}{16}\right)^{1-\delta_0/5}-1
+  \ge \frac{1}{800}k
+      \left(\frac{k}{s}\right)^{(1-\delta_0/2)(s-3)(1-\delta_0/5)}
+      -1. \tag{11}
+\]
+
+It remains only to compare exponents. Put
+\[
+  \beta=(1-\delta_0/2)(s-3)(1-\delta_0/5).
+\]
+Because \(\delta_0>0\), the difference
+\[
+  \beta+1-(1-\delta_0)s
+\]
+is eventually positive and grows linearly with \(s\). We chose \(L\) large enough that, for all \(s\ge L\) and all \(x\ge L\),
+\[
+  \frac{s}{800}x^{\beta+1-(1-\delta_0)s}\ge2.
+\]
+Since \(k=sx\), (11) gives
+\[
+  r(s,k)\ge
+  \frac{s}{800}x^{\beta+1}-1
+  \ge x^{(1-\delta_0)s}.
+\]
+Finally \(x=k/s\ge1\) and \(\delta_0\le\delta\), so
+\[
+  x^{(1-\delta_0)s}\ge x^{(1-\delta)s}
+  =
+  \left(\frac{k}{s}\right)^{(1-\delta)s}.
+\]
+This proves the desired bound for the original \(\delta\).
 \end{proof}
