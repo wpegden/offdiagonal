@@ -5,10 +5,56 @@ For every fixed \(\ell\ge 3\),
 \]
 \end{theorem}
 \begin{proof}
-SKETCH:
-By \noderef{RandomHomomorphismColoringBound}, for
+Fix an integer \(\ell\ge3\). By \(\noderef{RandomHomomorphismColoringBound}\), there is an integer \(s_1\) such that for every \(s\ge s_1\) and every integer \(n\) satisfying
 \[
-  n=2^{(s/2-4)(\ell-1)}
+  n\le 2^{(s/2-4)(\ell-1)},
 \]
-there is an \(\ell\)-edge-coloring of \(K_n\) with no monochromatic \(K_s\). Therefore \(r(s;\ell)>n\). Since \(\ell\) is fixed, the factor \(2^{-4(\ell-1)}\) is absorbed into the implicit positive constant in \(\Omega(2^{(\ell-1)s/2})\).
+there is an \(\ell\)-coloring of the edges of \(K_n\) with no monochromatic clique of size \(s\).
+
+Define the positive constant
+\[
+  c=\frac12\,2^{-4(\ell-1)}.
+\]
+Increase \(s_1\), if necessary, to an integer \(s_0\) such that for every \(s\ge s_0\),
+\[
+  X_s\coloneqq 2^{(s/2-4)(\ell-1)}\ge2.
+\]
+This is possible because \(\ell\ge3\), so the exponent \((s/2-4)(\ell-1)\) tends to \(+\infty\) with \(s\).
+
+Now fix \(s\ge s_0\), and put
+\[
+  n=\lfloor X_s\rfloor.
+\]
+Then \(n\le X_s\), so \(\noderef{RandomHomomorphismColoringBound}\) gives an \(\ell\)-edge-coloring of \(K_n\) with no monochromatic clique of size \(s\). In the notation of \(\noderef{NoMonochromaticCliqueColoring}\), this is a coloring
+\[
+  \chi:E(K_n)\to\{1,\ldots,\ell\}
+\]
+for which there is no \(s\)-vertex set whose edges all receive one common color.
+
+Consequently \(R_\ell(s,n)\), the Ramsey property from \(\noderef{MulticolorRamseyProperty}\), fails at \(n\): that property asserts that every \(\ell\)-coloring of \(K_n\) contains a monochromatic \(K_s\), while the coloring \(\chi\) is an explicit counterexample. In fact, the same coloring shows that \(R_\ell(s,m)\) fails for every \(m\le n\). Indeed, if \(m\le n\), restrict \(\chi\) to any \(m\)-element subset of the \(n\) vertices. A monochromatic \(K_s\) in the restricted coloring would be the same \(s\)-vertex monochromatic clique in the original coloring, contradicting \(\noderef{NoMonochromaticCliqueColoring}\).
+
+By \(\noderef{MulticolorRamseyNumber}\), \(r(s;\ell)\) is the least integer \(m\) for which \(R_\ell(s,m)\) holds. Since \(R_\ell(s,m)\) fails for every \(m\le n\), this least integer is strictly larger than \(n\):
+\[
+  r(s;\ell)>n. \tag{1}
+\]
+
+It remains to compare \(n\) with the desired exponential expression. Because \(X_s\ge2\),
+\[
+  \lfloor X_s\rfloor\ge X_s-1\ge X_s/2.
+\]
+Therefore
+\[
+  n\ge \frac12\,2^{(s/2-4)(\ell-1)}
+    =\frac12\,2^{-4(\ell-1)}\,2^{(\ell-1)s/2}
+    =c\,2^{(\ell-1)s/2}. \tag{2}
+\]
+Combining (1) and (2), and then viewing the integer \(r(s;\ell)\) as a real number, gives
+\[
+  r(s;\ell)\ge c\,2^{(\ell-1)s/2}
+\]
+for every \(s\ge s_0\). Since \(c>0\), this is precisely
+\[
+  r(s;\ell)=\Omega(2^{(\ell-1)s/2})
+\]
+for the fixed \(\ell\).
 \end{proof}
