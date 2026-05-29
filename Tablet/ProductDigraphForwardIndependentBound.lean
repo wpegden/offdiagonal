@@ -643,4 +643,123 @@ theorem ProductDigraphForwardIndependentBound {V : Type u} [Fintype V]
               exact Finset.sum_le_sum (fun z _hz =>
                 ProductDigraphShrinkingSequenceBound F G n dF dG k lambdaF lambdaG eta
                   hF hG hn_pos hdF hdG heta z.val)
-    sorry
+    let vertexFactor : ℝ := ((dF * n : ℕ) : ℝ) ^ k
+    let commonBound : ℝ :=
+      (8 : ℝ) ^ k * Real.rpow eta ((k : ℝ) - w) * vertexFactor
+    have hvertexFactor_nonneg : 0 ≤ vertexFactor := by
+      dsimp [vertexFactor]
+      positivity
+    have hcommonBound_nonneg : 0 ≤ commonBound := by
+      dsimp [commonBound]
+      exact mul_nonneg
+        (mul_nonneg (pow_nonneg (by norm_num : (0 : ℝ) ≤ 8) k)
+          (Real.rpow_nonneg heta_nonneg _))
+        hvertexFactor_nonneg
+    have hsummand_le_common :
+        ∀ z : restrictedSequences,
+          ((8 : ℝ) * eta) ^ (k - BinarySequenceWeight z.val) * vertexFactor ≤
+            commonBound := by
+      intro z
+      let m : ℕ := BinarySequenceWeight z.val
+      have hm_le_k : m ≤ k := by
+        dsimp [m]
+        simpa [BinarySequenceWeight] using
+          (Finset.card_filter_le (Finset.univ : Finset (Fin k))
+            (fun i : Fin k => z.val i = true))
+      have h8pow_le : (8 : ℝ) ^ (k - m) ≤ (8 : ℝ) ^ k := by
+        exact pow_le_pow_right₀ (by norm_num : (1 : ℝ) ≤ 8) (Nat.sub_le k m)
+      have heta_pow_nonneg : 0 ≤ eta ^ (k - m) :=
+        pow_nonneg heta_nonneg _
+      have hk_sub_nonneg : 0 ≤ (k : ℝ) - w := by
+        linarith
+      have hm_le_w : ((m : ℕ) : ℝ) ≤ w := by
+        dsimp [m]
+        exact z.property
+      have hcast_sub : ((k - m : ℕ) : ℝ) = (k : ℝ) - (m : ℝ) := by
+        exact Nat.cast_sub hm_le_k
+      have hrpow_exponent_le : (k : ℝ) - w ≤ ((k - m : ℕ) : ℝ) := by
+        rw [hcast_sub]
+        linarith
+      have heta_pow_le :
+          eta ^ (k - m) ≤ Real.rpow eta ((k : ℝ) - w) := by
+        rw [← Real.rpow_natCast eta (k - m)]
+        exact Real.rpow_le_rpow_of_exponent_ge' heta_nonneg heta_le_one
+          hk_sub_nonneg hrpow_exponent_le
+      have hbase_le :
+          (8 : ℝ) ^ (k - m) * eta ^ (k - m) ≤
+            (8 : ℝ) ^ k * Real.rpow eta ((k : ℝ) - w) := by
+        calc
+          (8 : ℝ) ^ (k - m) * eta ^ (k - m)
+              ≤ (8 : ℝ) ^ k * eta ^ (k - m) := by
+                exact mul_le_mul_of_nonneg_right h8pow_le heta_pow_nonneg
+          _ ≤ (8 : ℝ) ^ k * Real.rpow eta ((k : ℝ) - w) := by
+                exact mul_le_mul_of_nonneg_left heta_pow_le
+                  (pow_nonneg (by norm_num : (0 : ℝ) ≤ 8) k)
+      change ((8 : ℝ) * eta) ^ (k - m) * vertexFactor ≤ commonBound
+      calc
+        ((8 : ℝ) * eta) ^ (k - m) * vertexFactor
+            = ((8 : ℝ) ^ (k - m) * eta ^ (k - m)) * vertexFactor := by
+              rw [mul_pow]
+        _ ≤ ((8 : ℝ) ^ k * Real.rpow eta ((k : ℝ) - w)) * vertexFactor := by
+              exact mul_le_mul_of_nonneg_right hbase_le hvertexFactor_nonneg
+        _ = commonBound := by
+              rfl
+    have hsum_le_common :
+        ∑ z : restrictedSequences,
+            ((8 : ℝ) * eta) ^ (k - BinarySequenceWeight z.val) *
+              ((dF * n : ℕ) : ℝ) ^ k ≤
+          (Fintype.card restrictedSequences : ℝ) * commonBound := by
+      change
+        ∑ z : restrictedSequences,
+            ((8 : ℝ) * eta) ^ (k - BinarySequenceWeight z.val) *
+              vertexFactor ≤
+          (Fintype.card restrictedSequences : ℝ) * commonBound
+      calc
+        ∑ z : restrictedSequences,
+            ((8 : ℝ) * eta) ^ (k - BinarySequenceWeight z.val) *
+              vertexFactor
+            ≤ ∑ _z : restrictedSequences, commonBound := by
+              exact Finset.sum_le_sum (fun z _hz => hsummand_le_common z)
+        _ = (Fintype.card restrictedSequences : ℝ) * commonBound := by
+              simp [Finset.sum_const, nsmul_eq_mul]
+    have hrestricted_card_le_bool :
+        Fintype.card restrictedSequences ≤ Fintype.card (Fin k → Bool) := by
+      exact Fintype.card_subtype_le
+        (fun z : Fin k → Bool => ((BinarySequenceWeight z : ℕ) : ℝ) ≤ w)
+    have hbool_card : Fintype.card (Fin k → Bool) = 2 ^ k := by
+      simp [Fintype.card_fin, Fintype.card_bool]
+    have hrestricted_card_le_two_pow :
+        (Fintype.card restrictedSequences : ℝ) ≤ (2 : ℝ) ^ k := by
+      have hnat : Fintype.card restrictedSequences ≤ 2 ^ k := by
+        simpa [hbool_card] using hrestricted_card_le_bool
+      exact_mod_cast hnat
+    have hcard_common_le :
+        (Fintype.card restrictedSequences : ℝ) * commonBound ≤
+          (2 : ℝ) ^ k * commonBound := by
+      exact mul_le_mul_of_nonneg_right hrestricted_card_le_two_pow
+        hcommonBound_nonneg
+    calc
+      ((ForwardIndependentTupleCount (ProductDigraph F G) k : ℕ) : ℝ)
+          ≤ ∑ z : restrictedSequences,
+              ((8 : ℝ) * eta) ^ (k - BinarySequenceWeight z.val) *
+                ((dF * n : ℕ) : ℝ) ^ k :=
+            hforwardCount_le_restrictedFixedSequenceEstimateSum
+      _ ≤ (Fintype.card restrictedSequences : ℝ) * commonBound :=
+            hsum_le_common
+      _ ≤ (2 : ℝ) ^ k * commonBound :=
+            hcard_common_le
+      _ = (16 : ℝ) ^ k * Real.rpow eta ((k : ℝ) - w) *
+            ((dF * n : ℕ) : ℝ) ^ k := by
+            dsimp [commonBound, vertexFactor]
+            calc
+              (2 : ℝ) ^ k *
+                  ((8 : ℝ) ^ k * Real.rpow eta ((k : ℝ) - w) *
+                    ((dF * n : ℕ) : ℝ) ^ k)
+                  = ((2 : ℝ) ^ k * (8 : ℝ) ^ k) *
+                      Real.rpow eta ((k : ℝ) - w) *
+                        ((dF * n : ℕ) : ℝ) ^ k := by
+                    ring
+              _ = (16 : ℝ) ^ k * Real.rpow eta ((k : ℝ) - w) *
+                    ((dF * n : ℕ) : ℝ) ^ k := by
+                    rw [← mul_pow]
+                    norm_num

@@ -61,7 +61,7 @@
 | ProductDigraphFixedSequenceTupleCount | definition | definition | closed | - | - | ProductDigraphTupleHasShrinkingSequence |
 | ProductDigraphFixedSequenceTupleCountLastVertexBound | helper | proof | closed | - | - | ProductDigraphFixedSequenceTupleCount, ProductDigraphVertexCard |
 | ProductDigraphFixedSequenceTupleCountZeroBitBound | helper | proof | closed | - | - | ProductDigraphFixedSequenceTupleCount, ProductDigraphSparseEdgeChoiceBound |
-| ProductDigraphForwardIndependentBound | lemma | proof | open | - | - | ForwardIndependentTupleCount, HsFreePair, LoopGraphDegree, ProductDigraph, ProductDigraphShrinkingSequenceBound, ProductDigraphTransitiveFree, ProductDigraphTupleHasShrinkingSequence, ProductDigraphVertex, ProductDigraphVertexCard, TransitiveTournamentFree |
+| ProductDigraphForwardIndependentBound | lemma | proof | closed | - | - | ForwardIndependentTupleCount, HsFreePair, LoopGraphDegree, ProductDigraph, ProductDigraphShrinkingSequenceBound, ProductDigraphTransitiveFree, ProductDigraphTupleHasShrinkingSequence, ProductDigraphVertex, ProductDigraphVertexCard, TransitiveTournamentFree |
 | ProductDigraphShrinkingSequenceBound | lemma | proof | closed | - | - | BinarySequenceWeight, BinarySequenceWeightSnoc, ProductDigraphFixedSequenceTupleCount, ProductDigraphFixedSequenceTupleCountLastVertexBound, ProductDigraphFixedSequenceTupleCountZeroBitBound, ProductDigraphSparseEdgeChoiceBound, ProductDigraphVertexCard, SparseNeighborhoodSetBound |
 | ProductDigraphSparseEdgeChoiceBound | helper | proof | closed | - | - | SparseNeighborhoodSetBound |
 | ProductDigraphTransitiveFree | lemma | proof | closed | - | - | HsFreePair, ProductDigraph, TransitiveTournamentFree |
@@ -78,4 +78,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 74 nodes | **Closed:** 60 | **Open:** 14
+**Total:** 74 nodes | **Closed:** 61 | **Open:** 13
