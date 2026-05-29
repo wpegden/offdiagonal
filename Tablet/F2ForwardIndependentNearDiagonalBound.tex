@@ -10,15 +10,148 @@ vertices such that
 \]
 \end{lemma}
 \begin{proof}
-SKETCH:
-Start with the summand bound from \noderef{F2ForwardIndependentTuples}. Write \(t=s-j\). Then
+Fix \(\varepsilon>0\). All logarithms in this proof are base \(2\). Since
 \[
-  \binom{k}{t}=\binom{s+a}{j+a}
+  x\log_2\left(\frac{2e}{x}\right)\to0
+  \qquad\text{as }x\to0^+,
 \]
-and the \(t\)-th summand is at most
+we may choose \(0<\delta\le1\) such that
 \[
-  \left(\frac{e(s+a)}{a+1}\right)^{j+a}
-  2^{s^2/2+s(s+a)-3s/2-(s+a)+3j/2-j^2/2}.
+  x\log_2\left(\frac{2e}{x}\right)\le \frac{\varepsilon}{4}
+  \qquad\text{for every }0<x\le\delta. \tag{1}
 \]
-The exponent in \(j\) is maximized for \(j=O(\log s)\), and since \(a=o(s)\), the prefactor contributes only \(2^{o(s)}\). Thus every summand is at most \(2^{s^2/2+s(s+a)-3s/2-(s+a)+o(s)}\), and summing over at most \(s\) values of \(t\) is absorbed in the \(o(s)\) term.
+Choose \(s_0\ge4\) large enough that, for every \(s\ge s_0\),
+\[
+  \frac12\left(\log_2(2es)+\frac32\right)^2\le \frac{\varepsilon s}{4},
+  \qquad
+  \log_2 s\le\frac{\varepsilon s}{2}. \tag{2}
+\]
+This is possible because \((\log s)^2=o(s)\) and \(\log s=o(s)\).
+
+Now let \(s\ge s_0\), let \(a\ge0\) be an integer with \(a\le\delta s\), and set
+\[
+  k=s+a.
+\]
+Then \(4\le s\le k\), so \(\noderef{F2ForwardIndependentTuples}\) applies. It gives a finite vertex set and a digraph \(D\) which is loopless and \(T_s\)-free, has exactly
+\[
+  2^{2s-3}-2^{s-1}-2^{s-2}+1
+\]
+vertices, and satisfies
+\[
+  \overrightarrow{i_k}(D)\le
+  \sum_{t=1}^{s-1}
+    \binom{k}{t}2^{(s-1)(t+k)-\binom{t+1}{2}}. \tag{3}
+\]
+Since \(k=s+a\), this is the desired digraph once we prove that the sum in (3) is at most
+\[
+  2^{\frac32s^2+as-\frac52s+\varepsilon s}. \tag{4}
+\]
+
+For \(1\le t\le s-1\), denote the \(t\)-th summand in (3) by
+\[
+  M_t=\binom{k}{t}2^{(s-1)(t+k)-\binom{t+1}{2}}.
+\]
+Write \(t=s-j\). Then \(1\le j\le s-1\), and
+\[
+  \binom{k}{t}
+  =\binom{s+a}{s-j}
+  =\binom{s+a}{j+a}.
+\]
+Using the standard estimate \(\binom{n}{m}\le (en/m)^m\), and using \(j+a\ge a+1\), we get
+\[
+  \binom{s+a}{j+a}
+  \le
+  \left(\frac{e(s+a)}{j+a}\right)^{j+a}
+  \le
+  \left(\frac{e(s+a)}{a+1}\right)^{j+a}. \tag{5}
+\]
+The exponent coming from the power of \(2\) is
+\[
+\begin{aligned}
+  (s-1)(s-j+k)-\binom{s-j+1}{2}
+  &=
+  \frac{s^2}{2}+sk-\frac{3s}{2}-k+\frac{3j}{2}-\frac{j^2}{2}.
+\end{aligned} \tag{6}
+\]
+Combining (5) and (6), and putting
+\[
+  R=\frac{e(s+a)}{a+1},\qquad \lambda=\log_2 R,
+\]
+we obtain
+\[
+  M_{s-j}
+  \le
+  2^{
+    \frac{s^2}{2}+sk-\frac{3s}{2}-k
+    +a\lambda+j\lambda+\frac{3j}{2}-\frac{j^2}{2}
+  }. \tag{7}
+\]
+
+We next bound the two extra terms in (7), uniformly in \(0\le a\le\delta s\). First consider \(a\lambda\). If \(a=0\), this term is \(0\). If \(a>0\), put \(x=a/s\). Then \(0<x\le\delta\), and since \(a+1\ge a=xs\) and \(s+a\le(1+\delta)s\le2s\),
+\[
+  R=\frac{e(s+a)}{a+1}
+  \le \frac{2e}{x}.
+\]
+Therefore, by (1),
+\[
+  a\lambda
+  =xs\log_2 R
+  \le xs\log_2\left(\frac{2e}{x}\right)
+  \le \frac{\varepsilon s}{4}. \tag{8}
+\]
+Thus (8) also holds when \(a=0\).
+
+Now bound the \(j\)-dependent part. Since \(a\le\delta s\) and \(\delta\le1\), we have
+\[
+  R=\frac{e(s+a)}{a+1}\le e(s+a)\le2es,
+\]
+so \(\lambda\le\log_2(2es)\). For real \(y\ge0\), the quadratic
+\[
+  y\lambda+\frac{3y}{2}-\frac{y^2}{2}
+\]
+is maximized at \(y=\lambda+\frac32\), and its maximum is
+\[
+  \frac12\left(\lambda+\frac32\right)^2.
+\]
+Since \(j\ge0\), (2) gives
+\[
+  j\lambda+\frac{3j}{2}-\frac{j^2}{2}
+  \le
+  \frac12\left(\log_2(2es)+\frac32\right)^2
+  \le \frac{\varepsilon s}{4}. \tag{9}
+\]
+
+Substituting (8) and (9) into (7), every summand in (3) satisfies
+\[
+  M_t\le
+  2^{\frac{s^2}{2}+sk-\frac{3s}{2}-k+\frac{\varepsilon s}{2}}
+  \qquad(1\le t\le s-1). \tag{10}
+\]
+There are at most \(s\) summands, and the second inequality in (2) gives
+\[
+\begin{aligned}
+  \sum_{t=1}^{s-1}M_t
+  &\le
+  s\cdot
+  2^{\frac{s^2}{2}+sk-\frac{3s}{2}-k+\frac{\varepsilon s}{2}}  \\
+  &=
+  2^{\frac{s^2}{2}+sk-\frac{3s}{2}-k+\frac{\varepsilon s}{2}+\log_2 s} \\
+  &\le
+  2^{\frac{s^2}{2}+sk-\frac{3s}{2}-k+\varepsilon s}.
+\end{aligned} \tag{11}
+\]
+Finally substitute \(k=s+a\). The exponent in (11) becomes
+\[
+  \frac{s^2}{2}+s(s+a)-\frac{3s}{2}-(s+a)+\varepsilon s
+  =
+  \frac32s^2+as-\frac52s-a+\varepsilon s
+  \le
+  \frac32s^2+as-\frac52s+\varepsilon s,
+\]
+because \(a\ge0\). Combining this with (3) proves (4), and hence
+\[
+  \overrightarrow{i_{s+a}}(D)\le
+  2^{\frac32s^2+as-\frac52s+\varepsilon s}.
+\]
+The same application of \(\noderef{F2ForwardIndependentTuples}\) already supplied looplessness, \(T_s\)-freeness, and the exact vertex count, so the lemma follows.
 \end{proof}
