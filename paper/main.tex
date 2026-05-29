@@ -1,0 +1,610 @@
+\documentclass{article}
+\usepackage[margin= 22mm,bottom=30mm, top= 21mm]{geometry}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{verbatim}
+\usepackage{a4wide}
+\usepackage{csquotes}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*} %sets itemize indentation to 0
+\setlist[enumerate]{leftmargin=*}
+\usepackage{framed}
+%\usepackage{subcaption}
+\usepackage{floatrow}
+\usepackage[T1]{fontenc}
+\usepackage{bbm}
+%\usepackage[bottom]{footmisc}
+%\usepackage[color=Orange!50!white, textwidth=22mm]{todonotes}
+
+\floatsetup{ 
+  heightadjust=object,
+  valign=c
+}
+
+
+\addtolength{\textwidth}{1in}
+\addtolength{\hoffset}{-0.5in}
+\addtolength{\textheight}{0.5in}
+\addtolength{\voffset}{-0.7in}
+
+% \usepackage[
+%   style=nature,%
+%   %style=science, article-title=true,%
+%   natbib=true,%
+%   clearlang=true,%
+%   backend=biber,%
+% ]{biblatex}
+
+
+%\newcommand{\myfloatalign}{\centering}
+%\captionsetup{format=hang,font=small,labelfont={sc},margin=5pt}
+
+\usepackage{mathdots}
+\usepackage{xcolor}
+\usepackage{diagbox}
+\usepackage{colortbl}
+%\usepackage[absolute,overlay]{textpos}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\addtolength{\intextsep}{1pt} %space between text and figures
+\addtolength{\abovecaptionskip}{3pt}
+\addtolength{\belowcaptionskip}{-6pt}
+\captionsetup{width=0.95\textwidth, labelfont=bf, parskip=5pt}
+
+\setstretch{1.06}
+
+\theoremstyle{plain}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{claim}[theorem]{Claim}
+%\newtheorem{subclaim}{Claim}[theorem]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{problem}[theorem]{Problem}
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{claim*}{Claim}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{rem}{Remark}
+\newtheorem*{theorem_notag}{}
+
+
+%\renewenvironment{proof}[1][]{\begin{trivlist}
+%\item[\hspace{\labelsep}{\bf\noindent Proof#1.\/}] }{\qed\end{trivlist}}
+
+\newcommand{\remark}[1]{ 
+	\begin{framed}
+		#1
+	\end{framed}
+}
+
+\def\domagojOpt#1{{}{\textcolor{blue}{#1} }}
+\def\domagoj#1{}
+\let\domagoj=\domagojOpt % COMMENT OUT for clean output
+
+\expandafter\def\expandafter\normalsize\expandafter{%
+    \normalsize
+    \setlength\abovedisplayskip{4pt}
+    \setlength\belowdisplayskip{4pt}
+    \setlength\abovedisplayshortskip{4pt}
+    \setlength\belowdisplayshortskip{4pt}
+}
+
+\usepackage[square,sort,comma,numbers]{natbib}
+\setlength{\bibsep}{1 pt plus 15 ex}
+
+
+\def\numset#1{{\\mathbb #1}}
+
+\def\domagojOpt#1{{}{\textcolor{blue}{#1} }}
+
+\def\domagoj#1{}
+
+\let\domagoj=\domagojOpt % COMMENT OUT for clean output
+
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\Gnp}{\mathcal{G}(n, p)}
+\newcommand{\Gnm}{\mathcal{G}(n, m)}
+\newcommand{\convdist}{\stackrel{d}{\rightarrow}}
+\def\eps {\varepsilon}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\Var}{\mathrm{Var}}
+\newcommand{\cupdot}{\mathbin{\mathaccent\cdot\cup}}
+\newcommand{\intersection}{\mathrm{int}}
+\newcommand{\Bin}{\mathrm{Bin}}
+\newcommand{\poly}{\mathrm{poly}}
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+
+\newcommand{\bA}{\mathbb{A}}
+\newcommand{\bB}{\mathbb{B}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bD}{\mathbb{D}}
+\newcommand{\bE}{\mathbb{E}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bG}{\mathbb{G}}
+\newcommand{\bH}{\mathbb{H}}
+\newcommand{\bI}{\mathbb{I}}
+\newcommand{\bJ}{\mathbb{J}}
+\newcommand{\bK}{\mathbb{K}}
+\newcommand{\bL}{\mathbb{L}}
+\newcommand{\bM}{\mathbb{M}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bO}{\mathbb{O}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bT}{\mathbb{T}}
+\newcommand{\bU}{\mathbb{U}}
+\newcommand{\bV}{\mathbb{V}}
+\newcommand{\bW}{\mathbb{W}}
+\newcommand{\bX}{\mathbb{X}}
+\newcommand{\bY}{\mathbb{Y}}
+\newcommand{\bZ}{\mathbb{Z}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bd}{\mathbf{d}}
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bz}{\mathbf{z}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bit}{\mathrm{bit}}
+\newcommand{\Star}{\mathrm{Star}}
+\newcommand{\tw}{\mathrm{tw}}
+\newcommand{\ex}{\mathrm{ex}}
+\newcommand{\unit}{\mathbbm{1}}
+\newcommand{\onevec}{\mathbf{1}}
+\newcommand{\Vint}{V_{\mathrm{int}}}
+\newcommand{\Gad}{\mathrm{Gad}}
+\newcommand{\bfP}{\mathbf{P}}
+\newcommand{\bfQ}{\mathbf{Q}}
+\newcommand{\norm}[1] {
+    \left \| #1 \right \|
+}
+\newcommand{\TV}{\mathrm{TV}}
+
+\newcommand{\ddisc}{\mathrm{ddisc}}
+
+\renewcommand{\Pr}{\mathbb{P}}
+\renewcommand{\E}{\mathbb{E}}
+
+\newcommand{\ceil}[1]{
+    \left \lceil #1 \right \rceil
+}
+\newcommand{\floor}[1]{
+    \left \lfloor #1 \right \rfloor
+}
+
+\newcommand{\fwi}[1]{\overrightarrow{i_{#1}}}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\def\domagojOpt#1{{}{\textcolor{blue}{#1} }}
+
+\title{Nearly tight exponents for off-diagonal Ramsey numbers}
+\author{Domagoj Brada\v{c} \thanks{Institute of Mathematics, EPFL, Lausanne, Switzerland. Email: \textbf{domagoj.bradac@epfl.ch}}}
+\date{}
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    We construct a new family of $K_s$-free graphs that leads to improved lower bounds for Ramsey numbers across a wide range of parameters. For any fixed $s \ge 4$, we show that the off-diagonal Ramsey numbers satisfy $r(s, k) \ge k^{s-2 + o(1)}.$ For $s \ge 6,$ this improves the best known lower bound of the form $r(s, k) \ge k^{\frac{s+1}{2} + o(1)}$ which was first established by Spencer in 1977 and has since only seen logarithmic improvements. This nearly matches the best known upper bound which is of the form $r(s, k) \le k^{s-1 + o(1)}$ and which is widely believed to give the correct exponent. More generally, we show that if $s, k/s \rightarrow \infty$, then $r(s, k) = \left(\frac{k}{s}\right)^{(1+o(1)) s},$ where the upper follows from the seminal work of Erd\H{o}s and Szekeres in 1935. We also obtain improved lower bounds for Ramsey numbers extremely close to the diagonal as well as for diagonal multicolor Ramsey numbers.
+\end{abstract}
+
+\section{Introduction}
+For positive integers $s$ and $k$, the \emph{Ramsey number} $r(s, k)$ is the minimum integer $n$ such that any graph on $n$ vertices contains a clique of size $s$, which we shall denote by $K_s$, or an independent set of size $k$. The fact that these numbers are finite is a famous theorem of Ramsey~\cite{ramsey} from 1930 and since then, a great deal of effort has been expended toward estimating these numbers as well as various related quantities -- see the book by Graham, Rothschild and Spencer~\cite{graham-rothschild-spencer} for an introduction to the area and the survey by Conlon, Fox and Sudakov~\cite{CFSsurvey} for a more recent broad overview of the many related questions. The two most natural regimes to consider are when $s = k,$ the so-called \emph{diagonal Ramsey numbers}, and when $s$ is fixed and $k \rightarrow \infty$, the so-called \emph{off-diagonal Ramsey numbers}. For a detailed history of the diagonal Ramsey numbers, we refer to the recent breakthrough work of Campos, Griffiths, R. Morris and Sahasrabudhe~\cite{CGMS} and to the follow-up works of Gupta, Ndiaye, Norin and Wei~\cite{gupta} for quantitative improvements and of Balister, Bollob\'{a}s, Campos, Griffiths, Hurley, R. Morris, Sahasrabudhe and Tiba~\cite{balister} for a multicolor generalization. The main focus of this paper are the off-diagonal Ramsey numbers.
+
+The first reasonable quantitative upper bounds on the Ramsey numbers were given by Erd\H{o}s and Szekeres~\cite{erdos-szekeres} in 1935, who showed that for any positive $s$ and $k$, 
+\begin{equation} \label{eq:erdos-szekeres}
+    r(s, k) \le \binom{k+s-2}{s-1}.
+\end{equation}
+
+For the off-diagonal Ramsey numbers, \eqref{eq:erdos-szekeres} implies that $r(s, k) = O(k^{s-1})$, for any fixed $s$. This was improved by Ajtai, Koml\'{o}s and Szemer\'{e}di~\cite{ajtai} who showed that $r(s, k) = O(k^{s-1} / (\log k)^{s-2})$, and the leading constant was improved to $(1+o(1))$ by Li, Rousseau, and Zang~\cite{li-rousseau-zang}, generalizing the work of Shearer~\cite{shearer} who obtained such an improvement for $s=3$.
+
+Using the so-called Lov\'{a}sz local lemma, Spencer~\cite{spencer75, spencer77} proved the first nontrivial lower bound for general $s$, showing that $r(s, k) = \Omega\left((k / \log k)^{\frac{s+1}{2}}\right).$ The logarithmic factor was slightly improved by Bohman and Keevash~\cite{bohman-keevash-Ks} by analyzing the random $K_s$-free process, the result of which is that for fixed $s \ge 5$, the best known bounds on $r(s, k)$ are
+
+\begin{equation} \label{eq:old-bounds}
+    \Omega\left(\frac{k^{\frac{s+1}{2}}}{(\log k)^{\frac{s+1}{2} - \frac{1}{s-2}}} \right) \le r(s, k) \le (1 + o(1))\frac{k^{s-1}}{(\log k)^{s-2}}.
+\end{equation} 
+
+The exponent in the above lower bound corresponds to the so-called deletion threshold for $K_s$ and it represents a natural barrier unlikely to be surpassed by any purely probabilistic construction\footnote{Although, for the so-called odd cycle-complete Ramsey numbers, the deletion threshold has recently been broken by Campos, Jenssen, Michelen, Pfender and Sahasrabudhe~\cite{oddcyclecomplete} by superimposing blow-ups of random graphs.}. Our main result is the following improvement for the lower bound on $r(s, k)$ which narrows down the exponent for these numbers up to an additive $1 + o(1)$ term.
+
+\begin{theorem} \label{thm:main}
+    For any $s \ge 4$, there is a positive constant $c_s$ such that for any $k \ge 2,$
+    \[ r(s, k) \ge c_s \frac{k^{s-2}}{(\log k)^{2s-6}}. \]
+\end{theorem}
+Note that this improves the lower bound in \eqref{eq:old-bounds} for any $s \ge 6$. The conjecture that for any fixed $s$, $r(s, k) \ge \frac{k^{s-1}}{(\log k)^c},$ for some $c = c(s)$, appears to have been made by Erd\H{o}s in 1947~\cite{chung-graham} and several authors~\cite{spencer77, mubayi-verstraete, CMMV-zarankiewicz} have tepidly supported the conjecture that at least $r(s, k) \ge k^{s-1+o(1)}$ should hold. Theorem~\ref{thm:main} gives further support to this conjecture which is only known to hold in the first two non-trivial cases $s = 3,4$. We shall discuss these in more detail later, focusing on the recent results from which we draw inspiration for our approach.
+
+For general values of $s$ and $k$, in an excellent survey of recent breakthroughs in the area, R. Morris~\cite{morris-survey} showed that combining three proofs suitable for different regimes, the upper bound in~\eqref{eq:erdos-szekeres} can always be improved by an exponential in $s$, i.e. there is an absolute constant $\delta > 0$ such that for all sufficiently large $k$ and all $s \le k,$
+\begin{equation} \label{eq:morris}
+    r(s, k) \le e^{-\delta s} \binom{k+s-2}{s-1}.
+\end{equation}
+
+On the other hand, the first moment lower bound of Erd\H{o}s~\cite{erdos-lb} as well as the local lemma approach of Spencer can easily be adapted to give lower bounds for general $s$ and $k$. When $k = \Theta(s)$, the local lemma only provides a constant factor improvement over the first moment method argument. In a recent breakthrough, Ma, Shen and Xie~\cite{ma-shen-xie} have obtained an exponential improvement on this lower bound.
+
+\begin{theorem}[Ma, Shen, Xie~\cite{ma-shen-xie}] \label{thm:ma-shen-xie}
+    For any constant $C > 1$, there exists a constant $\eps = \eps(C) > 0$ such that for any sufficiently large $s$,
+    \[ r(s, Cs) \ge (p_C^{-1/2} + \eps)^s, \]
+    where $p_C \in (0, 1/2)$ is the unique solution to $C  = \frac{\log p_C}{\log (1 - p_C)}$.
+\end{theorem}
+
+For context, we remark that the first moment method achieves the lower bound $r(s, Cs) \ge (p_C^{-1/2} + o(1))^s$. To prove this lower bound, Ma, Shen and Xie use a random geometric graph. Their result was reproved by Hunter, Milojevi\'{c} and Sudakov~\cite{hunter-milojevic-sudakov} using a similar construction, based on Gaussian random graphs, which allows for a simpler analysis and achieves better quantitative dependencies when $C \rightarrow \infty$; see also~\cite{lin-niu} for a sharper analysis leading to a small improvement in the final bounds.
+
+If $s, k/s \rightarrow \infty$, the lower bounds given by the first moment method, the local lemma and the recent improvements in~\cite{ma-shen-xie},~\cite{hunter-milojevic-sudakov}~and~\cite{lin-niu} all yield a lower bound of the form
+\begin{equation} \label{eq:spencer-general}
+    r(s, k) \ge \left( \frac{k}{s} \right)^{(1 + o(1))s/2}.
+\end{equation}
+Therefore, if $s, k/s \rightarrow \infty$, the lower bound \eqref{eq:spencer-general} and the upper bound \eqref{eq:erdos-szekeres} (or the improved~\eqref{eq:morris}) imply that\linebreak $(1 / 2 + o(1)) s \log(k/s) \le \log r(s, k) \le (1 + o(1)) s \log(k/s)$. We close this gap by showing that the upper bound is asymptotically tight.
+
+\begin{theorem} \label{thm:off-diagonal-general}
+    For every $\delta > 0$, there exists a constant $L$ such that for any positive integers $s \ge L$ and $k \ge Ls$, it holds that 
+    \[ r(s, k) \ge \left( \frac{k}{s}\right)^{(1 - \delta) s}. \]
+\end{theorem}
+
+Note that Theorem~\ref{thm:off-diagonal-general} improves Theorem~\ref{thm:ma-shen-xie} for any sufficiently large $C$. We are also able to improve these bounds for $C$ close to $1$. More formally, for some positive $\gamma > 0$, we obtain an exponential improvement for any $C \in (1, 1+\gamma)$.
+\begin{theorem} \label{thm:k-Ck}
+    Let $C > 1$ be a fixed constant. Then, for large enough $s$,
+    \[ r(s, Cs) \ge (2^{1 - \frac{1}{2C}})^s. \]
+\end{theorem}
+Writing $C = 1 + \alpha$ and considering $\alpha \searrow 0$, Theorem~\ref{thm:k-Ck} yields $r(s, Cs) \ge (p_C^{-1/2} + \eps)^s$, with $\eps = \Omega(\alpha)$, whereas~\cite{ma-shen-xie},~\cite{hunter-milojevic-sudakov}~and~\cite{lin-niu} all achieve the weaker $\eps = \Omega(\alpha^2)$.
+
+Moving even closer to the diagonal, for $a = o(s)$, a simple, though slightly tedious, application of the local lemma, the optimality of which we demonstrate in the appendix, shows that 
+\begin{equation} \label{eq:spencer-close-to-diag}
+    r(s, s+a) \ge (1 + o(1)) \frac{s}{e} \cdot 2^{(s+a/2+1)/2 + O(a^2/s)}.
+\end{equation}
+
+Ma, Shen and Xie~\cite{ma-shen-xie} obtain an improvement over~\eqref{eq:spencer-close-to-diag} for $a = \omega(\sqrt{s})$. We are able to improve these lower bounds as soon as $a \ge 5$.
+\begin{theorem} \label{thm:close}
+    Let $s \rightarrow \infty$ and let $a$ be a nonnegative integer such that $a = o(s)$. Then, 
+    \[ r(s, s+a) \ge (1 + o(1)) \frac{s}{e}\cdot 2^{(s+a-1)/2 - a^2 / (2s)}. \]
+\end{theorem}
+
+For positive integers $s$ and $\ell$, the multicolor Ramsey number $r(s; \ell)$ is the minimum integer $n$ such that any \mbox{$\ell$-coloring} of the edges of $K_n$ contains a monochromatic clique of size $s$. Using a construction based on polarity graphs, which also play a central role in the present paper, Conlon and Ferber~\cite{conlon-ferber} were first to obtain an exponential improvement over the old lower bound obtained using a random graph and a simple product argument of Abbott~\cite{abbott}. Their bound has subsequently been improved by Wigderson~\cite{wigderson}, Sawin~\cite{sawin}, and more recently by Campos and Pohoata~\cite{campos-pohoata}, and Attwa, Vidal and P. Morris~\cite{attwa-vidal-morris}, independently. The current best lower bounds on $r(s; \ell)$, given by~\cite{campos-pohoata} and~\cite{attwa-vidal-morris}, are less than $2^{0.4(\ell-2) s + s/2}$. We obtain the following improvement.
+
+\begin{theorem} \label{thm:multicolor}
+    For any fixed $\ell \ge 3$,
+    \[ r(s; \ell) = \Omega(2^{(\ell-1) s / 2}). \]
+\end{theorem}
+While this presents an exponential improvement for any fixed $\ell$, for large $\ell$ it is still far from the best known upper bound $r(s; \ell) \le e^{-\delta s} \ell^{\ell s}$, where $\delta = \delta(\ell) > 0$, obtained by Balister, Bollob\'{a}s, Campos, Griffiths, Hurley, R. Morris, Sahasrabudhe and Tiba~\cite{balister}.
+
+Our construction draws inspiration from several sources including some of the recent works on $r(3, k)$ and $r(4, k)$. The starting point of our proof stems from ideas based on pseudorandom graphs. A particularly convenient notion of pseudorandomness is that of so-called $(n, d, \lambda)$-graphs which are $d$-regular, $n$-vertex graphs whose adjacency matrices have all but the largest eigenvalue at most $\lambda$ in absolute value. This notion has first been systematically used by Alon and there has been a great deal of work utilising these graphs and studying their properties. We refer the interested reader to the excellent survey of Krivelevich and Sudakov~\cite{pseudorandomgraphssurvey} for an overview of the many results regarding pseudorandom graphs.
+
+Alon and R\"{o}dl~\cite{alon-rodl} used $(n,d,\lambda)$-graphs to lower bound certain multicolor Ramsey numbers. These ideas were built upon by Mubayi and Verstra\"{e}te~\cite{mubayi-verstraete} who proved that the existence of dense pseudorandom $K_s$-free graphs implies lower bounds for the off-diagonal Ramsey numbers $r(s, k)$. In particular, if there exists $K_s$-free $(n, d, \lambda)$-graphs with $d = \Omega(n^{1 - 1 / (2s-3)})$ and $\lambda = O(\sqrt{d})$, which would be optimal, then $r(s, k) \ge k^{s-1 + o(1)}$. The idea is to show that randomly sampling vertices of a dense pseudorandom $K_s$-free graph with high probability produces a graph without large independent sets which in turn, translates to a lower bound on $r(s, k)$. Due to our limited knowledge of dense pseudorandom $K_s$-free graphs, which we shall discuss below, this unfortunately has not directly produced improved lower bounds for off-diagonal Ramsey numbers. Nonetheless, it gave improvements to a related problem of so called odd cycle-complete Ramsey numbers~\cite{mubayi-verstraete, CMMV-zarankiewicz}, and more importantly, it served as an inspiration for the recent resolution of the exponent of $r(4, k)$, which we discuss next.
+
+In a major breakthrough, Mattheus and Verstraete~\cite{mattheus-verstraete} proved that $r(4,k) = \Omega(k^3 / (\log k)^4)$ which, by~\eqref{eq:old-bounds}, is tight up to a factor of $O(\log k)^2$. Their construction uses so-called Hermitian unitals from finite geometry to produce an algebraically defined graph which can be randomly modified to obtain a $K_4$-free graph with a nice edge distribution. While this graph is not spectrally pseudorandom, its independent sets can be efficiently counted using the so-called container method; see~\cite{samotij-survey} for an introduction to this powerful technique. Having a good upper bound on the number of large independent sets, as in~\cite{mubayi-verstraete}, taking a random subset of vertices yields the lower bound on $r(4, k)$. This proof strategy has been codified by Conlon, Mattheus, Mubayi and Verstra\"{e}te~\cite{CMMV-zarankiewicz}, the upshot of which is that if some ``natural conjectures'' on a certain extremal problem are true, then $r(s, k) = k^{s-1 + o(1)}$. An outline of the proof of the lower bound on $r(4, k)$ as well as a survey of recent results utilizing the pseudorandom graph framework was recently presented by Verstr\"{a}ete~\cite{verstraete-survey}.
+
+As we shall see, our approach has a similar flavour -- we start with an algebraically defined construction, which can be thought of, and in fact easily transformed into, a $K_s$-free graph. This graph is not spectrally pseudorandom but its independent sets can be counted efficiently using the container method, closely following the argument of Alon and R\"{o}dl~\cite{alon-rodl}. Again, taking a random subset of vertices yields our lower bound on $r(s, k)$.
+
+Next, we briefly discuss the case $s=3$, while for a much more detailed history we refer to~\cite{CJMSk3}. As mentioned, the best known upper bound on $r(3, k)$ is due to Shearer~\cite{shearer} and is the right hand side of~\eqref{eq:old-bounds}. The first lower bound determining the order of magnitude of $r(3, k)$ is due to Kim~\cite{kim}. The leading constant has been improved by Fiz Pontiveros, Griffiths and R. Morris~\cite{fizpontiveros} and, independently, by Bohman and Keevash~\cite{bohman-keevash-K3} using the triangle-free process. This lower bound was recently improved by Campos, Jenssen, Michelen and Sahasrabudhe~\cite{CJMSk3}. Drawing some high level ideas from their work, Hefty, Horn, King and Pfender~\cite{heftyhorn} found a beautiful construction that narrows the gap between the upper and lower bound to a factor of only $2 + o(1)$. The construction in~\cite{heftyhorn} is based on a certain graph product partly inspiring the present construction, which, as we shall see, has a product-like flavor.
+
+Let us address the final ingredient in our proof. Our construction is based on the polarity graphs of projective spaces. These were shown by Alon and Krivelevich~\cite{alon-krivelevich} to provide instances of $K_s$-free $(n, d, \lambda)$-graphs with $d = \Theta(n^{1 - 1/(s-2)})$ and $\lambda = O(\sqrt{d})$. It is worth mentioning that Bishnoi, Ihringer and Pepe~\cite{bishnoiihringer} (see also Mattheus and Pavese~\cite{mattheus-pavese}) used a particular polarity to construct $K_s$-free graphs with a larger density, namely $d = \Theta(n^{1 - 1 / (s-1)})$ and also optimal spectral pseudorandomness. We remark that the degree bound $d = \Theta(n^{1-1/(s-2)})$ of the graphs in \cite{alon-krivelevich} translates to the lower bound $r(s, k) \ge k^{s-2+o(1)}$ in our work. Hence, if we could use the denser constructions in~\cite{bishnoiihringer}~or~\cite{mattheus-pavese} instead, we would achieve the optimal bound $r(s, k) \ge k^{s-1+o(1)}$. However, we do not actually use that the polarity graphs are $K_s$-free, but rather that they avoid a certain bipartite configuration. Thus, unfortunately, it seems that the improvements in~\cite{bishnoiihringer} and~\cite{mattheus-pavese} do not help for our purposes.
+
+\textbf{Organisation.} The rest of this paper is structured as follows. Section~\ref{sec:proof} contains the proof of our main results and it is split into three subsections. First, in Subsection~\ref{subsec:Gtq} we introduce the polarity graphs from~\cite{alon-krivelevich} which serve as the basis of our construction and (re)prove the properties we need. In Subsection~\ref{subsec:sketch}, we sketch a direct proof of Theorem~\ref{thm:main} given this construction. In Subsection~\ref{subsec:main-arg} we prove a slightly more general intermediate statement which could potentially lead to a further improvement to the lower bound given a better base construction and we conclude the proofs of Theorems~\ref{thm:main}~and~\ref{thm:off-diagonal-general}. We present the proofs of Theorems~\ref{thm:k-Ck},~\ref{thm:close}~and~\ref{thm:multicolor} in Section~\ref{sec:close}. Finally, we end with some concluding remarks in Section~\ref{sec:concluding}.
+
+\textbf{Notation.} We use mostly standard graph theoretic notation. Some of the graphs we consider have loops, at most one per vertex. In the adjacency matrix of a graph, a loop is represented by a $1$ as the corresponding diagonal entry and, accordingly, each loop contributes one to the degree of the vertex incident to it. For a graph $G$ and a vertex $v$ of $G$, we write $N_G(v)$ for the set of neighbours of $v$ in $G$, where $v \in N_G(v)$ if $G$ has a loop at $v$. For two vertex sets $A$ and $B$, we write $e_G(A, B) = \{ (a, b) \mid a \in A, b \in B, ab \in E(G) \}.$ For a directed graph, or digraph for short, $D$, we use $A(D)$ to denote its set of arcs. We use $\log x$ to denote the natural logarithm of $x$. We omit the use of floor and ceiling signs whenever they are not crucial to the argument.
+
+\section{Setup and proofs for off-diagonal Ramsey numbers} \label{sec:proof}
+
+\subsection{The polarity graphs} \label{subsec:Gtq}
+The basis of our construction is a construction of optimally pseudorandom $K_s$-free graphs due to Alon and Krivelevich~\cite{alon-krivelevich} which we now describe. Let $t \ge 2$ and let $q$ be an arbitrary prime power. Let $PG(t, q)$ denote the finite geometry of dimension $t$ over the field $\bF_q$. The points of $PG(t, q)$ may be represented by the equivalence classes of non-zero vectors $(x_1, \dots, x_{t+1})$ of length $t+1$ over $\bF_q$ under the equivalence relation where two vectors are equivalent if one is a multiple of the other by a nonzero element of $\bF_q$. Let $G(t, q)$ be the graph with vertex set $PG(t, q)$ where two (not necessarily distinct) vertices represented by vectors $\bx$ and $\by$ are joined by an edge if and only if $\langle \bx, \by \rangle = \sum_{i=1}^{t+1} x_i y_i = 0$. Note that whether $\langle \bx, \by \rangle = 0$ does not depend on the choice of the representatives, so the graph is well defined. Let us point out that $G(t, q)$ contains a loop at a vertex represented by $\bx$ if and only if $\langle \bx, \bx \rangle = 0$.
+
+A graph $G$, which might contain loops, is said to be an $(n, d, \lambda)$-graph if it has $n$ vertices, it is $d$-regular, and all but the largest eigenvalue (which equals $d$) of its adjacency matrix are at most $\lambda$ in absolute value.
+
+The following properties of $G(t, q)$ are shown in~\cite{alon-krivelevich} and we include a proof for completeness. The proof in~\cite{alon-krivelevich} assumes that $t$ is fixed and $q$ tends to infinity, while we shall only assume the latter. However, allowing $t$ to grow with $q$ makes no difference to the proof.
+
+\begin{lemma}[\cite{alon-krivelevich}] \label{lem:properties}
+    For $t \ge 2$, the graph $G(t, q)$ is an $(n, d, \lambda)$-graph, with $n = q^t (1 + o(1))$, $d = q^{t-1}(1 + o(1))$ and $\lambda = (1+o(1)) \sqrt{d}$, where the asymptotic notation is for $q$ tending to infinity.
+\end{lemma}
+\begin{proof}
+    Each equivalence class corresponding to a point of $PG(t, q)$ has size $q-1$, so $G(t,q)$ has $n = (q^{t+1} - 1) / (q-1) = (1+o(1)) q^t$ vertices. For any non-zero $\bx \in \bF_q^{t+1},$ there are $q^t - 1$ non-zero solutions $\by$ to the equation $\langle \bx, \by \rangle = 0$, so $G(t,q)$ is $d$-regular with $d = (q^t - 1) / (q-1) = (1+o(1))q^{t-1}.$
+
+    Let $\bx, \by \in \bF_q^{t+1}$ be linearly independent. Then, the number of non-zero vectors $\bz \in \bF_q^{t+1}$ such that $\langle \bx, \bz \rangle = \langle \by, \bz \rangle = 0$ equals $q^{t-1} - 1$, thus any pair of distinct vertices of $G(t,q)$ have $a \coloneqq (q^{t-1} - 1) / (q-1)$ common neighbours. Let $A$ denote the adjacency matrix of $G(t, q)$. Denoting by $J_n$ the $n \times n$ all-ones matrix and by $I_n$ the $n \times n$ identity matrix, the above facts imply that $A^2 = aJ_n + (d-a)I_n.$ Recalling that the principal eigenvector of the adjacency matrix of a $d$-regular graph is the all-ones vector and the other eigenvectors are orthogonal to it, it follows that the absolute value of all but the largest eigenvalue of $G(t,q)$ equals $\sqrt{d-a} = (1+o(1)) \sqrt{d}.$
+\end{proof}
+
+It was shown in~\cite{alon-krivelevich} that the subgraph of $G(t, q)$ induced on the set of non-self-orthogonal points is $K_{t+2}$-free. For our purposes, however, we need that $G(t, q)$ avoids a certain bipartite structure as proved in the lemma below. The proof is the skew version of the dimension argument exhibiting $K_{t+2}$-freeness.
+
+\begin{lemma} \label{lem:Hs-free}
+    There do not exist vertices $a_1, b_1, \dots, a_{t+2}, b_{t+2} \in V(G(t, q))$ such that $a_ib_j \in E(G(t, q))$ for all $i, j$ with $1 \le i < j \le t+2$ and $a_i b_i \not\in E(G(t, q))$ for all $i \in [t+2]$.
+\end{lemma}
+\begin{proof}
+    Assume this is false, so there exist vectors $\bx_1, \by_1, \bx_2, \by_2, \dots, \bx_{t+2}, \by_{t+2} \in \bF_q^{t+1}$ such that $\langle \bx_i, \by_j \rangle = 0$ for all $i, j$ with $1 \le i < j \le t+2$ and $\langle \bx_i, \by_i \rangle \neq 0$ for all $i \in [t+2]$.
+    
+    We claim that the vectors $\by_1, \by_2, \dots, \by_{t+2}$ are linearly independent. Indeed, suppose there is a non-trivial linear combination $\sum_{j=1}^{t+2} \alpha_j \by_j = 0$ and let $i$ be the minimum index $j \in [t+2]$ such that $\alpha_j \neq 0$. We have
+    \[ 0 = \sum_{j=1}^{t+2} \alpha_j \by_j = \sum_{j=i}^{t+2} \alpha_j \by_j. \]
+
+    Taking the inner product with $\bx_i$ and recalling that $\langle \bx_i, \by_j \rangle = 0$ whenever $i < j \le t+2,$ it follows that
+    \[ \alpha_i \langle \bx_i, \by_i \rangle = 0. \]
+    Since $\langle \bx_i, \by_i \rangle \neq 0,$ it follows that $\alpha_i = 0$, contradicting our choice of $i$ and thus proving that the vectors $\by_1, \dots, \by_{t+2}$ are linearly independent. Since these are vectors in a space of dimension $t+1$, this is a contradiction.
+\end{proof}
+
+\subsection{Proof sketch} \label{subsec:sketch}
+We present a proof sketch of Theorem~\ref{thm:main}. The most direct way to describe our construction is as follows. Let $t=s-2, N = c_s q^t (\log q)^2$ and let $(a_1, b_1), \dots (a_N, b_N)$ be independently randomly chosen pairs in $PG(t, q)$ such that $\langle a_i, b_i \rangle \neq 0$. In other words, each $(a_i, b_i)$ is a randomly chosen ordered pair of vertices in $G(t, q)$ not forming an edge. Next, define a graph $\Gamma$ with vertex set $[N]$ such that for $1 \le i < j \le N,$ the pair $ij$ forms an edge in $\Gamma$ if and only if $\langle a_i, b_j \rangle = 0,$ i.e. if and only if $a_i b_j \in E(G(t, q)).$ 
+
+Lemma~\ref{lem:Hs-free} implies that $\Gamma$ is $K_s$-free with probability $1$. It remains to argue that with positive probability $\Gamma$ has no large independent sets. By Markov's inequality it suffices to count the number of \emph{bad} $2k$-tuples defined as $2k$-tuples $(a_1, b_1, a_2, b_2 \dots, a_k, b_k) \in V(G(t, q))^{2k}$ such that $a_i b_j \not\in E(G(t, q))$ for all $1 \le i < j \le k$. Our argument for this follows that of Alon and R\"{o}dl~\cite{alon-rodl} for upper bounding the number of independent sets in $(n, d, \lambda)$-graphs. The expander mixing lemma shows that the largest independent set in an $(n, d, \lambda)$-graph has size at most $n \lambda / d$ and~\cite{alon-rodl} show that the number of independent sets of size $k = 100 n (\log n)^2 / d$, say, in an $(n, d, \lambda)$-graph is essentially upper bounded by the number of subsets of size $k$ of the largest possible independent set. In our setting, we show that the number of bad $2k$-tuples is essentially upper bounded by the number of ways to choose a $k$-tuple of vertices from a set $A$ and a $k$-tuple of vertices from a set $B$, where there are no edges between $A$ and $B$ in $G(t, q)$. The expander mixing lemma shows that $|A||B| \le \frac{\lambda^2 n^2}{d^2}$ if there are no edges between $A$ and $B$ which carries over to the fact that there are at most $O(\lambda^2 n^2 / d^2)^k$ bad $2k$-tuples, where $n \sim q^{s-2}, d \sim q^{s-3}$ and $\lambda \sim \sqrt{d}$ are the corresponding parameters of $G(t, q)$ and $k = \Theta(q (\log q)^2)$. Therefore, the expected number of independent sets of size $k$ in $\Gamma$ is at most $\binom{N}{k} O(\lambda^2 n^2 / d^2)^k / n^{2k} < 1,$ by our choice of parameters, implying that $r(s, k) \ge N = \Theta(k^{s-2} / (\log k)^{2s-6})$.
+
+The proof we present is less direct than the above sketch but it has two advantages. First, it provides a possible avenue for obtaining the tight exponent for off-diagonal Ramsey numbers. Secondly, it emphasizes the product-like structure of our construction.
+
+
+\subsection{A conditional statement and the
+proofs of Theorems~\ref{thm:main}~and~\ref{thm:off-diagonal-general}} \label{subsec:main-arg}
+For a graph $G$ and positive integer $k$, we denote by $i_k(G)$ the number of independent set of size $k$ in $G$. 
+
+We denote by $T_s$ the transitive tournament on $s$ vertices and say that a digraph is $T_s$-free if it does not contain a copy of $T_s$. For a digraph $D$, we say that a $k$-tuple of vertices $(v_1, v_2, \dots, v_k) \in V(D)^k$ is \emph{forward independent} if there are no $i, j \in [k], i < j$ such that $(v_i, v_j) \in A(D)$. We denote the number of forward independent $k$-tuples in a digraph $D$ by $\fwi{k}(D)$.
+
+We start with two simple lemmas.
+\begin{lemma} \label{lem:Ts-free-Ks-free}
+    Suppose $D$ is a $T_s$-free digraph on $n$ vertices. Then, for any $k \ge 1$, there exists a $K_s$-free graph $G$ on $n$ vertices satisfying $i_k(G) \le \left(\frac{e}{k} \right)^k \cdot \fwi{k}(D)$.
+\end{lemma}
+\begin{proof}
+    Let $\pi$ be a random permutation of $V(D)$ and let $G$ be the graph with vertex set $V(D)$ and edge set $\{ \{u, v\} \mid (u, v) \in A(D), \pi(u) < \pi(v) \}$, that is, $G$ contains an edge for each arc going forward according to $\pi$. Since $D$ is $T_s$-free, it follows that $G$ is $K_s$-free. Observe that every independent set of size $k$ corresponds to a distinct forward independent $k$-tuple in $D$, each of which is in an increasing order according to $\pi$ with probability $1/k!$. By linearity of expectation, $\E[i_k(G)] = \fwi{k}(D) / k! \le \left( \frac{e}{k}\right)^k \cdot \fwi{k}(D)$, implying the existence of the desired graph.
+\end{proof}
+
+The following lemma is well-known and implicitly proved in \cite{mubayi-verstraete}.
+\begin{lemma} \label{lem:sampling-Ks-free}
+    Suppose $G$ is a $K_s$-free graph on $n$ vertices and let $k \ge 1$ be arbitrary. If $p \in [0, 1]$ satisfies $p^{k} i_k(G) \le 1$, then, $r(s, k) > pn - 1.$
+\end{lemma}
+\begin{proof}
+    Let $U \subseteq V(G)$ be a random set of vertices obtained by keeping each vertex independently with probability $p$ and let $G' = G[U]$ be the induced subgraph on $U$. Clearly, $G'$ is $K_s$-free and $\E[ |V(G')| - i_k(G')] = p n - p^k i_k(G) \ge pn - 1$. Thus, there exists a $K_s$-free graph $F$ with $|V(F)| - i_k(F) \ge pn - 1$. Removing an arbitrary vertex from each independent set of size $k$ in $F,$ we obtain a $K_s$-free graph with no independent set of size $k$ and at least $pn - 1$ vertices. Hence, $r(s, k) > pn - 1$, as claimed.
+\end{proof}
+
+Next, we define the forbidden structure which will translate to our final graph being $K_s$-free; see Figure~\ref{fig:Hs} for an illustration.
+
+\begin{definition} \label{def:Hs-free}
+    For a positive integer $s,$ we say that an ordered pair of graphs $(F, G)$ on the same vertex set is \emph{$H_s$-free} if there does not exist a $2s$-tuple of vertices $(a_1, b_1, a_2, b_2, \dots, a_s, b_s)$ such that $a_i b_i \in E(F)$ for all $i \in [s]$ and $a_i b_j \in E(G)$ for all $i, j$ satisfying $1 \le i < j \le s$.
+\end{definition}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Hs.pdf}
+    \caption{The forbidden structure $H_5$. The vertical green edges represent edges in $F$ and the diagonal red edges represent edges in $G$.}
+    \label{fig:Hs}
+\end{figure}
+
+Observe that Lemma~\ref{lem:Hs-free} states that the pair $\big(\overline{G(t, q)}, G(t,q)\big)$ is $H_{t+2}$-free. Here $\overline{G(t,q)}$ is the complement of $G(t, q)$, where loops are complemented to non-loops and vice-versa.
+
+We shall use the well-known expander-mixing lemma. Though usually stated for a graph without loops, the same proof works if loops are allowed.
+\begin{lemma}[e.g.~{\cite[Corollary~9.2.5]{alon-spencer}}] \label{lem:expander-mixing}
+    Let $G$ be an $(n, d, \lambda)$-graph and let $A, B \subseteq V(G)$. Then,
+    \[ \big| e_G(A, B) - \frac{d}{n} |A||B| \big| \le \lambda \sqrt{|A||B|} . \]
+\end{lemma}
+
+A useful corollary of the expander mixing lemma is the following.
+\begin{lemma}[{\cite[Lemma~2.2]{alon-rodl}}] \label{lem:BC}
+    Let $G$ be an $(n, d, \lambda)$-graph and let $B \subseteq V(G)$ be an arbitrary subset of vertices of $G$. Define
+    \[ A = \left\{ u \in V \mid |N_G(u) \cap B| \le \frac{d|B|}{2n} \right\}. \]
+    Then,
+    \[ |A| |B| \le \frac{4 \lambda^2}{d^2} n^2. \]
+\end{lemma}
+
+Next, we show that given two sufficiently pseudorandom and sufficiently dense graphs $F$ and $G$ on the same vertex set $V$ such that $(F, G)$ is $H_s$-free, we can obtain a $T_s$-free digraph with few forward independent tuples. The digraph in question can be thought of as a kind of product of $F$ and $G$. Namely its vertex set is the set of ordered pairs $(a, b) \in V \times V$ with $\{a,b\} \in E(F)$ and there is a directed edge from $(a_1, b_1)$ to $(a_2, b_2)$ if and only if $a_1b_2 \in E(G)$. The following lemma shows that this construction yields a $T_s$-free digraph with few forward independent tuples, following the argument outlined in the proof sketch. We remark that in the proof of Theorem~\ref{thm:main}, we will apply the following lemma with $F = \overline{G(s-2,q)}$ and $G = G(s-2, q)$.
+
+\begin{lemma} \label{lem:FG-gives-digraph}
+%\begin{theorem} \label{thm:general}
+    Let $s, n \ge 3$ and suppose there exists an $(n, d(F), \lambda(F))$-graph $F$ and an $(n, d(G), \lambda(G))$-graph $G$ on the same vertex set $V$ such that the pair $(F, G)$ is $H_s$-free. We denote $\eta = \max\left\{ \frac{\lambda(G)^2}{d(G)^2}, \frac{\lambda(F) \lambda(G)}{d(F) d(G)} \right\}$ and \linebreak$w = 4n \log n / d(G)$. Then, there exists a $T_s$-free digraph $D$ on $d(F)n$ vertices such that for all $k \ge w,$ it holds that 
+    \[ \fwi{k}(D) \le 16^k \eta^{k - w} (d(F) n)^k. \]
+\end{lemma}
+\begin{proof}
+    Let $D$ be the directed graph whose vertex set is the set of all ordered pairs of vertices forming an edge in $F$, i.e., $V(D) = \{ (a, b) \in V^2 \mid \{a,b\} \in E(F)\},$ and $D$ has an arc from $(a_1, b_1)$ to $(a_2, b_2)$ if and only if $a_1b_2 \in E(G)$.
+    
+    Let us first argue that $D$ is $T_s$-free. Indeed, a copy of a transitive tournament on $s$ vertices corresponds to a $2s$-tuple $(a_1, b_1, \dots, a_s, b_s) \in V^{2s}$ such that $a_i b_i \in E(F)$ for all $i \in [s]$ and $a_i b_j \in E(G)$ for all $i, j$ with $1 \le i < j \le s$. Since $(F,G)$ is $H_s$-free, such a $2s$-tuple does not exist, so $D$ is $T_s$-free.
+
+    Let $t \ge 0$ be arbitrary and let $\bv = (v_1, \dots, v_t) \in V(D)^t$ be a forward independent $t$-tuple. We assign to $\bv$ a binary string $\bz^\bv = (z^\bv_1, \dots, z^\bv_t) \in \{0, 1\}^t$ as follows. For $i \in [t],$ denote $v_i = (a_i, b_i)$ and let $B^\bv_i = V\setminus \bigcup_{j=1}^{i-1} N_G(a_j)$ and $A^\bv_i = \left\{ u \in V \mid |N_G(u) \cap B^\bv_i| \le \frac{d(G) |B^\bv_i|}{2n} \right\}.$ Then, $z_i = 1$ if $a_i \in A^\bv_i$ and $z_i = 0$, otherwise. We call $\bz$ the \emph{shrinking sequence} of $\bv$ and we denote $\mathrm{\phi}(\bv) \coloneqq \bz$. Note that there are at most $w = 4n \log n / d(G)$ indices $i$ such that $z_i = 1$ as otherwise, $|B^\bv_t| \le n \cdot (1 - d(G) / (2n))^{w-1} < 1$, which is impossible since $b_t \in B^\bv_t$. Furthermore, note that by Lemma~\ref{lem:BC}, we have $|A^\bv_i||B^\bv_i| \le \frac{4 \lambda(G)^2 n^2}{d(G)^2}$, for all $i \in [t]$. Hence, using Lemma~\ref{lem:expander-mixing}, it follows that, for any $i \in [t]$,
+    \begin{equation} \label{eq:choices-for-nonshrinking}
+        e_F(A^\bv_i, B^\bv_i) \le \frac{d(F)}{n} |A^\bv_i||B^\bv_i| + \lambda(F) \sqrt{|A^\bv_i||B^\bv_i|} \le 4n \left( \frac{ d(F) \lambda(G)^2}{d(G)^2} + \frac{\lambda(F) \lambda(G)}{d(G)} \right) \le d(F)n \cdot 8 \eta.
+    \end{equation}
+        
+    We claim that for any $t \ge 0$ and any binary string $\bz = (z_1, \dots, z_t) \in \{0, 1\}^t$, there are most $(8 \eta)^{t-|\bz|} (d(F) n)^t$ forward independent $t$-tuples in $D$ with shrinking sequence $\bz$, where we denote $|\bz| = \sum_{i=1}^t z_i$. We prove this by induction on $t$ with the base case $t=0$ being trivial. Now, let $t \ge 1$, let $\bz \in \{0, 1\}^t$ be arbitrary and denote $\bz' = (z_1, \dots, z_{t-1})$. Note that for any $(v_1, \dots, v_t) \in V(D)^t$ such that $\phi((v_1, \dots, v_t)) = \bz$, it holds that $\phi((v_1, \dots, v_{t-1})) = \bz'$.
+    
+    First, assume that $z_t = 0$. Consider an arbitrary forward independent $(t-1)$-tuple $\bv' = (v_1, \dots, v_{t-1})$ in $D$ with $\phi(\bv') = \bz'$. By definition, if $\bv = (v_1, \dots, v_t)$ satisfies $\phi(\bv) = \bz$, then $v_t \in (A^\bv_i \times B^\bv_i) \cap E(F)$. Observe that the sets $A^\bv_t$ and $B^\bv_t$ are determined by $\bv'$. Hence, by~\eqref{eq:choices-for-nonshrinking}, given $\bv'$, there are at most $d(F) n \cdot 8 \eta$ choices for $v_t$ such that $(v_1, \dots, v_t)$ has shrinking sequence $\bz$. Therefore, by the induction hypothesis, the number of forward independent $t$-tuples in $D$ with shrinking sequence $\bz$ is at most $(8 \eta)^{t-1-|\bz'|} (d(F) n)^{t-1} \cdot (d(F) n \cdot 8 \eta) = (8 \eta)^{t-|\bz|} (d(F) n)^t$, where we used that $|\bz| = |\bz'|.$
+    
+    Now, suppose that $z_t=1$. For any forward independent $(t-1)$-tuple $(v_1, \dots, v_{t-1}) \in V(D)^{t-1}$ with shrinking sequence $\bz'$, there are trivially at most $|V(D)| = d(F) n$ choices for $v_t$ such that $\bz$ is the shrinking sequence of $(v_1, \dots, v_t)$. Thus, by the induction hypothesis, the number of forward independent $t$-tuples with shrinking sequence $\bz$ is at most $(8 \eta)^{t-1-|\bz'|} (d(F) n)^{t-1} \cdot (d(F) n) = (8\eta)^{t - |\bz|} (d(F)n)^t$, where we used that $|\bz| = |\bz'| + 1$.
+
+    Now, let $k \ge w$ be arbitrary. Recall that $|\phi(\bv)| \le w$ for any forward independent $k$-tuple $\bv$. Thus, we have
+    \[ \fwi{k}(D) \le \sum_{\bz \in \{0,1\}^k \, \colon \, |\bz| \le w} (8 \eta)^{k-|\bz|} (d(F) n)^k \le \sum_{\bz \in \{0,1\}^k \, \colon \, |\bz| \le w} 8^k \eta^{k-|\bz|} (d(F) n)^k \le 16^k \eta^{k-w} (d(F)n)^k, \]
+    where in the last inequality we used that $\eta \le 1$.
+\end{proof}
+
+We are ready to present a conditional result which, given a pair of graphs $(F, G)$ as in the previous lemma, provides a lower bound for $r(s,k)$.
+\begin{theorem} \label{thm:ramsey-from-FG}
+    Let $s \ge 3$ and suppose there exists an $(n, d(F), \lambda(F))$-graph $F$ and an $(n, d(G), \lambda(G))$-graph $G$ on the same vertex set $V$ such that the pair $(F, G)$ is $H_s$-free. Denote $\eta = \max\left\{ \frac{\lambda(G)^2}{d(G)^2}, \frac{\lambda(F) \lambda(G)}{d(F) d(G)} \right\}$ and $w = 4 n \log n / d(G)$. Then, for any $k$ such that $w \le k \le \eta d(F) n$, it holds that
+    \[ r(s, k) \ge \frac{1}{50} k \eta^{\frac{w-k}{k}} - 1. \]
+    In particular, if $\eta d(F) n \ge k \ge 100 n (\log n)^2 / d(G)$, then
+    \[ r(s, k) \ge \frac{k}{100 \eta} - 1. \]
+\end{theorem}
+\begin{proof}
+    By Lemma~\ref{lem:FG-gives-digraph}, there exists a $T_s$-free digraph $D$ with $|V(D)| = n d(F)$ and $\fwi{k}(D) \le 16^k \eta^{k - w} (d(F) n)^k$. Applying Lemma~\ref{lem:Ts-free-Ks-free}, we obtain a $K_s$-free graph $\Gamma$ on $d(F) n$ vertices satisfying $i_k(\Gamma) \le \left(\frac{e}{k}\right)^k \cdot \fwi{k}(D)$. Let $p = \left( \left(\frac{e}{k}\right)^k \cdot 16^k \eta^{k - w} (d(F) n)^k \right)^{-1/k}$ and note that $p^k \cdot i_k(G) \le 1$. Since $\eta \le 1,$ we have $p \le \frac{k}{16e} \eta^{-1} (d(F) n)^{-1} \le 1,$ by our assumption on $k$. Thus, we may apply Lemma~\ref{lem:sampling-Ks-free}, to conclude
+    \[ r(s, k) > p |V(\Gamma)| - 1 = \left( \left(\frac{e}{k}\right)^k \cdot 16^k \eta^{k - w} (d(F) n)^k \right)^{-1/k}  \cdot d(F) n - 1 \ge \frac{k}{50} \eta^{\frac{w-k}{k}} - 1. \]
+    If additionally, $k \ge 100 n (\log n)^2 / d(G)$, then since $\eta \ge n^{-2},$ we have $\eta^{w/k} \ge e^{-1/10} > 1/2,$ so the above inequality implies
+    \[ r(s,k) > \frac{k}{100 \eta} - 1, \]
+    as needed.
+\end{proof}
+
+We are ready to deduce Theorem~\ref{thm:main}.
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+    Let $s \ge 4$ be fixed and let $k$ be sufficiently large, which we may freely assume by decreasing the value of $c_s$ in the final result. Then, there exists a prime power $q$, e.g. a power of two, such that $100 (s-2)^2 q (\log q)^2 \in [k/8, k/2]$.
+    Let $t = s-2, G = G(t, q)$ and let $F$ be the complement of $G$ where loops and non-loops are also complemented. As mentioned above, Lemma~\ref{lem:Hs-free} states that the pair $(F, G)$ is $H_s$-free.
+
+    By Lemma~\ref{lem:properties}, $G$ is an $(n,d(G),\lambda(G))$-graph with $n = (1+o(1)) q^t$, $d(G) = (1+o(1)) q^{t-1}$ and $\lambda(G) = (1+o(1)) \sqrt{d(G)}.$ Since $F$ is the complement of $G,$ its adjacency matrix is the all-ones matrix minus the adjacency matrix of $G$. It follows that $F$ is an $(n, d(F), \lambda(F))$-graph, where $d(F) = n - d(G) = (1 - o(1)) n$ and $\lambda(F) = \lambda(G)$.
+
+    Denoting $\eta = \max\left\{ \frac{\lambda(G)^2}{d(G)^2}, \frac{\lambda(F) \lambda(G)}{d(F) d(G)} \right\},$ we have $\eta = (1+o(1)) d(G)^{-1} = (1+o(1)) q^{-(s-3)}$. Note that, by our choice of $q$, it holds that $k \ge 200 (s-2)^2 q (\log q)^2 \ge 100 n (\log n)^2 / d(G).$ Since $\eta d(F) n = (1 + o(1)) q^{s-1}$, we have $k \le 800 (s-2)^2 q (\log q)^2 \le \eta d(F) n$. Thus, applying Theorem~\ref{thm:ramsey-from-FG} with $F, G$ as input graphs, we conclude that
+    \[ r(s, k) \ge \frac{k}{100 \eta} - 1 = \Omega_s\left( \frac{k^{s-2}}{(\log k)^{2s-6}}\right), \]
+    where we used that $\eta = (1 + o(1)) q^{-(s-3)}$ and $q = \Omega_s(k / (\log k)^2)$.
+\end{proof}
+
+The proof of Theorem~\ref{thm:off-diagonal-general} is nearly identical, except the optimal choice of $q$ necessitates that we use the first part of Theorem~\ref{thm:ramsey-from-FG}.
+
+\begin{proof}[Proof of Theorem~\ref{thm:off-diagonal-general}]
+    Fix $\delta > 0$ and note that we may assume that $\delta < 1/10$, say. Let $L = L(\delta)$ be a sufficiently large constant to be chosen implicitly later. Let $s, k$ be given positive integers such that $s \ge L$ and $k \ge Ls$. Let $q$ be a prime power, say a power of $2$, such that $q \le \frac{\delta}{100} \cdot \frac{k}{s} / \log\left( \frac{k}{s} \right) \le 2q$. Note that we may assume that $q$ is sufficiently large since $k/s \ge L$. Also, observe that by taking $L$ sufficiently large, we have $q \ge \left( \frac{k}{s} \right)^{1 - \delta / 2},$ since $k/s \ge L$.
+    
+    Denote $t = s-2, G = G(t, q)$ and let $F$ be the complement of $G$. As before, by Lemma~\ref{lem:Hs-free}, the pair $(F, G)$ is $H_s$-free. By Lemma~\ref{lem:properties}, we have that $G$ is an $(n, d(G), \lambda(G))$-graph with $q^{t}/2 \le n \le 2 q^t, d(G) \ge q^{t-1} / 2$ and $\sqrt{d} / 2 \le \lambda \le 2 \sqrt{d}$, where we used that $q$ is sufficiently large. As before, $F$ is then an $(n, d(F), \lambda(F))$-graph with $d(F) \ge n/2$ and $\lambda(F) = \lambda(G)$. We aim to apply the first part of Theorem~\ref{thm:ramsey-from-FG}. Denote $\eta = \max\left\{ \frac{\lambda(G)^2}{d(G)^2}, \frac{\lambda(F) \lambda(G)}{d(F) d(G)} \right\}$ and $w = 4 n \log n / d(G)$. Note that $\frac{1}{16 q^{s-3}} \le \eta \le \frac{16}{q^{s-3}}$, whereas $w \le 16 q \log n \le 16 s q \log q \le \delta k / 5$.
+
+    Let us verify that $k \le \eta d(F) n$. We have $\eta d(F) n \ge \frac{1}{16 q^{s-3}}\cdot (n/2) \cdot n \ge 2^{-7} q^{s-1}$. We consider two cases. Assume first that $s \le \sqrt{k}$. Then, $\eta d(F) n \ge 2^{-7} q^{s-1} \ge 2^{-7} \left( \frac{k}{s} \right)^{(1-\delta/2) (s-1)} \ge k^{s/4} \ge k$, where we used that $s$ is sufficiently large. On other hand, if $s \ge \sqrt{k}$, using that $k/s \ge L,$ we have $\eta d(F) n \ge 2^{-7} q^{s-1} \ge 2^{-7} L^{(1-\delta/2)(s-1)} \ge L^{s/2} \ge L^{\sqrt{k} / 2} \ge k$, as needed.
+    
+    Recalling that $w \le \delta k / 5 \le k$, we may apply Theorem~\ref{thm:ramsey-from-FG}, to obtain
+    \[ r(s, k) \ge \frac{1}{50} k \eta^{\frac{w-k}{k}} - 1 \ge \frac{1}{50} k \left(\frac{q^{s-3}}{16}\right)^{1 - \delta/5} - 1 \ge \frac{1}{800} k \left(\frac{k}{s}\right)^{(1 - \delta/2)(s-3) (1- \delta/5)} - 1 \ge \left(\frac{k}{s}\right)^{(1 - \delta) s}, \]
+    where in the last inequality we used that $s, k/s \ge L$ and $L$ is large compared to $\delta$.
+\end{proof}
+
+\section{Improved lower bounds close to the diagonal} \label{sec:close}
+In this section, we improve the lower bounds for Ramsey numbers close to the diagonal as well as for diagonal multicolor Ramsey numbers. Roughly speaking, to obtain these results, we construct a $K_s$-free graph on about $4^s$ vertices in which the number of independent sets of size $s$ or a bit larger is not much greater than expected in a random graph. Perhaps unsurprisingly, we will use the field of size $q = 2$. 
+
+As before, we start by constructing a $T_s$-free digraph with few forward independent tuples. We shall not be able to bound the number of such tuples using a spectral approach, but luckily, they can efficiently be counted directly. We remark that essentially the same argument was used by Conlon and Ferber~\cite{conlon-ferber} to count cliques in $G(t, q)$.
+\begin{lemma} \label{lem:F2-fw-indep-sets}
+    Let $s, k$ be given integers with $4 \le s \le k$. There exists a $T_s$-free directed graph $D$ without loops on $N = 2^{2s-3} - 2^{s-1} - 2^{s-2} + 1$ vertices such that 
+    \[ \fwi{k}(D) \le \sum_{t=1}^{s-1} \binom{k}{t} 2^{(s-1)(t+k) - \binom{t+1}{2}}. \]
+    In particular, if $k = s+a$, where $a \ge 0$ and $a = o(s)$, then
+    \[ \fwi{k}(D) \le 2^{\frac{3}{2}s^2 + as - \frac{5}{2}s + o(s)}. \]
+\end{lemma}
+\begin{proof}
+    Let $G = G(s-2, 2)$ and let $D$ be the directed graph with $V(D) = \{ (x, y) \mid xy \not\in E(G) \}$, where there is an arc from $(x, y)$ to $(x', y')$ if and only if $xy' \in E(G)$. Note that $D$ has no loops. By Lemma~\ref{lem:Hs-free}, $D$ is $T_s$-free. Denote $p = s-1$ and note that we may identify the vertex set of $G$ with $\mathbb{F}_2^p \setminus \{ \overrightarrow{0} \}$, where $\bx \by \in E(G) \iff \langle \bx, \by \rangle = 0.$ Observe that $|V(D)| = 2 |E(G)| = (2^p - 1) \cdot (2^{p-1} - 1) = 2^{2s-3} - 2^{s-1} - 2^{s-2} + 1$, as claimed.
+    
+    It remains to upper bound the number of forward independent $k$-tuples in $D$. Note that a forward independent $k$-tuple in $D$ corresponds to a $2k$-tuple $(\ba_1, \bb_1, \ba_2, \bb_2, \dots, \ba_k, \bb_k) \in (\mathbb{F}_2^p)^{2k}$ such that $\langle \ba_j, \bb_i \rangle = 1$ for all $i,j \in [k]$ with $j \le i.$ Let us call such a $2k$-tuple \emph{bad}.
+
+    For a bad $2k$-tuple $(\ba_1, \bb_1, \dots, \ba_k, \bb_k) \in (\mathbb{F}_2^p)^{2k}$, we shall call the sequence $(r_0, r_1, \dots r_k)$ with $r_0 = 0$ and $r_i = \dim( \mathrm{span} \{ \ba_1, \dots, \ba_i \})$, for $i \in [k]$, the \emph{rank sequence} of this $2k$-tuple. We call a sequence $(r_0, r_1, \dots, r_k)$ \emph{valid} if it satisfies $r_0 = 0, r_1 = 1, r_i \in \{r_{i-1}, r_{i-1} + 1\}$, for all $i \in [k]$ and $r_k \le p$. Note that a sequence which is not valid cannot be a rank sequence of a $2k$-tuple in $(\mathbb{F}_2^p)^{2k}$
+    
+    We count the number of bad $2k$-tuples as follows. Let us fix an arbitrary valid sequence $\br = (r_0, r_1, \dots, r_k)$. Consider a fixed index $i \in [k]$ and suppose we have already chosen $(\ba_1, \bb_1, \dots, \ba_{i-1}, \bb_{i-1})$ with rank sequence $(r_0, r_1, \dots, r_{i-1})$. If $r_i = r_{i-1}$, then $\ba_i \in \mathrm{span} \{ \ba_1, \dots, \ba_{i-1} \}$, so there are at most $2^{r_i}$ choices for $\ba_i$, and if $r_i = r_{i-1} + 1,$ we loosely bound the number of choices for $\ba_i$ by $2^p$. Furthermore, given $(\ba_1, \bb_1, \dots, \ba_{i-1}, \bb_{i-1}, \ba_i)$, there are at most $2^{p - r_i}$ choices for $\bb_i$. Indeed, by definition of a bad $2k$-tuple, we have $\langle \ba_j, \bb_i \rangle = 1$, for all $j, 1 \le j\le i$. Since $\dim (\mathrm{span} \{\ba_1, \dots, \ba_i \}) = r_i,$ there are either zero or $2^{p - r_i}$ choices for $\bb_i$ given $(\ba_1, \bb_1, \dots, \ba_{i-1}, \bb_{i-1}, \ba_i)$.
+
+    Denote $t = r_k$. In total, the number of bad $2k$-tuples with rank sequence $\br$ is at most
+    \begin{align*}
+        \left( \prod_{i \in [k] \colon r_i = r_{i-1} + 1} 2^p \cdot 2^{p - r_i}\right) \left( \prod_{i \in [k] \colon r_i = r_{i-1}} 2^{r_i} \cdot 2^{p - r_i} \right) &= \left(\prod_{i=1}^t 2^{2p - i}\right) 2^{p(k - t)} = 2^{2p t - \binom{t + 1}{2} + pk - pt} = 2^{pt + pk - \binom{t+1}{2}}.
+    \end{align*}
+    Note that, for any $t \in [p],$ there are at most $\binom{k}{t}$ valid sequences $(r_0, r_1, \dots, r_k)$ with $r_k = t$. Hence, the total number of bad $2k$-tuples is at most
+    \begin{align*}
+        \sum_{t=1}^p \binom{k}{t} 2^{pt + pk - \binom{t+1}{2}} = \sum_{t=1}^{s-1} \binom{k}{t} 2^{(s-1)(t+k) - \binom{t+1}{2}},
+    \end{align*}
+    as needed.
+
+    Now, denote $k = s+a$ and assume that $a \ge 0$ and $a = o(s)$. For $t \in [s-1],$ denote the $t$-th summand by $M_t = \binom{k}{t} 2^{(s-1)(t+k) - \binom{t+1}{2}}$. Writing $t = s - j$, we have $\binom{k}{t} = \binom{k}{k-t} = \binom{s+a}{j+a},$ thus for $j \in [s-1]$, we have 
+    \[ M_{s-j} = \binom{s+a}{j+a} 2^{(s-1)(s-j+k) - \binom{s-j+1}{2}} \le \left(\frac{e(s+a)}{a+1}\right)^{j+a} \cdot 2^{s^2/2 + sk - 3s/2 - k + 3j/2 - j^2/2}. \]
+    The right hand side is maximized at $j = \log_2\left( 
+    \frac{e(s+a)}{a+1} \right) + \frac{3}{2},$ thus for all $t \in [s-1]$, we have
+    \[ M_t \le \left(\frac{e(s+a)}{a+1}\right)^a \cdot 2^{s^2/2 + sk - 3s/2 - k + O(\log s)^2}. \]
+    Since $a = o(s)$, we have $\left(\frac{e(s+a)}{a+1}\right)^a = 2^{o(s)}$. Hence, for all $t \in [s-1],$ it holds that
+    \[ M_t \le 2^{s^2/2 + sk - 3s/2 - k + o(s)}. \]
+    Summing over all $t$, we conclude that 
+    \begin{equation*}
+        \fwi{k}(D) \le s \cdot 2^{s^2/2 + sk - 3s/2 - k + o(s)} = 2^{\frac{3}{2}s^2 + as - \frac{5}{2}s + o(s)}. \qedhere
+    \end{equation*}
+\end{proof}
+We remark that we could have been more careful when counting the number of choices for $a_i$, but this would not lead to a significant improvement of the final bounds. It might be interesting to note the similarity between the proofs of Lemma~\ref{lem:FG-gives-digraph} and Lemma~\ref{lem:F2-fw-indep-sets}. Indeed, the indices $i$ with $z_i = 1$ in the proof of the former correspond to the indices $i$ with $r_i = r_{i-1} + 1$ in the proof of the latter.
+
+Next, we prove our claimed lower bound for Ramsey numbers extremely close to the diagonal.
+
+\begin{proof}[Proof of Theorem~\ref{thm:close}]
+    Denote $k = s+a$. By Lemma~\ref{lem:F2-fw-indep-sets}, there exists a $T_s$-free directed graph $D$ on $N = 2^{2s-3} - 2^{s-1} - 2^{s-2} + 1$ vertices satisfying 
+    \[ \fwi{k}(D) \le 2^{\frac{3}{2}s^2 + as - \frac{5}{2}s + o(s)}. \]    
+    Applying Lemma~\ref{lem:Ts-free-Ks-free}, we obtain a $K_s$-free graph $G$ on $N$ vertices with $i_k(G) \le \left( \frac{e}{k}\right)^k \fwi{k}(D)$. If $i_k(G) = 0, $ then $r(s, k) \ge N,$ which is clearly sufficient. Otherwise, applying Lemma~\ref{lem:sampling-Ks-free} with $p = i_k(G)^{-1/k}$, we get
+    \begin{align*}
+        r(s, s+a) &\ge N \cdot i_k(G)^{-1/k} - 1 \ge (1+o(1))2^{2s-3} \cdot \frac{s}{e} \cdot 2^{(-\frac{3}{2}s^2 - as + \frac{5}{2}s + o(s)) / (a+s)}\\ &= (1+o(1))2^{2s-3} \cdot \frac{s}{e} \cdot 2^{-\frac{3s}{2} + \frac{a}{2} + \frac{5}{2} - \frac{a^2 + 5a}{2(a+s)}}
+        \ge (1 + o(1)) \frac{s}{e}\cdot 2^{(s + a - 1)/2 - a^2 / (2s)},
+    \end{align*}
+    as claimed.
+\end{proof}
+
+We remark that for the diagonal case $a = 0,$ Theorem~\ref{thm:close} recovers Erd\H{o}s' lower bound~\cite{erdos-lb} up to a $(1 + o(1))$ factor. Next, we derive our improved lower bounds for two color Ramsey numbers slightly off the diagonal. Observe that Theorem~\ref{thm:close} improves the lower bound~\eqref{eq:spencer-close-to-diag} on $r(s, s+a)$ given by Spencers' method for any $a \ge 5$ and $a = o(s)$. When $a$ is linear in $s$, Theorem~\ref{thm:k-Ck} yields a more convenient bound, which we prove next.
+
+\begin{proof}[Proof~of~Theorem~\ref{thm:k-Ck}]
+    Denote $k = Cs$. Let $D$ be the digraph given by Lemma~\ref{lem:F2-fw-indep-sets} and denote $N = |V(D)| = (1+o(1)) 2^{2s-3}$ and recall that $\fwi{k}(D) \le \sum_{t=1}^{s-1} \binom{k}{t} 2^{(s-1)(t+k) - \binom{t+1}{2}}$.
+
+    Note that the quadratic expression $(s-1)(t+k) - \binom{t+1}{2}$ is maximized at $t = s - 3/2,$ where its value equals $(s-1)k + \frac{1}{2}(s - 3/2)^2$. Thus, we may crudely bound $\fwi{k}(D)$ by
+    \[ \fwi{k}(D) \le 2^k \cdot 2^{(s-1)k + \frac{1}{2}(s - 3/2)^2} \le  2^{sk + s^2/2}, \]
+    where we used that $s$ is sufficiently large.
+
+    Applying Lemma~\ref{lem:Ts-free-Ks-free}, we obtain a $K_s$-free graph $G$ on $N$ vertices with $i_k(G) \le \left( \frac{e}{k}\right)^k \fwi{k}(D)$. If $i_k(G) = 0, $ then $r(s, k) \ge N,$ which is clearly sufficient. Otherwise, applying Lemma~\ref{lem:sampling-Ks-free} with $p = i_k(G)^{-1/k}$, yields
+    \[ r(s, k) \ge N \cdot i_k(G)^{-1/k} - 1 \ge (1 + o(1)) 2^{2s-3} \cdot \frac{s}{e} \cdot 2^{(sk + s^2/2) \cdot (-1 / k)} - 1 \ge 2^{\left(1 - \frac{1}{2C} \right)s}, \]
+    for large enough $s$.
+\end{proof}
+
+Lastly, using the random homomorphism approach of He and Wigderson~\cite{he-wigderson}, which traces its roots to the work of Alon and R\"{o}dl~\cite{alon-rodl}, we obtain an improvement on the diagonal multicolor Ramsey numbers.
+\begin{proof}[Proof~of~Theorem~\ref{thm:multicolor}]
+    Let $D$ be the $T_s$-free digraph with $N = (1+o(1)) 2^{2s-3}$ vertices and $\fwi{s}(D) \le 2^{\frac{3}{2}s^2 - \frac{5}{2}s + o(s)}$ given by Lemma~\ref{lem:F2-fw-indep-sets}. Let $n = 2^{(s/2 - 4)(\ell-1)}$. We will construct an $\ell$-coloring of the complete graph on the vertex set $[n]$ with no monochromatic clique of size $s$, which will imply the statement. The coloring is defined as follows. For each $c \in [\ell-1]$, let $\phi_c \colon [n] \rightarrow V(D)$ be a uniformly random mapping chosen independently for different $c \in [\ell-1]$. For any $i, j$ with $1 \le i < j \le n$, color the edge $ij$ with the minimum color $c \in [\ell-1]$ such that $(\phi_c(i), \phi_c(j)) \in A(D),$ and if no such color exists, color $ij$ with color $\ell$.
+
+    Observe that there is no monochromatic copy of $K_s$ in any of the colors $c \in [\ell-1]$. Indeed, suppose that vertices $v_1, \dots, v_s$ with $1 \le v_1 < v_2 < \dots < v_s \le n$ form a monochromatic clique in color $c \in [\ell-1].$ By definition, it follows that for all $i, j \in [s], i<j$, we have that $(\phi_c(v_i), \phi_c(v_j)) \in A(D)$. Since $D$ has no loops, it follows that $\{\phi_c(v_1), \phi_c(v_2), \dots, \phi_c(v_s)\}$ forms a copy of $T_s$ (in this order) in $D$, a contradiction.
+
+    For vertices $v_1, \dots, v_s$ with $1 \le v_1 < v_2 < \dots v_s \le n$, the set $\{v_1, \dots, v_s\}$ forms a monochromatic clique in color $\ell$ if and only if $(\phi_c(v_1), \phi_c(v_2), \dots, \phi_c(v_s))$ is a forward independent $s$-tuple in $D$, for each $c \in [\ell-1]$. Hence, the expected number of monochromatic cliques of size $s$ of color $\ell$ is at most
+    \[ \binom{n}{s} \left( \frac{\fwi{s}(D)}{N^s} \right)^{\ell-1} < n^s \cdot \left( \frac{2^{3s^2 / 2}}{(2^{2s-4})^s} \right)^{\ell-1} = n^s \cdot 2^{(-s^2/2 + 4s)(\ell-1)} = 1. \]
+    Hence, with positive probability, there is no monochromatic clique of size $s$ in color $\ell$, completing the proof.
+\end{proof}
+
+
+\section{Concluding remarks} \label{sec:concluding}
+\begin{itemize}
+    \item \textbf{Getting the correct exponent.} The most obvious question arising is whether using Theorem~\ref{thm:ramsey-from-FG} one can show that $r(s, k) = k^{s-1 + o(1)}$ for fixed $s$ and $k \rightarrow \infty$. It is not hard to show that in order to achieve this, the graphs $F$ and $G$ used would need to have degree $n^{\frac{s-2}{s-1} + o(1)}$ and second eigenvalue $n^{\frac{s-2}{2(s-1)} + o(1)}$, where $n$ is the number of vertices of $F$ and $G$. Already for $s=4$, we do not know whether such a pair exists so that $(F, G)$ is $H_4$-free.
+    
+    \item \textbf{The Erd\H{o}s-Rogers function.} For fixed positive integers $p, s$ with $2 \le p < s,$ the so-called Erd\H{o}s-Rogers function, which we denote by $f_{p, s}(n)$, is the maximum value of $m$ such that any $K_s$-free graph on $n$ vertices contains an induced subgraph on $m$ vertices with no copy of $K_p$. Note that $f_{p, s}$ generalizes the Ramsey numbers since $f_{2, s}(n) \ge m$ if and only if $r(s, m) \le n$. For general $p$ and $s$, the best known upper bound is due to Krivelevich~\cite{krivelevich-erdos-rogers} who showed that $f_{p, s}(n) = O_{p,s}(n^{\frac{p}{s+1}} (\log n)^{\frac{1}{p-1}}).$ For $s \ge 3p,$ Theorem~\ref{thm:main} implies an improvement on the exponent for this function, namely it shows that $f_{p, s}(n) \le n^{\frac{p-1}{s-2} + o(1)}.$ Indeed, consider the $n$-vertex $K_s$-free graph with independence number at most $k = n^{\frac{1}{s-2} + o(1)}$ guaranteed by Theorem~\ref{thm:main} and suppose it contains a $K_p$-free induced subgraph on $t$ vertices. Then, using the upper bound in~\eqref{eq:old-bounds}, we have $t \le r(p, k) \le k^{p-1 + o(1)} = n^{\frac{p-1}{s-2} + o(1)},$ as claimed. I thank Oliver Janzer for pointing out this implication.
+    
+    \item \textbf{On pseudorandomness.} The $K_s$-free graph $\Gamma$ obtained in our proof of Theorem~\ref{thm:main} does not have sufficiently small eigenvalues to deduce a good bound on the number of independent sets directly from its spectrum. Indeed, let $U$ and $W$ be two mutually orthogonal subspaces of $\bF_q^{s-1}$ of dimension $(s-1)/2,$ where, for simplicity, we assume $s$ is odd. Then, with high probability, $\Gamma$ contains a complete bipartite subgraph where one side contains vertices of the form $(u, x)$ with $u \in U$ and the other vertices of the form $(y, w)$ with $w \in W$ and the two parts have size $\Theta(q^{(s-1) / 2 - 1} \cdot q^{s-2}) = \Theta(q^{(3s-7)/2}).$ The number of edges inside the parts will be much smaller than the number of edges across, so this subgraph induces a graph with smallest eigenvalue at most $-\Theta(q^{(3s-7)/2})$ and by Cauchy's interlacing theorem, so does $\Gamma$. On the other hand, the average degree of $\Gamma$ is $\Theta(q^{2s-5})$.
+
+    \item \textbf{Possible variations.} There are a number of possible modifications to our argument. One could loosen Definition~\ref{def:Hs-free} to only forbid such configurations where the vertices $a_1, \dots, a_s, b_1, \dots, b_s$ are all distinct. Then, one can randomly sample at most $n/2$, say, pairs $(a_i, b_i)$ such that all of $a_i, b_i$ are distinct and proceed as before. With this approach, we can recover the lower bound $r(3, k) \ge k^{2 + o(1)}$ by taking $F$ and $G$ to both be equal to $G(2, q)$ -- this is the famous Erd\H{o}s-R\'{e}nyi graph which is a $C_4$-free $(n,d,\lambda)$-graph with $d = \Theta(n^{1/2})$ and $\lambda = O(\sqrt{d})$. Similarly, taking $F$ and $G$ to both equal Brown's $K_{3,3}$-free graph~\cite{brown}, which is an $(n,d,\lambda)$-graph with $d = \Omega(n^{2/3})$ and $\lambda = O(\sqrt{d})$ (where the eigenvalue bound follows e.g. from~\cite{medrano}), we recover the lower bound $r(5, k) \ge k^{3 + o(1)}$. Very similar constructions to the two just described were used by Kostochka, Pudl\'{a}k and R\"{o}dl~\cite{kostochka} to provide constructive lower bounds for off-diagonal Ramsey numbers. We remark that taking $F=G$, the best exponent one could possibly get with our approach is $\floor{(s+1)/2}$, since by~{\cite[Theorem~1.6]{grzesik}}, the extremal number of $H_s$ (when viewed as a graph) is $O(n^{2 - 1 / \floor{(s+1)/2}})$.
+    
+    Finally, for future applications it might be useful to observe that our construction could have used bipartite graphs with the appropriate notion of pseudorandomness since we only ever consider edges between vertices $a_i$ and $b_j$. For instance, our construction can equivalently be phrased using the incidence graph of lines and hyperplanes in $\bF_q^{s-1}$.
+\end{itemize}
+
+\textbf{Acknowledgements:} I am grateful to Yuval Wigderson for valuable discussions and for many comments on an earlier version of the manuscript that helped improve the presentation. I would like to thank Sam Mattheus for helpful discussions and for pointing out the reference~\cite{kostochka}. I am also grateful to Oliver Janzer and Benny Sudakov for useful discussions about the content of the paper and to Zach Hunter and Aleksa Milojevi\'{c} for their insights into Gaussian random graphs.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\appendix
+\input{appendix}
+
+\end{document}
