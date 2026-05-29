@@ -11,12 +11,12 @@ Fix \(C>1\). For each \(s\), set
 \]
 We will prove the desired inequality for all sufficiently large \(s\).
 
-By \(\noderef{F2ForwardIndependentLinearBound}\), after increasing the lower threshold for \(s\) if necessary, there are a finite vertex set \(W\) and a digraph \(D\) on \(W\) such that \(D\) is loopless, \(D\) is \(T_s\)-free, and
+Since \(C>1\), after increasing the lower threshold for \(s\) if necessary, we have \(4\le s\le k\). By \(\noderef{F2ForwardIndependentTuples}\), there are a finite vertex set \(W\) and a digraph \(D\) on \(W\) such that \(D\) is loopless, \(D\) is \(T_s\)-free, and
 \[
   N\coloneqq |W|
   =2^{2s-3}-2^{s-1}-2^{s-2}+1
 \]
-while, in the notation of \(\noderef{ForwardIndependentTupleCount}\),
+for this same value of \(s\). For this same digraph \(D\) and integer \(k\), \(\noderef{F2ForwardIndependentLinearBound}\) gives, after perhaps increasing the lower threshold for \(s\) again, the additional estimate, in the notation of \(\noderef{ForwardIndependentTupleCount}\),
 \[
   \overrightarrow{i_k}(D)
   \le 2^{sk+s^2/2}. \tag{1}
@@ -28,7 +28,7 @@ For \(s\ge4\),
 \]
 so \(N=(1+o(1))2^{2s-3}\) in the coarse sense used below. Also, since \(C>1\), for all sufficiently large \(s\) we have \(k=\lceil Cs\rceil\ge1\).
 
-Apply \(\noderef{DigraphToGraphIndependentSetBound}\) to \(D\), using the \(T_s\)-freeness from \(\noderef{F2ForwardIndependentLinearBound}\) and \(k\ge1\). We obtain a \(K_s\)-free simple graph \(G\) on the same vertex set \(W\) such that, writing \(i_k(G)\) for the independent-set count from \(\noderef{SimpleGraphIndependentSetCount}\),
+Apply \(\noderef{DigraphToGraphIndependentSetBound}\) to \(D\), using the \(T_s\)-freeness from \(\noderef{F2ForwardIndependentTuples}\) and \(k\ge1\). We obtain a \(K_s\)-free simple graph \(G\) on the same vertex set \(W\) such that, writing \(i_k(G)\) for the independent-set count from \(\noderef{SimpleGraphIndependentSetCount}\),
 \[
   i_k(G)\le \left(\frac e k\right)^k \overrightarrow{i_k}(D).
 \]
