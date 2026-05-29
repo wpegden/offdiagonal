@@ -27,11 +27,13 @@
 | LinearOffDiagonalTheorem | proof | - | open |
 | LoopGraph | definition | - | closed |
 | LoopGraphAdjacencyAction | definition | - | closed |
+| LoopGraphAdjacencyActionSelfAdjoint | proof | - | closed |
 | LoopGraphComplement | definition | - | closed |
 | LoopGraphDegree | definition | - | closed |
 | LoopGraphEdgeCountBetween | definition | - | closed |
 | LoopGraphEdgeCountBetweenAdjacencyIndicator | proof | - | closed |
 | LoopGraphNdLambda | definition | - | closed |
+| LoopGraphNdLambdaAdjacencyActionZeroSum | proof | - | closed |
 | LoopGraphNdLambdaAdjacencyIndicatorSum | proof | - | closed |
 | LoopGraphNdLambdaAdjacencyOne | proof | - | closed |
 | LoopGraphNonprincipalEigenvalue | definition | - | closed |
@@ -64,4 +66,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 43/59 closed
+**Summary:** 45/61 closed

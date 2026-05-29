@@ -25,16 +25,18 @@
 | LinearOffDiagonalTheorem | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, F2ForwardIndependentLinearBound, SamplingKsFreeRamseyBound |
 | LoopGraph | definition | definition | closed | - | - | Preamble |
 | LoopGraphAdjacencyAction | definition | definition | closed | - | - | LoopGraph |
+| LoopGraphAdjacencyActionSelfAdjoint | helper | proof | closed | - | - | LoopGraphAdjacencyAction, LoopGraphSymmetric |
 | LoopGraphComplement | definition | definition | closed | - | - | LoopGraph |
 | LoopGraphDegree | definition | definition | closed | - | - | LoopGraph |
 | LoopGraphEdgeCountBetween | definition | definition | closed | - | - | LoopGraph |
 | LoopGraphEdgeCountBetweenAdjacencyIndicator | helper | proof | closed | - | - | LoopGraphAdjacencyAction, LoopGraphEdgeCountBetween |
 | LoopGraphNdLambda | definition | definition | closed | - | - | LoopGraphDegree, LoopGraphNonprincipalEigenvalue, LoopGraphSymmetric |
+| LoopGraphNdLambdaAdjacencyActionZeroSum | helper | proof | closed | - | - | LoopGraphAdjacencyActionSelfAdjoint, LoopGraphNdLambdaAdjacencyOne |
 | LoopGraphNdLambdaAdjacencyIndicatorSum | helper | proof | closed | - | - | LoopGraphNdLambda |
 | LoopGraphNdLambdaAdjacencyOne | helper | proof | closed | - | - | LoopGraphAdjacencyAction, LoopGraphNdLambda |
 | LoopGraphNonprincipalEigenvalue | definition | definition | closed | - | - | LoopGraphAdjacencyAction |
 | LoopGraphSymmetric | definition | definition | closed | - | - | LoopGraph |
-| LoopGraphZeroSumAdjacencyBilinearBound | helper | proof | open | - | - | LoopGraphNdLambda |
+| LoopGraphZeroSumAdjacencyBilinearBound | helper | proof | open | - | - | LoopGraphAdjacencyActionSelfAdjoint, LoopGraphNdLambda, LoopGraphNdLambdaAdjacencyActionZeroSum |
 | MainTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, PolarityGraphParameters, RamseyFromGraphPair |
 | MulticolorRamseyNumber | definition | definition | closed | - | - | MulticolorRamseyProperty |
 | MulticolorRamseyProperty | definition | definition | closed | - | - | Preamble |
@@ -63,4 +65,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 59 nodes | **Closed:** 43 | **Open:** 16
+**Total:** 61 nodes | **Closed:** 45 | **Open:** 16

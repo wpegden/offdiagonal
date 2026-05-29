@@ -1,4 +1,6 @@
 import Tablet.LoopGraphNdLambda
+import Tablet.LoopGraphAdjacencyActionSelfAdjoint
+import Tablet.LoopGraphNdLambdaAdjacencyActionZeroSum
 
 -- [TABLET NODE: LoopGraphZeroSumAdjacencyBilinearBound]
 
@@ -14,4 +16,14 @@ theorem LoopGraphZeroSumAdjacencyBilinearBound {V : Type u} [Fintype V]
       lambda * (Real.sqrt (∑ v : V, f v ^ 2) *
         Real.sqrt (∑ v : V, g v ^ 2)) := by
 -- BODY
+  have hSelfAdjoint :
+      (∑ v : V, f v * LoopGraphAdjacencyAction G g v) =
+        ∑ v : V, LoopGraphAdjacencyAction G f v * g v :=
+    LoopGraphAdjacencyActionSelfAdjoint G hG.2.1 f g
+  have hf_invariant :
+      (∑ v : V, LoopGraphAdjacencyAction G f v) = 0 :=
+    LoopGraphNdLambdaAdjacencyActionZeroSum G n d lambda hG f hf
+  have hg_invariant :
+      (∑ v : V, LoopGraphAdjacencyAction G g v) = 0 :=
+    LoopGraphNdLambdaAdjacencyActionZeroSum G n d lambda hG g hg
   sorry

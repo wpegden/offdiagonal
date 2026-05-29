@@ -1,0 +1,27 @@
+\begin{helper}
+Let \(G\) be a symmetric finite loop graph. For real-valued functions \(f,g\colon V(G)\to\mathbb R\),
+\[
+  \sum_{v\in V(G)} f(v)(A_Gg)(v)
+  =
+  \sum_{v\in V(G)} (A_Gf)(v)g(v).
+\]
+\end{helper}
+\begin{proof}
+By \(\noderef{LoopGraphAdjacencyAction}\), the left hand side is
+\[
+  \sum_v f(v)\sum_w {\bf 1}_{vw\in E(G)}g(w)
+  =
+  \sum_{v,w}{\bf 1}_{vw\in E(G)}f(v)g(w).
+\]
+Interchange the two finite sums and then use the symmetry hypothesis, which is the meaning of \(\noderef{LoopGraphSymmetric}\), to replace \(vw\in E(G)\) by \(wv\in E(G)\). This gives
+\[
+  \sum_{w,v}{\bf 1}_{wv\in E(G)}f(v)g(w)
+  =
+  \sum_w g(w)\sum_v {\bf 1}_{wv\in E(G)}f(v).
+\]
+The inner sum is exactly \((A_Gf)(w)\) by \(\noderef{LoopGraphAdjacencyAction}\). Hence the expression equals
+\[
+  \sum_w (A_Gf)(w)g(w),
+\]
+which is the claimed identity.
+\end{proof}

@@ -1,0 +1,32 @@
+\begin{helper}
+Let \(G\) be an \((n,d,\lambda)\)-loop graph. If \(f\colon V(G)\to\mathbb R\) satisfies
+\[
+  \sum_{v\in V(G)}f(v)=0,
+\]
+then
+\[
+  \sum_{v\in V(G)}(A_Gf)(v)=0.
+\]
+\end{helper}
+\begin{proof}
+Apply \(\noderef{LoopGraphAdjacencyActionSelfAdjoint}\) with the first function equal to the constant-one function and the second function equal to \(f\). The symmetry hypothesis needed there is one of the clauses of \(\noderef{LoopGraphNdLambda}\). We get
+\[
+  \sum_v (A_Gf)(v)
+  =
+  \sum_v 1\cdot (A_Gf)(v)
+  =
+  \sum_v (A_G{\bf 1})(v)f(v).
+\]
+By \(\noderef{LoopGraphNdLambdaAdjacencyOne}\), the \((n,d,\lambda)\)-regularity of \(G\) gives \((A_G{\bf 1})(v)=d\) for every vertex \(v\). Therefore
+\[
+  \sum_v (A_Gf)(v)
+  =
+  \sum_v d f(v)
+  =
+  d\sum_v f(v)
+  =
+  d\cdot 0
+  =
+  0.
+\]
+\end{proof}
