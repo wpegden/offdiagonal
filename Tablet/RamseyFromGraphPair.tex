@@ -1,11 +1,12 @@
 \begin{theorem}
-Let \(s\ge 3\), and suppose \(F\) and \(G\) are \((n,d(F),\lambda(F))\)- and \((n,d(G),\lambda(G))\)-graphs on the same vertex set. Assume \((F,G)\) is \(H_s\)-free, and set
+Let \(s,n\ge 3\), let \(k\ge 1\), and suppose \(F\) and \(G\) are \((n,d(F),\lambda(F))\)- and \((n,d(G),\lambda(G))\)-graphs on the same vertex set, with \(d(G)>0\). Assume \((F,G)\) is \(H_s\)-free, and set
 \[
   \eta=\max\left\{\frac{\lambda(G)^2}{d(G)^2},
   \frac{\lambda(F)\lambda(G)}{d(F)d(G)}\right\},
   \qquad
   w=\frac{4n\log n}{d(G)}.
 \]
+Assume also that \(n^{-2}\le \eta\le 1\).
 If \(w\le k\le \eta d(F)n\), then
 \[
   r(s,k)\ge \frac{1}{50} k\,\eta^{(w-k)/k}-1.
@@ -16,14 +17,119 @@ In particular, if \(\eta d(F)n\ge k\ge 100n(\log n)^2/d(G)\), then
 \]
 \end{theorem}
 \begin{proof}
-SKETCH:
-Apply \noderef{ProductDigraphForwardIndependentBound} to obtain a \(T_s\)-free digraph \(D\) on \(d(F)n\) vertices with the stated forward-independent tuple bound. Then apply \noderef{DigraphToGraphIndependentSetBound} to turn \(D\) into a \(K_s\)-free graph \(\Gamma\) with
+Let
 \[
-  i_k(\Gamma)\le(e/k)^k16^k\eta^{k-w}(d(F)n)^k.
+  M=d(F)n.
 \]
-Choose \(p\) to be the negative \(1/k\)-power of the right-hand side. The upper condition \(k\le \eta d(F)n\) ensures \(p\le1\), and \noderef{SamplingKsFreeRamseyBound} gives
+Assume first that \(w\le k\le \eta M\). By \(\noderef{ProductDigraphForwardIndependentBound}\), using the hypotheses \(s,n\ge3\), there is a \(T_s\)-free digraph \(D\) on \(M\) vertices such that
 \[
-  r(s,k)>p\,d(F)n-1\ge \frac1{50}k\eta^{(w-k)/k}-1.
+  \overrightarrow{i_k}(D)\le 16^k\eta^{k-w}M^k.
 \]
-For the second conclusion, the stronger lower bound on \(k\) makes \(\eta^{w/k}\) bounded below by a fixed constant, giving \(k/(100\eta)-1\).
+Since \(k\ge1\), \(\noderef{DigraphToGraphIndependentSetBound}\) applies to \(D\). It gives a \(K_s\)-free graph \(\Gamma\) on the same \(M\)-vertex set and satisfying
+\[
+  i_k(\Gamma)\le \left(\frac{e}{k}\right)^k\overrightarrow{i_k}(D).
+\]
+Combining the two displayed inequalities gives
+\[
+  i_k(\Gamma)\le
+  \left(\frac{e}{k}\right)^k16^k\eta^{k-w}M^k. \tag{1}
+\]
+
+Define
+\[
+  B=\left(\frac{e}{k}\right)^k16^k\eta^{k-w}M^k,
+  \qquad
+  p=B^{-1/k}.
+\]
+Because \(n\ge3\), the lower bound \(n^{-2}\le\eta\) implies \(\eta>0\). The antecedent \(k\le \eta M\), together with \(k\ge1\), therefore implies \(M>0\), so \(B>0\) and hence \(p>0\). From (1) we have \(i_k(\Gamma)\le B\), and by the definition of \(p\),
+\[
+  p^k B=1.
+\]
+Therefore
+\[
+  p^k i_k(\Gamma)\le 1. \tag{2}
+\]
+
+We next check \(p\le1\). Expanding the definition of \(p\) gives
+\[
+  p=\frac{k}{16eM}\,\eta^{(w-k)/k}.
+\]
+Because \(d(G)>0\), \(n\ge3\), and \(w=4n\log n/d(G)\), we have \(w>0\). Together with \(w\le k\), this gives
+\[
+  -1\le \frac{w-k}{k}\le0.
+\]
+Since \(0<\eta\le1\), it follows that
+\[
+  \eta^{(w-k)/k}\le \eta^{-1}.
+\]
+Using \(k\le \eta M\), we obtain
+\[
+  p\le \frac{k}{16eM}\eta^{-1}\le \frac1{16e}<1.
+\]
+Thus \(0\le p\le1\).
+
+Now \(\Gamma\) is \(K_s\)-free, \(k\ge1\), \(0\le p\le1\), and (2) is the hypothesis \(p^k i_k(\Gamma)\le1\). Applying \(\noderef{SamplingKsFreeRamseyBound}\) gives
+\[
+  r(s,k)>pM-1.
+\]
+Using the formula for \(p\), this becomes
+\[
+  r(s,k)>
+  \frac{k}{16e}\eta^{(w-k)/k}-1.
+\]
+Since \(16e<50\), the right hand side is at least
+\[
+  \frac{k}{50}\eta^{(w-k)/k}-1.
+\]
+Therefore
+\[
+  r(s,k)\ge \frac{1}{50}k\eta^{(w-k)/k}-1,
+\]
+which proves the first conclusion.
+
+For the ``in particular'' statement, assume
+\[
+  k\le \eta M
+  \qquad\text{and}\qquad
+  k\ge \frac{100n(\log n)^2}{d(G)}.
+\]
+The first conclusion applies once we know \(w\le k\). This follows from the second inequality for all \(n\ge3\): since \(\log n>0\) and \(w>0\),
+\[
+  \frac{k}{w}
+  \ge
+  \frac{100n(\log n)^2/d(G)}{4n\log n/d(G)}
+  =25\log n>1.
+\]
+Thus \(w\le k\). Applying the first conclusion gives
+\[
+  r(s,k)\ge \frac{k}{50}\eta^{(w-k)/k}-1
+  =\frac{k}{50\eta}\eta^{w/k}-1. \tag{3}
+\]
+
+It remains to bound \(\eta^{w/k}\) from below. From \(n^{-2}\le\eta\le1\) and \(w/k\ge0\),
+\[
+  \eta^{w/k}\ge (n^{-2})^{w/k}.
+\]
+The lower bound on \(k\), together with the definition of \(w\), gives
+\[
+  \frac{w}{k}\le \frac{1}{25\log n}.
+\]
+Because \(n^{-2}\in(0,1)\), decreasing the exponent increases the value, so
+\[
+  (n^{-2})^{w/k}\ge (n^{-2})^{1/(25\log n)}
+  =\exp(-2/25).
+\]
+Since \(\exp(-2/25)>\exp(-1/10)>1/2\), we have
+\[
+  \eta^{w/k}>1/2.
+\]
+Substituting this into (3) yields
+\[
+  r(s,k)>\frac{k}{100\eta}-1.
+\]
+In particular,
+\[
+  r(s,k)\ge \frac{k}{100\eta}-1,
+\]
+which is the claimed second bound.
 \end{proof}
