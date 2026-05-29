@@ -43,7 +43,7 @@
 | LoopGraphNdLambdaAdjacencyOne | proof | - | closed |
 | LoopGraphNonprincipalEigenvalue | definition | - | closed |
 | LoopGraphSymmetric | definition | - | closed |
-| LoopGraphZeroSumAdjacencyBilinearBound | proof | - | open |
+| LoopGraphZeroSumAdjacencyBilinearBound | proof | - | closed |
 | LoopGraphZeroSumAdjacencyEuclideanOperator | definition | - | closed |
 | LoopGraphZeroSumEuclideanEigenpairNonprincipal | proof | - | closed |
 | LoopGraphZeroSumEuclideanEigenvalueBound | proof | - | closed |
@@ -74,4 +74,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 53/69 closed
+**Summary:** 54/69 closed

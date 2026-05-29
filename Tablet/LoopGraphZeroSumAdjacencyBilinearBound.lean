@@ -196,4 +196,9 @@ theorem LoopGraphZeroSumAdjacencyBilinearBound {V : Type u} [Fintype V]
       intro v hv
       simp [Real.norm_eq_abs, sq_abs]
     simpa [gW] using hgEuclideanNorm
-  sorry
+  calc
+    |(∑ v : V, f v * LoopGraphAdjacencyAction G g v)| ≤
+        lambda * (‖fW‖ * ‖gW‖) := hFiniteSumBilinear
+    _ = lambda * (Real.sqrt (∑ v : V, f v ^ 2) *
+        Real.sqrt (∑ v : V, g v ^ 2)) := by
+          rw [hfW_norm, hgW_norm]
