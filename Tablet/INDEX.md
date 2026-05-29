@@ -29,6 +29,7 @@
 | LoopGraphAdjacencyEuclideanInner | helper | proof | closed | - | - | LoopGraphAdjacencyEuclideanOperator |
 | LoopGraphAdjacencyEuclideanOperator | definition | definition | closed | - | - | LoopGraphAdjacencyAction |
 | LoopGraphAdjacencyEuclideanOperatorMapsZeroSum | helper | proof | closed | - | - | LoopGraphEuclideanZeroSumSubmodule, LoopGraphNdLambdaAdjacencyActionZeroSum |
+| LoopGraphAdjacencyEuclideanOperatorSymmetric | helper | proof | closed | - | - | LoopGraphAdjacencyActionSelfAdjoint, LoopGraphAdjacencyEuclideanInner |
 | LoopGraphComplement | definition | definition | closed | - | - | LoopGraph |
 | LoopGraphDegree | definition | definition | closed | - | - | LoopGraph |
 | LoopGraphEdgeCountBetween | definition | definition | closed | - | - | LoopGraph |
@@ -40,7 +41,7 @@
 | LoopGraphNdLambdaAdjacencyOne | helper | proof | closed | - | - | LoopGraphAdjacencyAction, LoopGraphNdLambda |
 | LoopGraphNonprincipalEigenvalue | definition | definition | closed | - | - | LoopGraphAdjacencyAction |
 | LoopGraphSymmetric | definition | definition | closed | - | - | LoopGraph |
-| LoopGraphZeroSumAdjacencyBilinearBound | helper | proof | open | - | - | LoopGraphAdjacencyActionSelfAdjoint, LoopGraphAdjacencyEuclideanInner, LoopGraphNdLambda, LoopGraphNdLambdaAdjacencyActionZeroSum, LoopGraphZeroSumAdjacencyEuclideanOperator, LoopGraphZeroSumEuclideanEigenvalueBound |
+| LoopGraphZeroSumAdjacencyBilinearBound | helper | proof | open | - | - | LoopGraphAdjacencyActionSelfAdjoint, LoopGraphAdjacencyEuclideanInner, LoopGraphAdjacencyEuclideanOperatorSymmetric, LoopGraphNdLambda, LoopGraphNdLambdaAdjacencyActionZeroSum, LoopGraphZeroSumAdjacencyEuclideanOperator, LoopGraphZeroSumEuclideanEigenvalueBound |
 | LoopGraphZeroSumAdjacencyEuclideanOperator | definition | definition | closed | - | - | LoopGraphAdjacencyEuclideanOperatorMapsZeroSum |
 | LoopGraphZeroSumEuclideanEigenpairNonprincipal | helper | proof | closed | - | - | LoopGraphEuclideanZeroSumSubmodule, LoopGraphNonprincipalEigenvalue |
 | LoopGraphZeroSumEuclideanEigenvalueBound | helper | proof | closed | - | - | LoopGraphNdLambda, LoopGraphZeroSumEuclideanEigenpairNonprincipal |
@@ -72,4 +73,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 68 nodes | **Closed:** 52 | **Open:** 16
+**Total:** 69 nodes | **Closed:** 53 | **Open:** 16

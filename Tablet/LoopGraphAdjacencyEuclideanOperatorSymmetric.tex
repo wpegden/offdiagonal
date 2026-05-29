@@ -1,0 +1,25 @@
+\begin{helper}
+Let \(G\) be a symmetric loop graph.  The Euclidean adjacency operator
+\(T_G\) from \(\noderef{LoopGraphAdjacencyEuclideanOperator}\) is symmetric:
+\[
+  \langle T_Gx,y\rangle_{\ell^2(V)}
+  =
+  \langle x,T_Gy\rangle_{\ell^2(V)}
+\]
+for all \(x,y\in\ell^2(V)\).
+\end{helper}
+\begin{proof}
+By \(\noderef{LoopGraphAdjacencyEuclideanInner}\), the left hand side is
+\[
+  \sum_{v\in V} (A_Gx)(v)y(v).
+\]
+The finite-sum self-adjointness identity
+\(\noderef{LoopGraphAdjacencyActionSelfAdjoint}\), applied using the symmetry of
+\(G\), rewrites this as
+\[
+  \sum_{v\in V} x(v)(A_Gy)(v).
+\]
+Applying \(\noderef{LoopGraphAdjacencyEuclideanInner}\) again, now in the
+reverse direction, identifies this last finite sum with
+\(\langle x,T_Gy\rangle_{\ell^2(V)}\).  Hence \(T_G\) is symmetric.
+\end{proof}

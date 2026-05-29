@@ -31,6 +31,7 @@
 | LoopGraphAdjacencyEuclideanInner | proof | - | closed |
 | LoopGraphAdjacencyEuclideanOperator | definition | - | closed |
 | LoopGraphAdjacencyEuclideanOperatorMapsZeroSum | proof | - | closed |
+| LoopGraphAdjacencyEuclideanOperatorSymmetric | proof | - | closed |
 | LoopGraphComplement | definition | - | closed |
 | LoopGraphDegree | definition | - | closed |
 | LoopGraphEdgeCountBetween | definition | - | closed |
@@ -73,4 +74,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 52/68 closed
+**Summary:** 53/69 closed
