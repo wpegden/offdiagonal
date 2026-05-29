@@ -5,15 +5,99 @@ Let \(C>1\) be fixed. Then, for all sufficiently large \(s\),
 \]
 \end{theorem}
 \begin{proof}
-SKETCH:
-Let \(k=\lceil Cs\rceil\). By \noderef{F2ForwardIndependentLinearBound}, there is a loopless \(T_s\)-free digraph \(D\) on \(N=(1+o(1))2^{2s-3}\) vertices with
+Fix \(C>1\). For each \(s\), set
 \[
-  \overrightarrow{i_k}(D)\le 2^{sk+s^2/2}.
+  k=\lceil Cs\rceil.
 \]
-Apply \noderef{DigraphToGraphIndependentSetBound} to obtain a \(K_s\)-free graph \(G\) on \(N\) vertices with \(i_k(G)\le(e/k)^k\overrightarrow{i_k}(D)\). If \(i_k(G)=0\), the lower bound is immediate from \(N\). Otherwise use \noderef{SamplingKsFreeRamseyBound} with \(p=i_k(G)^{-1/k}\). This yields
+We will prove the desired inequality for all sufficiently large \(s\).
+
+By \(\noderef{F2ForwardIndependentLinearBound}\), after increasing the lower threshold for \(s\) if necessary, there are a finite vertex set \(W\) and a digraph \(D\) on \(W\) such that \(D\) is loopless, \(D\) is \(T_s\)-free, and
 \[
-  r(s,k)\ge (1+o(1))2^{2s-3}\frac{s}{e}2^{-(sk+s^2/2)/k}-1
-  \ge 2^{(1-1/(2C))s}
+  N\coloneqq |W|
+  =2^{2s-3}-2^{s-1}-2^{s-2}+1
 \]
-for large \(s\).
+while, in the notation of \(\noderef{ForwardIndependentTupleCount}\),
+\[
+  \overrightarrow{i_k}(D)
+  \le 2^{sk+s^2/2}. \tag{1}
+\]
+For \(s\ge4\),
+\[
+  N=2\cdot 2^{2s-4}-3\cdot 2^{s-2}+1
+  \ge 2^{2s-4}, \tag{2}
+\]
+so \(N=(1+o(1))2^{2s-3}\) in the coarse sense used below. Also, since \(C>1\), for all sufficiently large \(s\) we have \(k=\lceil Cs\rceil\ge1\).
+
+Apply \(\noderef{DigraphToGraphIndependentSetBound}\) to \(D\), using the \(T_s\)-freeness from \(\noderef{F2ForwardIndependentLinearBound}\) and \(k\ge1\). We obtain a \(K_s\)-free simple graph \(G\) on the same vertex set \(W\) such that, writing \(i_k(G)\) for the independent-set count from \(\noderef{SimpleGraphIndependentSetCount}\),
+\[
+  i_k(G)\le \left(\frac e k\right)^k \overrightarrow{i_k}(D).
+\]
+Together with (1), this gives
+\[
+  i_k(G)\le \left(\frac e k\right)^k 2^{sk+s^2/2}. \tag{3}
+\]
+
+First suppose \(i_k(G)=0\). Then \(G\) is a graph on \(N\) vertices with no \(K_s\) and no independent set of size \(k\). By \(\noderef{RamseyProperty}\), this means the Ramsey property \(R(s,k,N)\) fails. Moreover, for every \(m\le N\), restricting \(G\) to any \(m\)-vertex subset still gives a graph with no \(K_s\) and no independent \(k\)-set, so \(R(s,k,m)\) fails as well. Since \(\noderef{RamseyNumber}\) defines \(r(s,k)\) as the least \(m\) for which \(R(s,k,m)\) holds, it follows that
+\[
+  r(s,k)>N.
+\]
+By (2), \(N\ge2^{2s-4}\), while \(1-\frac1{2C}<1\). Hence, for all sufficiently large \(s\),
+\[
+  N\ge 2^{(1-\frac1{2C})s}.
+\]
+The required lower bound follows in this case.
+
+It remains to consider the case \(i_k(G)>0\). Define
+\[
+  p=i_k(G)^{-1/k}.
+\]
+Because \(i_k(G)\) is a positive integer, \(0<p\le1\), and by definition
+\[
+  p^k i_k(G)=1.
+\]
+Thus the hypotheses of \(\noderef{SamplingKsFreeRamseyBound}\) are satisfied for the \(K_s\)-free graph \(G\), the integer \(k\ge1\), and this value of \(p\). Therefore
+\[
+  r(s,k)>pN-1. \tag{4}
+\]
+
+We now lower-bound \(pN\). From (3),
+\[
+  p=i_k(G)^{-1/k}
+  \ge
+  \left(\left(\frac e k\right)^k2^{sk+s^2/2}\right)^{-1/k}
+  =
+  \frac{k}{e}\,2^{-(sk+s^2/2)/k}. \tag{5}
+\]
+Since \(k=\lceil Cs\rceil\) and \(C>1\), we have \(k\ge s\). Combining (2), (4), and (5) gives
+\[
+  r(s,k)>
+  2^{2s-4}\frac{s}{e}
+  2^{-(sk+s^2/2)/k}-1.
+\]
+The exponent simplifies as
+\[
+  2s-4-\frac{sk+s^2/2}{k}
+  =
+  s-4-\frac{s^2}{2k}.
+\]
+Since \(k\ge Cs\),
+\[
+  \frac{s^2}{2k}\le \frac{s}{2C}.
+\]
+Consequently
+\[
+  r(s,k)>
+  \frac{s}{16e}\,
+  2^{(1-\frac1{2C})s}-1. \tag{6}
+\]
+The factor \(s/(16e)\) tends to infinity. Therefore, after increasing the lower threshold for \(s\) one last time, the right side of (6) is at least
+\[
+  2^{(1-\frac1{2C})s}.
+\]
+This proves
+\[
+  r(s,\lceil Cs\rceil)\ge
+  \left(2^{1-\frac1{2C}}\right)^s
+\]
+for all sufficiently large \(s\), as claimed.
 \end{proof}
