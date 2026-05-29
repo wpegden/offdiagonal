@@ -6,7 +6,7 @@
 |------|------|-------|--------|
 | BinarySequenceWeight | definition | - | closed |
 | CloseToDiagonalTheorem | proof | - | open |
-| ComplementPolarityPairHsFree | proof | - | open |
+| ComplementPolarityPairHsFree | proof | - | closed |
 | Digraph | definition | - | closed |
 | DigraphLoopless | definition | - | closed |
 | DigraphToGraphIndependentSetBound | proof | - | open |
@@ -52,4 +52,4 @@
 | SparseNeighborhoodSetBound | proof | - | open |
 | TransitiveTournamentFree | definition | - | closed |
 
-**Summary:** 27/47 closed
+**Summary:** 28/47 closed

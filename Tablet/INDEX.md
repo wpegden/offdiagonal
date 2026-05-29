@@ -4,7 +4,7 @@
 |------|-----|------|--------|--------|-------|---------|
 | BinarySequenceWeight | definition | definition | closed | - | - | Preamble |
 | CloseToDiagonalTheorem | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, F2ForwardIndependentNearDiagonalBound, SamplingKsFreeRamseyBound |
-| ComplementPolarityPairHsFree | lemma | proof | open | - | - | HsFreePair, LoopGraphComplement, PolarityGraphSkewFree |
+| ComplementPolarityPairHsFree | lemma | proof | closed | - | - | HsFreePair, LoopGraphComplement, PolarityGraphSkewFree |
 | Digraph | definition | definition | closed | - | - | Preamble |
 | DigraphLoopless | definition | definition | closed | - | - | Digraph |
 | DigraphToGraphIndependentSetBound | lemma | proof | open | - | - | ForwardIndependentTupleCount, SimpleGraphIndependentSetCount, TransitiveTournamentFree |
@@ -51,4 +51,4 @@
 | SparseNeighborhoodSetBound | lemma | proof | open | - | - | ExpanderMixingLemma |
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 
-**Total:** 47 nodes | **Closed:** 27 | **Open:** 20
+**Total:** 47 nodes | **Closed:** 28 | **Open:** 19

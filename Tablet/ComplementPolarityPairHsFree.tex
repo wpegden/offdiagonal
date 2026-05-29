@@ -2,6 +2,57 @@
 Let \(s\ge 2\), let \(K\) be a field, and put \(G=G(s-2,K)\). If \(F=\overline G\), where loops are complemented as well, then the pair \((F,G)\) is \(H_s\)-free.
 \end{lemma}
 \begin{proof}
-SKETCH:
-An \(H_s\) configuration in \((\overline G,G)\) is precisely a list \(a_1,b_1,\ldots,a_s,b_s\) for which \(a_i b_i\notin E(G)\) for every \(i\), and \(a_i b_j\in E(G)\) whenever \(i<j\). With \(t=s-2\), this is exactly the skew bipartite configuration of size \(t+2=s\) excluded by \noderef{PolarityGraphSkewFree}.
+Put \(t=s-2\). Since \(s\ge 2\), we have
+\[
+  t+2=(s-2)+2=s.
+\]
+Let \(G=G(t,K)\) and \(F=\overline G\), with loops complemented as in
+\(\noderef{LoopGraphComplement}\). We prove that \((F,G)\) is \(H_s\)-free by
+contradiction.
+
+Suppose that \((F,G)\) is not \(H_s\)-free. By the definition of
+\(H_s\)-free pairs in \(\noderef{HsFreePair}\), there are vertices
+\[
+  a_i,b_i \qquad (1\le i\le s)
+\]
+such that
+\[
+  a_i b_i\in E(F) \quad\text{for every } 1\le i\le s,
+\]
+and
+\[
+  a_i b_j\in E(G) \quad\text{for every } 1\le i<j\le s.
+\]
+Because \(F=\overline G\), the definition of the loop-graph complement in
+\(\noderef{LoopGraphComplement}\) converts each diagonal condition
+\(a_i b_i\in E(F)\) into
+\[
+  a_i b_i\notin E(G) \quad\text{for every } 1\le i\le s.
+\]
+Thus the same two lists of vertices satisfy the off-diagonal edge conditions
+in \(G\) and the diagonal non-edge conditions in \(G\).
+
+It remains only to compare the index set with the one used in the skew
+configuration statement. Since \(t+2=s\), identify \(\{1,\ldots,t+2\}\) with
+\(\{1,\ldots,s\}\) by the order-preserving bijection induced by this equality.
+Under this reindexing, the vertices just obtained give lists
+\[
+  a_r,b_r \qquad (1\le r\le t+2)
+\]
+such that
+\[
+  a_r b_q\in E(G) \quad\text{whenever } r<q,
+\]
+and
+\[
+  a_r b_r\notin E(G) \quad\text{for every } r.
+\]
+By \(\noderef{NoSkewBipartiteConfiguration}\), this is exactly a skew
+bipartite configuration of size \(t+2\) in the loop graph \(G=G(t,K)\).
+
+But \(\noderef{PolarityGraphSkewFree}\) states that the polarity graph
+\(G(t,K)\) has no skew bipartite configuration of size \(t+2\). This
+contradicts the configuration constructed above. Therefore the assumed
+\(H_s\)-configuration in \((\overline G,G)\) cannot exist, and the pair
+\((F,G)\) is \(H_s\)-free.
 \end{proof}
