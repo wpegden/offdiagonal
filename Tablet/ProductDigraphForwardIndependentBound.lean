@@ -4,6 +4,8 @@ import Tablet.ProductDigraph
 import Tablet.ProductDigraphShrinkingSequenceBound
 import Tablet.ProductDigraphTransitiveFree
 import Tablet.ProductDigraphVertex
+import Tablet.ProductDigraphVertexCard
+import Tablet.ProductDigraphTupleHasShrinkingSequence
 import Tablet.TransitiveTournamentFree
 
 -- [TABLET NODE: ProductDigraphForwardIndependentBound]
@@ -29,4 +31,33 @@ theorem ProductDigraphForwardIndependentBound {V : Type u} [Fintype V]
               (16 : ℝ) ^ k * Real.rpow eta ((k : ℝ) - w) *
                 ((dF * n : ℕ) : ℝ) ^ k := by
 -- BODY
-  sorry
+  classical
+  letI : Fintype (ProductDigraphVertex F) := Fintype.ofFinite _
+  refine ⟨ProductDigraphVertex F, inferInstance, ProductDigraph F G, ?_, ?_, ?_⟩
+  · exact ProductDigraphTransitiveFree F G s hFG
+  · exact ProductDigraphVertexCard F n dF lambdaF hF
+  · intro k hk
+    let shrinkingSequence :
+        {v : Fin k → ProductDigraphVertex F //
+          ForwardIndependentTuple (ProductDigraph F G) v} → Fin k → Bool :=
+      fun v i =>
+        decide
+          (((dG : ℝ) *
+                ((((Finset.univ.filter
+                  (fun b : V => ∀ j : Fin k, j < i → ¬ G (v.val j).val.1 b)).card :
+                    ℕ) : ℝ))) /
+              (2 * (n : ℝ)) <
+            ((LoopGraphEdgeCountBetween G ({(v.val i).val.1} : Finset V)
+              (Finset.univ.filter
+                (fun b : V => ∀ j : Fin k, j < i → ¬ G (v.val j).val.1 b)) :
+                ℕ) : ℝ))
+    have hshrinkingSequence :
+        ∀ v : {v : Fin k → ProductDigraphVertex F //
+          ForwardIndependentTuple (ProductDigraph F G) v},
+          ProductDigraphTupleHasShrinkingSequence F G n dG v.val (shrinkingSequence v) := by
+      intro v
+      unfold ProductDigraphTupleHasShrinkingSequence
+      refine ⟨v.property, ?_⟩
+      intro i
+      simp [shrinkingSequence]
+    sorry
