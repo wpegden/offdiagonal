@@ -28,17 +28,20 @@
 | LoopGraphAdjacencyActionSelfAdjoint | helper | proof | closed | - | - | LoopGraphAdjacencyAction, LoopGraphSymmetric |
 | LoopGraphAdjacencyEuclideanInner | helper | proof | closed | - | - | LoopGraphAdjacencyEuclideanOperator |
 | LoopGraphAdjacencyEuclideanOperator | definition | definition | closed | - | - | LoopGraphAdjacencyAction |
+| LoopGraphAdjacencyEuclideanOperatorMapsZeroSum | helper | proof | closed | - | - | LoopGraphEuclideanZeroSumSubmodule, LoopGraphNdLambdaAdjacencyActionZeroSum |
 | LoopGraphComplement | definition | definition | closed | - | - | LoopGraph |
 | LoopGraphDegree | definition | definition | closed | - | - | LoopGraph |
 | LoopGraphEdgeCountBetween | definition | definition | closed | - | - | LoopGraph |
 | LoopGraphEdgeCountBetweenAdjacencyIndicator | helper | proof | closed | - | - | LoopGraphAdjacencyAction, LoopGraphEdgeCountBetween |
+| LoopGraphEuclideanZeroSumSubmodule | definition | definition | closed | - | - | LoopGraphAdjacencyEuclideanOperator |
 | LoopGraphNdLambda | definition | definition | closed | - | - | LoopGraphDegree, LoopGraphNonprincipalEigenvalue, LoopGraphSymmetric |
 | LoopGraphNdLambdaAdjacencyActionZeroSum | helper | proof | closed | - | - | LoopGraphAdjacencyActionSelfAdjoint, LoopGraphNdLambdaAdjacencyOne |
 | LoopGraphNdLambdaAdjacencyIndicatorSum | helper | proof | closed | - | - | LoopGraphNdLambda |
 | LoopGraphNdLambdaAdjacencyOne | helper | proof | closed | - | - | LoopGraphAdjacencyAction, LoopGraphNdLambda |
 | LoopGraphNonprincipalEigenvalue | definition | definition | closed | - | - | LoopGraphAdjacencyAction |
 | LoopGraphSymmetric | definition | definition | closed | - | - | LoopGraph |
-| LoopGraphZeroSumAdjacencyBilinearBound | helper | proof | open | - | - | LoopGraphAdjacencyActionSelfAdjoint, LoopGraphAdjacencyEuclideanInner, LoopGraphNdLambda, LoopGraphNdLambdaAdjacencyActionZeroSum |
+| LoopGraphZeroSumAdjacencyBilinearBound | helper | proof | open | - | - | LoopGraphAdjacencyActionSelfAdjoint, LoopGraphAdjacencyEuclideanInner, LoopGraphNdLambda, LoopGraphNdLambdaAdjacencyActionZeroSum, LoopGraphZeroSumAdjacencyEuclideanOperator |
+| LoopGraphZeroSumAdjacencyEuclideanOperator | definition | definition | closed | - | - | LoopGraphAdjacencyEuclideanOperatorMapsZeroSum |
 | MainTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, PolarityGraphParameters, RamseyFromGraphPair |
 | MulticolorRamseyNumber | definition | definition | closed | - | - | MulticolorRamseyProperty |
 | MulticolorRamseyProperty | definition | definition | closed | - | - | Preamble |
@@ -67,4 +70,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 63 nodes | **Closed:** 47 | **Open:** 16
+**Total:** 66 nodes | **Closed:** 50 | **Open:** 16

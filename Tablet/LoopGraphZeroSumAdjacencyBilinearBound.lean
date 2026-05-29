@@ -2,6 +2,7 @@ import Tablet.LoopGraphNdLambda
 import Tablet.LoopGraphAdjacencyActionSelfAdjoint
 import Tablet.LoopGraphNdLambdaAdjacencyActionZeroSum
 import Tablet.LoopGraphAdjacencyEuclideanInner
+import Tablet.LoopGraphZeroSumAdjacencyEuclideanOperator
 
 -- [TABLET NODE: LoopGraphZeroSumAdjacencyBilinearBound]
 
@@ -32,4 +33,15 @@ theorem LoopGraphZeroSumAdjacencyBilinearBound {V : Type u} [Fintype V]
         (LoopGraphAdjacencyEuclideanOperator G (WithLp.toLp 2 g)) =
         ∑ v : V, f v * LoopGraphAdjacencyAction G g v :=
     LoopGraphAdjacencyEuclideanInner G f g
+  let W := LoopGraphEuclideanZeroSumSubmodule V
+  have hf_mem : (WithLp.toLp 2 f : EuclideanSpace ℝ V) ∈ W := by
+    simpa [W, LoopGraphEuclideanZeroSumSubmodule] using hf
+  have hg_mem : (WithLp.toLp 2 g : EuclideanSpace ℝ V) ∈ W := by
+    simpa [W, LoopGraphEuclideanZeroSumSubmodule] using hg
+  let fW : W := ⟨(WithLp.toLp 2 f : EuclideanSpace ℝ V), hf_mem⟩
+  let gW : W := ⟨(WithLp.toLp 2 g : EuclideanSpace ℝ V), hg_mem⟩
+  let TW := LoopGraphZeroSumAdjacencyEuclideanOperator G n d lambda hG
+  have hTWg_coe :
+      ((TW gW : W) : EuclideanSpace ℝ V) =
+        LoopGraphAdjacencyEuclideanOperator G (WithLp.toLp 2 g) := rfl
   sorry

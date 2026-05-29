@@ -30,10 +30,12 @@
 | LoopGraphAdjacencyActionSelfAdjoint | proof | - | closed |
 | LoopGraphAdjacencyEuclideanInner | proof | - | closed |
 | LoopGraphAdjacencyEuclideanOperator | definition | - | closed |
+| LoopGraphAdjacencyEuclideanOperatorMapsZeroSum | proof | - | closed |
 | LoopGraphComplement | definition | - | closed |
 | LoopGraphDegree | definition | - | closed |
 | LoopGraphEdgeCountBetween | definition | - | closed |
 | LoopGraphEdgeCountBetweenAdjacencyIndicator | proof | - | closed |
+| LoopGraphEuclideanZeroSumSubmodule | definition | - | closed |
 | LoopGraphNdLambda | definition | - | closed |
 | LoopGraphNdLambdaAdjacencyActionZeroSum | proof | - | closed |
 | LoopGraphNdLambdaAdjacencyIndicatorSum | proof | - | closed |
@@ -41,6 +43,7 @@
 | LoopGraphNonprincipalEigenvalue | definition | - | closed |
 | LoopGraphSymmetric | definition | - | closed |
 | LoopGraphZeroSumAdjacencyBilinearBound | proof | - | open |
+| LoopGraphZeroSumAdjacencyEuclideanOperator | definition | - | closed |
 | MainTheorem | proof | - | open |
 | MulticolorRamseyNumber | definition | - | closed |
 | MulticolorRamseyProperty | definition | - | closed |
@@ -68,4 +71,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 47/63 closed
+**Summary:** 50/66 closed

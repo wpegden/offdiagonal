@@ -1,0 +1,18 @@
+\begin{helper}
+Let \(G\) be an \((n,d,\lambda)\)-loop graph.  The Euclidean adjacency operator
+\(T_G\) from \(\noderef{LoopGraphAdjacencyEuclideanOperator}\) maps the
+zero-sum subspace \(W_0(V(G))\) from \(\noderef{LoopGraphEuclideanZeroSumSubmodule}\)
+into itself.
+\end{helper}
+\begin{proof}
+Let \(x\in W_0(V(G))\).  By the definition of \(W_0(V(G))\) in
+\(\noderef{LoopGraphEuclideanZeroSumSubmodule}\), the coordinate sum of \(x\)
+is zero.  The operator \(T_G\) has the same coordinates as the adjacency action
+by \(\noderef{LoopGraphAdjacencyEuclideanOperator}\).  Applying
+\(\noderef{LoopGraphNdLambdaAdjacencyActionZeroSum}\) to the coordinate function
+of \(x\) therefore gives
+\[
+  \sum_{v\in V(G)} (T_Gx)(v)=0.
+\]
+By the defining condition of \(W_0(V(G))\), this says \(T_Gx\in W_0(V(G))\).
+\end{proof}
