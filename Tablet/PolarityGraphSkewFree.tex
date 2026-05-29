@@ -1,0 +1,11 @@
+\begin{lemma}
+For every field \(K\) and every \(t\), the polarity graph \(G(t,K)\) has no skew bipartite configuration of size \(t+2\). Equivalently, there do not exist projective points
+\[
+  a_1,b_1,\ldots,a_{t+2},b_{t+2}
+\]
+such that \(a_i b_j\in E(G(t,K))\) for all \(i<j\), while \(a_i b_i\notin E(G(t,K))\) for every \(i\).
+\end{lemma}
+\begin{proof}
+SKETCH:
+Choose nonzero vector representatives \(x_i,y_i\). If such a configuration existed, then \(\langle x_i,y_j\rangle=0\) for every \(i<j\) and \(\langle x_i,y_i\rangle\ne 0\) for every \(i\). To show \(y_1,\ldots,y_{t+2}\) are linearly independent, take a nontrivial relation and let \(i\) be the first index with nonzero coefficient. Inner-producting the relation with \(x_i\) kills all later terms and leaves the nonzero coefficient times \(\langle x_i,y_i\rangle\), a contradiction. Thus \(t+2\) vectors would be linearly independent in a vector space of dimension \(t+1\), impossible.
+\end{proof}

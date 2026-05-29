@@ -1,0 +1,10 @@
+\begin{lemma}
+Suppose \(D\) is a \(T_s\)-free digraph on \(n\) vertices. Then, for every \(k\ge 1\), there exists a \(K_s\)-free graph \(G\) on the same vertex set such that
+\[
+  i_k(G)\le \left(\frac e k\right)^k\overrightarrow{i_k}(D).
+\]
+\end{lemma}
+\begin{proof}
+SKETCH:
+Choose a uniformly random permutation \(\pi\) of the vertices of \(D\), and put an undirected edge \(uv\) in \(G\) whenever one of the corresponding arcs of \(D\) points forward in the order \(\pi\). A \(K_s\) in \(G\), ordered by \(\pi\), would give a \(T_s\) in \(D\), so \(G\) is \(K_s\)-free. Every independent \(k\)-set of \(G\), when listed in increasing \(\pi\)-order, gives a forward independent \(k\)-tuple of \(D\). Conversely each fixed forward independent ordered tuple is increasing with probability \(1/k!\). Linearity of expectation gives \(\mathbb E i_k(G)=\overrightarrow{i_k}(D)/k!\le(e/k)^k\overrightarrow{i_k}(D)\), so some \(G\) has at most this many independent \(k\)-sets.
+\end{proof}

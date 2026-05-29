@@ -1,0 +1,29 @@
+\begin{theorem}
+Let \(s\ge 3\), and suppose \(F\) and \(G\) are \((n,d(F),\lambda(F))\)- and \((n,d(G),\lambda(G))\)-graphs on the same vertex set. Assume \((F,G)\) is \(H_s\)-free, and set
+\[
+  \eta=\max\left\{\frac{\lambda(G)^2}{d(G)^2},
+  \frac{\lambda(F)\lambda(G)}{d(F)d(G)}\right\},
+  \qquad
+  w=\frac{4n\log n}{d(G)}.
+\]
+If \(w\le k\le \eta d(F)n\), then
+\[
+  r(s,k)\ge \frac{1}{50} k\,\eta^{(w-k)/k}-1.
+\]
+In particular, if \(\eta d(F)n\ge k\ge 100n(\log n)^2/d(G)\), then
+\[
+  r(s,k)\ge \frac{k}{100\eta}-1.
+\]
+\end{theorem}
+\begin{proof}
+SKETCH:
+Apply \noderef{ProductDigraphForwardIndependentBound} to obtain a \(T_s\)-free digraph \(D\) on \(d(F)n\) vertices with the stated forward-independent tuple bound. Then apply \noderef{DigraphToGraphIndependentSetBound} to turn \(D\) into a \(K_s\)-free graph \(\Gamma\) with
+\[
+  i_k(\Gamma)\le(e/k)^k16^k\eta^{k-w}(d(F)n)^k.
+\]
+Choose \(p\) to be the negative \(1/k\)-power of the right-hand side. The upper condition \(k\le \eta d(F)n\) ensures \(p\le1\), and \noderef{SamplingKsFreeRamseyBound} gives
+\[
+  r(s,k)>p\,d(F)n-1\ge \frac1{50}k\eta^{(w-k)/k}-1.
+\]
+For the second conclusion, the stronger lower bound on \(k\) makes \(\eta^{w/k}\) bounded below by a fixed constant, giving \(k/(100\eta)-1\).
+\end{proof}

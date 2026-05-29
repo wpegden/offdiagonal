@@ -1,0 +1,15 @@
+\begin{lemma}
+Let \(\ell\ge 3\), and let
+\[
+  n\le 2^{(s/2-4)(\ell-1)}.
+\]
+Then there is an \(\ell\)-coloring of the edges of \(K_n\) with no monochromatic clique of size \(s\).
+\end{lemma}
+\begin{proof}
+SKETCH:
+Let \(D\) be the \(T_s\)-free loopless digraph supplied by \noderef{F2ForwardIndependentNearDiagonalBound} with \(k=s\), so \(N=(1+o(1))2^{2s-3}\) and \(\overrightarrow{i_s}(D)\le 2^{3s^2/2-5s/2+o(s)}\). Choose independent random maps \(\phi_c:[n]\to V(D)\) for \(c=1,\ldots,\ell-1\). For an edge \(ij\), use the least color \(c<\ell\) for which \((\phi_c(i),\phi_c(j))\) is an arc, and use color \(\ell\) if no such color exists. A monochromatic \(K_s\) in a color \(c<\ell\), ordered by vertex labels, would map to a copy of \(T_s\) in \(D\), impossible. For color \(\ell\), a fixed \(s\)-set survives only when each of the \(\ell-1\) mapped \(s\)-tuples is forward independent. Hence the expected number of color-\(\ell\) \(K_s\)'s is at most
+\[
+  \binom ns\left(\frac{\overrightarrow{i_s}(D)}{N^s}\right)^{\ell-1}<1
+\]
+for the displayed choice of \(n\). Therefore some coloring has no monochromatic \(K_s\).
+\end{proof}

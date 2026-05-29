@@ -1,0 +1,23 @@
+\begin{theorem}
+For every \(\delta>0\), there exists a constant \(L\) such that for all positive integers \(s\ge L\) and \(k\ge Ls\),
+\[
+  r(s,k)\ge \left(\frac{k}{s}\right)^{(1-\delta)s}.
+\]
+\end{theorem}
+\begin{proof}
+SKETCH:
+Assume \(\delta<1/10\) and choose \(L\) large. For given \(s,k\), take a power of two \(q\) satisfying
+\[
+  q\le \frac{\delta}{100}\frac{k/s}{\log(k/s)}\le 2q,
+\]
+so \(q\ge(k/s)^{1-\delta/2}\). Put \(G=G(s-2,q)\) and \(F=\overline G\). The \(H_s\)-freeness again comes from \noderef{ComplementPolarityPairHsFree}, and the parameter estimates come from \noderef{PolarityGraphParameters}. In particular \(d(F)\ge n/2\), \(\lambda(F)=\lambda(G)\), and
+\[
+  1/(16q^{s-3})\le\eta\le16/q^{s-3},\qquad
+  w\le\delta k/5.
+\]
+The paper's two-case estimate, depending on whether \(s\le\sqrt k\), gives \(k\le\eta d(F)n\). Applying the first part of \noderef{RamseyFromGraphPair} gives
+\[
+  r(s,k)\ge \frac1{50}k(q^{s-3}/16)^{1-\delta/5}-1,
+\]
+which is at least \((k/s)^{(1-\delta)s}\) when \(L\) is large enough.
+\end{proof}

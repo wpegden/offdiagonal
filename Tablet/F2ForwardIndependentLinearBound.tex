@@ -1,0 +1,18 @@
+\begin{lemma}
+Let \(C>1\) be fixed and set \(k=\lceil Cs\rceil\). For sufficiently large \(s\), the digraph \(D\) from \noderef{F2ForwardIndependentTuples} satisfies
+\[
+  \overrightarrow{i_k}(D)\le 2^{sk+s^2/2}.
+\]
+\end{lemma}
+\begin{proof}
+SKETCH:
+Use the sum from \noderef{F2ForwardIndependentTuples}. The quadratic expression
+\[
+  (s-1)(t+k)-\binom{t+1}{2}
+\]
+is maximized at \(t=s-3/2\), where it is at most \((s-1)k+\frac12(s-3/2)^2\). Bounding the binomial coefficient sum crudely by \(2^k\) yields
+\[
+  \overrightarrow{i_k}(D)\le 2^k2^{(s-1)k+\frac12(s-3/2)^2}\le 2^{sk+s^2/2}
+\]
+for all sufficiently large \(s\).
+\end{proof}

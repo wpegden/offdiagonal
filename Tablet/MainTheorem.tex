@@ -1,0 +1,22 @@
+\begin{theorem}
+For any \(s\ge 4\), there is a positive constant \(c_s\) such that for any \(k\ge 2\),
+\[
+  r(s,k)\ge c_s\frac{k^{s-2}}{(\log k)^{2s-6}}.
+\]
+\end{theorem}
+\begin{proof}
+SKETCH:
+Fix \(s\ge4\), and for large \(k\) choose a prime power \(q\) with
+\[
+  100(s-2)^2q(\log q)^2\in[k/8,k/2].
+\]
+Let \(G=G(s-2,q)\) and \(F=\overline G\). By \noderef{ComplementPolarityPairHsFree}, \((F,G)\) is \(H_s\)-free. By \noderef{PolarityGraphParameters}, \(G\) is an \((n,d(G),\lambda(G))\)-graph with \(n=(1+o(1))q^{s-2}\), \(d(G)=(1+o(1))q^{s-3}\), and \(\lambda(G)=(1+o(1))\sqrt{d(G)}\). The complement \(F\) has \(d(F)=(1-o(1))n\) and \(\lambda(F)=\lambda(G)\). Thus
+\[
+  \eta=(1+o(1))q^{-(s-3)}.
+\]
+The choice of \(q\) gives \(k\ge100n(\log n)^2/d(G)\) and \(k\le \eta d(F)n\). Applying the second part of \noderef{RamseyFromGraphPair} yields
+\[
+  r(s,k)\ge k/(100\eta)-1=\Omega_s(k^{s-2}/(\log k)^{2s-6}).
+\]
+For bounded \(k\), decrease the positive constant \(c_s\).
+\end{proof}

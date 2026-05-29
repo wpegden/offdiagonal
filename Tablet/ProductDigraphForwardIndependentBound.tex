@@ -1,0 +1,17 @@
+\begin{lemma}
+Let \(s,n\ge 3\), and suppose \(F\) and \(G\) are \((n,d(F),\lambda(F))\)- and \((n,d(G),\lambda(G))\)-graphs on the same vertex set. If \((F,G)\) is \(H_s\)-free, set
+\[
+  \eta=\max\left\{\frac{\lambda(G)^2}{d(G)^2},
+  \frac{\lambda(F)\lambda(G)}{d(F)d(G)}\right\},
+  \qquad
+  w=\frac{4n\log n}{d(G)}.
+\]
+Then there is a \(T_s\)-free digraph \(D\) on \(d(F)n\) vertices such that, for all \(k\ge w\),
+\[
+  \overrightarrow{i_k}(D)\le 16^k \eta^{k-w}(d(F)n)^k.
+\]
+\end{lemma}
+\begin{proof}
+SKETCH:
+Construct \(D=D(F,G)\). It is \(T_s\)-free by \noderef{ProductDigraphTransitiveFree}. For every forward independent tuple, define the sets \(B_i\), \(A_i\), and the shrinking sequence as in the paper. There can be at most \(w\) shrinking steps, since otherwise the \(B_i\) sets shrink below size \(1\). For each fixed shrinking sequence, \noderef{ProductDigraphShrinkingSequenceBound} gives \((8\eta)^{k-|z|}(d(F)n)^k\). Summing over all binary strings with at most \(w\) ones gives the advertised \(16^k\eta^{k-w}(d(F)n)^k\) bound.
+\end{proof}

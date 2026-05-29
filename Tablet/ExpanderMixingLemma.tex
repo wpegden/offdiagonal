@@ -1,0 +1,11 @@
+\begin{lemma}
+Let \(G\) be an \((n,d,\lambda)\)-graph, with loops allowed, and let \(A,B\subseteq V(G)\). Then
+\[
+  \left|e_G(A,B)-\frac d n |A||B|\right|
+    \le \lambda\sqrt{|A||B|}.
+\]
+\end{lemma}
+\begin{proof}
+SKETCH:
+This is the standard expander mixing lemma. Write the indicator functions of \(A\) and \(B\) as their projections onto the all-ones direction plus orthogonal components. The regularity term gives exactly \(d|A||B|/n\), and the contribution from the orthogonal components is bounded by \(\lambda\) times the product of their Euclidean norms, which is at most \(\lambda\sqrt{|A||B|}\). The same matrix proof works with loops because loops are represented as diagonal entries of the adjacency matrix.
+\end{proof}

@@ -1,0 +1,13 @@
+\begin{lemma}
+Let \(K\) be a finite field of order \(q\), let \(t\ge 2\), and let \(G(t,K)\) be the polarity graph. Then \(G(t,K)\) is an \((n,d,\lambda)\)-graph with
+\[
+  n=\frac{q^{t+1}-1}{q-1},\qquad
+  d=\frac{q^t-1}{q-1},\qquad
+  \lambda=\sqrt{d-\frac{q^{t-1}-1}{q-1}}.
+\]
+In particular, for \(q\to\infty\), one has \(n=q^t(1+o(1))\), \(d=q^{t-1}(1+o(1))\), and \(\lambda=(1+o(1))\sqrt d\).
+\end{lemma}
+\begin{proof}
+SKETCH:
+The projective space has one point for each nonzero vector modulo multiplication by a nonzero scalar, so the number of points is \((q^{t+1}-1)/(q-1)\). For a fixed nonzero vector \(x\), the orthogonal hyperplane \(x^\perp\) has \(q^t\) vectors, one of which is zero, so the degree is \((q^t-1)/(q-1)\). If \(x\) and \(y\) represent distinct projective points, then they are linearly independent, and the common orthogonal space \(x^\perp\cap y^\perp\) has \(q^{t-1}\) vectors, giving \(a=(q^{t-1}-1)/(q-1)\) common neighbours. Therefore the adjacency matrix \(A\) satisfies \(A^2=aJ+(d-a)I\). On the all-ones vector \(A\) has eigenvalue \(d\); on the orthogonal complement of the all-ones vector, \(J\) vanishes, so all remaining eigenvalues have absolute value \(\sqrt{d-a}\).
+\end{proof}

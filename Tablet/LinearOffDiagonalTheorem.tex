@@ -1,0 +1,19 @@
+\begin{theorem}
+Let \(C>1\) be fixed. Then, for all sufficiently large \(s\),
+\[
+  r(s,\lceil Cs\rceil)\ge \left(2^{1-\frac{1}{2C}}\right)^s.
+\]
+\end{theorem}
+\begin{proof}
+SKETCH:
+Let \(k=\lceil Cs\rceil\). By \noderef{F2ForwardIndependentLinearBound}, there is a loopless \(T_s\)-free digraph \(D\) on \(N=(1+o(1))2^{2s-3}\) vertices with
+\[
+  \overrightarrow{i_k}(D)\le 2^{sk+s^2/2}.
+\]
+Apply \noderef{DigraphToGraphIndependentSetBound} to obtain a \(K_s\)-free graph \(G\) on \(N\) vertices with \(i_k(G)\le(e/k)^k\overrightarrow{i_k}(D)\). If \(i_k(G)=0\), the lower bound is immediate from \(N\). Otherwise use \noderef{SamplingKsFreeRamseyBound} with \(p=i_k(G)^{-1/k}\). This yields
+\[
+  r(s,k)\ge (1+o(1))2^{2s-3}\frac{s}{e}2^{-(sk+s^2/2)/k}-1
+  \ge 2^{(1-1/(2C))s}
+\]
+for large \(s\).
+\end{proof}

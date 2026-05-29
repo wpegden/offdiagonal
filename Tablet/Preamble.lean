@@ -1,2 +1,12 @@
--- Preamble: shared imports for all tablet nodes.
--- Add specific Mathlib imports here (never `import Mathlib`).
+import Mathlib.Analysis.SpecialFunctions.Exp
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Combinatorics.SimpleGraph.Clique
+import Mathlib.Data.Finset.Interval
+import Mathlib.Data.Fintype.Card
+import Mathlib.Data.Fintype.Pi
+import Mathlib.Data.Fintype.Sets
+import Mathlib.Data.Nat.Choose.Basic
+import Mathlib.Data.Real.Sqrt
+import Mathlib.Data.Sym.Sym2
+import Mathlib.LinearAlgebra.Projectivization.Constructions

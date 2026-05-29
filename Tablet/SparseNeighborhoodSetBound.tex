@@ -1,0 +1,14 @@
+\begin{lemma}
+Let \(G\) be an \((n,d,\lambda)\)-graph and \(B\subseteq V(G)\). Define
+\[
+  A=\{u\in V(G): |N_G(u)\cap B|\le d|B|/(2n)\}.
+\]
+Then
+\[
+  |A||B|\le \frac{4\lambda^2}{d^2}n^2.
+\]
+\end{lemma}
+\begin{proof}
+SKETCH:
+Apply \noderef{ExpanderMixingLemma} to the sets \(A\) and \(B\). By definition of \(A\), \(e_G(A,B)\le d|A||B|/(2n)\). Expander mixing gives \(d|A||B|/n-e_G(A,B)\le \lambda\sqrt{|A||B|}\). Combining the two inequalities yields \(d|A||B|/(2n)\le \lambda\sqrt{|A||B|}\), and squaring gives the stated bound.
+\end{proof}

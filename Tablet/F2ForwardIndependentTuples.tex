@@ -1,0 +1,17 @@
+\begin{lemma}
+Let \(s,k\) be integers with \(4\le s\le k\). There exists a loopless \(T_s\)-free digraph \(D\) on
+\[
+  N=2^{2s-3}-2^{s-1}-2^{s-2}+1
+\]
+vertices such that
+\[
+  \overrightarrow{i_k}(D)\le
+  \sum_{t=1}^{s-1}\binom{k}{t}2^{(s-1)(t+k)-\binom{t+1}{2}}.
+\]
+\end{lemma}
+\begin{proof}
+SKETCH:
+Take the polarity graph \(G(s-2,2)\). Over \(\mathbb F_2\), its vertices may be identified with the nonzero vectors in \(\mathbb F_2^{s-1}\), and adjacency is orthogonality. Let \(D\) have vertices \((x,y)\) with \(xy\notin E(G)\), and put an arc \((x,y)\to(x',y')\) precisely when \(xy'\in E(G)\). The digraph is loopless and \(T_s\)-free by the same forbidden-configuration argument as \noderef{ComplementPolarityPairHsFree}. Its number of vertices is \(2|E(\overline G)|=(2^{s-1}-1)(2^{s-2}-1)\), giving the displayed \(N\).
+
+A forward independent \(k\)-tuple gives vectors \((a_i,b_i)\) satisfying \(\langle a_j,b_i\rangle=1\) for all \(j\le i\). Classify such tuples by the rank sequence \(r_i=\dim\langle a_1,\ldots,a_i\rangle\). If the final rank is \(t\), then there are at most \(\binom{k}{t}\) possible valid rank sequences. For a fixed sequence, the choices for the \(a_i\)'s and \(b_i\)'s are bounded by \(2^{(s-1)(t+k)-\binom{t+1}{2}}\). Summing over \(t=1,\ldots,s-1\) gives the result.
+\end{proof}

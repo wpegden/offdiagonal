@@ -1,0 +1,21 @@
+\begin{lemma}
+With \(D\) as in \noderef{F2ForwardIndependentTuples}, if \(k=s+a\), \(a\ge 0\), and \(a=o(s)\), then
+\[
+  \overrightarrow{i_k}(D)\le
+  2^{\frac32s^2+as-\frac52s+o(s)}.
+\]
+Equivalently, for every \(\varepsilon>0\), the \(o(s)\) term may be bounded above by \(\varepsilon s\) for all sufficiently large \(s\) in the regime \(a=o(s)\).
+\end{lemma}
+\begin{proof}
+SKETCH:
+Start with the summand bound from \noderef{F2ForwardIndependentTuples}. Write \(t=s-j\). Then
+\[
+  \binom{k}{t}=\binom{s+a}{j+a}
+\]
+and the \(t\)-th summand is at most
+\[
+  \left(\frac{e(s+a)}{a+1}\right)^{j+a}
+  2^{s^2/2+s(s+a)-3s/2-(s+a)+3j/2-j^2/2}.
+\]
+The exponent in \(j\) is maximized for \(j=O(\log s)\), and since \(a=o(s)\), the prefactor contributes only \(2^{o(s)}\). Thus every summand is at most \(2^{s^2/2+s(s+a)-3s/2-(s+a)+o(s)}\), and summing over at most \(s\) values of \(t\) is absorbed in the \(o(s)\) term.
+\end{proof}

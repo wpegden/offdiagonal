@@ -1,0 +1,14 @@
+\begin{lemma}
+Suppose \(G\) is a \(K_s\)-free graph on \(n\) vertices and \(p\in[0,1]\) satisfies
+\[
+  p^k i_k(G)\le 1.
+\]
+Then
+\[
+  r(s,k)>pn-1.
+\]
+\end{lemma}
+\begin{proof}
+SKETCH:
+Keep each vertex independently with probability \(p\), and let \(G'\) be the induced subgraph. It remains \(K_s\)-free. The expectation of \(|V(G')|-i_k(G')\) is \(pn-p^k i_k(G)\), which is at least \(pn-1\). Hence some induced subgraph has \(|V|-i_k\ge pn-1\). Delete one vertex from every independent \(k\)-set in that subgraph. The resulting graph is still \(K_s\)-free, has no independent set of size \(k\), and has more than \(pn-1\) vertices, giving the stated Ramsey lower bound.
+\end{proof}

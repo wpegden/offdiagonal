@@ -1,0 +1,14 @@
+\begin{theorem}
+For every fixed \(\ell\ge 3\),
+\[
+  r(s;\ell)=\Omega(2^{(\ell-1)s/2}).
+\]
+\end{theorem}
+\begin{proof}
+SKETCH:
+By \noderef{RandomHomomorphismColoringBound}, for
+\[
+  n=2^{(s/2-4)(\ell-1)}
+\]
+there is an \(\ell\)-edge-coloring of \(K_n\) with no monochromatic \(K_s\). Therefore \(r(s;\ell)>n\). Since \(\ell\) is fixed, the factor \(2^{-4(\ell-1)}\) is absorbed into the implicit positive constant in \(\Omega(2^{(\ell-1)s/2})\).
+\end{proof}

@@ -1,0 +1,25 @@
+\begin{theorem}
+Let \(s\to\infty\) and let \(a\) be a nonnegative integer such that \(a=o(s)\). Then
+\[
+  r(s,s+a)\ge (1+o(1))\frac{s}{e}\cdot
+  2^{(s+a-1)/2-a^2/(2s)}.
+\]
+Equivalently, the formal statement uses the usual uniform \(\varepsilon\)-form for the \(1+o(1)\) lower factor when \(a/s\) is sufficiently small.
+\end{theorem}
+\begin{proof}
+SKETCH:
+Set \(k=s+a\). By \noderef{F2ForwardIndependentNearDiagonalBound}, there is a \(T_s\)-free digraph \(D\) on
+\[
+  N=2^{2s-3}-2^{s-1}-2^{s-2}+1=(1+o(1))2^{2s-3}
+\]
+vertices with
+\[
+  \overrightarrow{i_k}(D)\le 2^{3s^2/2+as-5s/2+o(s)}.
+\]
+Use \noderef{DigraphToGraphIndependentSetBound} to obtain a \(K_s\)-free graph \(G\) with \(i_k(G)\le(e/k)^k\overrightarrow{i_k}(D)\). If \(i_k(G)=0\), then \(r(s,k)\ge N\), which is stronger. Otherwise, \noderef{SamplingKsFreeRamseyBound} with \(p=i_k(G)^{-1/k}\) gives
+\[
+  r(s,s+a)\ge (1+o(1))2^{2s-3}\frac{s}{e}
+  2^{(-3s^2/2-as+5s/2+o(s))/(s+a)}.
+\]
+Expanding the exponent gives the displayed lower bound.
+\end{proof}
