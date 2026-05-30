@@ -1,3 +1,4 @@
+import Mathlib.LinearAlgebra.Projectivization.Cardinality
 import Tablet.LoopGraphNdLambda
 import Tablet.PolarityGraph
 
@@ -17,7 +18,11 @@ theorem PolarityGraphParameters (K : Type u) [Field K] [Fintype K] (t q : ℕ)
 -- BODY
   dsimp [LoopGraphNdLambda]
   constructor
-  · sorry
+  · rw [← Nat.card_eq_fintype_card]
+    rw [Projectivization.card'']
+    rw [Nat.card_eq_fintype_card (α := Fin (t + 1) → K),
+      Nat.card_eq_fintype_card (α := K), Fintype.card_fun, Fintype.card_fin]
+    rw [← hq]
   constructor
   · dsimp [LoopGraphSymmetric, PolarityGraph]
     intro x y hxy
