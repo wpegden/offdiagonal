@@ -4,6 +4,7 @@ import Tablet.F2CoordinateDigraphTransitiveFree
 import Tablet.F2BadTuple
 import Tablet.F2BadTupleRankAmbientBound
 import Tablet.F2BadTupleRankOne
+import Tablet.F2BadTupleRankStep
 import Tablet.F2BadTupleRankZero
 import Tablet.F2DotOnePairEmbedding
 import Tablet.ForwardIndependentTupleCount
@@ -93,4 +94,10 @@ theorem F2ForwardIndependentTuples :
         ∀ (ab : Bad) (i : ℕ), F2BadTupleRank p k ab.val i ≤ p := by
       intro ab i
       exact F2BadTupleRankAmbientBound p k ab.val i
+    have hbad_rank_step :
+        ∀ (ab : Bad) (i : ℕ), i < k →
+          F2BadTupleRank p k ab.val (i + 1) = F2BadTupleRank p k ab.val i ∨
+            F2BadTupleRank p k ab.val (i + 1) = F2BadTupleRank p k ab.val i + 1 := by
+      intro ab i hi
+      exact F2BadTupleRankStep p k ab.val hi
     sorry

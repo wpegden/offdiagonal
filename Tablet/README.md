@@ -21,6 +21,7 @@
 | F2BadTupleRank | definition | - | closed |
 | F2BadTupleRankAmbientBound | proof | - | closed |
 | F2BadTupleRankOne | proof | - | closed |
+| F2BadTupleRankStep | proof | - | closed |
 | F2BadTupleRankZero | proof | - | closed |
 | F2CoordinateDigraphLoopless | proof | - | closed |
 | F2CoordinateDigraphTransitiveFree | proof | - | closed |
@@ -93,4 +94,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 79/88 closed
+**Summary:** 80/89 closed

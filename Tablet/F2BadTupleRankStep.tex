@@ -1,0 +1,31 @@
+\begin{helper}
+For every \(2k\)-tuple
+\[
+  ab=(a_1,b_1,\ldots,a_k,b_k)\in(\mathbb F_2^p)^{2k}
+\]
+and every \(i<k\), the rank quantity from \(\noderef{F2BadTupleRank}\)
+satisfies the one-step condition
+\[
+  r_{i+1}=r_i \quad\text{or}\quad r_{i+1}=r_i+1.
+\]
+\end{helper}
+\begin{proof}
+By \(\noderef{F2BadTupleRank}\), \(r_i\) is the dimension of the span of the
+\(a\)-vectors whose zero-based Lean index is less than \(i\). Since \(i<k\), the
+next vector \(a_{i+1}\) exists. The set of \(a\)-vectors with Lean index less
+than \(i+1\) is exactly the union of the set of \(a\)-vectors with Lean index
+less than \(i\) and the singleton \(\{a_{i+1}\}\). Hence the subspace defining
+\(r_{i+1}\) is
+\[
+  U_i+\operatorname{span}\{a_{i+1}\},
+\]
+where \(U_i\) is the subspace defining \(r_i\).
+
+If \(a_{i+1}\in U_i\), then \(\operatorname{span}\{a_{i+1}\}\subseteq U_i\), so
+\(U_i+\operatorname{span}\{a_{i+1}\}=U_i\). Taking dimensions gives
+\(r_{i+1}=r_i\). If \(a_{i+1}\notin U_i\), then adjoining \(a_{i+1}\) to \(U_i\)
+adds one independent direction. Equivalently, the span of \(a_{i+1}\) meets
+\(U_i\) trivially, so the dimension of
+\(U_i+\operatorname{span}\{a_{i+1}\}\) is \(\dim U_i+1\). Therefore
+\(r_{i+1}=r_i+1\). These two cases prove the stated disjunction.
+\end{proof}
