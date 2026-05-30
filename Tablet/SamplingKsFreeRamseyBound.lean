@@ -123,4 +123,127 @@ theorem SamplingKsFreeRamseyBound {V : Type u} [Fintype V]
             exact Fintype.sum_pow_mul_eq_add_pow V p (1 - p)
       _ = 1 := by
             ring_nf
+  have hbernoulliExpectedVertexCount :
+      (∑ U : Finset V, bernoulliWeight U * (U.card : ℝ)) =
+        p * (Fintype.card V : ℝ) := by
+    have hcard_indicator :
+        ∀ U : Finset V,
+          (U.card : ℝ) = ∑ v : V, if v ∈ U then (1 : ℝ) else 0 := by
+      intro U
+      calc
+        (U.card : ℝ) = ∑ v ∈ U, (1 : ℝ) := by simp
+        _ = ∑ v : V, if v ∈ U then (1 : ℝ) else 0 := by
+          rw [← Finset.sum_filter]
+          simp
+    have hvertex_mass :
+        ∀ v : V, (∑ U : Finset V, if v ∈ U then bernoulliWeight U else 0) = p := by
+      intro v
+      let rest : Finset V := (Finset.univ : Finset V).erase v
+      have hrest_card : rest.card = Fintype.card V - 1 := by
+        dsimp [rest]
+        rw [Finset.card_erase_of_mem]
+        · simp
+        · simp
+      have hcontains_to_filter :
+          (∑ U : Finset V, if v ∈ U then bernoulliWeight U else 0) =
+            ∑ U ∈ (Finset.univ : Finset (Finset V)).filter (fun U => v ∈ U),
+              bernoulliWeight U := by
+        rw [← Finset.sum_filter]
+      have hfilter_to_rest :
+          (∑ U ∈ (Finset.univ : Finset (Finset V)).filter (fun U => v ∈ U),
+              bernoulliWeight U) =
+            ∑ T ∈ rest.powerset, bernoulliWeight (insert v T) := by
+        symm
+        refine Finset.sum_bij
+          (fun T _ => insert v T)
+          ?hi ?hinj ?hsurj ?hval
+        · intro T hT
+          exact Finset.mem_filter.mpr ⟨by simp, by simp⟩
+        · intro T₁ hT₁ T₂ hT₂ heq
+          have hvT₁ : v ∉ T₁ := by
+            have hsub := Finset.mem_powerset.mp hT₁
+            intro hv
+            have : v ∈ rest := hsub hv
+            exact Finset.notMem_erase v (Finset.univ : Finset V) this
+          have hvT₂ : v ∉ T₂ := by
+            have hsub := Finset.mem_powerset.mp hT₂
+            intro hv
+            have : v ∈ rest := hsub hv
+            exact Finset.notMem_erase v (Finset.univ : Finset V) this
+          calc
+            T₁ = (insert v T₁).erase v := (Finset.erase_insert hvT₁).symm
+            _ = (insert v T₂).erase v := by
+              simpa using congrArg (fun U : Finset V => U.erase v) heq
+            _ = T₂ := Finset.erase_insert hvT₂
+        · intro U hU
+          have hvU : v ∈ U := (Finset.mem_filter.mp hU).2
+          refine ⟨U.erase v, ?_, ?_⟩
+          · exact Finset.mem_powerset.mpr (by
+              intro x hx
+              dsimp [rest]
+              exact Finset.mem_erase.mpr ⟨(Finset.mem_erase.mp hx).1, by simp⟩)
+          · exact Finset.insert_erase hvU
+        · intro T hT
+          rfl
+      calc
+        (∑ U : Finset V, if v ∈ U then bernoulliWeight U else 0)
+            = ∑ T ∈ rest.powerset, bernoulliWeight (insert v T) := by
+              rw [hcontains_to_filter, hfilter_to_rest]
+        _ = ∑ T ∈ rest.powerset,
+              p * (p ^ T.card * (1 - p) ^ (rest.card - T.card)) := by
+              refine Finset.sum_congr rfl ?_
+              intro T hT
+              dsimp [bernoulliWeight]
+              have hv_not_mem : v ∉ T := by
+                have hsub := Finset.mem_powerset.mp hT
+                intro hv
+                have : v ∈ rest := hsub hv
+                exact Finset.notMem_erase v (Finset.univ : Finset V) this
+              have hcard_insert :
+                  (insert v T).card = T.card + 1 := by
+                rw [Finset.card_insert_of_notMem hv_not_mem]
+              have hdiff :
+                  Fintype.card V - (insert v T).card =
+                    rest.card - T.card := by
+                rw [hcard_insert, hrest_card]
+                omega
+              rw [hdiff, hcard_insert]
+              rw [pow_succ]
+              ring
+        _ = p * ∑ T ∈ rest.powerset,
+              p ^ T.card * (1 - p) ^ (rest.card - T.card) := by
+              rw [Finset.mul_sum]
+        _ = p * (p + (1 - p)) ^ rest.card := by
+              rw [Finset.sum_pow_mul_eq_add_pow]
+        _ = p * 1 := by
+              ring_nf
+        _ = p := by ring
+    calc
+      (∑ U : Finset V, bernoulliWeight U * (U.card : ℝ))
+          = ∑ U : Finset V, bernoulliWeight U *
+              (∑ v : V, if v ∈ U then (1 : ℝ) else 0) := by
+            refine Finset.sum_congr rfl ?_
+            intro U hU
+            rw [hcard_indicator U]
+      _ = ∑ U : Finset V, ∑ v : V,
+              bernoulliWeight U * (if v ∈ U then (1 : ℝ) else 0) := by
+            refine Finset.sum_congr rfl ?_
+            intro U hU
+            rw [Finset.mul_sum]
+      _ = ∑ v : V, ∑ U : Finset V,
+              bernoulliWeight U * (if v ∈ U then (1 : ℝ) else 0) := by
+            rw [Finset.sum_comm]
+      _ = ∑ v : V, p := by
+            refine Finset.sum_congr rfl ?_
+            intro v hv
+            calc
+              (∑ U : Finset V, bernoulliWeight U *
+                  (if v ∈ U then (1 : ℝ) else 0))
+                  = ∑ U : Finset V, if v ∈ U then bernoulliWeight U else 0 := by
+                    refine Finset.sum_congr rfl ?_
+                    intro U hU
+                    by_cases hmem : v ∈ U <;> simp [hmem]
+              _ = p := hvertex_mass v
+      _ = p * (Fintype.card V : ℝ) := by
+            simp [mul_comm]
   sorry
