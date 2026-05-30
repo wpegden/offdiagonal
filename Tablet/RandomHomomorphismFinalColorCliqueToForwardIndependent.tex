@@ -1,0 +1,24 @@
+\begin{helper}
+Let \(D\) be a digraph on \(W\), let \(1\le\ell\), and let
+\(\phi_c:[n]\to W\), for \(c<\ell-1\), be maps.  Suppose
+\(S\subseteq[n]\) has \(|S|=s\) and every edge inside \(S\) receives the final
+color \(\ell-1\) under \(\noderef{RandomHomomorphismColoring}\).  Then there
+is a strictly increasing tuple \(v:[s]\to[n]\) whose entries all lie in \(S\)
+such that, for every \(c<\ell-1\), the tuple
+\[
+  i\mapsto \phi_c(v_i)
+\]
+is forward independent in \(D\).
+\end{helper}
+\begin{proof}
+Since \(S\) is a finite subset of the linearly ordered set \([n]\) and
+\(|S|=s\), list its elements in increasing order.  This gives a strictly
+increasing tuple \(v:[s]\to[n]\), and each \(v_i\) lies in \(S\).
+
+For \(i<j\), the two vertices \(v_i\) and \(v_j\) are distinct and both lie in
+\(S\).  Hence the hypothesis on \(S\) says that the edge
+\(\{v_i,v_j\}\) has final color \(\ell-1\).  Applying
+\(\noderef{RandomHomomorphismFinalColorForwardIndependent}\) to this ordered
+tuple, we conclude that for every \(c<\ell-1\) the tuple
+\(i\mapsto \phi_c(v_i)\) is forward independent in \(D\), as required.
+\end{proof}

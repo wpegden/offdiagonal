@@ -133,6 +133,7 @@
 | RandomHomomorphismColoringBound | proof | - | open |
 | RandomHomomorphismF2Setup | proof | - | closed |
 | RandomHomomorphismFinalColorArithmetic | proof | - | closed |
+| RandomHomomorphismFinalColorCliqueToForwardIndependent | proof | - | closed |
 | RandomHomomorphismFinalColorForwardIndependent | proof | - | closed |
 | RandomHomomorphismFinalColorSelectionFromCount | proof | - | closed |
 | RandomHomomorphismFirstColorOrderedCliqueFree | proof | - | closed |
@@ -143,4 +144,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 134/138 closed
+**Summary:** 135/139 closed

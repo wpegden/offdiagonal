@@ -129,9 +129,10 @@
 | RamseyPropertyNonempty | helper | proof | closed | - | - | RamseyPropertyStep |
 | RamseyPropertyStep | helper | proof | closed | - | - | RamseyProperty |
 | RandomHomomorphismColoring | definition | definition | closed | - | - | Digraph |
-| RandomHomomorphismColoringBound | lemma | proof | open | - | - | F2ForwardIndependentNearDiagonalBound, NoMonochromaticCliqueColoring, RandomHomomorphismColoring, RandomHomomorphismF2Setup, RandomHomomorphismFinalColorArithmetic, RandomHomomorphismFinalColorForwardIndependent, RandomHomomorphismFinalColorSelectionFromCount, RandomHomomorphismFirstColorOrderedCliqueFree |
+| RandomHomomorphismColoringBound | lemma | proof | open | - | - | F2ForwardIndependentNearDiagonalBound, NoMonochromaticCliqueColoring, RandomHomomorphismColoring, RandomHomomorphismF2Setup, RandomHomomorphismFinalColorArithmetic, RandomHomomorphismFinalColorCliqueToForwardIndependent, RandomHomomorphismFinalColorForwardIndependent, RandomHomomorphismFinalColorSelectionFromCount, RandomHomomorphismFirstColorOrderedCliqueFree |
 | RandomHomomorphismF2Setup | helper | proof | closed | - | - | F2ForwardIndependentNearDiagonalBound |
 | RandomHomomorphismFinalColorArithmetic | helper | proof | closed | - | - | Preamble |
+| RandomHomomorphismFinalColorCliqueToForwardIndependent | helper | proof | closed | - | - | RandomHomomorphismFinalColorForwardIndependent |
 | RandomHomomorphismFinalColorForwardIndependent | helper | proof | closed | - | - | ForwardIndependentTuple, RandomHomomorphismColoring |
 | RandomHomomorphismFinalColorSelectionFromCount | helper | proof | closed | - | - | RandomHomomorphismColoring |
 | RandomHomomorphismFirstColorOrderedCliqueFree | helper | proof | closed | - | - | DigraphLoopless, RandomHomomorphismColoring, TransitiveTournamentFree |
@@ -142,4 +143,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 138 nodes | **Closed:** 134 | **Open:** 4
+**Total:** 139 nodes | **Closed:** 135 | **Open:** 4
