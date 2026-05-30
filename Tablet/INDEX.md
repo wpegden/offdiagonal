@@ -70,16 +70,17 @@
 | ProductDigraphVertexCard | helper | proof | closed | - | - | LoopGraphNdLambda, ProductDigraphVertex |
 | RamseyFromGraphPair | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, ProductDigraphForwardIndependentBound, SamplingKsFreeRamseyBound |
 | RamseyNumber | definition | definition | closed | - | - | RamseyProperty |
+| RamseyNumberLowerBoundFromCounterexample | helper | proof | closed | - | - | RamseyNumber, RamseyPropertyCounterexampleTransport, RamseyPropertyMonotone, RamseyPropertyNonempty |
 | RamseyProperty | definition | definition | closed | - | - | Preamble |
 | RamseyPropertyCounterexampleTransport | helper | proof | closed | - | - | RamseyProperty |
 | RamseyPropertyMonotone | helper | proof | closed | - | - | RamseyProperty |
 | RamseyPropertyNonempty | helper | proof | closed | - | - | RamseyPropertyStep |
 | RamseyPropertyStep | helper | proof | closed | - | - | RamseyProperty |
 | RandomHomomorphismColoringBound | lemma | proof | open | - | - | F2ForwardIndependentNearDiagonalBound, NoMonochromaticCliqueColoring |
-| SamplingKsFreeRamseyBound | lemma | proof | open | - | - | RamseyNumber, RamseyPropertyCounterexampleTransport, RamseyPropertyMonotone, RamseyPropertyNonempty, SimpleGraphIndependentSetCount |
+| SamplingKsFreeRamseyBound | lemma | proof | open | - | - | RamseyNumber, RamseyNumberLowerBoundFromCounterexample, RamseyPropertyCounterexampleTransport, RamseyPropertyMonotone, RamseyPropertyNonempty, SimpleGraphIndependentSetCount |
 | SimpleGraphIndependentSetCount | definition | definition | closed | - | - | Preamble |
 | SparseNeighborhoodSetBound | lemma | proof | closed | - | - | ExpanderMixingLemma |
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 78 nodes | **Closed:** 65 | **Open:** 13
+**Total:** 79 nodes | **Closed:** 66 | **Open:** 13

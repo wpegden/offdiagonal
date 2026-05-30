@@ -71,6 +71,7 @@
 | ProductDigraphVertexCard | proof | - | closed |
 | RamseyFromGraphPair | proof | - | open |
 | RamseyNumber | definition | - | closed |
+| RamseyNumberLowerBoundFromCounterexample | proof | - | closed |
 | RamseyProperty | definition | - | closed |
 | RamseyPropertyCounterexampleTransport | proof | - | closed |
 | RamseyPropertyMonotone | proof | - | closed |
@@ -83,4 +84,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 65/78 closed
+**Summary:** 66/79 closed

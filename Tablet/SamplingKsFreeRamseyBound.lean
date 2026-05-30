@@ -2,6 +2,7 @@ import Tablet.RamseyNumber
 import Tablet.RamseyPropertyCounterexampleTransport
 import Tablet.RamseyPropertyMonotone
 import Tablet.RamseyPropertyNonempty
+import Tablet.RamseyNumberLowerBoundFromCounterexample
 import Tablet.SimpleGraphIndependentSetCount
 
 -- [TABLET NODE: SamplingKsFreeRamseyBound]

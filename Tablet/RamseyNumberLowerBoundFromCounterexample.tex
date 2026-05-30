@@ -1,0 +1,30 @@
+\begin{helper}
+Let \(W\) be a finite type, let \(H\) be a simple graph on \(W\), and let
+\(s,k\) be natural numbers.  If \(H\) has no \(s\)-clique and \(H^{c}\) has no
+\(k\)-clique, then
+\[
+  |W| < \mathrm{RamseyNumber}(s,k).
+\]
+\end{helper}
+\begin{proof}
+By \(\noderef{RamseyPropertyCounterexampleTransport}\), the two hypotheses on
+\(H\) imply that
+\(\mathrm{RamseyProperty}(s,k,|W|)\) is false.  Let
+\[
+  A=\{n\in\mathbb{N}:\mathrm{RamseyProperty}(s,k,n)\}.
+\]
+By \(\noderef{RamseyPropertyNonempty}\), the set \(A\) is nonempty.  By
+\(\noderef{RamseyNumber}\), \(\mathrm{RamseyNumber}(s,k)=\inf A\), where the
+infimum is the natural-number least element operation.
+
+Suppose for contradiction that \(|W|<\mathrm{RamseyNumber}(s,k)\) is false.
+Then \(\inf A\le |W|\).  Since \(A\) is nonempty, the natural-number least
+element \(\inf A\) belongs to \(A\), so
+\(\mathrm{RamseyProperty}(s,k,\inf A)\) holds.  Applying the monotonicity
+theorem \(\noderef{RamseyPropertyMonotone}\) to the inequality
+\(\inf A\le |W|\), we obtain \(\mathrm{RamseyProperty}(s,k,|W|)\).  This
+contradicts the counterexample statement from
+\(\noderef{RamseyPropertyCounterexampleTransport}\).
+
+Therefore the supposition was impossible, and \(|W|<\mathrm{RamseyNumber}(s,k)\).
+\end{proof}
