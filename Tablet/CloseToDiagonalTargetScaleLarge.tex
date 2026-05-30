@@ -1,0 +1,50 @@
+\begin{helper}
+Let \(\varepsilon>0\), and let \(0\le\delta\le1/2\).  Then there is an
+integer \(s_0\ge4\) such that, for all integers \(s,a\) with \(s\ge s_0\)
+and \(a\le\delta s\),
+\[
+  \frac{2}{\varepsilon}
+  \le
+  \frac{s}{e}\,
+  2^{\frac{s+a-1}{2}-\frac{a^2}{2s}}.
+\]
+\end{helper}
+\begin{proof}
+Because \(2^{s/4}\to\infty\), we may choose \(s_0\ge4\) so large that
+\[
+  \frac{2}{\varepsilon}
+  \le
+  \frac{1}{e}2^{s/4}
+  \qquad(s\ge s_0). \tag{1}
+\]
+Now fix \(s\ge s_0\) and \(a\le\delta s\).  Since \(a\ge0\), \(s>0\), and
+\(\delta\le1/2\), we have
+\[
+  \frac{a^2}{2s}\le\frac{\delta^2s}{2}\le\frac{s}{8}.
+\]
+Therefore
+\[
+\begin{aligned}
+  \frac{s+a-1}{2}-\frac{a^2}{2s}
+  &\ge \frac{s-1}{2}-\frac{s}{8}\\
+  &=\frac{3s}{8}-\frac12\\
+  &\ge \frac{s}{4},
+\end{aligned}
+\]
+where the last inequality uses \(s\ge4\).  Since the function \(x\mapsto2^x\)
+is increasing,
+\[
+  2^{\frac{s+a-1}{2}-\frac{a^2}{2s}}\ge 2^{s/4}.
+\]
+Also \(s\ge1\), so \(s/e\ge1/e\).  Combining these two inequalities with
+(1) gives
+\[
+  \frac{2}{\varepsilon}
+  \le
+  \frac1e2^{s/4}
+  \le
+  \frac{s}{e}\,
+  2^{\frac{s+a-1}{2}-\frac{a^2}{2s}},
+\]
+as required.
+\end{proof}

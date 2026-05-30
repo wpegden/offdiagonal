@@ -8,6 +8,7 @@
 | BinarySequenceWeightFiberCard | proof | - | closed |
 | BinarySequenceWeightSnoc | proof | - | closed |
 | CloseToDiagonalExponentComparison | proof | - | closed |
+| CloseToDiagonalTargetScaleLarge | proof | - | closed |
 | CloseToDiagonalTheorem | proof | - | open |
 | CloseToDiagonalVertexCountLowerBound | proof | - | closed |
 | ComplementPolarityPairHsFree | proof | - | closed |
@@ -130,4 +131,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 119/125 closed
+**Summary:** 120/126 closed

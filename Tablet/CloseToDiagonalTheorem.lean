@@ -4,6 +4,7 @@ import Tablet.SamplingKsFreeRamseyBound
 import Tablet.SimpleGraphNoIndependentSetFromCountZero
 import Tablet.CloseToDiagonalExponentComparison
 import Tablet.CloseToDiagonalVertexCountLowerBound
+import Tablet.CloseToDiagonalTargetScaleLarge
 
 -- [TABLET NODE: CloseToDiagonalTheorem]
 
