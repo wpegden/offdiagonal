@@ -1,0 +1,51 @@
+\begin{helper}
+Let \(\varepsilon\in\mathbb R\) and \(s,a\in\mathbb N\). Suppose
+\[
+  s\le 2^{\varepsilon s/2}
+\]
+and suppose that every summand in the near-diagonal sum with \(k=s+a\) satisfies
+\[
+  \binom{s+a}{t}
+    2^{(s-1)(t+s+a)-\binom{t+1}{2}}
+  \le
+  2^{s^2/2+s(s+a)-3s/2-(s+a)+\varepsilon s/2}
+\]
+for each \(t\in\{1,\ldots,s-1\}\). Then
+\[
+  \sum_{t=1}^{s-1}
+    \binom{s+a}{t}
+      2^{(s-1)(t+s+a)-\binom{t+1}{2}}
+  \le
+  2^{\frac32s^2+as-\frac52s+\varepsilon s}.
+\]
+\end{helper}
+\begin{proof}
+Let
+\[
+  E=s^2/2+s(s+a)-3s/2-(s+a)+\varepsilon s/2.
+\]
+By the assumed uniform summand bound,
+\[
+  \sum_{t=1}^{s-1}
+    \binom{s+a}{t}
+      2^{(s-1)(t+s+a)-\binom{t+1}{2}}
+  \le
+  |\{1,\ldots,s-1\}|\,2^E.
+\]
+The index set \(\{1,\ldots,s-1\}\) has at most \(s\) elements, so the right
+side is at most \(s\,2^E\). The hypothesis \(s\le2^{\varepsilon s/2}\) gives
+\[
+  s\,2^E\le 2^{\varepsilon s/2}2^E=2^{E+\varepsilon s/2}.
+\]
+Now
+\[
+\begin{aligned}
+  E+\varepsilon s/2
+  &=s^2/2+s(s+a)-3s/2-(s+a)+\varepsilon s \\
+  &=\frac32s^2+as-\frac52s-a+\varepsilon s \\
+  &\le \frac32s^2+as-\frac52s+\varepsilon s,
+\end{aligned}
+\]
+because \(a\ge0\). Since \(2^x\) is increasing, this proves the desired
+bound.
+\end{proof}

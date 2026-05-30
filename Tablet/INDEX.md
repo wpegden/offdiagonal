@@ -48,11 +48,13 @@
 | F2DotOnePairCard | helper | proof | closed | - | - | Preamble |
 | F2DotOnePairEmbedding | helper | proof | closed | - | - | F2DotOnePairCard |
 | F2ForwardIndependentLinearBound | lemma | proof | closed | - | - | F2ForwardIndependentSumBound, F2ForwardIndependentTuples |
-| F2ForwardIndependentNearDiagonalBound | lemma | proof | open | - | - | F2ForwardIndependentTuples, F2NearDiagonalChooseSymmetry, F2NearDiagonalExponentIdentity |
+| F2ForwardIndependentNearDiagonalBound | lemma | proof | open | - | - | F2ForwardIndependentTuples, F2NearDiagonalChooseSymmetry, F2NearDiagonalExponentIdentity, F2NearDiagonalQuadraticMaxBound, F2NearDiagonalSummationAbsorptionBound |
 | F2ForwardIndependentSumBound | helper | proof | closed | - | - | Preamble |
 | F2ForwardIndependentTuples | lemma | proof | closed | - | - | BinarySequenceWeightFiberCard, DigraphLoopless, F2BadTuple, F2BadTupleAmbientStepProductBound, F2BadTupleCountBoundNat, F2BadTupleFinalRankFiberBound, F2BadTupleFixedIncreaseCount, F2BadTupleFixedIncreaseCountBound, F2BadTupleFixedIncreaseFalseLastBound, F2BadTupleFixedIncreasePrefixRestriction, F2BadTupleFixedIncreaseTrueLastBound, F2BadTupleLastPairAmbientFiberBound, F2BadTupleLastPairSpanFiberBound, F2BadTupleNonincreaseStepProductBound, F2BadTuplePrefixFiberBound, F2BadTuplePrefixSpanCard, F2BadTupleRankAmbientBound, F2BadTupleRankIncreaseSetCard, F2BadTupleRankOne, F2BadTupleRankStep, F2BadTupleRankZero, F2CoordinateDigraphLoopless, F2CoordinateDigraphTransitiveFree, F2DotOnePairEmbedding, ForwardIndependentTupleCount, TransitiveTournamentFree |
 | F2NearDiagonalChooseSymmetry | helper | proof | closed | - | - | Preamble |
 | F2NearDiagonalExponentIdentity | helper | proof | closed | - | - | Preamble |
+| F2NearDiagonalQuadraticMaxBound | helper | proof | closed | - | - | Preamble |
+| F2NearDiagonalSummationAbsorptionBound | helper | proof | closed | - | - | Preamble |
 | FinsetCenteredIndicatorNormSqLeCard | helper | proof | closed | - | - | Preamble |
 | FinsetCenteredIndicatorSumZero | helper | proof | closed | - | - | Preamble |
 | ForwardIndependentTuple | definition | definition | closed | - | - | Digraph |
@@ -118,4 +120,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 114 nodes | **Closed:** 107 | **Open:** 7
+**Total:** 116 nodes | **Closed:** 109 | **Open:** 7

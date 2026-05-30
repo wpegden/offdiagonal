@@ -1,0 +1,25 @@
+\begin{helper}
+Let \(\lambda,L,y\in\mathbb R\). If \(\lambda\le L\) and \(y\ge0\), then
+\[
+  y\lambda+\frac{3y}{2}-\frac{y^2}{2}
+  \le
+  \frac12\left(L+\frac32\right)^2.
+\]
+\end{helper}
+\begin{proof}
+Since \(y\ge0\) and \(\lambda\le L\), we have \(y\lambda\le yL\). Hence
+\[
+  y\lambda+\frac{3y}{2}-\frac{y^2}{2}
+  \le
+  y\left(L+\frac32\right)-\frac{y^2}{2}.
+\]
+Completing the square gives
+\[
+  \frac12\left(L+\frac32\right)^2
+  -\left(y\left(L+\frac32\right)-\frac{y^2}{2}\right)
+  =
+  \frac12\left(y-\left(L+\frac32\right)\right)^2
+  \ge0.
+\]
+Combining the two inequalities proves the claim.
+\end{proof}
