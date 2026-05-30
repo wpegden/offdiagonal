@@ -18,6 +18,7 @@
 | ExpanderMixingLemma | lemma | proof | closed | - | - | FinsetCenteredIndicatorNormSqLeCard, FinsetCenteredIndicatorSumZero, LoopGraphEdgeCountBetween, LoopGraphEdgeCountBetweenAdjacencyIndicator, LoopGraphNdLambda, LoopGraphNdLambdaAdjacencyIndicatorSum, LoopGraphNdLambdaAdjacencyOne, LoopGraphZeroSumAdjacencyBilinearBound |
 | F2BadTuple | definition | definition | closed | - | - | Preamble |
 | F2BadTupleAmbientStepProductBound | helper | proof | closed | - | - | F2BadTuplePrefixFiberBound |
+| F2BadTupleFinalRankFiberBound | helper | proof | closed | - | - | BinarySequenceWeightFiberCard, F2BadTupleFixedIncreaseCount, F2BadTupleFixedIncreaseCountBound, F2BadTupleRankIncreaseSetCard |
 | F2BadTupleFixedIncreaseCount | definition | definition | closed | - | - | BinarySequenceWeight, F2BadTupleRank |
 | F2BadTupleFixedIncreaseCountBound | helper | proof | closed | - | - | F2BadTupleFixedIncreaseFalseExponentBound, F2BadTupleFixedIncreaseFalseLastBound, F2BadTupleFixedIncreaseTrueExponentBound, F2BadTupleFixedIncreaseTrueLastBound |
 | F2BadTupleFixedIncreaseFalseExponentBound | helper | proof | closed | - | - | Preamble |
@@ -47,7 +48,7 @@
 | F2DotOnePairEmbedding | helper | proof | closed | - | - | F2DotOnePairCard |
 | F2ForwardIndependentLinearBound | lemma | proof | open | - | - | F2ForwardIndependentTuples |
 | F2ForwardIndependentNearDiagonalBound | lemma | proof | open | - | - | F2ForwardIndependentTuples |
-| F2ForwardIndependentTuples | lemma | proof | open | - | - | BinarySequenceWeightFiberCard, DigraphLoopless, F2BadTuple, F2BadTupleAmbientStepProductBound, F2BadTupleFixedIncreaseCount, F2BadTupleFixedIncreaseCountBound, F2BadTupleFixedIncreaseFalseLastBound, F2BadTupleFixedIncreasePrefixRestriction, F2BadTupleFixedIncreaseTrueLastBound, F2BadTupleLastPairAmbientFiberBound, F2BadTupleLastPairSpanFiberBound, F2BadTupleNonincreaseStepProductBound, F2BadTuplePrefixFiberBound, F2BadTuplePrefixSpanCard, F2BadTupleRankAmbientBound, F2BadTupleRankIncreaseSetCard, F2BadTupleRankOne, F2BadTupleRankStep, F2BadTupleRankZero, F2CoordinateDigraphLoopless, F2CoordinateDigraphTransitiveFree, F2DotOnePairEmbedding, ForwardIndependentTupleCount, TransitiveTournamentFree |
+| F2ForwardIndependentTuples | lemma | proof | open | - | - | BinarySequenceWeightFiberCard, DigraphLoopless, F2BadTuple, F2BadTupleAmbientStepProductBound, F2BadTupleFinalRankFiberBound, F2BadTupleFixedIncreaseCount, F2BadTupleFixedIncreaseCountBound, F2BadTupleFixedIncreaseFalseLastBound, F2BadTupleFixedIncreasePrefixRestriction, F2BadTupleFixedIncreaseTrueLastBound, F2BadTupleLastPairAmbientFiberBound, F2BadTupleLastPairSpanFiberBound, F2BadTupleNonincreaseStepProductBound, F2BadTuplePrefixFiberBound, F2BadTuplePrefixSpanCard, F2BadTupleRankAmbientBound, F2BadTupleRankIncreaseSetCard, F2BadTupleRankOne, F2BadTupleRankStep, F2BadTupleRankZero, F2CoordinateDigraphLoopless, F2CoordinateDigraphTransitiveFree, F2DotOnePairEmbedding, ForwardIndependentTupleCount, TransitiveTournamentFree |
 | FinsetCenteredIndicatorNormSqLeCard | helper | proof | closed | - | - | Preamble |
 | FinsetCenteredIndicatorSumZero | helper | proof | closed | - | - | Preamble |
 | ForwardIndependentTuple | definition | definition | closed | - | - | Digraph |
@@ -113,4 +114,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 109 nodes | **Closed:** 100 | **Open:** 9
+**Total:** 110 nodes | **Closed:** 101 | **Open:** 9

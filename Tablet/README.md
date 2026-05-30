@@ -20,6 +20,7 @@
 | ExpanderMixingLemma | proof | - | closed |
 | F2BadTuple | definition | - | closed |
 | F2BadTupleAmbientStepProductBound | proof | - | closed |
+| F2BadTupleFinalRankFiberBound | proof | - | closed |
 | F2BadTupleFixedIncreaseCount | definition | - | closed |
 | F2BadTupleFixedIncreaseCountBound | proof | - | closed |
 | F2BadTupleFixedIncreaseFalseExponentBound | proof | - | closed |
@@ -114,4 +115,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 100/109 closed
+**Summary:** 101/110 closed

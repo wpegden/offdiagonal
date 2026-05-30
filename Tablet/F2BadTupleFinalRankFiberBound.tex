@@ -1,0 +1,58 @@
+\begin{helper}
+Let \(p,k,t\) be natural numbers with \(0<k\) and \(t\in\{1,\ldots,p\}\).
+Then the number of bad \(2k\)-tuples over \(\mathbb F_2^p\) whose final
+first-coordinate span rank is \(t\) is at most
+\[
+  \binom{k}{t}\,
+  2^{\,p(t+k)-\binom{t+1}{2}}.
+\]
+Equivalently,
+\[
+\left|\{ab:F2BadTuple(p,k,ab)\ \text{and}\
+  F2BadTupleRank(p,k,ab,k)=t\}\right|
+\le
+\binom{k}{t}2^{\,p(t+k)-\binom{t+1}{2}}.
+\]
+\end{helper}
+\begin{proof}
+For a bad tuple \(ab\) with final rank \(t\), define its Boolean increase
+pattern \(z_{ab}:\{0,\ldots,k-1\}\to\{\mathrm{false},\mathrm{true}\}\) by
+\[
+  z_{ab}(i)=\mathrm{true}
+  \quad\Longleftrightarrow\quad
+  F2BadTupleRank(p,k,ab,i+1)=F2BadTupleRank(p,k,ab,i)+1.
+\]
+The rank-increase set of \(\noderef{F2BadTupleRankIncreaseSet}\) is exactly
+the set of indices where this Boolean sequence is true. Since \(ab\) is bad
+and \(0<k\), \(\noderef{F2BadTupleRankIncreaseSetCard}\) says that this
+increase set has cardinality \(F2BadTupleRank(p,k,ab,k)\). For the tuples
+being counted here the final rank is \(t\), so
+\[
+  \operatorname{wt}(z_{ab})=t.
+\]
+
+Now send such a tuple \(ab\) to the pair consisting of its increase pattern
+\(z_{ab}\) and the same tuple \(ab\), viewed as an element of the fixed-pattern
+fiber for \(z_{ab}\). This map is injective because its second component is
+the original tuple. Hence the final-rank fiber has cardinality at most the
+cardinality of the disjoint union, over all Boolean patterns \(z\) of weight
+\(t\), of the fixed-pattern fibers counted by
+\(\noderef{F2BadTupleFixedIncreaseCount}\).
+
+Fix one such pattern \(z\). Since \(\operatorname{wt}(z)=t\) and \(t\le p\),
+\(\noderef{F2BadTupleFixedIncreaseCountBound}\) gives
+\[
+  F2BadTupleFixedIncreaseCount(p,k,z)
+  \le
+  2^{\,p(t+k)-\binom{t+1}{2}}.
+\]
+Thus every fixed-pattern fiber in the disjoint union has size at most this
+same bound. By \(\noderef{BinarySequenceWeightFiberCard}\), the number of
+Boolean patterns of weight \(t\) is \(\binom{k}{t}\). Multiplying the common
+fiber bound by the number of possible patterns gives
+\[
+  \binom{k}{t}\,
+  2^{\,p(t+k)-\binom{t+1}{2}},
+\]
+which is the desired estimate.
+\end{proof}

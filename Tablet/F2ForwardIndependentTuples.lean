@@ -8,6 +8,7 @@ import Tablet.F2BadTupleFixedIncreaseCountBound
 import Tablet.F2BadTupleFixedIncreaseFalseLastBound
 import Tablet.F2BadTupleFixedIncreaseTrueLastBound
 import Tablet.F2BadTupleFixedIncreaseCount
+import Tablet.F2BadTupleFinalRankFiberBound
 import Tablet.F2BadTupleLastPairAmbientFiberBound
 import Tablet.F2BadTupleLastPairSpanFiberBound
 import Tablet.F2BadTuple
