@@ -1,0 +1,60 @@
+\begin{helper}
+For every real number \(0<\varepsilon<1\), there are real numbers
+\(\rho,\eta,\delta_1\) such that
+\[
+  \rho>0,\qquad \eta>0,\qquad 0<\delta_1\le\frac12,
+\]
+and
+\[
+  1-\frac{\varepsilon}{2}
+  \le
+  (1-\rho)2^{-(\eta+\frac52\delta_1)}.
+\]
+\end{helper}
+\begin{proof}
+Take
+\[
+  \rho=\frac{\varepsilon}{8},\qquad
+  \eta=\frac{\varepsilon}{32},\qquad
+  \delta_1=\frac{\varepsilon}{80}.
+\]
+Since \(0<\varepsilon<1\), these choices satisfy
+\(\rho>0\), \(\eta>0\), \(0<\delta_1\), and \(\delta_1\le1/2\).
+Moreover
+\[
+  \eta+\frac52\delta_1
+  =\frac{\varepsilon}{32}+\frac52\cdot\frac{\varepsilon}{80}
+  =\frac{\varepsilon}{16}.
+\]
+We use the elementary inequality \(1+x\le e^x\).  Since
+\(\log 2\le2\), we have
+\[
+  \frac{\varepsilon}{16}\log 2\le\frac{\varepsilon}{8}.
+\]
+Therefore
+\[
+  2^{-\varepsilon/16}
+  =\exp\!\left(-\frac{\varepsilon}{16}\log2\right)
+  \ge 1-\frac{\varepsilon}{8}.
+\]
+It follows that
+\[
+\begin{aligned}
+  (1-\rho)2^{-(\eta+\frac52\delta_1)}
+  &=
+  \left(1-\frac{\varepsilon}{8}\right)2^{-\varepsilon/16}\\
+  &\ge
+  \left(1-\frac{\varepsilon}{8}\right)^2\\
+  &\ge
+  1-\frac{\varepsilon}{2},
+\end{aligned}
+\]
+where the last inequality follows by expanding the square:
+\[
+  \left(1-\frac{\varepsilon}{8}\right)^2
+  -\left(1-\frac{\varepsilon}{2}\right)
+  =
+  \frac{\varepsilon}{4}+\frac{\varepsilon^2}{64}\ge0.
+\]
+This proves the required choice of constants.
+\end{proof}

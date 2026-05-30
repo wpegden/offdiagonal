@@ -1,0 +1,44 @@
+\begin{helper}
+Let \(k\ge1\), let \(E,I,F\) be real numbers, and suppose
+\[
+  I\le \left(\frac{e}{k}\right)^k F,\qquad
+  F\le 2^E,\qquad
+  1\le I.
+\]
+Define
+\[
+  p_0=\frac{k}{e}\,2^{-E/k}.
+\]
+Then
+\[
+  p_0^k I\le1
+  \qquad\text{and}\qquad
+  p_0\le1.
+\]
+\end{helper}
+\begin{proof}
+Since \(k\ge1\), all divisions by \(k\) are legitimate and \(p_0>0\).
+First compute
+\[
+  p_0^k
+  =
+  \left(\frac{k}{e}\right)^k 2^{-E}.
+\]
+Using the two assumed upper bounds gives
+\[
+\begin{aligned}
+  p_0^k I
+  &\le
+  \left(\frac{k}{e}\right)^k2^{-E}
+  \left(\frac{e}{k}\right)^k F\\
+  &\le
+  \left(\frac{k}{e}\right)^k
+  \left(\frac{e}{k}\right)^k
+  2^{-E}2^E\\
+  &=1.
+\end{aligned}
+\]
+This proves \(p_0^k I\le1\).  Since \(I\ge1\) and \(p_0^k\ge0\), it follows
+that \(p_0^k\le p_0^k I\le1\).  If \(p_0>1\), then \(p_0^k>1\) because
+\(k>0\), contradicting \(p_0^k\le1\).  Hence \(p_0\le1\).
+\end{proof}

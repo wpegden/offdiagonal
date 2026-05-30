@@ -6,8 +6,11 @@
 | BinarySequenceWeightFiberCard | helper | proof | closed | - | - | BinarySequenceWeight |
 | BinarySequenceWeightSnoc | helper | proof | closed | - | - | BinarySequenceWeight |
 | CloseToDiagonalExponentComparison | helper | proof | closed | - | - | Preamble |
+| CloseToDiagonalLossFactorChoice | helper | proof | closed | - | - | Preamble |
+| CloseToDiagonalPositiveSamplingLowerBound | helper | proof | closed | - | - | CloseToDiagonalExponentComparison |
+| CloseToDiagonalSamplingAlgebra | helper | proof | closed | - | - | Preamble |
 | CloseToDiagonalTargetScaleLarge | helper | proof | closed | - | - | Preamble |
-| CloseToDiagonalTheorem | theorem | proof | open | - | - | CloseToDiagonalExponentComparison, CloseToDiagonalTargetScaleLarge, CloseToDiagonalVertexCountLowerBound, CloseToDiagonalZeroCountLowerBound, DigraphToGraphIndependentSetBound, F2ForwardIndependentNearDiagonalBound, SamplingKsFreeRamseyBound, SimpleGraphNoIndependentSetFromCountZero |
+| CloseToDiagonalTheorem | theorem | proof | closed | - | - | CloseToDiagonalExponentComparison, CloseToDiagonalLossFactorChoice, CloseToDiagonalPositiveSamplingLowerBound, CloseToDiagonalSamplingAlgebra, CloseToDiagonalTargetScaleLarge, CloseToDiagonalVertexCountLowerBound, CloseToDiagonalZeroCountLowerBound, DigraphToGraphIndependentSetBound, F2ForwardIndependentNearDiagonalBound, SamplingKsFreeRamseyBound, SimpleGraphNoIndependentSetFromCountZero |
 | CloseToDiagonalVertexCountLowerBound | helper | proof | closed | - | - | Preamble |
 | CloseToDiagonalZeroCountLowerBound | helper | proof | closed | - | - | CloseToDiagonalVertexCountLowerBound |
 | ComplementPolarityPairHsFree | lemma | proof | closed | - | - | HsFreePair, LoopGraphComplement, PolarityGraphSkewFree |
@@ -131,4 +134,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 127 nodes | **Closed:** 121 | **Open:** 6
+**Total:** 130 nodes | **Closed:** 125 | **Open:** 5

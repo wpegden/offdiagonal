@@ -1,0 +1,82 @@
+\begin{helper}
+Let \(0<\varepsilon<1\), let \(\eta\ge0\), let \(\delta\ge0\), and let
+\(\delta\le\delta_1\).  Suppose
+\[
+  1-\frac{\varepsilon}{2}
+  \le
+  (1-\rho)2^{-(\eta+\frac52\delta_1)}.
+\]
+For natural numbers \(s,a\), put
+\[
+  E=\frac32s^2+as-\frac52s+\eta s,\qquad
+  p_0=\frac{s+a}{e}\,2^{-E/(s+a)}.
+\]
+If \(s\ge4\), \(a\le\delta s\),
+\[
+  (1-\rho)2^{2s-3}\le
+  2^{2s-3}-2^{s-1}-2^{s-2}+1,
+\]
+and
+\[
+  \frac{2}{\varepsilon}
+  \le
+  \frac{s}{e}\,2^{\frac{s+a-1}{2}-\frac{a^2}{2s}},
+\]
+then
+\[
+  (1-\varepsilon)\frac{s}{e}\,
+  2^{\frac{s+a-1}{2}-\frac{a^2}{2s}}
+  \le
+  p_0\bigl(2^{2s-3}-2^{s-1}-2^{s-2}+1\bigr)-1.
+\]
+\end{helper}
+\begin{proof}
+Write
+\[
+  B=\frac{s}{e}2^{\frac{s+a-1}{2}-\frac{a^2}{2s}},
+  \qquad
+  N=2^{2s-3}-2^{s-1}-2^{s-2}+1.
+\]
+Since \(a\le\delta s\), \(\eta\ge0\), and \(\delta\ge0\),
+\noderef{CloseToDiagonalExponentComparison} gives
+\[
+  \frac{s+a-1}{2}-\frac{a^2}{2s}
+  -\left(\frac52\delta+\eta\right)
+  \le
+  2s-3-\frac{E}{s+a}.
+\]
+Because \(s+a\ge s\), this implies
+\[
+  B\,2^{-(\eta+\frac52\delta)}
+  \le
+  \frac{s+a}{e}\,2^{2s-3-E/(s+a)}.
+\]
+Multiplying by \(1-\rho\) and using the assumed vertex-count lower bound
+gives
+\[
+  (1-\rho)B\,2^{-(\eta+\frac52\delta)}
+  \le p_0N. \tag{1}
+\]
+Since \(\delta\le\delta_1\), the factor
+\(2^{-(\eta+\frac52\delta)}\) is at least
+\(2^{-(\eta+\frac52\delta_1)}\).  The displayed loss-factor assumption
+therefore gives
+\[
+  \left(1-\frac{\varepsilon}{2}\right)B\le p_0N. \tag{2}
+\]
+Finally, the assumed lower bound \(2/\varepsilon\le B\) implies
+\[
+  1\le \frac{\varepsilon}{2}B.
+\]
+Hence
+\[
+  (1-\varepsilon)B
+  \le
+  \left(1-\frac{\varepsilon}{2}\right)B-1.
+\]
+Combining this with (2) proves
+\[
+  (1-\varepsilon)B\le p_0N-1,
+\]
+which is the desired inequality.
+\end{proof}
