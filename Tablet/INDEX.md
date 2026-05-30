@@ -129,8 +129,9 @@
 | RamseyPropertyNonempty | helper | proof | closed | - | - | RamseyPropertyStep |
 | RamseyPropertyStep | helper | proof | closed | - | - | RamseyProperty |
 | RandomHomomorphismColoring | definition | definition | closed | - | - | Digraph |
-| RandomHomomorphismColoringBound | lemma | proof | open | - | - | F2ForwardIndependentNearDiagonalBound, NoMonochromaticCliqueColoring, RandomHomomorphismColoring, RandomHomomorphismF2Setup, RandomHomomorphismFirstColorOrderedCliqueFree |
+| RandomHomomorphismColoringBound | lemma | proof | open | - | - | F2ForwardIndependentNearDiagonalBound, NoMonochromaticCliqueColoring, RandomHomomorphismColoring, RandomHomomorphismF2Setup, RandomHomomorphismFinalColorArithmetic, RandomHomomorphismFirstColorOrderedCliqueFree |
 | RandomHomomorphismF2Setup | helper | proof | closed | - | - | F2ForwardIndependentNearDiagonalBound |
+| RandomHomomorphismFinalColorArithmetic | helper | proof | closed | - | - | Preamble |
 | RandomHomomorphismFirstColorOrderedCliqueFree | helper | proof | closed | - | - | DigraphLoopless, RandomHomomorphismColoring, TransitiveTournamentFree |
 | SamplingKsFreeRamseyBound | lemma | proof | closed | - | - | RamseyNumber, RamseyNumberLowerBoundFromCounterexample, RamseyPropertyCounterexampleTransport, RamseyPropertyMonotone, RamseyPropertyNonempty, SimpleGraphIndependentSetCount |
 | SimpleGraphIndependentSetCount | definition | definition | closed | - | - | Preamble |
@@ -139,4 +140,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 135 nodes | **Closed:** 131 | **Open:** 4
+**Total:** 136 nodes | **Closed:** 132 | **Open:** 4

@@ -1,0 +1,35 @@
+\begin{helper}
+Let \(\ell,s,n\) be natural numbers with \(3\le\ell\).  If
+\[
+  n\le 2^{(s/2-4)(\ell-1)},
+\]
+then
+\[
+  n^s\cdot 2^{(-s^2/2+4s)(\ell-1)}\le 1.
+\]
+\end{helper}
+\begin{proof}
+Let
+\[
+  A=(s/2-4)(\ell-1)
+  \quad\text{and}\quad
+  B=(-s^2/2+4s)(\ell-1).
+\]
+The hypothesis says \(n\le 2^A\).  Since \(n\ge0\), raising both sides to
+the natural power \(s\) gives
+\[
+  n^s\le (2^A)^s=2^{As}.
+\]
+Multiplying by the nonnegative factor \(2^B\), we obtain
+\[
+  n^s 2^B\le 2^{As}2^B=2^{As+B}.
+\]
+Finally,
+\[
+  As+B
+  =
+  (s/2-4)(\ell-1)s+(-s^2/2+4s)(\ell-1)
+  =0.
+\]
+Therefore \(2^{As+B}=2^0=1\), and the claimed inequality follows.
+\end{proof}
