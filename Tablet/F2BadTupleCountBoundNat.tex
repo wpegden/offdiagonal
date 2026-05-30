@@ -1,0 +1,40 @@
+\begin{helper}
+For every \(p,k\) with \(0<k\), the number of bad \(2k\)-tuples over
+\(\mathbb F_2^p\) is at most
+\[
+  \sum_{t=1}^p
+    \binom{k}{t}\,
+    2^{\,p(t+k)-\binom{t+1}{2}}.
+\]
+\end{helper}
+\begin{proof}
+Partition the bad tuples according to their final rank
+\[
+  t=F2BadTupleRank(p,k,ab,k).
+\]
+For a bad tuple \(ab\), \(\noderef{F2BadTupleRankIncreaseSetCard}\) applies
+because \(0<k\). It shows that this final rank lies in the interval
+\(\{1,\ldots,p\}\). Therefore every bad tuple determines an element
+\[
+  t\in\{1,\ldots,p\}
+\]
+together with the same tuple \(ab\) in the fiber where the final rank equals
+\(t\). The map from bad tuples to these tagged final-rank fibers is injective,
+since the tuple itself is retained as part of the tagged data.
+
+The cardinality of the disjoint union of the tagged final-rank fibers is the
+sum of the cardinalities of the individual fibers. For each
+\(t\in\{1,\ldots,p\}\), \(\noderef{F2BadTupleFinalRankFiberBound}\) bounds the
+fiber of bad tuples of final rank \(t\) by
+\[
+  \binom{k}{t}\,
+  2^{\,p(t+k)-\binom{t+1}{2}}.
+\]
+Summing these bounds over all \(t\in\{1,\ldots,p\}\) gives
+\[
+  \sum_{t=1}^p
+    \binom{k}{t}\,
+    2^{\,p(t+k)-\binom{t+1}{2}},
+\]
+which is the claimed upper bound for all bad tuples.
+\end{proof}
