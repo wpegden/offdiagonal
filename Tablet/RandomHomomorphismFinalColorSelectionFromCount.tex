@@ -1,0 +1,29 @@
+\begin{helper}
+Let \(D\) be a digraph on a finite vertex set \(W\), and let
+\(3\le\ell\).  Put
+\[
+  \Omega=\{\phi:\ [\ell-1]\to([n]\to W)\}.
+\]
+Call \(\phi\in\Omega\) bad if the coloring
+\(\noderef{RandomHomomorphismColoring}(D,\ell,n,\phi)\) has a final-color
+monochromatic clique of size \(s\), that is, if there is a set
+\(S\subseteq[n]\) with \(|S|=s\) such that every edge inside \(S\) has color
+\(\ell-1\).  If the number of bad \(\phi\in\Omega\) is strictly smaller than
+\(|\Omega|\), then there exists \(\phi\in\Omega\) which is not bad.
+\end{helper}
+\begin{proof}
+Assume, toward contradiction, that every \(\phi\in\Omega\) is bad.  Then the
+map
+\[
+  \phi\longmapsto (\phi,\text{a proof that }\phi\text{ is bad})
+\]
+embeds \(\Omega\) into the subtype of bad elements of \(\Omega\).  Therefore
+\[
+  |\Omega|\le |\{\phi\in\Omega:\phi\text{ is bad}\}|.
+\]
+This contradicts the assumed strict inequality
+\[
+  |\{\phi\in\Omega:\phi\text{ is bad}\}|<|\Omega|.
+\]
+Hence at least one \(\phi\in\Omega\) is not bad.
+\end{proof}

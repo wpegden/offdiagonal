@@ -1,0 +1,31 @@
+\begin{helper}
+Let \(D\) be a digraph on \(W\), let \(1\le\ell\), and let
+\(\phi_c:[n]\to W\), for \(c<\ell-1\), be maps.  If
+\[
+  v:[s]\to[n]
+\]
+is strictly increasing and every edge \(\{v_i,v_j\}\), \(i<j\), receives the
+final color \(\ell-1\) under \(\noderef{RandomHomomorphismColoring}\), then
+for every \(c<\ell-1\) the tuple
+\[
+  i\mapsto \phi_c(v_i)
+\]
+is forward independent in \(D\).
+\end{helper}
+\begin{proof}
+Fix \(c<\ell-1\).  By the definition of
+\(\noderef{ForwardIndependentTuple}\), we must prove that for every \(i<j\)
+there is no arc from \(\phi_c(v_i)\) to \(\phi_c(v_j)\).  Suppose such an arc
+exists.
+Because \(v\) is strictly increasing, the ordered endpoints of the unordered
+edge \(\{v_i,v_j\}\) are \(v_i\le v_j\).  In the definition of
+\(\noderef{RandomHomomorphismColoring}\), the existence of the arc
+\[
+  D(\phi_c(v_i),\phi_c(v_j))
+\]
+therefore makes \(c\) one of the first colors eligible for that edge.  The
+coloring chooses the least eligible first color, so the edge must receive
+some color \(m<\ell-1\).  This contradicts the hypothesis that the same edge
+has final color \(\ell-1\).  Hence no such arc exists, and the tuple is
+forward independent.
+\end{proof}

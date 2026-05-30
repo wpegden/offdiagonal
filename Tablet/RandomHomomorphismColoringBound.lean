@@ -3,6 +3,8 @@ import Tablet.NoMonochromaticCliqueColoring
 import Tablet.RandomHomomorphismColoring
 import Tablet.RandomHomomorphismF2Setup
 import Tablet.RandomHomomorphismFinalColorArithmetic
+import Tablet.RandomHomomorphismFinalColorForwardIndependent
+import Tablet.RandomHomomorphismFinalColorSelectionFromCount
 import Tablet.RandomHomomorphismFirstColorOrderedCliqueFree
 
 -- [TABLET NODE: RandomHomomorphismColoringBound]
