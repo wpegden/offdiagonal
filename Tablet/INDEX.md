@@ -73,7 +73,9 @@
 | ForwardIndependentTuple | definition | definition | closed | - | - | Digraph |
 | ForwardIndependentTupleCount | definition | definition | closed | - | - | ForwardIndependentTuple |
 | HsFreePair | definition | definition | closed | - | - | LoopGraph |
-| LinearOffDiagonalTheorem | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, F2ForwardIndependentLinearBound, SamplingKsFreeRamseyBound |
+| LinearOffDiagonalSamplingLowerBound | helper | proof | closed | - | - | CloseToDiagonalVertexCountLowerBound |
+| LinearOffDiagonalTheorem | theorem | proof | closed | - | - | CloseToDiagonalSamplingAlgebra, DigraphToGraphIndependentSetBound, F2ForwardIndependentLinearBound, LinearOffDiagonalSamplingLowerBound, LinearOffDiagonalVertexCountDominates, RamseyNumberLowerBoundFromCounterexample, SamplingKsFreeRamseyBound, SimpleGraphNoIndependentSetFromCountZero |
+| LinearOffDiagonalVertexCountDominates | helper | proof | closed | - | - | CloseToDiagonalVertexCountLowerBound |
 | LoopGraph | definition | definition | closed | - | - | Preamble |
 | LoopGraphAdjacencyAction | definition | definition | closed | - | - | LoopGraph |
 | LoopGraphAdjacencyActionSelfAdjoint | helper | proof | closed | - | - | LoopGraphAdjacencyAction, LoopGraphSymmetric |
@@ -134,4 +136,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 130 nodes | **Closed:** 125 | **Open:** 5
+**Total:** 132 nodes | **Closed:** 128 | **Open:** 4

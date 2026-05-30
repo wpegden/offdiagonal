@@ -1,0 +1,69 @@
+\begin{helper}
+Let \(C>1\).  For all sufficiently large natural numbers \(s\), set
+\[
+  k=\lceil Cs\rceil,\qquad
+  E=sk+\frac{s^2}{2},\qquad
+  p_0=\frac{k}{e}\,2^{-E/k}.
+\]
+Then
+\[
+  2^{(1-\frac{1}{2C})s}
+  \le
+  p_0\bigl(2^{2s-3}-2^{s-1}-2^{s-2}+1\bigr)-1.
+\]
+\end{helper}
+\begin{proof}
+By \(\noderef{CloseToDiagonalVertexCountLowerBound}\) with
+\(\rho=1/2\), for all sufficiently large \(s\),
+\[
+  \frac12\,2^{2s-3}
+  \le
+  N:=2^{2s-3}-2^{s-1}-2^{s-2}+1. \tag{1}
+\]
+Increase the threshold for \(s\) so that
+\[
+  \frac{s}{16e}\ge2. \tag{2}
+\]
+This is possible because \(s/(16e)\to\infty\).
+
+Since \(k=\lceil Cs\rceil\), we have \(k\ge Cs\), and since \(C>1\) this also
+gives \(k\ge s\).  Hence
+\[
+  \frac{s^2}{2k}\le\frac{s}{2C}.
+\]
+Therefore
+\[
+\begin{aligned}
+  2s-4-\frac{E}{k}
+  &=2s-4-\frac{sk+s^2/2}{k}  \\
+  &=s-4-\frac{s^2}{2k} \\
+  &\ge \left(1-\frac{1}{2C}\right)s-4.
+\end{aligned}
+\]
+Using monotonicity of \(2^x\) in the exponent and \(k\ge s\), we get
+\[
+\begin{aligned}
+  p_0\cdot\frac12\,2^{2s-3}
+  &=
+  \frac{k}{e}\,2^{2s-4-E/k} \\
+  &\ge
+  \frac{s}{e}\,2^{(1-\frac{1}{2C})s-4} \\
+  &=
+  \frac{s}{16e}\,2^{(1-\frac{1}{2C})s}.
+\end{aligned}
+\]
+Combining this with (1) and (2) gives
+\[
+  p_0N\ge2\cdot2^{(1-\frac{1}{2C})s}. \tag{3}
+\]
+The exponent \((1-\frac{1}{2C})s\) is nonnegative for \(s\ge0\), so
+\[
+  1\le2^{(1-\frac{1}{2C})s}.
+\]
+Thus (3) implies
+\[
+  2^{(1-\frac{1}{2C})s}
+  \le p_0N-1,
+\]
+which is the desired inequality.
+\end{proof}

@@ -75,7 +75,9 @@
 | ForwardIndependentTuple | definition | - | closed |
 | ForwardIndependentTupleCount | definition | - | closed |
 | HsFreePair | definition | - | closed |
-| LinearOffDiagonalTheorem | proof | - | open |
+| LinearOffDiagonalSamplingLowerBound | proof | - | closed |
+| LinearOffDiagonalTheorem | proof | - | closed |
+| LinearOffDiagonalVertexCountDominates | proof | - | closed |
 | LoopGraph | definition | - | closed |
 | LoopGraphAdjacencyAction | definition | - | closed |
 | LoopGraphAdjacencyActionSelfAdjoint | proof | - | closed |
@@ -135,4 +137,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 125/130 closed
+**Summary:** 128/132 closed

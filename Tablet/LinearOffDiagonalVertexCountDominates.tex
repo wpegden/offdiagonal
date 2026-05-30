@@ -1,0 +1,35 @@
+\begin{helper}
+Let \(C>1\).  For all sufficiently large natural numbers \(s\),
+\[
+  2^{(1-\frac{1}{2C})s}
+  \le
+  2^{2s-3}-2^{s-1}-2^{s-2}+1.
+\]
+\end{helper}
+\begin{proof}
+By \(\noderef{CloseToDiagonalVertexCountLowerBound}\) with
+\(\rho=1/2\), for all sufficiently large \(s\),
+\[
+  \frac12\,2^{2s-3}
+  \le
+  2^{2s-3}-2^{s-1}-2^{s-2}+1. \tag{1}
+\]
+Increase the threshold so that \(s\ge8\).  Since \(C>1\), we have
+\[
+  1-\frac{1}{2C}\le 1.
+\]
+Therefore
+\[
+  (1-\frac{1}{2C})s\le s.
+\]
+Because the base \(2\) is at least \(1\), exponentiation is monotone in the
+exponent, so
+\[
+  2^{(1-\frac{1}{2C})s}\le 2^s.
+\]
+For \(s\ge8\), we have \(s\le2s-4\), and hence
+\[
+  2^s\le2^{2s-4}=\frac12\,2^{2s-3}.
+\]
+Combining this inequality with (1) gives the desired bound.
+\end{proof}
