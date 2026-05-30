@@ -1,0 +1,42 @@
+\begin{helper}
+Fix natural numbers \(p,m,t\), a prefix tuple
+\[
+  pref:\{0,\ldots,m-1\}\to \mathbb F_2^p\times\mathbb F_2^p,
+\]
+and a possible final first coordinate \(a\in\mathbb F_2^p\). Form the
+first-coordinate list obtained by appending \(a\) to the prefix. The number of
+vectors \(b\in\mathbb F_2^p\) such that this appended first-coordinate list has
+rank \(t\) and
+\[
+  \langle a_{\ell+1},b\rangle=1
+  \quad\text{for every zero-based }\ell<m+1
+\]
+is at most \(2^{p-t}\). In Lean the rank is computed by appending the pair
+\((a,0)\), because \(\noderef{F2BadTupleRank}\) depends only on first
+coordinates.
+\end{helper}
+\begin{proof}
+Let \(ab_0\) be the length \(m+1\) tuple obtained from \(pref\) by appending
+the pair \((a,0)\). The counted set of possible last coordinates \(b\) is empty
+unless
+\[
+  \mathrm{F2BadTupleRank}(p,m+1,ab_0,m+1)=t.
+\]
+If this rank equality fails, the desired bound is immediate.
+
+Assume now that the rank equality holds. The counted \(b\)'s inject into the
+fiber
+\[
+  \{y\in\mathbb F_2^p:
+      \langle (ab_0)_\ell{}_1,y\rangle=1
+      \text{ for every zero-based }\ell<m+1\}.
+\]
+Indeed, a counted \(b\) already satisfies exactly these dot-product equations.
+By \(\noderef{F2BadTuplePrefixFiberBound}\), applied to \(ab_0\) with prefix
+length \(m+1\), this fiber has cardinality at most
+\[
+  2^{p-\mathrm{F2BadTupleRank}(p,m+1,ab_0,m+1)}.
+\]
+Using the assumed rank equality, this is \(2^{p-t}\). Hence the counted set of
+possible last \(b\)'s has cardinality at most \(2^{p-t}\).
+\end{proof}

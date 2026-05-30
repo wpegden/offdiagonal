@@ -1,0 +1,32 @@
+\begin{helper}
+Fix natural numbers \(p,m,t\) and a prefix tuple
+\[
+  pref:\{0,\ldots,m-1\}\to \mathbb F_2^p\times\mathbb F_2^p.
+\]
+The number of possible last pairs \((a,b)\in\mathbb F_2^p\times\mathbb F_2^p\)
+such that appending \(a\) to the prefix first-coordinate list gives rank \(t\)
+and
+\[
+  \langle a_{\ell+1},b\rangle=1
+  \quad\text{for every zero-based }\ell<m+1
+\]
+is at most
+\[
+  2^p\,2^{p-t}.
+\]
+As in \(\noderef{F2BadTupleLastBChoicesBound}\), Lean computes the rank after
+appending \(a\) by appending the dummy pair \((a,0)\), since the rank depends
+only on first coordinates.
+\end{helper}
+\begin{proof}
+Partition the counted last pairs according to their first coordinate \(a\).
+There are exactly \(2^p\) possible choices for \(a\in\mathbb F_2^p\). For a
+fixed \(a\), \(\noderef{F2BadTupleLastBChoicesBound}\) bounds the number of
+possible second coordinates \(b\) satisfying the displayed dot-product
+equations and the rank-\(t\) condition by \(2^{p-t}\). Therefore the total
+number of counted last pairs is at most the sum, over all \(2^p\) choices of
+\(a\), of \(2^{p-t}\). This sum is
+\[
+  2^p\,2^{p-t}.
+\]
+\end{proof}

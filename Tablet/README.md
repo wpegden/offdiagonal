@@ -21,6 +21,8 @@
 | F2BadTupleAmbientStepProductBound | proof | - | closed |
 | F2BadTupleFixedIncreaseCount | definition | - | closed |
 | F2BadTupleFixedIncreasePrefixRestriction | proof | - | closed |
+| F2BadTupleLastBChoicesBound | proof | - | closed |
+| F2BadTupleLastPairAmbientFiberBound | proof | - | closed |
 | F2BadTupleNonincreaseStepProductBound | proof | - | closed |
 | F2BadTuplePrefixFiberBound | proof | - | closed |
 | F2BadTuplePrefixRestriction | proof | - | closed |
@@ -104,4 +106,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 90/99 closed
+**Summary:** 92/101 closed

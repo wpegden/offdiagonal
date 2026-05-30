@@ -4,6 +4,7 @@ import Tablet.F2CoordinateDigraphTransitiveFree
 import Tablet.F2BadTupleAmbientStepProductBound
 import Tablet.F2BadTupleFixedIncreasePrefixRestriction
 import Tablet.F2BadTupleFixedIncreaseCount
+import Tablet.F2BadTupleLastPairAmbientFiberBound
 import Tablet.F2BadTuple
 import Tablet.F2BadTupleNonincreaseStepProductBound
 import Tablet.F2BadTuplePrefixFiberBound
@@ -192,4 +193,27 @@ theorem F2ForwardIndependentTuples :
                   z i.castSucc = true := by
       intro ab z hfixed
       exact F2BadTupleFixedIncreasePrefixRestriction p k ab z hfixed
+    have hbad_last_b_choices_bound_available :
+        ∀ (t : ℕ) (pref : Fin k → Vec × Vec) (a : Vec),
+          Fintype.card
+              {b : Vec //
+                F2BadTupleRank p (k + 1)
+                    (@Fin.snoc k (fun _ => Vec × Vec) pref (a, 0)) (k + 1) = t ∧
+                  ∀ j : Fin (k + 1),
+                    ((@Fin.snoc k (fun _ => Vec × Vec) pref (a, 0)) j).1 ⬝ᵥ b = 1} ≤
+            2 ^ (p - t) := by
+      intro t pref a
+      exact F2BadTupleLastBChoicesBound p k t pref a
+    have hbad_last_pair_ambient_fiber_bound_available :
+        ∀ (t : ℕ) (pref : Fin k → Vec × Vec),
+          Fintype.card
+              {pair : Vec × Vec //
+                F2BadTupleRank p (k + 1)
+                    (@Fin.snoc k (fun _ => Vec × Vec) pref (pair.1, 0)) (k + 1) = t ∧
+                  ∀ j : Fin (k + 1),
+                    ((@Fin.snoc k (fun _ => Vec × Vec) pref (pair.1, 0)) j).1 ⬝ᵥ
+                        pair.2 = 1} ≤
+            2 ^ p * 2 ^ (p - t) := by
+      intro t pref
+      exact F2BadTupleLastPairAmbientFiberBound p k t pref
     sorry
