@@ -18,6 +18,7 @@
 | F2BadTuple | definition | definition | closed | - | - | Preamble |
 | F2BadTupleRank | definition | definition | closed | - | - | F2BadTuple |
 | F2BadTupleRankAmbientBound | helper | proof | closed | - | - | F2BadTupleRank |
+| F2BadTupleRankOne | helper | proof | closed | - | - | F2BadTupleRank |
 | F2BadTupleRankZero | helper | proof | closed | - | - | F2BadTupleRank |
 | F2CoordinateDigraphLoopless | helper | proof | closed | - | - | DigraphLoopless |
 | F2CoordinateDigraphTransitiveFree | helper | proof | closed | - | - | TransitiveTournamentFree |
@@ -25,7 +26,7 @@
 | F2DotOnePairEmbedding | helper | proof | closed | - | - | F2DotOnePairCard |
 | F2ForwardIndependentLinearBound | lemma | proof | open | - | - | F2ForwardIndependentTuples |
 | F2ForwardIndependentNearDiagonalBound | lemma | proof | open | - | - | F2ForwardIndependentTuples |
-| F2ForwardIndependentTuples | lemma | proof | open | - | - | DigraphLoopless, F2BadTuple, F2BadTupleRankAmbientBound, F2BadTupleRankZero, F2CoordinateDigraphLoopless, F2CoordinateDigraphTransitiveFree, F2DotOnePairEmbedding, ForwardIndependentTupleCount, TransitiveTournamentFree |
+| F2ForwardIndependentTuples | lemma | proof | open | - | - | DigraphLoopless, F2BadTuple, F2BadTupleRankAmbientBound, F2BadTupleRankOne, F2BadTupleRankZero, F2CoordinateDigraphLoopless, F2CoordinateDigraphTransitiveFree, F2DotOnePairEmbedding, ForwardIndependentTupleCount, TransitiveTournamentFree |
 | FinsetCenteredIndicatorNormSqLeCard | helper | proof | closed | - | - | Preamble |
 | FinsetCenteredIndicatorSumZero | helper | proof | closed | - | - | Preamble |
 | ForwardIndependentTuple | definition | definition | closed | - | - | Digraph |
@@ -91,4 +92,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 87 nodes | **Closed:** 78 | **Open:** 9
+**Total:** 88 nodes | **Closed:** 79 | **Open:** 9

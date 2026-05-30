@@ -3,6 +3,7 @@ import Tablet.F2CoordinateDigraphLoopless
 import Tablet.F2CoordinateDigraphTransitiveFree
 import Tablet.F2BadTuple
 import Tablet.F2BadTupleRankAmbientBound
+import Tablet.F2BadTupleRankOne
 import Tablet.F2BadTupleRankZero
 import Tablet.F2DotOnePairEmbedding
 import Tablet.ForwardIndependentTupleCount
@@ -83,6 +84,11 @@ theorem F2ForwardIndependentTuples :
         ∀ ab : Bad, F2BadTupleRank p k ab.val 0 = 0 := by
       intro ab
       exact F2BadTupleRankZero p k ab.val
+    have hk_pos : 0 < k := by omega
+    have hbad_rank_one :
+        ∀ ab : Bad, F2BadTupleRank p k ab.val 1 = 1 := by
+      intro ab
+      exact F2BadTupleRankOne p k ab.val ab.property hk_pos
     have hbad_rank_le_p :
         ∀ (ab : Bad) (i : ℕ), F2BadTupleRank p k ab.val i ≤ p := by
       intro ab i

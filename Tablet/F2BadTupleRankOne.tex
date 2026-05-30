@@ -1,0 +1,20 @@
+\begin{helper}
+Let \(ab=(a_1,b_1,\ldots,a_k,b_k)\) be a bad \(2k\)-tuple in the sense of
+\(\noderef{F2BadTuple}\), and assume \(0<k\). Then the rank quantity from
+\(\noderef{F2BadTupleRank}\) satisfies
+\[
+  r_1=1.
+\]
+\end{helper}
+\begin{proof}
+Since \(0<k\), the first pair \((a_1,b_1)\) exists. The bad-tuple condition from
+\(\noderef{F2BadTuple}\), applied with the first index in both positions, gives
+\[
+  \langle a_1,b_1\rangle=1.
+\]
+Therefore \(a_1\ne0\), because the zero vector has dot product \(0\) with every
+vector. By \(\noderef{F2BadTupleRank}\), \(r_1\) is the dimension of the span of
+the \(a\)-vectors with Lean index less than \(1\), which is exactly the singleton
+set \(\{a_1\}\). The span of a single nonzero vector over \(\mathbb F_2\) is
+one-dimensional. Hence \(r_1=1\).
+\end{proof}
