@@ -1,0 +1,42 @@
+\begin{helper}
+Let \(G\) be a finite loop graph which is an \((n,d,\lambda)\)-graph in the
+sense of \(\noderef{LoopGraphNdLambda}\).  Then the loop-complement
+\(\noderef{LoopGraphComplement}(G)\) is an \((n,n-d,\lambda)\)-graph.
+\end{helper}
+\begin{proof}
+Write \(\overline G=\noderef{LoopGraphComplement}(G)\).  The vertex set is not
+changed by taking the loop-complement, so the vertex count remains \(n\).  If
+\(x\overline G y\), then \(xGy\) is false; since \(G\) is symmetric, \(yGx\)
+would imply \(xGy\).  Thus \(yGx\) is also false, so \(y\overline G x\).
+Hence \(\overline G\) is symmetric.
+
+For a vertex \(v\), the definition \(\noderef{LoopGraphDegree}\) counts the
+vertices adjacent to \(v\).  In \(G\) exactly \(d\) vertices are adjacent to
+\(v\).  The complement adjacency condition partitions the \(n\) vertices into
+the \(d\) vertices adjacent to \(v\) in \(G\) and the vertices adjacent to
+\(v\) in \(\overline G\).  Therefore \(v\) has degree \(n-d\) in
+\(\overline G\).
+
+It remains to check the non-principal eigenvalue bound from
+\(\noderef{LoopGraphNdLambda}\).  Let \(\mu\) be a non-principal adjacency
+eigenvalue of \(\overline G\), witnessed as in
+\(\noderef{LoopGraphNonprincipalEigenvalue}\) by a nonzero function \(f\) whose
+sum over all vertices is zero and for which
+\[
+  A_{\overline G} f=\mu f.
+\]
+By \(\noderef{LoopGraphAdjacencyAction}\), for every vertex \(v\),
+\[
+  (A_{\overline G}f)(v)
+  =\sum_{w:\,v\overline G w} f(w)
+  =\sum_w f(w)-\sum_{w:\,vGw} f(w)
+  =-(A_Gf)(v),
+\]
+because \(\sum_w f(w)=0\).  Thus \(A_Gf=(-\mu)f\), so \(-\mu\) is a
+non-principal adjacency eigenvalue of \(G\).  Since \(G\) is an
+\((n,d,\lambda)\)-graph, \(|-\mu|\le\lambda\).  As \(|-\mu|=|\mu|\), the same
+bound holds for \(\mu\).  The condition \(\lambda\ge0\) is inherited directly
+from the hypothesis that \(G\) is an \((n,d,\lambda)\)-graph.  These four
+properties are exactly the assertion that \(\overline G\) is an
+\((n,n-d,\lambda)\)-graph.
+\end{proof}

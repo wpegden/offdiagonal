@@ -86,6 +86,7 @@
 | LoopGraphAdjacencyEuclideanOperatorMapsZeroSum | proof | - | closed |
 | LoopGraphAdjacencyEuclideanOperatorSymmetric | proof | - | closed |
 | LoopGraphComplement | definition | - | closed |
+| LoopGraphComplementNdLambda | proof | - | closed |
 | LoopGraphDegree | definition | - | closed |
 | LoopGraphEdgeCountBetween | definition | - | closed |
 | LoopGraphEdgeCountBetweenAdjacencyIndicator | proof | - | closed |
@@ -152,4 +153,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 145/147 closed
+**Summary:** 146/148 closed
