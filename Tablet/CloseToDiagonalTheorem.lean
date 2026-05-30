@@ -3,6 +3,7 @@ import Tablet.F2ForwardIndependentNearDiagonalBound
 import Tablet.SamplingKsFreeRamseyBound
 import Tablet.SimpleGraphNoIndependentSetFromCountZero
 import Tablet.CloseToDiagonalExponentComparison
+import Tablet.CloseToDiagonalVertexCountLowerBound
 
 -- [TABLET NODE: CloseToDiagonalTheorem]
 

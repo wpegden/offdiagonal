@@ -1,0 +1,43 @@
+\begin{helper}
+For every real number \(\rho>0\), there is an integer \(s_0\ge4\) such that
+for every integer \(s\ge s_0\),
+\[
+  (1-\rho)2^{2s-3}
+  \le
+  2^{2s-3}-2^{s-1}-2^{s-2}+1.
+\]
+\end{helper}
+\begin{proof}
+Choose \(s_0\ge4\) so large that \(2^{s-1}\ge 3/\rho\) for every
+\(s\ge s_0\).  This is possible because \(2^n\to\infty\).  Fix
+\(s\ge s_0\).  Then \(s\ge4\), so all displayed natural-number subtractions
+agree with the corresponding integer exponents.
+
+The two lower-order terms satisfy
+\[
+  2^{s-1}+2^{s-2}
+  =3\cdot 2^{s-2}.
+\]
+Also
+\[
+  2^{2s-3}=2^{s-1}2^{s-2}.
+\]
+Since \(2^{s-1}\ge3/\rho\), multiplying by the nonnegative factor
+\(\rho\,2^{s-2}\) gives
+\[
+  2^{s-1}+2^{s-2}
+  =3\cdot2^{s-2}
+  \le \rho\,2^{s-1}2^{s-2}
+  =\rho\,2^{2s-3}.
+\]
+Therefore
+\[
+\begin{aligned}
+  2^{2s-3}-2^{s-1}-2^{s-2}+1
+  &\ge 2^{2s-3}-\bigl(2^{s-1}+2^{s-2}\bigr)\\
+  &\ge 2^{2s-3}-\rho\,2^{2s-3}\\
+  &=(1-\rho)2^{2s-3}.
+\end{aligned}
+\]
+This proves the claimed eventual lower bound for the F2 vertex count.
+\end{proof}

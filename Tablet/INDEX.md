@@ -6,7 +6,8 @@
 | BinarySequenceWeightFiberCard | helper | proof | closed | - | - | BinarySequenceWeight |
 | BinarySequenceWeightSnoc | helper | proof | closed | - | - | BinarySequenceWeight |
 | CloseToDiagonalExponentComparison | helper | proof | closed | - | - | Preamble |
-| CloseToDiagonalTheorem | theorem | proof | open | - | - | CloseToDiagonalExponentComparison, DigraphToGraphIndependentSetBound, F2ForwardIndependentNearDiagonalBound, SamplingKsFreeRamseyBound, SimpleGraphNoIndependentSetFromCountZero |
+| CloseToDiagonalTheorem | theorem | proof | open | - | - | CloseToDiagonalExponentComparison, CloseToDiagonalVertexCountLowerBound, DigraphToGraphIndependentSetBound, F2ForwardIndependentNearDiagonalBound, SamplingKsFreeRamseyBound, SimpleGraphNoIndependentSetFromCountZero |
+| CloseToDiagonalVertexCountLowerBound | helper | proof | closed | - | - | Preamble |
 | ComplementPolarityPairHsFree | lemma | proof | closed | - | - | HsFreePair, LoopGraphComplement, PolarityGraphSkewFree |
 | Digraph | definition | definition | closed | - | - | Preamble |
 | DigraphLoopless | definition | definition | closed | - | - | Digraph |
@@ -128,4 +129,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 124 nodes | **Closed:** 118 | **Open:** 6
+**Total:** 125 nodes | **Closed:** 119 | **Open:** 6

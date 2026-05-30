@@ -9,6 +9,7 @@
 | BinarySequenceWeightSnoc | proof | - | closed |
 | CloseToDiagonalExponentComparison | proof | - | closed |
 | CloseToDiagonalTheorem | proof | - | open |
+| CloseToDiagonalVertexCountLowerBound | proof | - | closed |
 | ComplementPolarityPairHsFree | proof | - | closed |
 | Digraph | definition | - | closed |
 | DigraphLoopless | definition | - | closed |
@@ -129,4 +130,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 118/124 closed
+**Summary:** 119/125 closed
