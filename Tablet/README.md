@@ -21,6 +21,8 @@
 | F2BadTuplePrefixFiberBound | proof | - | closed |
 | F2BadTupleRank | definition | - | closed |
 | F2BadTupleRankAmbientBound | proof | - | closed |
+| F2BadTupleRankIncreaseSet | definition | - | closed |
+| F2BadTupleRankIncreaseSetCard | proof | - | closed |
 | F2BadTupleRankOne | proof | - | closed |
 | F2BadTupleRankStep | proof | - | closed |
 | F2BadTupleRankZero | proof | - | closed |
@@ -95,4 +97,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 81/90 closed
+**Summary:** 83/92 closed

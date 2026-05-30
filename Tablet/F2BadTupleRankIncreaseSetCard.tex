@@ -1,0 +1,53 @@
+\begin{helper}
+Let \(ab=(a_1,b_1,\ldots,a_k,b_k)\) be a bad \(2k\)-tuple in the sense of
+\(\noderef{F2BadTuple}\), and assume \(0<k\). Let \(r_i\) be the rank quantity
+from \(\noderef{F2BadTupleRank}\), and let \(I(ab)\) be the rank-increase set
+from \(\noderef{F2BadTupleRankIncreaseSet}\). Then
+\[
+  r_k\in\{1,\ldots,p\}
+\]
+and
+\[
+  |I(ab)|=r_k.
+\]
+\end{helper}
+\begin{proof}
+For each \(n\) with \(0\le n\le k\), let
+\[
+  I_n=\{\,i\in\{0,\ldots,n-1\}: r_{i+1}=r_i+1\,\}.
+\]
+We first prove by induction on \(n\) that \(|I_n|=r_n\) for all \(n\le k\).
+When \(n=0\), the set \(I_0\) is empty, and \(\noderef{F2BadTupleRankZero}\)
+gives \(r_0=0\), so \(|I_0|=r_0\).
+
+Now assume \(n+1\le k\) and that \(|I_n|=r_n\). Since \(n<k\),
+\(\noderef{F2BadTupleRankStep}\) gives exactly two possibilities:
+\[
+  r_{n+1}=r_n
+  \quad\text{or}\quad
+  r_{n+1}=r_n+1.
+\]
+If \(r_{n+1}=r_n+1\), then the new index \(n\) is an increase index, and it was
+not present in \(I_n\). Thus \(I_{n+1}=I_n\cup\{n\}\), a disjoint union, so
+\[
+  |I_{n+1}|=|I_n|+1=r_n+1=r_{n+1}.
+\]
+If \(r_{n+1}=r_n\), then \(n\) is not an increase index, and no other index is
+new when passing from \(I_n\) to \(I_{n+1}\). Hence \(I_{n+1}=I_n\), and
+\[
+  |I_{n+1}|=|I_n|=r_n=r_{n+1}.
+\]
+This completes the induction. Taking \(n=k\), \(I_k\) is exactly the
+rank-increase set \(I(ab)\) from \(\noderef{F2BadTupleRankIncreaseSet}\), so
+\[
+  |I(ab)|=r_k.
+\]
+
+It remains to locate \(r_k\). By \(\noderef{F2BadTupleRankAmbientBound}\), every
+rank \(r_i\), in particular \(r_k\), is at most \(p\). Since \(0<k\), the first
+index exists. The bad-tuple hypothesis and \(\noderef{F2BadTupleRankOne}\) give
+\(r_1=1\), while \(\noderef{F2BadTupleRankZero}\) gives \(r_0=0\). Therefore the
+first index is an increase index, so \(I(ab)\) is nonempty. Because
+\(|I(ab)|=r_k\), this implies \(r_k\ge1\). Combining \(1\le r_k\) with
+\(r_k\le p\) proves \(r_k\in\{1,\ldots,p\}\).
+\end{proof}

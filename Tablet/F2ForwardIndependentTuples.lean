@@ -4,6 +4,7 @@ import Tablet.F2CoordinateDigraphTransitiveFree
 import Tablet.F2BadTuple
 import Tablet.F2BadTuplePrefixFiberBound
 import Tablet.F2BadTupleRankAmbientBound
+import Tablet.F2BadTupleRankIncreaseSetCard
 import Tablet.F2BadTupleRankOne
 import Tablet.F2BadTupleRankStep
 import Tablet.F2BadTupleRankZero
@@ -109,4 +110,11 @@ theorem F2ForwardIndependentTuples :
             2 ^ (p - F2BadTupleRank p k ab.val i) := by
       intro ab i
       exact F2BadTuplePrefixFiberBound p k ab.val i
+    have hbad_rank_increase_data :
+        ∀ ab : Bad,
+          F2BadTupleRank p k ab.val k ∈ Finset.Icc 1 p ∧
+            (F2BadTupleRankIncreaseSet p k ab.val).card =
+              F2BadTupleRank p k ab.val k := by
+      intro ab
+      exact F2BadTupleRankIncreaseSetCard p k ab.val ab.property hk_pos
     sorry
