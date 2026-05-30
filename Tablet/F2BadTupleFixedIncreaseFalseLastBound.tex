@@ -1,0 +1,66 @@
+\begin{helper}
+Fix natural numbers \(p,m\) and a Boolean rank-increase sequence
+\[
+  z:\{0,\ldots,m\}\to\{\mathrm{false},\mathrm{true}\}.
+\]
+Suppose \(z(m)=\mathrm{false}\), and let \(z'\) be the restricted sequence on
+\(\{0,\ldots,m-1\}\). Then the number of bad tuples of length \(m+1\) with
+fixed increase pattern \(z\), as counted by
+\(\noderef{F2BadTupleFixedIncreaseCount}\), is at most
+\[
+  F2BadTupleFixedIncreaseCount(p,m,z')\cdot
+  2^{\operatorname{wt}(z)}\,2^{p-\operatorname{wt}(z)}.
+\]
+Here \(\operatorname{wt}(z)\) is the number of true entries of \(z\), as in
+\(\noderef{BinarySequenceWeight}\).
+\end{helper}
+\begin{proof}
+Let \(T\) be the set of bad length-\(m+1\) tuples with fixed increase pattern
+\(z\), and let \(P\) be the set of bad length-\(m\) tuples with fixed increase
+pattern \(z'\). The false-last hypothesis and
+\(\noderef{BinarySequenceWeightSnoc}\) imply
+\[
+  \operatorname{wt}(z)=\operatorname{wt}(z').
+\]
+
+For any prefix \(pref\in P\), its final rank is \(\operatorname{wt}(z)\). If
+\(m=0\), this follows from \(\noderef{F2BadTupleRankZero}\) and the preceding
+weight identity. If \(m>0\), then
+\(\noderef{F2BadTupleRankIncreaseSetCard}\) identifies the final rank of
+\(pref\) with the number of rank-increase indices of \(pref\); the fixed
+increase condition in the definition of \(P\) identifies those indices exactly
+with the true entries of \(z'\), whose number is \(\operatorname{wt}(z')\).
+Thus the final rank is \(\operatorname{wt}(z)\).
+
+Map a tuple \(ab\in T\) to its prefix \(ab'\in P\), supplied by
+\(\noderef{F2BadTupleFixedIncreasePrefixRestriction}\), together with its final
+pair \((a_m,b_m)\). As in \(\noderef{F2BadTupleFixedIncreaseTrueLastBound}\),
+\(\noderef{F2BadTupleRankIncreaseSetCard}\) shows that the final rank of
+\(ab\) is \(\operatorname{wt}(z)\), and
+\(\noderef{F2BadTupleRankSnocPrefixLast}\) shows that replacing the final
+second coordinate by \(0\) does not change this rank. The bad-tuple condition
+also gives
+\[
+  \langle a_j,b_m\rangle=1
+  \quad\text{for every }0\le j\le m.
+\]
+Therefore, over each fixed prefix \(pref\in P\), the possible final pairs lie
+in the span-restricted last-pair fiber counted by
+\(\noderef{F2BadTupleLastPairSpanFiberBound}\) with
+\(t=\operatorname{wt}(z)\). The prefix-rank verification above supplies that
+node's hypothesis, and the node bounds the fiber by
+\[
+  2^{\operatorname{wt}(z)}\,2^{p-\operatorname{wt}(z)}.
+\]
+
+The map from \(T\) into the disjoint union over prefixes \(pref\in P\) of these
+last-pair fibers is injective, because the prefix recovers the first \(m\)
+pairs and the recorded final pair recovers the last pair. Hence
+\[
+  |T|
+  \le \sum_{pref\in P}
+      2^{\operatorname{wt}(z)}\,2^{p-\operatorname{wt}(z)}
+  = |P|\,2^{\operatorname{wt}(z)}\,2^{p-\operatorname{wt}(z)}.
+\]
+This is the claimed inequality.
+\end{proof}
