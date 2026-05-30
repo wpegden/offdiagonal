@@ -50,7 +50,7 @@
 | F2DotOnePairCard | proof | - | closed |
 | F2DotOnePairEmbedding | proof | - | closed |
 | F2ForwardIndependentLinearBound | proof | - | closed |
-| F2ForwardIndependentNearDiagonalBound | proof | - | open |
+| F2ForwardIndependentNearDiagonalBound | proof | - | closed |
 | F2ForwardIndependentSumBound | proof | - | closed |
 | F2ForwardIndependentTuples | proof | - | closed |
 | F2NearDiagonalBinomialLogBound | proof | - | closed |
@@ -127,4 +127,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 115/122 closed
+**Summary:** 116/122 closed
