@@ -55,7 +55,9 @@
 | F2ForwardIndependentTuples | proof | - | closed |
 | F2NearDiagonalChooseSymmetry | proof | - | closed |
 | F2NearDiagonalExponentIdentity | proof | - | closed |
+| F2NearDiagonalLargeSPowerBound | proof | - | closed |
 | F2NearDiagonalQuadraticMaxBound | proof | - | closed |
+| F2NearDiagonalSummandFromLogControls | proof | - | closed |
 | F2NearDiagonalSummationAbsorptionBound | proof | - | closed |
 | FinsetCenteredIndicatorNormSqLeCard | proof | - | closed |
 | FinsetCenteredIndicatorSumZero | proof | - | closed |
@@ -121,4 +123,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 109/116 closed
+**Summary:** 111/118 closed

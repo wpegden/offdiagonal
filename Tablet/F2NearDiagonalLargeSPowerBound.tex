@@ -1,0 +1,33 @@
+\begin{helper}
+For every \(\varepsilon>0\), there is \(s_0\in\mathbb N\) such that every
+integer \(s\ge s_0\) satisfies
+\[
+  s\le 2^{\varepsilon s/2}.
+\]
+\end{helper}
+\begin{proof}
+Put
+\[
+  c=\frac{\varepsilon\log 2}{2}.
+\]
+Since \(\varepsilon>0\) and \(\log 2>0\), we have \(c>0\). The standard
+exponential growth estimate says that
+\[
+  \frac{e^x}{x}\to\infty
+  \qquad\text{as }x\to\infty.
+\]
+Applying this with \(x=cs\), which also tends to infinity as \(s\to\infty\),
+there is \(s_0\) such that, for all \(s\ge s_0\),
+\[
+  \frac{e^{cs}}{cs}\ge \frac1c.
+\]
+Multiplying by the positive number \(cs\) gives \(s\le e^{cs}\). Finally,
+\[
+  e^{cs}
+  =
+  e^{(\log 2)(\varepsilon s/2)}
+  =
+  2^{\varepsilon s/2}.
+\]
+Thus \(s\le2^{\varepsilon s/2}\) for every \(s\ge s_0\).
+\end{proof}

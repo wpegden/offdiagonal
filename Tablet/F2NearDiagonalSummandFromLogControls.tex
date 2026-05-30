@@ -1,0 +1,50 @@
+\begin{helper}
+Let \(\varepsilon,\lambda\in\mathbb R\), let \(s,a,t\in\mathbb N\), and
+assume \(1\le t\le s-1\). Put \(j=s-t\). Suppose
+\[
+  \binom{s+a}{t}\le 2^{(a+j)\lambda},
+\]
+\[
+  a\lambda\le \frac{\varepsilon s}{4},
+\]
+and
+\[
+  j\lambda+\frac{3j}{2}-\frac{j^2}{2}\le \frac{\varepsilon s}{4}.
+\]
+Then
+\[
+  \binom{s+a}{t}
+    2^{(s-1)(t+s+a)-\binom{t+1}{2}}
+  \le
+  2^{s^2/2+s(s+a)-3s/2-(s+a)+\varepsilon s/2}.
+\]
+\end{helper}
+\begin{proof}
+Since \(1\le t\le s-1\) and \(j=s-t\), we have \(1\le j\le s-1\) and
+\(s-j=t\). Applying \(\noderef{F2NearDiagonalExponentIdentity}\) with
+\(k=s+a\) gives
+\[
+  (s-1)(t+s+a)-\binom{t+1}{2}
+  =
+  s^2/2+s(s+a)-3s/2-(s+a)+3j/2-j^2/2.
+\]
+Using the assumed binomial bound and multiplying by the nonnegative power of
+\(2\), the left hand side in the conclusion is at most
+\[
+  2^{(a+j)\lambda}\,
+  2^{s^2/2+s(s+a)-3s/2-(s+a)+3j/2-j^2/2}.
+\]
+Combining powers of \(2\), this is
+\[
+  2^{
+    s^2/2+s(s+a)-3s/2-(s+a)
+    +a\lambda+
+    \left(j\lambda+3j/2-j^2/2\right)}.
+\]
+The two control assumptions bound the last two displayed summands by
+\(\varepsilon s/4\) each. Hence the exponent is at most
+\[
+  s^2/2+s(s+a)-3s/2-(s+a)+\varepsilon s/2.
+\]
+Monotonicity of \(2^x\) proves the claimed summand bound.
+\end{proof}
