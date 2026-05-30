@@ -1,6 +1,9 @@
 import Tablet.DigraphLoopless
 import Tablet.F2CoordinateDigraphLoopless
 import Tablet.F2CoordinateDigraphTransitiveFree
+import Tablet.F2BadTuple
+import Tablet.F2BadTupleRankAmbientBound
+import Tablet.F2BadTupleRankZero
 import Tablet.F2DotOnePairEmbedding
 import Tablet.ForwardIndependentTupleCount
 import Tablet.TransitiveTournamentFree
@@ -46,7 +49,7 @@ theorem F2ForwardIndependentTuples :
   · simp [N]
   · let Bad : Type :=
       {ab : Fin k → Vec × Vec //
-        ∀ i j : Fin k, j ≤ i → (ab j).1 ⬝ᵥ (ab i).2 = 1}
+        F2BadTuple p k ab}
     have hzmod_ne_zero_eq_one : ∀ a : ZMod 2, a ≠ 0 → a = 1 := by
       intro a ha
       fin_cases a
@@ -58,6 +61,7 @@ theorem F2ForwardIndependentTuples :
       refine Fintype.card_le_of_injective
         (fun v : {v : Fin k → Fin N // ForwardIndependentTuple D v} => by
           refine (⟨fun i => (x (v.val i), y (v.val i)), ?_⟩ : Bad)
+          dsimp [F2BadTuple]
           intro i j hji
           by_cases hEq : j = i
           · subst j
@@ -75,4 +79,12 @@ theorem F2ForwardIndependentTuples :
     have hcount_le_bad_real :
         ((ForwardIndependentTupleCount D k : ℕ) : ℝ) ≤ (Fintype.card Bad : ℝ) := by
       exact_mod_cast hcount_le_bad
+    have hbad_initial_rank :
+        ∀ ab : Bad, F2BadTupleRank p k ab.val 0 = 0 := by
+      intro ab
+      exact F2BadTupleRankZero p k ab.val
+    have hbad_rank_le_p :
+        ∀ (ab : Bad) (i : ℕ), F2BadTupleRank p k ab.val i ≤ p := by
+      intro ab i
+      exact F2BadTupleRankAmbientBound p k ab.val i
     sorry
