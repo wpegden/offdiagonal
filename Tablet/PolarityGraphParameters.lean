@@ -298,5 +298,67 @@ theorem PolarityGraphParameters (K : Type u) [Field K] [Fintype K] (t q : ℕ)
                 (fun w => PolarityGraph K t v0 w ∧ PolarityGraph K t w u)).card : ℕ) : ℝ) *
                 f u) := by
       rw [← hA2_eig, hA2_common]
+    have hdiag_common_eq_degree :
+        (Finset.univ.filter
+          (fun w : Projectivization K (Fin (t + 1) → K) =>
+            PolarityGraph K t v0 w ∧ PolarityGraph K t w v0)).card =
+          LoopGraphDegree (PolarityGraph K t) v0 := by
+      dsimp [LoopGraphDegree, PolarityGraph]
+      simp [Projectivization.orthogonal_comm]
+      rfl
+    have hrep_linearIndependent_of_ne
+        (u : Projectivization K (Fin (t + 1) → K)) (hu : u ≠ v0) :
+        LinearIndependent K ![Projectivization.rep v0, Projectivization.rep u] := by
+      exact (Projectivization.linearIndependent_pair_iff_ne).mpr hu.symm
+    have hcommon_rep_iff
+        (u w : Projectivization K (Fin (t + 1) → K)) :
+        PolarityGraph K t v0 w ∧ PolarityGraph K t w u ↔
+          Projectivization.rep v0 ⬝ᵥ Projectivization.rep w = 0 ∧
+            Projectivization.rep u ⬝ᵥ Projectivization.rep w = 0 := by
+      constructor
+      · intro h
+        constructor
+        · have hmk :
+              Projectivization.orthogonal
+                (Projectivization.mk K (Projectivization.rep v0)
+                  (Projectivization.rep_nonzero v0))
+                (Projectivization.mk K (Projectivization.rep w)
+                  (Projectivization.rep_nonzero w)) := by
+            simpa [Projectivization.mk_rep, PolarityGraph] using h.1
+          exact (Projectivization.orthogonal_mk
+            (Projectivization.rep_nonzero v0) (Projectivization.rep_nonzero w)).mp hmk
+        · have hmk :
+              Projectivization.orthogonal
+                (Projectivization.mk K (Projectivization.rep u)
+                  (Projectivization.rep_nonzero u))
+                (Projectivization.mk K (Projectivization.rep w)
+                  (Projectivization.rep_nonzero w)) := by
+            have huw : PolarityGraph K t u w :=
+              Projectivization.orthogonal_comm.mp h.2
+            simpa [Projectivization.mk_rep, PolarityGraph] using huw
+          exact (Projectivization.orthogonal_mk
+            (Projectivization.rep_nonzero u) (Projectivization.rep_nonzero w)).mp hmk
+      · intro h
+        constructor
+        · have hmk :
+              Projectivization.orthogonal
+                (Projectivization.mk K (Projectivization.rep v0)
+                  (Projectivization.rep_nonzero v0))
+                (Projectivization.mk K (Projectivization.rep w)
+                  (Projectivization.rep_nonzero w)) :=
+            (Projectivization.orthogonal_mk
+              (Projectivization.rep_nonzero v0) (Projectivization.rep_nonzero w)).mpr h.1
+          simpa [Projectivization.mk_rep, PolarityGraph] using hmk
+        · have hmk :
+              Projectivization.orthogonal
+                (Projectivization.mk K (Projectivization.rep u)
+                  (Projectivization.rep_nonzero u))
+                (Projectivization.mk K (Projectivization.rep w)
+                  (Projectivization.rep_nonzero w)) :=
+            (Projectivization.orthogonal_mk
+              (Projectivization.rep_nonzero u) (Projectivization.rep_nonzero w)).mpr h.2
+          have huw : PolarityGraph K t u w := by
+            simpa [Projectivization.mk_rep, PolarityGraph] using hmk
+          exact Projectivization.orthogonal_comm.mp huw
     sorry
   · exact Real.sqrt_nonneg _
