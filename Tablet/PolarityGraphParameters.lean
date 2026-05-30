@@ -192,5 +192,111 @@ theorem PolarityGraphParameters (K : Type u) [Field K] [Fintype K] (t q : ℕ)
       rw [Nat.card_eq_fintype_card (α := φ.ker), hker_card]
       rw [Nat.card_eq_fintype_card (α := K), ← hq]
   constructor
-  · sorry
+  · classical
+    intro mu hmu
+    dsimp [LoopGraphNonprincipalEigenvalue] at hmu
+    rcases hmu with ⟨f, ⟨v0, hv0⟩, hzero, heig⟩
+    have hA2_eig :
+        LoopGraphAdjacencyAction (PolarityGraph K t)
+            (fun v => LoopGraphAdjacencyAction (PolarityGraph K t) f v) v0 =
+          mu ^ 2 * f v0 := by
+      calc
+        LoopGraphAdjacencyAction (PolarityGraph K t)
+            (fun v => LoopGraphAdjacencyAction (PolarityGraph K t) f v) v0 =
+            LoopGraphAdjacencyAction (PolarityGraph K t) (fun v => mu * f v) v0 := by
+          congr
+          ext v
+          exact heig v
+        _ = mu * LoopGraphAdjacencyAction (PolarityGraph K t) f v0 := by
+          dsimp [LoopGraphAdjacencyAction]
+          rw [Finset.mul_sum]
+          apply Finset.sum_congr rfl
+          intro w _
+          by_cases h : PolarityGraph K t v0 w
+          · simp [h]
+          · simp [h]
+        _ = mu * (mu * f v0) := by
+          rw [heig v0]
+        _ = mu ^ 2 * f v0 := by
+          ring
+    have hA2_common :
+        LoopGraphAdjacencyAction (PolarityGraph K t)
+            (fun v => LoopGraphAdjacencyAction (PolarityGraph K t) f v) v0 =
+          Finset.univ.sum
+            (fun u =>
+              (((Finset.univ.filter
+                (fun w => PolarityGraph K t v0 w ∧ PolarityGraph K t w u)).card : ℕ) : ℝ) *
+                f u) := by
+      dsimp [LoopGraphAdjacencyAction]
+      calc
+        (∑ w, if PolarityGraph K t v0 w then
+            (∑ u, if PolarityGraph K t w u then f u else 0) else 0) =
+            ∑ w, ∑ u,
+              if PolarityGraph K t v0 w ∧ PolarityGraph K t w u then f u else 0 := by
+          apply Finset.sum_congr rfl
+          intro w _
+          by_cases hvw : PolarityGraph K t v0 w
+          · simp [hvw]
+          · simp [hvw]
+        _ = ∑ u, ∑ w,
+              if PolarityGraph K t v0 w ∧ PolarityGraph K t w u then f u else 0 := by
+          rw [Finset.sum_comm]
+        _ = ∑ u,
+            (((Finset.univ.filter
+              (fun w => PolarityGraph K t v0 w ∧ PolarityGraph K t w u)).card : ℕ) : ℝ) *
+              f u := by
+          apply Finset.sum_congr rfl
+          intro u _
+          rw [← Finset.sum_filter]
+          simp [Finset.sum_const]
+    have hcommon_sum_zero
+        (d a : ℕ) (had : a ≤ d) :
+        Finset.univ.sum
+            (fun u : Projectivization K (Fin (t + 1) → K) =>
+              ((if u = v0 then d else a : ℕ) : ℝ) * f u) =
+          (((d - a : ℕ) : ℝ) * f v0) := by
+      rw [Fintype.sum_eq_add_sum_subtype_ne
+        (fun u : Projectivization K (Fin (t + 1) → K) =>
+          ((if u = v0 then d else a : ℕ) : ℝ) * f u) v0]
+      simp [(fun x : { x : Projectivization K (Fin (t + 1) → K) // x ≠ v0 } =>
+        x.property)]
+      rw [← Finset.mul_sum]
+      have hrest : (∑ u : { x : Projectivization K (Fin (t + 1) → K) // x ≠ v0 },
+          f u.1) = -f v0 := by
+        have hsum := hzero
+        rw [Fintype.sum_eq_add_sum_subtype_ne f v0] at hsum
+        linarith
+      rw [hrest]
+      norm_num
+      rw [← sub_eq_add_neg]
+      rw [← sub_mul]
+      have hcast : ((d : ℝ) - (a : ℝ)) = ((d - a : ℕ) : ℝ) := by
+        exact (Nat.cast_sub had).symm
+      rw [hcast]
+    have hA2_from_common_counts
+        (d a : ℕ) (had : a ≤ d)
+        (hcounts : ∀ u : Projectivization K (Fin (t + 1) → K),
+          (Finset.univ.filter
+            (fun w => PolarityGraph K t v0 w ∧ PolarityGraph K t w u)).card =
+            if u = v0 then d else a) :
+        LoopGraphAdjacencyAction (PolarityGraph K t)
+            (fun v => LoopGraphAdjacencyAction (PolarityGraph K t) f v) v0 =
+          (((d - a : ℕ) : ℝ) * f v0) := by
+      rw [hA2_common]
+      trans Finset.univ.sum
+          (fun u : Projectivization K (Fin (t + 1) → K) =>
+            ((if u = v0 then d else a : ℕ) : ℝ) * f u)
+      · apply Finset.sum_congr rfl
+        intro u _
+        rw [hcounts u]
+      · exact hcommon_sum_zero d a had
+    have hmu_sq_common :
+        mu ^ 2 * f v0 =
+          Finset.univ.sum
+            (fun u =>
+              (((Finset.univ.filter
+                (fun w => PolarityGraph K t v0 w ∧ PolarityGraph K t w u)).card : ℕ) : ℝ) *
+                f u) := by
+      rw [← hA2_eig, hA2_common]
+    sorry
   · exact Real.sqrt_nonneg _
