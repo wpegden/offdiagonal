@@ -5,7 +5,7 @@
 | BinarySequenceWeight | definition | definition | closed | - | - | Preamble |
 | BinarySequenceWeightFiberCard | helper | proof | closed | - | - | BinarySequenceWeight |
 | BinarySequenceWeightSnoc | helper | proof | closed | - | - | BinarySequenceWeight |
-| CloseToDiagonalTheorem | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, F2ForwardIndependentNearDiagonalBound, SamplingKsFreeRamseyBound |
+| CloseToDiagonalTheorem | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, F2ForwardIndependentNearDiagonalBound, SamplingKsFreeRamseyBound, SimpleGraphNoIndependentSetFromCountZero |
 | ComplementPolarityPairHsFree | lemma | proof | closed | - | - | HsFreePair, LoopGraphComplement, PolarityGraphSkewFree |
 | Digraph | definition | definition | closed | - | - | Preamble |
 | DigraphLoopless | definition | definition | closed | - | - | Digraph |
@@ -122,8 +122,9 @@
 | RandomHomomorphismColoringBound | lemma | proof | open | - | - | F2ForwardIndependentNearDiagonalBound, NoMonochromaticCliqueColoring |
 | SamplingKsFreeRamseyBound | lemma | proof | closed | - | - | RamseyNumber, RamseyNumberLowerBoundFromCounterexample, RamseyPropertyCounterexampleTransport, RamseyPropertyMonotone, RamseyPropertyNonempty, SimpleGraphIndependentSetCount |
 | SimpleGraphIndependentSetCount | definition | definition | closed | - | - | Preamble |
+| SimpleGraphNoIndependentSetFromCountZero | helper | proof | closed | - | - | SimpleGraphIndependentSetCount |
 | SparseNeighborhoodSetBound | lemma | proof | closed | - | - | ExpanderMixingLemma |
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 122 nodes | **Closed:** 116 | **Open:** 6
+**Total:** 123 nodes | **Closed:** 117 | **Open:** 6

@@ -1,6 +1,7 @@
 import Tablet.DigraphToGraphIndependentSetBound
 import Tablet.F2ForwardIndependentNearDiagonalBound
 import Tablet.SamplingKsFreeRamseyBound
+import Tablet.SimpleGraphNoIndependentSetFromCountZero
 
 -- [TABLET NODE: CloseToDiagonalTheorem]
 

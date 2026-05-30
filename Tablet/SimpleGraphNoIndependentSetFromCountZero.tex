@@ -1,0 +1,19 @@
+\begin{helper}
+Let \(G\) be a finite simple graph on a vertex set \(V\), and let \(k\in\mathbb N\).
+If \(\operatorname{SimpleGraphIndependentSetCount}(G,k)=0\), then \(G\) has no
+independent set of size \(k\).  Equivalently, there is no finite set
+\(I\subseteq V\) such that \(I\) is a \(k\)-clique in the complement graph
+\(G^c\).
+\end{helper}
+\begin{proof}
+By the definition \(\noderef{SimpleGraphIndependentSetCount}\),
+\(\operatorname{SimpleGraphIndependentSetCount}(G,k)\) is the cardinality of
+the finite type of finsets \(I\subseteq V\) satisfying \(G^c.\operatorname{IsNClique}(k,I)\).
+Suppose, for contradiction, that such an \(I\) exists.  Then the subtype of
+finsets counted by \(\operatorname{SimpleGraphIndependentSetCount}(G,k)\) has
+the element \((I,h_I)\), where \(h_I\) is the assertion that \(I\) is a
+\(k\)-clique in \(G^c\).  Hence that finite type is nonempty, so its cardinality
+is positive.  This contradicts the hypothesis that
+\(\operatorname{SimpleGraphIndependentSetCount}(G,k)=0\).  Therefore no such
+finite set \(I\) exists.
+\end{proof}

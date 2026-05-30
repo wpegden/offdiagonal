@@ -123,8 +123,9 @@
 | RandomHomomorphismColoringBound | proof | - | open |
 | SamplingKsFreeRamseyBound | proof | - | closed |
 | SimpleGraphIndependentSetCount | definition | - | closed |
+| SimpleGraphNoIndependentSetFromCountZero | proof | - | closed |
 | SparseNeighborhoodSetBound | proof | - | closed |
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 116/122 closed
+**Summary:** 117/123 closed
