@@ -71,11 +71,12 @@
 | RamseyFromGraphPair | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, ProductDigraphForwardIndependentBound, SamplingKsFreeRamseyBound |
 | RamseyNumber | definition | definition | closed | - | - | RamseyProperty |
 | RamseyProperty | definition | definition | closed | - | - | Preamble |
+| RamseyPropertyCounterexampleTransport | helper | proof | closed | - | - | RamseyProperty |
 | RandomHomomorphismColoringBound | lemma | proof | open | - | - | F2ForwardIndependentNearDiagonalBound, NoMonochromaticCliqueColoring |
-| SamplingKsFreeRamseyBound | lemma | proof | open | - | - | RamseyNumber, SimpleGraphIndependentSetCount |
+| SamplingKsFreeRamseyBound | lemma | proof | open | - | - | RamseyNumber, RamseyPropertyCounterexampleTransport, SimpleGraphIndependentSetCount |
 | SimpleGraphIndependentSetCount | definition | definition | closed | - | - | Preamble |
 | SparseNeighborhoodSetBound | lemma | proof | closed | - | - | ExpanderMixingLemma |
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 74 nodes | **Closed:** 61 | **Open:** 13
+**Total:** 75 nodes | **Closed:** 62 | **Open:** 13

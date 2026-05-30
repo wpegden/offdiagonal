@@ -1,4 +1,5 @@
 import Tablet.RamseyNumber
+import Tablet.RamseyPropertyCounterexampleTransport
 import Tablet.SimpleGraphIndependentSetCount
 
 -- [TABLET NODE: SamplingKsFreeRamseyBound]

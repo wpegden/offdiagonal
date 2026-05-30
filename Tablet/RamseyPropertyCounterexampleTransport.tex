@@ -1,0 +1,44 @@
+\begin{helper}
+Let \(W\) be a finite type, let \(H\) be a simple graph on \(W\), and let
+\(s,k\) be natural numbers.  If \(H\) contains no \(s\)-clique and
+\(H^{c}\) contains no \(k\)-clique, then
+\(\mathrm{RamseyProperty}(s,k,|W|)\) is false.
+\end{helper}
+\begin{proof}
+Let \(e:W\to \operatorname{Fin}(|W|)\) be the equivalence supplied by the
+finite type structure, and define a graph \(G_{\operatorname{fin}}\) on
+\(\operatorname{Fin}(|W|)\) by pulling \(H\) back along \(e^{-1}\).  Thus, for
+vertices \(x,y\in \operatorname{Fin}(|W|)\), adjacency in
+\(G_{\operatorname{fin}}\) is exactly adjacency of \(e^{-1}x\) and
+\(e^{-1}y\) in \(H\).
+
+Assume for contradiction that
+\(\mathrm{RamseyProperty}(s,k,|W|)\) holds.  By
+\(\noderef{RamseyProperty}\), applied to the graph \(G_{\operatorname{fin}}\),
+there are two cases.
+
+First suppose there is a finite set \(S\subseteq \operatorname{Fin}(|W|)\)
+which is an \(s\)-clique in \(G_{\operatorname{fin}}\).  Map \(S\) into \(W\)
+using the embedding \(e^{-1}\).  Since this map is injective, the image has
+the same cardinality as \(S\), namely \(s\).  If two distinct vertices in the
+image are chosen, they come from two distinct vertices of \(S\); because \(S\)
+is a clique in \(G_{\operatorname{fin}}\), those two preimage vertices are
+adjacent in \(G_{\operatorname{fin}}\), and by the definition of the pullback
+graph their images under \(e^{-1}\) are adjacent in \(H\).  Hence the image is
+an \(s\)-clique in \(H\), contradicting the hypothesis that \(H\) has no
+\(s\)-clique.
+
+Second suppose there is a finite set \(I\subseteq \operatorname{Fin}(|W|)\)
+which is a \(k\)-clique in \(G_{\operatorname{fin}}^{c}\).  Again map \(I\)
+into \(W\) using \(e^{-1}\).  Injectivity preserves its cardinality, so the
+image has cardinality \(k\).  For two distinct vertices in the image, their
+preimages in \(I\) are distinct.  Since \(I\) is a clique in the complement of
+\(G_{\operatorname{fin}}\), the preimages are not adjacent in
+\(G_{\operatorname{fin}}\); by the pullback definition, their images are not
+adjacent in \(H\).  The same injectivity gives the vertices are distinct in
+\(W\).  Therefore the image is a \(k\)-clique in \(H^{c}\), contradicting the
+hypothesis that \(H^{c}\) has no \(k\)-clique.
+
+Both alternatives in the Ramsey property lead to contradictions.  Therefore
+\(\mathrm{RamseyProperty}(s,k,|W|)\) is false.
+\end{proof}
