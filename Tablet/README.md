@@ -78,10 +78,10 @@
 | RamseyPropertyNonempty | proof | - | closed |
 | RamseyPropertyStep | proof | - | closed |
 | RandomHomomorphismColoringBound | proof | - | open |
-| SamplingKsFreeRamseyBound | proof | - | open |
+| SamplingKsFreeRamseyBound | proof | - | closed |
 | SimpleGraphIndependentSetCount | definition | - | closed |
 | SparseNeighborhoodSetBound | proof | - | closed |
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 66/79 closed
+**Summary:** 67/79 closed

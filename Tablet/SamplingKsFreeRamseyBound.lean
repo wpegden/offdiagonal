@@ -590,4 +590,51 @@ theorem SamplingKsFreeRamseyBound {V : Type u} [Fintype V]
         p * (Fintype.card V : ℝ) - 1 ≤ sampleValue Umax :=
       hsampleAverage_lower.trans haverage_le_max
     simpa [sampleValue] using hthreshold_le_max
-  sorry
+  rcases hexistsSampledInducedGraph with ⟨U, hUlower, hU_KsFree⟩
+  let F : SimpleGraph {x : V // x ∈ U} := G.induce {x : V | x ∈ U}
+  rcases hfiniteDeletion F hU_KsFree with
+    ⟨Hverts, hHvertsFintype, H, hH_KsFree, hH_noIndependent, hH_card_ge⟩
+  letI : Fintype Hverts := hHvertsFintype
+  have hSubCard : Fintype.card {x : V // x ∈ U} = U.card := by
+    rw [Fintype.card_subtype]
+    congr 1
+    ext x
+    simp
+  have hdiff_le_nat :
+      (U.card : ℝ) -
+          ((SimpleGraphIndependentSetCount F k : ℕ) : ℝ) ≤
+        ((Fintype.card {x : V // x ∈ U} -
+            SimpleGraphIndependentSetCount F k : ℕ) : ℝ) := by
+    rw [hSubCard]
+    by_cases hle :
+        SimpleGraphIndependentSetCount F k ≤ U.card
+    · rw [Nat.cast_sub hle]
+    · have hlt : U.card < SimpleGraphIndependentSetCount F k :=
+        Nat.lt_of_not_ge hle
+      have hnonpos :
+          (U.card : ℝ) -
+              ((SimpleGraphIndependentSetCount F k : ℕ) : ℝ) ≤ 0 := by
+        exact sub_nonpos.mpr (by exact_mod_cast Nat.le_of_lt hlt)
+      exact hnonpos.trans (Nat.cast_nonneg _)
+  have hdeleted_real_le :
+      ((Fintype.card {x : V // x ∈ U} -
+          SimpleGraphIndependentSetCount F k : ℕ) : ℝ) ≤
+        (Fintype.card Hverts : ℝ) := by
+    exact_mod_cast hH_card_ge
+  have hRamsey :
+      Fintype.card Hverts < RamseyNumber s k :=
+    RamseyNumberLowerBoundFromCounterexample H s k hH_KsFree hH_noIndependent
+  have hRamseyReal :
+      (Fintype.card Hverts : ℝ) < (RamseyNumber s k : ℝ) := by
+    exact_mod_cast hRamsey
+  calc
+    p * (Fintype.card V : ℝ) - 1
+        ≤ (U.card : ℝ) -
+            ((SimpleGraphIndependentSetCount (G.induce {x : V | x ∈ U}) k : ℕ) : ℝ) := hUlower
+    _ = (U.card : ℝ) -
+            ((SimpleGraphIndependentSetCount F k : ℕ) : ℝ) := by
+          rfl
+    _ ≤ ((Fintype.card {x : V // x ∈ U} -
+            SimpleGraphIndependentSetCount F k : ℕ) : ℝ) := hdiff_le_nat
+    _ ≤ (Fintype.card Hverts : ℝ) := hdeleted_real_le
+    _ < (RamseyNumber s k : ℝ) := hRamseyReal
