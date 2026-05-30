@@ -24,6 +24,7 @@
 | F2BadTupleFixedIncreaseTrueLastBound | proof | - | closed |
 | F2BadTupleLastBChoicesBound | proof | - | closed |
 | F2BadTupleLastPairAmbientFiberBound | proof | - | closed |
+| F2BadTupleLastPairSpanFiberBound | proof | - | closed |
 | F2BadTupleNonincreaseStepProductBound | proof | - | closed |
 | F2BadTuplePrefixFiberBound | proof | - | closed |
 | F2BadTuplePrefixRestriction | proof | - | closed |
@@ -108,4 +109,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 94/103 closed
+**Summary:** 95/104 closed

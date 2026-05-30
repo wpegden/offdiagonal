@@ -1,0 +1,45 @@
+\begin{helper}
+Fix natural numbers \(p,m,t\) and a prefix tuple
+\[
+  pref:\{0,\ldots,m-1\}\to \mathbb F_2^p\times\mathbb F_2^p
+\]
+whose prefix rank is \(t\). The number of possible last pairs
+\((a,b)\in\mathbb F_2^p\times\mathbb F_2^p\) such that appending the dummy pair
+\((a,0)\) to \(pref\) still has rank \(t\), and such that
+\[
+  \langle a_{\ell+1},b\rangle=1
+  \quad\text{for every zero-based }\ell<m+1
+\]
+in the appended first-coordinate list, is at most
+\[
+  2^t\,2^{p-t}.
+\]
+\end{helper}
+\begin{proof}
+Let \(U\) be the span of the first coordinates in the prefix \(pref\). Since
+the prefix rank is \(t\), \(\noderef{F2BadTuplePrefixSpanCard}\) gives
+\[
+  |U|=2^t.
+\]
+
+Consider a counted pair \((a,b)\), and let \(ab_0\) be the tuple obtained by
+appending \((a,0)\) to \(pref\). The rank of the first \(m\) entries of
+\(ab_0\) is the prefix rank \(t\), by
+\(\noderef{F2BadTupleRankPrefixRestriction}\), while the final rank of \(ab_0\)
+is also \(t\) by the defining condition on the counted pair. Thus the rank
+does not increase when \(a\) is appended. Applying
+\(\noderef{F2BadTupleNonincreaseStepProductBound}\) to this last step shows
+that \(a\) lies in the span of the previous first coordinates. Those previous
+first coordinates are exactly the first coordinates of \(pref\), so \(a\in U\).
+
+Now inject the counted pairs into the disjoint union over \(a\in U\) of the
+possible second coordinates \(b\) satisfying the same final rank and
+dot-product conditions. This map records \(a\) as an element of \(U\) and keeps
+the same \(b\); it is injective because the two components recover the original
+pair. For each fixed \(a\in U\), the number of possible \(b\)'s is at most
+\(2^{p-t}\) by \(\noderef{F2BadTupleLastBChoicesBound}\). Therefore the total
+number of counted pairs is at most
+\[
+  \sum_{a\in U} 2^{p-t}=|U|\,2^{p-t}=2^t\,2^{p-t}.
+\]
+\end{proof}
