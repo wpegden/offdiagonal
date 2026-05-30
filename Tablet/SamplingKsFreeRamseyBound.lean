@@ -504,4 +504,86 @@ theorem SamplingKsFreeRamseyBound {V : Type u} [Fintype V]
       _ = Real.rpow p (k : ℝ) *
           ((SimpleGraphIndependentSetCount G k : ℕ) : ℝ) :=
             hsumFixedIndependentSetMasses
+  have hexistsSampledInducedGraph :
+      ∃ U : Finset V,
+        p * (Fintype.card V : ℝ) - 1 ≤
+          (U.card : ℝ) -
+            ((SimpleGraphIndependentSetCount (G.induce {x : V | x ∈ U}) k : ℕ) : ℝ) ∧
+        ¬ ∃ S : Finset {x : V // x ∈ U}, (G.induce {x : V | x ∈ U}).IsNClique s S := by
+    let sampleValue : Finset V → ℝ := fun U =>
+      (U.card : ℝ) -
+        ((SimpleGraphIndependentSetCount (G.induce {x : V | x ∈ U}) k : ℕ) : ℝ)
+    have hsampleAverage :
+        (∑ U : Finset V, bernoulliWeight U * sampleValue U) =
+          p * (Fintype.card V : ℝ) -
+            Real.rpow p (k : ℝ) *
+              ((SimpleGraphIndependentSetCount G k : ℕ) : ℝ) := by
+      dsimp [sampleValue]
+      calc
+        (∑ U : Finset V,
+            bernoulliWeight U *
+              ((U.card : ℝ) -
+                ((SimpleGraphIndependentSetCount (G.induce {x : V | x ∈ U}) k : ℕ) : ℝ)))
+            =
+              ∑ U : Finset V,
+                (bernoulliWeight U * (U.card : ℝ) -
+                  bernoulliWeight U *
+                    ((SimpleGraphIndependentSetCount (G.induce {x : V | x ∈ U}) k : ℕ) : ℝ)) := by
+              refine Finset.sum_congr rfl ?_
+              intro U hU
+              ring
+        _ = (∑ U : Finset V, bernoulliWeight U * (U.card : ℝ)) -
+              ∑ U : Finset V,
+                bernoulliWeight U *
+                  ((SimpleGraphIndependentSetCount (G.induce {x : V | x ∈ U}) k : ℕ) : ℝ) := by
+              rw [Finset.sum_sub_distrib]
+        _ = p * (Fintype.card V : ℝ) -
+            Real.rpow p (k : ℝ) *
+              ((SimpleGraphIndependentSetCount G k : ℕ) : ℝ) := by
+              rw [hbernoulliExpectedVertexCount, hbernoulliExpectedIndependentCount]
+    have hsampleAverage_lower :
+        p * (Fintype.card V : ℝ) - 1 ≤
+          ∑ U : Finset V, bernoulliWeight U * sampleValue U := by
+      rw [hsampleAverage]
+      linarith
+    have huniv_nonempty : (Finset.univ : Finset (Finset V)).Nonempty := by
+      exact ⟨∅, by simp⟩
+    obtain ⟨Umax, hUmax_mem, hUmax_max⟩ :=
+      Finset.exists_max_image (s := (Finset.univ : Finset (Finset V))) sampleValue huniv_nonempty
+    have haverage_le_max :
+        (∑ U : Finset V, bernoulliWeight U * sampleValue U) ≤ sampleValue Umax := by
+      calc
+        (∑ U : Finset V, bernoulliWeight U * sampleValue U)
+            ≤ ∑ U : Finset V, bernoulliWeight U * sampleValue Umax := by
+              refine Finset.sum_le_sum ?_
+              intro U hU
+              exact mul_le_mul_of_nonneg_left (hUmax_max U (by simp)) (hbernoulliWeight_nonneg U)
+        _ = (∑ U : Finset V, bernoulliWeight U) * sampleValue Umax := by
+              rw [Finset.sum_mul]
+        _ = sampleValue Umax := by
+              rw [hbernoulliWeight_total]
+              ring
+    have hinducedKsFree :
+        ∀ U : Finset V,
+          ¬ ∃ S : Finset {x : V // x ∈ U}, (G.induce {x : V | x ∈ U}).IsNClique s S := by
+      intro U
+      rintro ⟨S, hS⟩
+      apply hKs
+      let emb : {x : V // x ∈ U} ↪ V := ⟨Subtype.val, Subtype.val_injective⟩
+      refine ⟨S.map emb, ?_⟩
+      refine ⟨?_, ?_⟩
+      · intro x hx y hy hxy
+        rcases Finset.mem_map.mp hx with ⟨x', hx', rfl⟩
+        rcases Finset.mem_map.mp hy with ⟨y', hy', rfl⟩
+        have hxy' : x' ≠ y' := by
+          intro hxy_eq
+          exact hxy (by simp [emb, hxy_eq])
+        have hadj := hS.isClique hx' hy' hxy'
+        simpa [emb, SimpleGraph.induce_adj] using hadj
+      · simpa [emb] using (Finset.card_map (f := emb) (s := S)).trans hS.card_eq
+    refine ⟨Umax, ?_, hinducedKsFree Umax⟩
+    have hthreshold_le_max :
+        p * (Fintype.card V : ℝ) - 1 ≤ sampleValue Umax :=
+      hsampleAverage_lower.trans haverage_le_max
+    simpa [sampleValue] using hthreshold_le_max
   sorry
