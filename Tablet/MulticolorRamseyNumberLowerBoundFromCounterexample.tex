@@ -1,0 +1,36 @@
+\begin{helper}
+Let \(\ell>0\).  If there is an \(\ell\)-coloring
+\[
+  \chi:E(K_n)\to[\ell]
+\]
+with no monochromatic clique of size \(s\), in the sense of
+\(\noderef{NoMonochromaticCliqueColoring}\), then
+\[
+  n<\noderef{MulticolorRamseyNumber}(s,\ell).
+\]
+\end{helper}
+\begin{proof}
+Let \(\chi\) be such a coloring.  The definition
+\(\noderef{MulticolorRamseyProperty}(s,\ell,n)\) says that every
+\(\ell\)-coloring of \(K_n\) has a monochromatic \(s\)-clique.  Applying this
+property to the particular coloring \(\chi\) would contradict
+\(\noderef{NoMonochromaticCliqueColoring}\).  Hence
+\(\noderef{MulticolorRamseyProperty}(s,\ell,n)\) is false.
+
+By \(\noderef{MulticolorRamseyPropertyNonempty}\), the set
+\[
+  A=\{m:\noderef{MulticolorRamseyProperty}(s,\ell,m)\}
+\]
+is nonempty.  Therefore the natural-number infimum defining
+\(\noderef{MulticolorRamseyNumber}(s,\ell)\) is a member of \(A\).  Suppose,
+for contradiction, that
+\[
+  \noderef{MulticolorRamseyNumber}(s,\ell)\le n.
+\]
+Since the Ramsey property is monotone by
+\(\noderef{MulticolorRamseyPropertyMonotone}\), membership of the infimum in
+\(A\) implies \(\noderef{MulticolorRamseyProperty}(s,\ell,n)\).  This
+contradicts the previous paragraph.  Hence the assumed inequality is false,
+and so \(n<\noderef{MulticolorRamseyNumber}(s,\ell)\).
+\end{proof}
+

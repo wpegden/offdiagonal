@@ -1,0 +1,44 @@
+\begin{helper}
+For every \(s\) and every positive number of colors \(\ell\), the set
+\[
+  \{n:\noderef{MulticolorRamseyProperty}(s,\ell,n)\}
+\]
+is nonempty.
+\end{helper}
+\begin{proof}
+We prove the claim by induction on \(\ell\), considering only positive
+\(\ell\).  If \(\ell=1\), take \(n=s\).  For any one-color edge-coloring of
+\(K_s\), the whole vertex set has size \(s\), and every edge in it has the
+unique available color.  Hence
+\(\noderef{MulticolorRamseyProperty}(s,1,s)\) holds.
+
+Now suppose the claim is known for a positive number \(\ell\) of colors, and
+consider \(\ell+1\) colors.  By the induction hypothesis, choose \(m\) such
+that \(\noderef{MulticolorRamseyProperty}(s,\ell,m)\) holds.  By the ordinary
+two-color nonemptiness theorem \(\noderef{RamseyPropertyNonempty}\), choose
+\(N\) such that every red-blue coloring of \(K_N\) has either a red
+\(s\)-clique or a blue \(m\)-clique.
+
+Let \(\chi:E(K_N)\to[\ell+1]\) be any \((\ell+1)\)-coloring.  Build a
+two-coloring of the same complete graph by declaring an edge red exactly when
+\(\chi\) gives it the last color \(\ell+1\), and blue otherwise.  The
+two-color Ramsey property at \(N\) gives two cases.
+
+In the first case there is a red \(s\)-clique.  By the definition of the
+two-coloring, every edge of this clique has the last color in \(\chi\), so it
+is a monochromatic \(s\)-clique for \(\chi\).
+
+In the second case there is a blue \(m\)-clique \(I\).  On every edge inside
+\(I\), the color under \(\chi\) is not the last color, so it can be regarded as
+one of the first \(\ell\) colors.  After listing \(I\) as an \(m\)-element
+vertex set, this gives an \(\ell\)-coloring of the edges of \(K_m\).  Applying
+\(\noderef{MulticolorRamseyProperty}(s,\ell,m)\) to that restricted coloring
+produces an \(s\)-element subset whose edges all have some first color
+\(c\le\ell\).  Viewed back inside \(K_N\), the same subset is monochromatic
+with color \(c\) for the original \((\ell+1)\)-coloring.
+
+Thus every \((\ell+1)\)-coloring of \(K_N\) has a monochromatic \(s\)-clique,
+so \(\noderef{MulticolorRamseyProperty}(s,\ell+1,N)\) holds.  This completes
+the induction and proves nonemptiness for every positive \(\ell\).
+\end{proof}
+

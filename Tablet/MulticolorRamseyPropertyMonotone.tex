@@ -1,0 +1,24 @@
+\begin{helper}
+Let \(s,\ell,m,n\) be natural numbers with \(m\le n\).  If
+\(\noderef{MulticolorRamseyProperty}(s,\ell,m)\) holds, then
+\(\noderef{MulticolorRamseyProperty}(s,\ell,n)\) holds.
+\end{helper}
+\begin{proof}
+Assume \(\noderef{MulticolorRamseyProperty}(s,\ell,m)\), and let
+\(\chi:E(K_n)\to[\ell]\) be any \(\ell\)-coloring of the edges on the vertex
+set \([n]\).  Embed \([m]\) into \([n]\) by the initial inclusion.  Restrict
+\(\chi\) along this embedding: the color of the unordered pair \(\{x,y\}\) in
+\([m]\) is defined to be the color of the unordered pair of its images in
+\([n]\).
+
+By the Ramsey property at \(m\), this restricted coloring has an \(s\)-element
+set \(S\subseteq[m]\) whose edges all have one color \(c\in[\ell]\).  Map
+\(S\) into \([n]\) by the same inclusion.  Since the inclusion is injective,
+the image still has cardinality \(s\).  If two distinct image vertices come
+from \(x,y\in S\), then their edge color in the original coloring is exactly
+the edge color of \(\{x,y\}\) in the restricted coloring, hence is \(c\).
+Thus the image of \(S\) is a monochromatic \(s\)-clique in the original
+coloring.  Because the original coloring was arbitrary,
+\(\noderef{MulticolorRamseyProperty}(s,\ell,n)\) holds.
+\end{proof}
+

@@ -100,8 +100,11 @@
 | LoopGraphZeroSumEuclideanEigenvalueBound | helper | proof | closed | - | - | LoopGraphNdLambda, LoopGraphZeroSumEuclideanEigenpairNonprincipal |
 | MainTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, PolarityGraphParameters, RamseyFromGraphPair |
 | MulticolorRamseyNumber | definition | definition | closed | - | - | MulticolorRamseyProperty |
+| MulticolorRamseyNumberLowerBoundFromCounterexample | helper | proof | closed | - | - | MulticolorRamseyNumber, MulticolorRamseyPropertyMonotone, MulticolorRamseyPropertyNonempty, NoMonochromaticCliqueColoring |
 | MulticolorRamseyProperty | definition | definition | closed | - | - | Preamble |
-| MulticolorTheorem | theorem | proof | open | - | - | MulticolorRamseyNumber, RandomHomomorphismColoringBound |
+| MulticolorRamseyPropertyMonotone | helper | proof | closed | - | - | MulticolorRamseyProperty |
+| MulticolorRamseyPropertyNonempty | helper | proof | closed | - | - | MulticolorRamseyProperty, RamseyPropertyNonempty |
+| MulticolorTheorem | theorem | proof | closed | - | - | MulticolorRamseyNumber, MulticolorRamseyNumberLowerBoundFromCounterexample, RandomHomomorphismColoringBound |
 | NoMonochromaticCliqueColoring | definition | definition | closed | - | - | Preamble |
 | NoSkewBipartiteConfiguration | definition | definition | closed | - | - | LoopGraph |
 | OffDiagonalGeneralTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, PolarityGraphParameters, RamseyFromGraphPair |
@@ -145,4 +148,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 141 nodes | **Closed:** 138 | **Open:** 3
+**Total:** 144 nodes | **Closed:** 142 | **Open:** 2

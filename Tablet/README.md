@@ -102,8 +102,11 @@
 | LoopGraphZeroSumEuclideanEigenvalueBound | proof | - | closed |
 | MainTheorem | proof | - | open |
 | MulticolorRamseyNumber | definition | - | closed |
+| MulticolorRamseyNumberLowerBoundFromCounterexample | proof | - | closed |
 | MulticolorRamseyProperty | definition | - | closed |
-| MulticolorTheorem | proof | - | open |
+| MulticolorRamseyPropertyMonotone | proof | - | closed |
+| MulticolorRamseyPropertyNonempty | proof | - | closed |
+| MulticolorTheorem | proof | - | closed |
 | NoMonochromaticCliqueColoring | definition | - | closed |
 | NoSkewBipartiteConfiguration | definition | - | closed |
 | OffDiagonalGeneralTheorem | proof | - | open |
@@ -146,4 +149,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 138/141 closed
+**Summary:** 142/144 closed
