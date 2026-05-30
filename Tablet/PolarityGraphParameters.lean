@@ -17,18 +17,10 @@ theorem PolarityGraphParameters (K : Type u) [Field K] [Fintype K] (t q : ℕ)
           ((q ^ (t - 1) - 1) / (q - 1)) : ℕ) : ℝ)) := by
 -- BODY
   dsimp [LoopGraphNdLambda]
-  constructor
-  · rw [← Nat.card_eq_fintype_card]
-    rw [Projectivization.card'']
-    rw [Nat.card_eq_fintype_card (α := Fin (t + 1) → K),
-      Nat.card_eq_fintype_card (α := K), Fintype.card_fun, Fintype.card_fin]
-    rw [← hq]
-  constructor
-  · dsimp [LoopGraphSymmetric, PolarityGraph]
-    intro x y hxy
-    exact Projectivization.orthogonal_comm.mp hxy
-  constructor
-  · classical
+  have hdegree :
+      ∀ v : Projectivization K (Fin (t + 1) → K),
+        LoopGraphDegree (PolarityGraph K t) v = ((q ^ t - 1) / (q - 1)) := by
+    classical
     intro v
     induction v using Projectivization.ind with
     | h x hx =>
@@ -192,6 +184,18 @@ theorem PolarityGraphParameters (K : Type u) [Field K] [Fintype K] (t q : ℕ)
       rw [Nat.card_eq_fintype_card (α := φ.ker), hker_card]
       rw [Nat.card_eq_fintype_card (α := K), ← hq]
   constructor
+  · rw [← Nat.card_eq_fintype_card]
+    rw [Projectivization.card'']
+    rw [Nat.card_eq_fintype_card (α := Fin (t + 1) → K),
+      Nat.card_eq_fintype_card (α := K), Fintype.card_fun, Fintype.card_fin]
+    rw [← hq]
+  constructor
+  · dsimp [LoopGraphSymmetric, PolarityGraph]
+    intro x y hxy
+    exact Projectivization.orthogonal_comm.mp hxy
+  constructor
+  · exact hdegree
+  constructor
   · classical
     intro mu hmu
     dsimp [LoopGraphNonprincipalEigenvalue] at hmu
@@ -306,6 +310,12 @@ theorem PolarityGraphParameters (K : Type u) [Field K] [Fintype K] (t q : ℕ)
       dsimp [LoopGraphDegree, PolarityGraph]
       simp [Projectivization.orthogonal_comm]
       rfl
+    have hdiag_common_count :
+        (Finset.univ.filter
+          (fun w : Projectivization K (Fin (t + 1) → K) =>
+            PolarityGraph K t v0 w ∧ PolarityGraph K t w v0)).card =
+          ((q ^ t - 1) / (q - 1)) := by
+      rw [hdiag_common_eq_degree, hdegree v0]
     have hrep_linearIndependent_of_ne
         (u : Projectivization K (Fin (t + 1) → K)) (hu : u ≠ v0) :
         LinearIndependent K ![Projectivization.rep v0, Projectivization.rep u] := by
@@ -360,5 +370,115 @@ theorem PolarityGraphParameters (K : Type u) [Field K] [Fintype K] (t q : ℕ)
           have huw : PolarityGraph K t u w := by
             simpa [Projectivization.mk_rep, PolarityGraph] using hmk
           exact Projectivization.orthogonal_comm.mp huw
+    let commonNeighborFunctional (u : Projectivization K (Fin (t + 1) → K)) :
+        (Fin (t + 1) → K) →ₗ[K] (Fin 2 → K) :=
+      { toFun := fun z =>
+          ![Projectivization.rep v0 ⬝ᵥ z, Projectivization.rep u ⬝ᵥ z]
+        map_add' := by
+          intro z z'
+          ext i
+          fin_cases i <;> simp [dotProduct_add]
+        map_smul' := by
+          intro a z
+          ext i
+          fin_cases i <;> simp [dotProduct_smul] }
+    have hcommonNeighborFunctional_ker
+        (u : Projectivization K (Fin (t + 1) → K)) :
+        LinearMap.ker (commonNeighborFunctional u) =
+          { z : Fin (t + 1) → K |
+            Projectivization.rep v0 ⬝ᵥ z = 0 ∧ Projectivization.rep u ⬝ᵥ z = 0 } := by
+      ext z
+      simp [commonNeighborFunctional]
+    have hcommonNeighborFunctional_range
+        (u : Projectivization K (Fin (t + 1) → K)) :
+        ∃ ψ : Projectivization K (LinearMap.ker (commonNeighborFunctional u)) →
+            Projectivization K (Fin (t + 1) → K),
+          Function.Injective ψ ∧
+            Set.range ψ =
+              { w : Projectivization K (Fin (t + 1) → K) |
+                PolarityGraph K t v0 w ∧ PolarityGraph K t w u } := by
+      let Φ := commonNeighborFunctional u
+      let ι : Φ.ker →ₗ[K] (Fin (t + 1) → K) := Φ.ker.subtype
+      have hι_inj : Function.Injective ι := Φ.ker.injective_subtype
+      let ψ : Projectivization K Φ.ker → Projectivization K (Fin (t + 1) → K) :=
+        Projectivization.map ι hι_inj
+      refine ⟨ψ, Projectivization.map_injective ι hι_inj, ?_⟩
+      ext w
+      constructor
+      · rintro ⟨z, rfl⟩
+        induction z using Projectivization.ind with
+        | h y hy =>
+          change PolarityGraph K t v0
+              (Projectivization.map ι hι_inj (Projectivization.mk K y hy)) ∧
+            PolarityGraph K t
+              (Projectivization.map ι hι_inj (Projectivization.mk K y hy)) u
+          rw [Projectivization.map_mk]
+          have hyι : ι y ≠ 0 := by
+            intro hzero
+            exact hy (hι_inj (by simpa using hzero))
+          constructor
+          · have hy0 : Projectivization.rep v0 ⬝ᵥ (y : Fin (t + 1) → K) = 0 := by
+              have h0 := congr_fun (show Φ y = 0 from y.property) (0 : Fin 2)
+              change Projectivization.rep v0 ⬝ᵥ (y : Fin (t + 1) → K) = 0 at h0
+              exact h0
+            have hmk :
+                Projectivization.orthogonal
+                  (Projectivization.mk K (Projectivization.rep v0)
+                    (Projectivization.rep_nonzero v0))
+                  (Projectivization.mk K (ι y) hyι) :=
+              (Projectivization.orthogonal_mk
+                (Projectivization.rep_nonzero v0) hyι).mpr hy0
+            simpa [Projectivization.mk_rep, PolarityGraph] using hmk
+          · have hyu : Projectivization.rep u ⬝ᵥ (y : Fin (t + 1) → K) = 0 := by
+              have h1 := congr_fun (show Φ y = 0 from y.property) (1 : Fin 2)
+              change Projectivization.rep u ⬝ᵥ (y : Fin (t + 1) → K) = 0 at h1
+              exact h1
+            have hmk :
+                Projectivization.orthogonal
+                  (Projectivization.mk K (Projectivization.rep u)
+                    (Projectivization.rep_nonzero u))
+                  (Projectivization.mk K (ι y) hyι) :=
+              (Projectivization.orthogonal_mk
+                (Projectivization.rep_nonzero u) hyι).mpr hyu
+            have huw : PolarityGraph K t u (Projectivization.mk K (ι y) hyι) := by
+              simpa [Projectivization.mk_rep, PolarityGraph] using hmk
+            exact Projectivization.orthogonal_comm.mp huw
+      · intro hw
+        induction w using Projectivization.ind with
+        | h z hz =>
+          have hz0 : Projectivization.rep v0 ⬝ᵥ z = 0 := by
+            have hmk :
+                Projectivization.orthogonal
+                  (Projectivization.mk K (Projectivization.rep v0)
+                    (Projectivization.rep_nonzero v0))
+                  (Projectivization.mk K z hz) := by
+              simpa [Projectivization.mk_rep, PolarityGraph] using hw.1
+            exact (Projectivization.orthogonal_mk
+              (Projectivization.rep_nonzero v0) hz).mp hmk
+          have hzu : Projectivization.rep u ⬝ᵥ z = 0 := by
+            have huw : PolarityGraph K t u (Projectivization.mk K z hz) :=
+              Projectivization.orthogonal_comm.mp hw.2
+            have hmk :
+                Projectivization.orthogonal
+                  (Projectivization.mk K (Projectivization.rep u)
+                    (Projectivization.rep_nonzero u))
+                  (Projectivization.mk K z hz) := by
+              simpa [Projectivization.mk_rep, PolarityGraph] using huw
+            exact (Projectivization.orthogonal_mk
+              (Projectivization.rep_nonzero u) hz).mp hmk
+          have hzker : z ∈ Φ.ker := by
+            change commonNeighborFunctional u z = 0
+            ext i
+            fin_cases i
+            · exact hz0
+            · exact hzu
+          refine ⟨Projectivization.mk K (⟨z, hzker⟩ : Φ.ker) ?_, ?_⟩
+          · intro hzero
+            exact hz (congrArg Subtype.val hzero)
+          · change Projectivization.map ι hι_inj
+                (Projectivization.mk K (⟨z, hzker⟩ : Φ.ker) ?_) =
+              Projectivization.mk K z hz
+            rw [Projectivization.map_mk]
+            rfl
     sorry
   · exact Real.sqrt_nonneg _
