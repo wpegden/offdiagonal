@@ -1,0 +1,40 @@
+\begin{helper}
+Let \(n,d_F,d_G\) be natural numbers with \(n>0\), \(d_F>0\), and \(d_G>0\),
+and let
+\(\lambda_F,\lambda_G,\eta\) be real numbers such that
+\[
+  \eta=
+  \max\left\{
+    \frac{\lambda_G^2}{d_G^2},
+    \frac{\lambda_F\lambda_G}{d_Fd_G}
+  \right\}.
+\]
+Suppose
+\[
+  \frac1{n^2}\le \frac{\lambda_G^2}{d_G^2},\qquad
+  \frac{\lambda_G^2}{d_G^2}\le 1,\qquad
+  \frac{\lambda_F\lambda_G}{d_Fd_G}\le 1.
+\]
+Then
+\[
+  \eta>0,\qquad \frac1{n^2}\le \eta,\qquad \eta\le 1.
+\]
+\end{helper}
+\begin{proof}
+Since \(n>0\), we have \(1/n^2>0\).  The first assumed component estimate and
+the inequality
+\[
+  \frac{\lambda_G^2}{d_G^2}
+  \le
+  \max\left\{
+    \frac{\lambda_G^2}{d_G^2},
+    \frac{\lambda_F\lambda_G}{d_Fd_G}
+  \right\}
+  =\eta
+\]
+give \(1/n^2\le\eta\).  Combining this with \(1/n^2>0\) gives \(\eta>0\).
+
+For the upper bound, both entries in the defining maximum for \(\eta\) are at
+most \(1\) by hypothesis.  Therefore their maximum is at most \(1\), so
+\(\eta\le1\).
+\end{proof}

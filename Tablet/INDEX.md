@@ -99,7 +99,8 @@
 | LoopGraphZeroSumAdjacencyEuclideanOperator | definition | definition | closed | - | - | LoopGraphAdjacencyEuclideanOperatorMapsZeroSum, LoopGraphEuclideanZeroSumSubmodule, LoopGraphNdLambda |
 | LoopGraphZeroSumEuclideanEigenpairNonprincipal | helper | proof | closed | - | - | LoopGraphEuclideanZeroSumSubmodule, LoopGraphNonprincipalEigenvalue |
 | LoopGraphZeroSumEuclideanEigenvalueBound | helper | proof | closed | - | - | LoopGraphNdLambda, LoopGraphZeroSumEuclideanEigenpairNonprincipal |
-| MainTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, LoopGraphComplementNdLambda, MainTheoremFiniteAbsorption, MainTheoremLargeKComparison, MainTheoremPolaritySetup, PolarityGraphParameters, RamseyFromGraphPair |
+| MainTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, LoopGraphComplementNdLambda, MainTheoremEtaBounds, MainTheoremFiniteAbsorption, MainTheoremLargeKComparison, MainTheoremPolaritySetup, PolarityGraphParameters, RamseyFromGraphPair |
+| MainTheoremEtaBounds | helper | proof | closed | - | - | Preamble |
 | MainTheoremFiniteAbsorption | helper | proof | closed | - | - | RamseyNumberPositive |
 | MainTheoremLargeKComparison | helper | proof | closed | - | - | Preamble |
 | MainTheoremPolaritySetup | helper | proof | closed | - | - | ComplementPolarityPairHsFree, LoopGraphComplementNdLambda, PolarityGraphParameters |
@@ -153,4 +154,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 149 nodes | **Closed:** 147 | **Open:** 2
+**Total:** 150 nodes | **Closed:** 148 | **Open:** 2

@@ -1,5 +1,6 @@
 import Tablet.ComplementPolarityPairHsFree
 import Tablet.LoopGraphComplementNdLambda
+import Tablet.MainTheoremEtaBounds
 import Tablet.MainTheoremFiniteAbsorption
 import Tablet.MainTheoremLargeKComparison
 import Tablet.MainTheoremPolaritySetup
