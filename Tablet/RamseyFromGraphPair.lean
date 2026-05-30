@@ -111,6 +111,87 @@ theorem RamseyFromGraphPair {V : Type u} [Fintype V]
             ≤ Real.rpow p (k : ℝ) * B := by
                 exact mul_le_mul_of_nonneg_left hGamma_count_bound hp_pow_nonneg
         _ = 1 := hp_pow_mul_B
+    have hM_pos : (0 : ℝ) < ((dF * n : ℕ) : ℝ) := by
+      exact_mod_cast Nat.mul_pos hdF hn_pos
+    have hM_cast :
+        ((dF * n : ℕ) : ℝ) = (dF : ℝ) * (n : ℝ) := by
+      norm_num
+    have hk_le_etaM :
+        (k : ℝ) ≤ eta * ((dF * n : ℕ) : ℝ) := by
+      simpa [hM_cast, mul_assoc] using hkRange.2
+    have hetaM_div_k_ge_one :
+        1 ≤ eta * ((dF * n : ℕ) : ℝ) / (k : ℝ) := by
+      rw [le_div_iff₀ hkR_pos]
+      simpa using hk_le_etaM
+    let C : ℝ :=
+      (16 : ℝ) * Real.exp 1 *
+        (eta * ((dF * n : ℕ) : ℝ) / (k : ℝ))
+    have hC_ge_one : 1 ≤ C := by
+      have h16_ge_one : (1 : ℝ) ≤ 16 := by norm_num
+      have hexp_ge_one : (1 : ℝ) ≤ Real.exp 1 :=
+        Real.one_le_exp (by norm_num)
+      have h16exp_ge_one : (1 : ℝ) ≤ (16 : ℝ) * Real.exp 1 := by
+        calc
+          (1 : ℝ) = 1 * 1 := by ring
+          _ ≤ (16 : ℝ) * Real.exp 1 := by
+            exact mul_le_mul h16_ge_one hexp_ge_one (by norm_num) (by norm_num)
+      have hetaM_div_nonneg :
+          0 ≤ eta * ((dF * n : ℕ) : ℝ) / (k : ℝ) := by positivity
+      calc
+        (1 : ℝ) = 1 * 1 := by ring
+        _ ≤ ((16 : ℝ) * Real.exp 1) *
+              (eta * ((dF * n : ℕ) : ℝ) / (k : ℝ)) := by
+            exact mul_le_mul h16exp_ge_one hetaM_div_k_ge_one
+              (by norm_num) (by positivity)
+        _ = C := by ring
+    have hCpow_ge_one : (1 : ℝ) ≤ C ^ k := by
+      simpa using pow_le_pow_left₀ (show (0 : ℝ) ≤ 1 by norm_num) hC_ge_one k
+    have heta_pow_le :
+        eta ^ k ≤ Real.rpow eta ((k : ℝ) - w) := by
+      have hw_nonneg : 0 ≤ w := by
+        have hnR_ge_one : (1 : ℝ) ≤ (n : ℝ) := by
+          exact_mod_cast (by omega : 1 ≤ n)
+        rw [hw]
+        positivity
+      have hkw_le : (k : ℝ) - w ≤ (k : ℝ) := by linarith
+      calc
+        eta ^ k = Real.rpow eta (k : ℝ) := by
+          exact (Real.rpow_natCast eta k).symm
+        _ ≤ Real.rpow eta ((k : ℝ) - w) :=
+          Real.rpow_le_rpow_of_exponent_ge heta_pos heta_upper hkw_le
+    have hCpow_eq :
+        C ^ k =
+          (Real.exp 1 / (k : ℝ)) ^ k *
+            ((16 : ℝ) ^ k * eta ^ k *
+              ((dF * n : ℕ) : ℝ) ^ k) := by
+      dsimp [C]
+      field_simp [ne_of_gt hkR_pos]
+      ring
+    have hCpow_le_B : C ^ k ≤ B := by
+      rw [hCpow_eq]
+      dsimp [B]
+      have hcoef_nonneg : 0 ≤ (Real.exp 1 / (k : ℝ)) ^ k := by positivity
+      have h16pow_nonneg : 0 ≤ (16 : ℝ) ^ k := by positivity
+      have hMpow_nonneg : 0 ≤ ((dF * n : ℕ) : ℝ) ^ k := by positivity
+      apply mul_le_mul_of_nonneg_left ?_ hcoef_nonneg
+      apply mul_le_mul_of_nonneg_right ?_ hMpow_nonneg
+      exact mul_le_mul_of_nonneg_left heta_pow_le h16pow_nonneg
+    have hB_ge_one : (1 : ℝ) ≤ B :=
+      hCpow_ge_one.trans hCpow_le_B
+    have hp_le_one : p ≤ 1 := by
+      dsimp [p]
+      exact Real.rpow_le_one_of_one_le_of_nonpos hB_ge_one
+        (by
+          have hdiv_nonneg : 0 ≤ (1 : ℝ) / (k : ℝ) := by positivity
+          rw [neg_div]
+          exact neg_nonpos.mpr hdiv_nonneg)
+    have hsampling :
+        p * (Fintype.card W : ℝ) - 1 < (RamseyNumber s k : ℝ) :=
+      SamplingKsFreeRamseyBound Gamma s k p hGamma_KsFree hk hp_nonneg hp_le_one
+        hsampling_count
+    have hsampling_M :
+        p * ((dF * n : ℕ) : ℝ) - 1 < (RamseyNumber s k : ℝ) := by
+      simpa [hW_card] using hsampling
     sorry
   · intro hkRange
     sorry
