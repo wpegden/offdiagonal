@@ -68,7 +68,7 @@
 | ProductDigraphTupleHasShrinkingSequence | definition | definition | closed | - | - | ForwardIndependentTuple, LoopGraphEdgeCountBetween, ProductDigraph |
 | ProductDigraphVertex | definition | definition | closed | - | - | LoopGraph |
 | ProductDigraphVertexCard | helper | proof | closed | - | - | LoopGraphNdLambda, ProductDigraphVertex |
-| RamseyFromGraphPair | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, ProductDigraphForwardIndependentBound, SamplingKsFreeRamseyBound |
+| RamseyFromGraphPair | theorem | proof | closed | - | - | DigraphToGraphIndependentSetBound, ProductDigraphForwardIndependentBound, SamplingKsFreeRamseyBound |
 | RamseyNumber | definition | definition | closed | - | - | RamseyProperty |
 | RamseyNumberLowerBoundFromCounterexample | helper | proof | closed | - | - | RamseyNumber, RamseyPropertyCounterexampleTransport, RamseyPropertyMonotone, RamseyPropertyNonempty |
 | RamseyProperty | definition | definition | closed | - | - | Preamble |
@@ -83,4 +83,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 79 nodes | **Closed:** 67 | **Open:** 12
+**Total:** 79 nodes | **Closed:** 68 | **Open:** 11

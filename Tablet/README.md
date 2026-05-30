@@ -69,7 +69,7 @@
 | ProductDigraphTupleHasShrinkingSequence | definition | - | closed |
 | ProductDigraphVertex | definition | - | closed |
 | ProductDigraphVertexCard | proof | - | closed |
-| RamseyFromGraphPair | proof | - | open |
+| RamseyFromGraphPair | proof | - | closed |
 | RamseyNumber | definition | - | closed |
 | RamseyNumberLowerBoundFromCounterexample | proof | - | closed |
 | RamseyProperty | definition | - | closed |
@@ -84,4 +84,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 67/79 closed
+**Summary:** 68/79 closed

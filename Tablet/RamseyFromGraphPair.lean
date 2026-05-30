@@ -27,8 +27,12 @@ theorem RamseyFromGraphPair {V : Type u} [Fintype V]
         (k : ℝ) / (100 * eta) - 1 ≤ (RamseyNumber s k : ℝ)) := by
 -- BODY
   classical
-  constructor
-  · intro hkRange
+  have hfirst :
+      (w ≤ (k : ℝ) ∧ (k : ℝ) ≤ eta * (dF : ℝ) * (n : ℝ)) →
+        (1 / 50 : ℝ) * (k : ℝ) *
+            Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) - 1 ≤
+          (RamseyNumber s k : ℝ) := by
+    intro hkRange
     have hn_pos : 0 < n := by omega
     have hk_pos : 0 < k := Nat.lt_of_lt_of_le Nat.zero_lt_one hk
     have hnR_pos : (0 : ℝ) < (n : ℝ) := by exact_mod_cast hn_pos
@@ -289,5 +293,159 @@ theorem RamseyFromGraphPair {V : Type u} [Fintype V]
             Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) - 1
           ≤ p * M - 1 := by linarith
       _ ≤ (RamseyNumber s k : ℝ) := le_of_lt hsampling_M'
+  constructor
+  · exact hfirst
   · intro hkRange
-    sorry
+    have hn_pos : 0 < n := by omega
+    have hk_pos : 0 < k := Nat.lt_of_lt_of_le Nat.zero_lt_one hk
+    have hnR_pos : (0 : ℝ) < (n : ℝ) := by exact_mod_cast hn_pos
+    have hkR_pos : (0 : ℝ) < (k : ℝ) := by exact_mod_cast hk_pos
+    have hdGR_pos : (0 : ℝ) < (dG : ℝ) := by exact_mod_cast hdG
+    have heta_pos : 0 < eta := by
+      have hbase : (0 : ℝ) < 1 / (n : ℝ) ^ 2 := by positivity
+      exact lt_of_lt_of_le hbase heta_lower
+    have heta_nonneg : 0 ≤ eta := le_of_lt heta_pos
+    have hnR_ge_three : (3 : ℝ) ≤ (n : ℝ) := by exact_mod_cast hn
+    have hlog3_gt_one : (1 : ℝ) < Real.log 3 := by
+      rw [Real.lt_log_iff_exp_lt (by norm_num : (0 : ℝ) < 3)]
+      exact Real.exp_one_lt_three
+    have hlog3_le_logn : Real.log 3 ≤ Real.log (n : ℝ) :=
+      Real.log_le_log (by norm_num : (0 : ℝ) < 3) hnR_ge_three
+    have hlog_pos : 0 < Real.log (n : ℝ) :=
+      (lt_trans (by norm_num : (0 : ℝ) < 1) hlog3_gt_one).trans_le hlog3_le_logn
+    have hw_nonneg : 0 ≤ w := by
+      rw [hw]
+      positivity
+    have hw_scaled_eq :
+        (25 * Real.log (n : ℝ)) * w =
+          (100 : ℝ) * (n : ℝ) * (Real.log (n : ℝ)) ^ 2 / (dG : ℝ) := by
+      rw [hw]
+      field_simp [ne_of_gt hdGR_pos]
+      ring
+    have htwentyfive_log_ge_one : (1 : ℝ) ≤ 25 * Real.log (n : ℝ) := by
+      nlinarith
+    have hw_le_k : w ≤ (k : ℝ) := by
+      have hw_le_scaled : w ≤ (25 * Real.log (n : ℝ)) * w := by
+        nlinarith
+      calc
+        w ≤ (25 * Real.log (n : ℝ)) * w := hw_le_scaled
+        _ = (100 : ℝ) * (n : ℝ) * (Real.log (n : ℝ)) ^ 2 / (dG : ℝ) :=
+          hw_scaled_eq
+        _ ≤ (k : ℝ) := hkRange.2
+    have hfirst_bound :
+        (1 / 50 : ℝ) * (k : ℝ) *
+            Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) - 1 ≤
+          (RamseyNumber s k : ℝ) :=
+      hfirst ⟨hw_le_k, hkRange.1⟩
+    have hscaled_le_k :
+        (25 * Real.log (n : ℝ)) * w ≤ (k : ℝ) := by
+      calc
+        (25 * Real.log (n : ℝ)) * w
+            = (100 : ℝ) * (n : ℝ) * (Real.log (n : ℝ)) ^ 2 / (dG : ℝ) :=
+              hw_scaled_eq
+        _ ≤ (k : ℝ) := hkRange.2
+    have hw_div_k_le :
+        w / (k : ℝ) ≤ 1 / (25 * Real.log (n : ℝ)) := by
+      have htwentyfive_log_pos : (0 : ℝ) < 25 * Real.log (n : ℝ) := by positivity
+      have hdiv : w ≤ (k : ℝ) / (25 * Real.log (n : ℝ)) := by
+        rw [le_div_iff₀ htwentyfive_log_pos]
+        simpa [mul_comm, mul_left_comm, mul_assoc] using hscaled_le_k
+      rw [div_le_iff₀ hkR_pos]
+      convert hdiv using 1
+      field_simp [ne_of_gt htwentyfive_log_pos]
+    have hw_div_k_nonneg : 0 ≤ w / (k : ℝ) := by positivity
+    have hnR_ge_one : (1 : ℝ) ≤ (n : ℝ) := by
+      exact_mod_cast (by omega : 1 ≤ n)
+    have hn_sq_ge_one : (1 : ℝ) ≤ (n : ℝ) ^ 2 := by
+      nlinarith [sq_nonneg ((n : ℝ) - 1)]
+    have hbase_pos : (0 : ℝ) < 1 / (n : ℝ) ^ 2 := by positivity
+    have hbase_nonneg : (0 : ℝ) ≤ 1 / (n : ℝ) ^ 2 := le_of_lt hbase_pos
+    have hbase_le_one : 1 / (n : ℝ) ^ 2 ≤ 1 := by
+      simpa using
+        one_div_le_one_div_of_le (by norm_num : (0 : ℝ) < 1) hn_sq_ge_one
+    have hbase_pow_mono :
+        Real.rpow (1 / (n : ℝ) ^ 2) (w / (k : ℝ)) ≤
+          Real.rpow eta (w / (k : ℝ)) :=
+      Real.rpow_le_rpow hbase_nonneg heta_lower hw_div_k_nonneg
+    have hbase_exponent_mono :
+        Real.rpow (1 / (n : ℝ) ^ 2) (1 / (25 * Real.log (n : ℝ))) ≤
+          Real.rpow (1 / (n : ℝ) ^ 2) (w / (k : ℝ)) :=
+      Real.rpow_le_rpow_of_exponent_ge hbase_pos hbase_le_one hw_div_k_le
+    have hlog_base :
+        Real.log (1 / (n : ℝ) ^ 2) = -2 * Real.log (n : ℝ) := by
+      rw [Real.log_div (by norm_num : (1 : ℝ) ≠ 0)
+        (pow_ne_zero 2 (ne_of_gt hnR_pos))]
+      rw [Real.log_one, Real.log_pow]
+      ring
+    have hbase_target_eq :
+        Real.rpow (1 / (n : ℝ) ^ 2) (1 / (25 * Real.log (n : ℝ))) =
+          Real.exp (-(2 : ℝ) / 25) := by
+      change (1 / (n : ℝ) ^ 2) ^ (1 / (25 * Real.log (n : ℝ))) =
+          Real.exp (-(2 : ℝ) / 25)
+      rw [Real.rpow_def_of_pos hbase_pos]
+      rw [hlog_base]
+      congr 1
+      field_simp [ne_of_gt hlog_pos]
+    have hexp_neg_two_div_twentyfive_ge_half :
+        (1 / 2 : ℝ) ≤ Real.exp (-(2 : ℝ) / 25) := by
+      have h := Real.add_one_le_exp (-(2 : ℝ) / 25)
+      have hnum : (1 / 2 : ℝ) ≤ -(2 : ℝ) / 25 + 1 := by norm_num
+      exact hnum.trans h
+    have heta_w_div_ge_half :
+        (1 / 2 : ℝ) ≤ Real.rpow eta (w / (k : ℝ)) := by
+      calc
+        (1 / 2 : ℝ) ≤ Real.exp (-(2 : ℝ) / 25) :=
+          hexp_neg_two_div_twentyfive_ge_half
+        _ = Real.rpow (1 / (n : ℝ) ^ 2) (1 / (25 * Real.log (n : ℝ))) :=
+          hbase_target_eq.symm
+        _ ≤ Real.rpow (1 / (n : ℝ) ^ 2) (w / (k : ℝ)) :=
+          hbase_exponent_mono
+        _ ≤ Real.rpow eta (w / (k : ℝ)) := hbase_pow_mono
+    have heta_exp_decomp :
+        Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) =
+          Real.rpow eta (w / (k : ℝ)) * eta⁻¹ := by
+      have hkR_ne : (k : ℝ) ≠ 0 := ne_of_gt hkR_pos
+      calc
+        Real.rpow eta ((w - (k : ℝ)) / (k : ℝ))
+            = Real.rpow eta (w / (k : ℝ) + (-1 : ℝ)) := by
+                congr 1
+                field_simp [hkR_ne]
+                ring
+        _ = Real.rpow eta (w / (k : ℝ)) * Real.rpow eta (-1 : ℝ) := by
+                exact Real.rpow_add heta_pos (w / (k : ℝ)) (-1 : ℝ)
+        _ = Real.rpow eta (w / (k : ℝ)) * eta⁻¹ := by
+                have hneg : Real.rpow eta (-1 : ℝ) = eta⁻¹ := by
+                  simpa only using (Real.rpow_neg_one eta)
+                rw [hneg]
+    have heta_exp_lower :
+        1 / (2 * eta) ≤
+          Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) := by
+      rw [heta_exp_decomp]
+      have heta_inv_nonneg : 0 ≤ eta⁻¹ := inv_nonneg.mpr heta_nonneg
+      have hmul :=
+        mul_le_mul_of_nonneg_right heta_w_div_ge_half heta_inv_nonneg
+      convert hmul using 1
+      field_simp [ne_of_gt heta_pos]
+    have htarget_le_first :
+        (k : ℝ) / (100 * eta) - 1 ≤
+          (1 / 50 : ℝ) * (k : ℝ) *
+              Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) - 1 := by
+      have hcoef_nonneg : 0 ≤ (1 / 50 : ℝ) * (k : ℝ) := by positivity
+      have hmul :
+          (1 / 50 : ℝ) * (k : ℝ) * (1 / (2 * eta)) ≤
+            (1 / 50 : ℝ) * (k : ℝ) *
+              Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) :=
+        mul_le_mul_of_nonneg_left heta_exp_lower hcoef_nonneg
+      have hleft_eq :
+          (1 / 50 : ℝ) * (k : ℝ) * (1 / (2 * eta)) =
+            (k : ℝ) / (100 * eta) := by
+        field_simp [ne_of_gt heta_pos]
+        ring
+      calc
+        (k : ℝ) / (100 * eta) - 1 =
+            (1 / 50 : ℝ) * (k : ℝ) * (1 / (2 * eta)) - 1 := by
+              rw [hleft_eq]
+        _ ≤ (1 / 50 : ℝ) * (k : ℝ) *
+              Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) - 1 :=
+              sub_le_sub_right hmul 1
+    exact htarget_le_first.trans hfirst_bound
