@@ -20,7 +20,6 @@
 | ExpanderMixingLemma | proof | - | closed |
 | F2BadTuple | definition | - | closed |
 | F2BadTupleAmbientStepProductBound | proof | - | closed |
-| F2BadTupleCountBound | proof | - | closed |
 | F2BadTupleCountBoundNat | proof | - | closed |
 | F2BadTupleFinalRankFiberBound | proof | - | closed |
 | F2BadTupleFixedIncreaseCount | definition | - | closed |
@@ -52,7 +51,7 @@
 | F2DotOnePairEmbedding | proof | - | closed |
 | F2ForwardIndependentLinearBound | proof | - | open |
 | F2ForwardIndependentNearDiagonalBound | proof | - | open |
-| F2ForwardIndependentTuples | proof | - | open |
+| F2ForwardIndependentTuples | proof | - | closed |
 | FinsetCenteredIndicatorNormSqLeCard | proof | - | closed |
 | FinsetCenteredIndicatorSumZero | proof | - | closed |
 | ForwardIndependentTuple | definition | - | closed |
@@ -117,4 +116,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 103/112 closed
+**Summary:** 103/111 closed

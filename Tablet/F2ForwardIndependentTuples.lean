@@ -10,7 +10,6 @@ import Tablet.F2BadTupleFixedIncreaseTrueLastBound
 import Tablet.F2BadTupleFixedIncreaseCount
 import Tablet.F2BadTupleFinalRankFiberBound
 import Tablet.F2BadTupleCountBoundNat
-import Tablet.F2BadTupleCountBound
 import Tablet.F2BadTupleLastPairAmbientFiberBound
 import Tablet.F2BadTupleLastPairSpanFiberBound
 import Tablet.F2BadTuple
@@ -224,4 +223,31 @@ theorem F2ForwardIndependentTuples :
             2 ^ p * 2 ^ (p - t) := by
       intro t pref
       exact F2BadTupleLastPairAmbientFiberBound p k t pref
-    sorry
+    have hbad_bound_real :
+        (Fintype.card Bad : ℝ) ≤
+          Finset.sum (Finset.Icc 1 p)
+            (fun t => ((Nat.choose k t : ℕ) : ℝ) *
+              Real.rpow 2 (((p * (t + k) - Nat.choose (t + 1) 2 : ℕ) : ℝ))) := by
+      dsimp [Bad, Vec]
+      let exp : ℕ → ℕ :=
+        fun t => p * (t + k) - Nat.choose (t + 1) 2
+      have hnat := F2BadTupleCountBoundNat p k hk_pos
+      have hreal :
+          ((Fintype.card
+              {ab : Fin k → (Fin p → ZMod 2) × (Fin p → ZMod 2) //
+                F2BadTuple p k ab} : ℕ) : ℝ) ≤
+            ((Finset.sum (Finset.Icc 1 p)
+              (fun t => Nat.choose k t * 2 ^ exp t) : ℕ) : ℝ) := by
+        exact_mod_cast hnat
+      have hsum_cast :
+          ((Finset.sum (Finset.Icc 1 p)
+              (fun t => Nat.choose k t * 2 ^ exp t) : ℕ) : ℝ) =
+            Finset.sum (Finset.Icc 1 p)
+              (fun t => ((Nat.choose k t : ℕ) : ℝ) *
+                Real.rpow 2 (((exp t : ℕ) : ℝ))) := by
+        rw [Nat.cast_sum]
+        apply Finset.sum_congr rfl
+        intro t ht
+        simp [exp, Real.rpow_natCast]
+      exact le_trans hreal (le_of_eq hsum_cast)
+    simpa [p] using le_trans hcount_le_bad_real hbad_bound_real
