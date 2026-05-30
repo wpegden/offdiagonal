@@ -1,4 +1,5 @@
 import Tablet.DigraphLoopless
+import Tablet.BinarySequenceWeightFiberCard
 import Tablet.F2CoordinateDigraphLoopless
 import Tablet.F2CoordinateDigraphTransitiveFree
 import Tablet.F2BadTupleAmbientStepProductBound

@@ -1,0 +1,33 @@
+\begin{helper}
+For all natural numbers \(k\) and \(t\),
+\[
+  \left|\{z:\{0,\ldots,k-1\}\to\{\mathrm{false},\mathrm{true}\}
+    : \operatorname{wt}(z)=t\}\right|=\binom{k}{t}.
+\]
+\end{helper}
+\begin{proof}
+Let \(I=\{0,\ldots,k-1\}\). For a Boolean sequence \(z:I\to
+\{\mathrm{false},\mathrm{true}\}\), define
+\[
+  \Phi(z)=\{i\in I:z(i)=\mathrm{true}\}.
+\]
+By the definition of weight in \(\noderef{BinarySequenceWeight}\),
+\(\operatorname{wt}(z)=|\Phi(z)|\). Thus \(\Phi\) sends exactly the sequences
+of weight \(t\) to subsets of \(I\) of cardinality \(t\).
+
+Conversely, for a subset \(S\subseteq I\), define the Boolean sequence
+\[
+  \Psi(S)(i)=\mathrm{true}\quad\text{if and only if}\quad i\in S.
+\]
+Then \(\Phi(\Psi(S))=S\), because both subsets contain exactly those indices
+\(i\) that lie in \(S\). Also \(\Psi(\Phi(z))=z\): at each index \(i\), the
+left-hand sequence is true exactly when \(i\in\Phi(z)\), which is exactly when
+\(z(i)=\mathrm{true}\); since the only Boolean values are true and false, this
+determines the value of the sequence at \(i\). Hence \(\Phi\) is a bijection
+between weight-\(t\) Boolean sequences and \(t\)-element subsets of \(I\).
+
+The set \(I\) has \(k\) elements. The standard finite-set count of
+\(t\)-element subsets of a \(k\)-element set is \(\binom{k}{t}\), with value
+\(0\) automatically when \(t>k\). Transporting this count across the bijection
+gives the claimed cardinality.
+\end{proof}

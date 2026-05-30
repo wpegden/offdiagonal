@@ -5,6 +5,7 @@
 | Name | Kind | Title | Status |
 |------|------|-------|--------|
 | BinarySequenceWeight | definition | - | closed |
+| BinarySequenceWeightFiberCard | proof | - | closed |
 | BinarySequenceWeightSnoc | proof | - | closed |
 | CloseToDiagonalTheorem | proof | - | open |
 | ComplementPolarityPairHsFree | proof | - | closed |
@@ -113,4 +114,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 99/108 closed
+**Summary:** 100/109 closed
