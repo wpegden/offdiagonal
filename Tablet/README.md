@@ -17,6 +17,8 @@
 | DigraphOrderedGraphIndependentSetToForwardTuple | proof | - | closed |
 | DigraphToGraphIndependentSetBound | proof | - | closed |
 | ExpanderMixingLemma | proof | - | closed |
+| F2CoordinateDigraphLoopless | proof | - | closed |
+| F2CoordinateDigraphTransitiveFree | proof | - | closed |
 | F2ForwardIndependentLinearBound | proof | - | open |
 | F2ForwardIndependentNearDiagonalBound | proof | - | open |
 | F2ForwardIndependentTuples | proof | - | open |
@@ -84,4 +86,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 70/79 closed
+**Summary:** 72/81 closed

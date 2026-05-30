@@ -1,0 +1,50 @@
+\begin{helper}
+Let \(p<s\), let \(W\) be a type, and let
+\[
+  x,y:W\to\mathbb F_2^p
+\]
+be coordinate maps satisfying \(\langle x(w),y(w)\rangle=1\) for every \(w\in W\).
+Define a digraph \(D\) on \(W\) by
+\[
+  D(a,b)\quad\Longleftrightarrow\quad \langle x(a),y(b)\rangle=0.
+\]
+Then \(D\) is \(T_s\)-free.
+\end{helper}
+\begin{proof}
+By \(\noderef{TransitiveTournamentFree}\), it is enough to rule out an ordered
+\(s\)-tuple \(v_1,\ldots,v_s\) whose earlier vertices all send arcs to later
+vertices. Suppose such a tuple exists. Write
+\[
+  a_i=x(v_i),\qquad b_i=y(v_i)\qquad(1\le i\le s).
+\]
+The diagonal hypothesis gives
+\[
+  \langle a_i,b_i\rangle=1
+\]
+for every \(i\). The arc condition and the definition of \(D\) give
+\[
+  \langle a_i,b_j\rangle=0
+\]
+whenever \(i<j\).
+
+We show that \(b_1,\ldots,b_s\) are linearly independent over \(\mathbb F_2\).
+Let \(\sum_{j=1}^s c_j b_j=0\). We prove \(c_i=0\) by induction on \(i\).
+Assume \(c_j=0\) for all \(j<i\). Taking the dot product with \(a_i\) gives
+\[
+  0=\left\langle a_i,\sum_{j=1}^s c_j b_j\right\rangle
+   =\sum_{j=1}^s c_j\langle a_i,b_j\rangle.
+\]
+The terms with \(j<i\) vanish by the induction hypothesis, and the terms with
+\(j>i\) vanish because \(\langle a_i,b_j\rangle=0\). The remaining term is
+\[
+  c_i\langle a_i,b_i\rangle=c_i.
+\]
+Thus \(c_i=0\). Hence all coefficients are zero, proving linear independence.
+
+Therefore \(\mathbb F_2^p\) contains \(s\) linearly independent vectors, so
+\[
+  s\le \dim_{\mathbb F_2}\mathbb F_2^p=p.
+\]
+This contradicts \(p<s\). Hence no transitive tournament of size \(s\) exists
+in \(D\), so \(D\) is \(T_s\)-free.
+\end{proof}

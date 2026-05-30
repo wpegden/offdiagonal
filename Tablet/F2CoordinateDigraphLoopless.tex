@@ -1,0 +1,19 @@
+\begin{helper}
+Let \(W\) be a type, let \(p\) be a natural number, and let
+\[
+  x,y:W\to \mathbb F_2^p
+\]
+be coordinate maps satisfying \(\langle x(w),y(w)\rangle=1\) for every \(w\in W\).
+Define a digraph \(D\) on \(W\) by
+\[
+  D(a,b)\quad\Longleftrightarrow\quad \langle x(a),y(b)\rangle=0.
+\]
+Then \(D\) is loopless.
+\end{helper}
+\begin{proof}
+We prove the loopless condition from \(\noderef{DigraphLoopless}\). Fix a vertex
+\(w\in W\). If \(D(w,w)\) held, then by the definition of \(D\) we would have
+\(\langle x(w),y(w)\rangle=0\). The diagonal hypothesis gives
+\(\langle x(w),y(w)\rangle=1\). Hence \(1=0\) in \(\mathbb F_2\), impossible.
+Therefore \(D(w,w)\) is false for every \(w\), so \(D\) is loopless.
+\end{proof}
