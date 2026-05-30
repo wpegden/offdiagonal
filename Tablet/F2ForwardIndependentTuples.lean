@@ -1,6 +1,7 @@
 import Tablet.DigraphLoopless
 import Tablet.F2CoordinateDigraphLoopless
 import Tablet.F2CoordinateDigraphTransitiveFree
+import Tablet.F2DotOnePairEmbedding
 import Tablet.ForwardIndependentTupleCount
 import Tablet.TransitiveTournamentFree
 
@@ -27,7 +28,8 @@ theorem F2ForwardIndependentTuples :
   let Vec : Type := Fin p → ZMod 2
   let U : Type := {z : Vec × Vec // z.1 ⬝ᵥ z.2 = 1}
   have hEmbedding : Nonempty (Fin N ↪ U) := by
-    sorry
+    dsimp [N, p, Vec, U]
+    simpa using F2DotOnePairEmbedding s hs
   rcases hEmbedding with ⟨e⟩
   let x : Fin N → Vec := fun w => (e w).val.1
   let y : Fin N → Vec := fun w => (e w).val.2
@@ -42,4 +44,35 @@ theorem F2ForwardIndependentTuples :
       omega
     exact F2CoordinateDigraphTransitiveFree hps x y hdiag
   · simp [N]
-  · sorry
+  · let Bad : Type :=
+      {ab : Fin k → Vec × Vec //
+        ∀ i j : Fin k, j ≤ i → (ab j).1 ⬝ᵥ (ab i).2 = 1}
+    have hzmod_ne_zero_eq_one : ∀ a : ZMod 2, a ≠ 0 → a = 1 := by
+      intro a ha
+      fin_cases a
+      · exact (ha rfl).elim
+      · rfl
+    have hcount_le_bad :
+        ForwardIndependentTupleCount D k ≤ Fintype.card Bad := by
+      dsimp [ForwardIndependentTupleCount]
+      refine Fintype.card_le_of_injective
+        (fun v : {v : Fin k → Fin N // ForwardIndependentTuple D v} => by
+          refine (⟨fun i => (x (v.val i), y (v.val i)), ?_⟩ : Bad)
+          intro i j hji
+          by_cases hEq : j = i
+          · subst j
+            exact hdiag (v.val i)
+          · have hlt : j < i := lt_of_le_of_ne hji hEq
+            have hnot : ¬ x (v.val j) ⬝ᵥ y (v.val i) = 0 := by
+              simpa [D] using v.property j i hlt
+            exact hzmod_ne_zero_eq_one _ hnot) ?_
+      · intro v₁ v₂ hv
+        apply Subtype.ext
+        funext i
+        apply e.injective
+        apply Subtype.ext
+        exact congrFun (congrArg Subtype.val hv) i
+    have hcount_le_bad_real :
+        ((ForwardIndependentTupleCount D k : ℕ) : ℝ) ≤ (Fintype.card Bad : ℝ) := by
+      exact_mod_cast hcount_le_bad
+    sorry

@@ -1,0 +1,37 @@
+\begin{helper}
+Let \(s\ge4\), and set
+\[
+  N=2^{2s-3}-2^{s-1}-2^{s-2}+1.
+\]
+Then there is an injection from an \(N\)-element type into
+\[
+  \{(x,y)\in\mathbb F_2^{s-1}\times\mathbb F_2^{s-1}:
+    \langle x,y\rangle=1\}.
+\]
+\end{helper}
+\begin{proof}
+By \(\noderef{F2DotOnePairCard}\), the target set has cardinality
+\[
+  (2^{s-1}-1)2^{s-2}.
+\]
+The displayed value of \(N\) can be rewritten, using
+\[
+  2^{2s-3}=2^{s-1}2^{s-2},
+\]
+as
+\[
+  N=2^{s-1}2^{s-2}-2^{s-1}-2^{s-2}+1.
+\]
+Since \(s\ge4\), both \(2^{s-1}\) and \(2^{s-2}\) are at least \(2\), and hence
+\[
+  2^{s-1}+2^{s-2}\le 2^{s-1}2^{s-2}.
+\]
+It follows that
+\[
+  N\le 2^{s-1}2^{s-2}-2^{s-2}
+    =(2^{s-1}-1)2^{s-2}.
+\]
+Thus the \(N\)-element type has cardinality at most the target set. The standard
+finite-cardinality embedding principle then gives an injection from the
+\(N\)-element type into the target set.
+\end{proof}

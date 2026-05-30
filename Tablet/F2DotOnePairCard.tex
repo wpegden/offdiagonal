@@ -1,0 +1,36 @@
+\begin{helper}
+For every natural number \(p\), the number of ordered pairs
+\[
+  (x,y)\in \mathbb F_2^p\times\mathbb F_2^p
+\]
+with \(\langle x,y\rangle=1\) is
+\[
+  (2^p-1)\,2^{p-1}.
+\]
+\end{helper}
+\begin{proof}
+Let \(V=\mathbb F_2^p\). If \(\langle x,y\rangle=1\), then \(x\ne0\), since the
+zero vector has dot product \(0\) with every \(y\). Thus the set being counted is
+the disjoint union, over all nonzero \(x\in V\), of the fibers
+\[
+  H_x=\{y\in V:\langle x,y\rangle=1\}.
+\]
+There are \(2^p-1\) choices for nonzero \(x\).
+
+Fix such an \(x\). Choose a coordinate \(i\) with \(x_i\ne0\). Since we are over
+\(\mathbb F_2\), \(x_i\) is invertible. Projection away from the \(i\)-th
+coordinate gives a bijection from \(H_x\) to the vector space of functions on
+the remaining \(p-1\) coordinates: given arbitrary values off \(i\), the equation
+\[
+  \sum_j x_jy_j=1
+\]
+determines the missing coordinate uniquely as
+\[
+  y_i=\frac{1-\sum_{j\ne i}x_jy_j}{x_i}.
+\]
+Conversely, every \(y\in H_x\) is recovered from its off-\(i\) coordinates by
+this formula. Hence \(|H_x|=2^{p-1}\).
+
+Summing the constant fiber size \(2^{p-1}\) over the \(2^p-1\) nonzero choices
+of \(x\) gives \((2^p-1)2^{p-1}\), as required.
+\end{proof}
