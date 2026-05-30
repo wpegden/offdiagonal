@@ -1,5 +1,6 @@
 import Tablet.F2ForwardIndependentNearDiagonalBound
 import Tablet.NoMonochromaticCliqueColoring
+import Tablet.RandomHomomorphismF2Setup
 
 -- [TABLET NODE: RandomHomomorphismColoringBound]
 

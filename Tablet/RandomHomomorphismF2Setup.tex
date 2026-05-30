@@ -1,0 +1,63 @@
+\begin{helper}
+For all sufficiently large natural numbers \(s\), there are a finite vertex set
+\(W\) and a digraph \(D\) on \(W\) such that \(D\) is loopless, \(D\) is
+\(T_s\)-free,
+\[
+  |W|=2^{2s-3}-2^{s-1}-2^{s-2}+1,
+\]
+\[
+  2^{2s-4}<|W|,
+\]
+and
+\[
+  \overrightarrow{i_s}(D)\le 2^{3s^2/2}.
+\]
+\end{helper}
+\begin{proof}
+Apply \(\noderef{F2ForwardIndependentNearDiagonalBound}\) with
+\(\varepsilon=1\).  Let \(\delta>0\) and \(s_1\) be the constants supplied
+there.  Increase the threshold so that \(s\ge4\), and fix \(s\) above the
+new threshold.  Use the near-diagonal bound with \(a=0\).  Since
+\[
+  0\le \delta s,
+\]
+it gives a finite vertex set \(W\) and a loopless \(T_s\)-free digraph \(D\)
+with
+\[
+  |W|=2^{2s-3}-2^{s-1}-2^{s-2}+1
+\]
+and
+\[
+  \overrightarrow{i_s}(D)
+  \le
+  2^{\frac32s^2-\frac52s+s}.
+\]
+Because \(s\ge0\), the exponent satisfies
+\[
+  \frac32s^2-\frac52s+s
+  =
+  \frac32s^2-\frac32s
+  \le
+  \frac32s^2,
+\]
+so
+\[
+  \overrightarrow{i_s}(D)\le2^{3s^2/2}.
+\]
+
+It remains to check the explicit lower bound on \(|W|\).  Since \(s\ge4\),
+\[
+  2^{s-1}+2^{s-2}=3\cdot2^{s-2}\le 2^{2s-4}.
+\]
+Also \(2^{2s-3}=2\cdot2^{2s-4}\).  Therefore
+\[
+\begin{aligned}
+  |W|
+  &=2^{2s-3}-2^{s-1}-2^{s-2}+1\\
+  &=2\cdot2^{2s-4}-(2^{s-1}+2^{s-2})+1\\
+  &\ge 2^{2s-4}+1
+  >2^{2s-4}.
+\end{aligned}
+\]
+This proves all claimed properties.
+\end{proof}
