@@ -99,9 +99,10 @@
 | LoopGraphZeroSumAdjacencyEuclideanOperator | definition | definition | closed | - | - | LoopGraphAdjacencyEuclideanOperatorMapsZeroSum, LoopGraphEuclideanZeroSumSubmodule, LoopGraphNdLambda |
 | LoopGraphZeroSumEuclideanEigenpairNonprincipal | helper | proof | closed | - | - | LoopGraphEuclideanZeroSumSubmodule, LoopGraphNonprincipalEigenvalue |
 | LoopGraphZeroSumEuclideanEigenvalueBound | helper | proof | closed | - | - | LoopGraphNdLambda, LoopGraphZeroSumEuclideanEigenpairNonprincipal |
-| MainTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, LoopGraphComplementNdLambda, MainTheoremFiniteAbsorption, MainTheoremLargeKComparison, PolarityGraphParameters, RamseyFromGraphPair |
+| MainTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, LoopGraphComplementNdLambda, MainTheoremFiniteAbsorption, MainTheoremLargeKComparison, MainTheoremPolaritySetup, PolarityGraphParameters, RamseyFromGraphPair |
 | MainTheoremFiniteAbsorption | helper | proof | closed | - | - | RamseyNumberPositive |
 | MainTheoremLargeKComparison | helper | proof | closed | - | - | Preamble |
+| MainTheoremPolaritySetup | helper | proof | closed | - | - | ComplementPolarityPairHsFree, LoopGraphComplementNdLambda, PolarityGraphParameters |
 | MulticolorRamseyNumber | definition | definition | closed | - | - | MulticolorRamseyProperty |
 | MulticolorRamseyNumberLowerBoundFromCounterexample | helper | proof | closed | - | - | MulticolorRamseyNumber, MulticolorRamseyPropertyMonotone, MulticolorRamseyPropertyNonempty, NoMonochromaticCliqueColoring |
 | MulticolorRamseyProperty | definition | definition | closed | - | - | Preamble |
@@ -152,4 +153,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 148 nodes | **Closed:** 146 | **Open:** 2
+**Total:** 149 nodes | **Closed:** 147 | **Open:** 2

@@ -2,6 +2,7 @@ import Tablet.ComplementPolarityPairHsFree
 import Tablet.LoopGraphComplementNdLambda
 import Tablet.MainTheoremFiniteAbsorption
 import Tablet.MainTheoremLargeKComparison
+import Tablet.MainTheoremPolaritySetup
 import Tablet.PolarityGraphParameters
 import Tablet.RamseyFromGraphPair
 

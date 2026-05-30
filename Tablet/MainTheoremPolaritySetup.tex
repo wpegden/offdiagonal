@@ -1,0 +1,40 @@
+\begin{helper}
+Let \(s\ge4\), let \(K\) be a finite field of order \(q\), and put
+\[
+  t=s-2,\qquad
+  n=\frac{q^{t+1}-1}{q-1},\qquad
+  d_G=\frac{q^t-1}{q-1},
+\]
+\[
+  d_F=n-d_G,\qquad
+  \lambda=\sqrt{
+    \frac{q^t-1}{q-1}-\frac{q^{t-1}-1}{q-1}}.
+\]
+Let \(G=G(t,K)\) be the polarity graph of \(\noderef{PolarityGraph}\), and let
+\(F\) be the loop-complement of \(G\) in the sense of
+\(\noderef{LoopGraphComplement}\).  Then \(G\) is an
+\((n,d_G,\lambda)\)-graph, \(F\) is an \((n,d_F,\lambda)\)-graph, and
+\((F,G)\) is \(H_s\)-free.
+\end{helper}
+\begin{proof}
+Since \(s\ge4\), the integer \(t=s-2\) satisfies \(t\ge2\), and also
+\(s\ge2\).  Applying \(\noderef{PolarityGraphParameters}\) with this \(t\)
+and with \(q=|K|\) gives that \(G=G(t,K)\) is an
+\((n,d_G,\lambda)\)-graph in the sense of \(\noderef{LoopGraphNdLambda}\),
+with exactly the displayed values of \(n\), \(d_G\), and \(\lambda\).
+
+Now \(F\) is the loop-complement of \(G\).  Applying
+\(\noderef{LoopGraphComplementNdLambda}\) to the \((n,d_G,\lambda)\)-graph
+structure on \(G\) gives that \(F\) is an \((n,n-d_G,\lambda)\)-graph.  By the
+definition of \(d_F\), this is precisely that \(F\) is an
+\((n,d_F,\lambda)\)-graph.
+
+Finally, since \(s\ge2\), \(\noderef{ComplementPolarityPairHsFree}\) applied
+to the same field \(K\) and integer \(s\) says that the pair
+\[
+  \bigl(\overline{G(s-2,K)},G(s-2,K)\bigr)
+\]
+is \(H_s\)-free, where the bar denotes loop-complement as in
+\(\noderef{LoopGraphComplement}\).  This is exactly the displayed pair
+\((F,G)\), because \(t=s-2\).  Hence all three claimed properties hold.
+\end{proof}

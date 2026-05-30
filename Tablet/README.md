@@ -104,6 +104,7 @@
 | MainTheorem | proof | - | open |
 | MainTheoremFiniteAbsorption | proof | - | closed |
 | MainTheoremLargeKComparison | proof | - | closed |
+| MainTheoremPolaritySetup | proof | - | closed |
 | MulticolorRamseyNumber | definition | - | closed |
 | MulticolorRamseyNumberLowerBoundFromCounterexample | proof | - | closed |
 | MulticolorRamseyProperty | definition | - | closed |
@@ -153,4 +154,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 146/148 closed
+**Summary:** 147/149 closed
