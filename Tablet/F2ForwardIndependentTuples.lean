@@ -2,6 +2,7 @@ import Tablet.DigraphLoopless
 import Tablet.F2CoordinateDigraphLoopless
 import Tablet.F2CoordinateDigraphTransitiveFree
 import Tablet.F2BadTupleAmbientStepProductBound
+import Tablet.F2BadTupleFixedIncreaseCount
 import Tablet.F2BadTuple
 import Tablet.F2BadTupleNonincreaseStepProductBound
 import Tablet.F2BadTuplePrefixFiberBound
@@ -154,4 +155,15 @@ theorem F2ForwardIndependentTuples :
                   2 ^ (p - F2BadTupleRank p k ab.val i) := by
       intro ab i hi hsame
       exact F2BadTupleNonincreaseStepProductBound p k ab.val hi hsame
+    have hbad_fixed_increase_count_available :
+        ∀ z : Fin k → Bool,
+          F2BadTupleFixedIncreaseCount p k z =
+            Fintype.card
+              {ab : Fin k → Vec × Vec //
+                F2BadTuple p k ab ∧
+                  ∀ i : Fin k,
+                    (F2BadTupleRank p k ab (i.val + 1) =
+                        F2BadTupleRank p k ab i.val + 1) ↔ z i = true} := by
+      intro z
+      rfl
     sorry

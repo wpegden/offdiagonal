@@ -1,0 +1,27 @@
+\begin{definition}
+Let \(p\) and \(k\) be natural numbers, and let
+\[
+  z:\{0,\ldots,k-1\}\to\{\mathrm{false},\mathrm{true}\}
+\]
+be a Boolean sequence. Define
+\[
+  \mathrm{F2BadTupleFixedIncreaseCount}(p,k,z)
+\]
+to be the number of functions
+\[
+  ab:\{0,\ldots,k-1\}\to \mathbb F_2^p\times\mathbb F_2^p
+\]
+with the following two properties. First, \(ab\) is a bad tuple in the sense of
+\(\noderef{F2BadTuple}\). Second, if \((r_0,r_1,\ldots,r_k)\) is the rank
+sequence from \(\noderef{F2BadTupleRank}\), then for every zero-based index
+\(i<k\),
+\[
+  r_{i+1}=r_i+1
+  \quad\Longleftrightarrow\quad
+  z(i)=\mathrm{true}.
+\]
+Thus the Lean index \(i\) records whether the paper rank sequence increases
+when the paper vector \(a_{i+1}\) is added to the first \(i\) paper vectors.
+The weight \(\noderef{BinarySequenceWeight}(z)\) is the number of prescribed
+rank-increase positions.
+\end{definition}
