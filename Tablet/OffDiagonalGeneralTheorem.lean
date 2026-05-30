@@ -266,6 +266,68 @@ theorem OffDiagonalGeneralTheorem :
             delta0 * (k : ℝ) / 5 = (delta0 / 5) * (k : ℝ) := by ring
             _ ≤ 1 * (k : ℝ) := mul_le_mul_of_nonneg_right hcoeff hk_nonneg
             _ = (k : ℝ) := by ring
+    have hn_lower_real_paper : (q : ℝ) ^ t ≤ (n : ℝ) := by
+      exact_mod_cast hqt_le_n_paper
+    have hRangeProductLowerRaw :
+        (1 / (32 * Q)) * ((q : ℝ) ^ t) ^ 2 ≤
+          eta * (dF : ℝ) * (n : ℝ) := by
+      have hhalf_lower : (q : ℝ) ^ t / 2 ≤ (n : ℝ) / 2 := by
+        linarith
+      have hquad_lower :
+          ((q : ℝ) ^ t / 2) * ((q : ℝ) ^ t) ≤
+            ((n : ℝ) / 2) * (n : ℝ) := by
+        exact mul_le_mul hhalf_lower hn_lower_real_paper (by positivity) (by positivity)
+      have hscaled_quad_lower :
+          (1 / (16 * Q)) * (((q : ℝ) ^ t / 2) * ((q : ℝ) ^ t)) ≤
+            (1 / (16 * Q)) * (((n : ℝ) / 2) * (n : ℝ)) := by
+        exact mul_le_mul_of_nonneg_left hquad_lower (by positivity)
+      have heta_dF_lower :
+          (1 / (16 * Q)) * ((n : ℝ) / 2) ≤ eta * (dF : ℝ) := by
+        exact mul_le_mul heta_lower_Q16 hdF_half_n (by positivity) (by positivity)
+      have hscaled_n_lower :
+          (1 / (16 * Q)) * (((n : ℝ) / 2) * (n : ℝ)) ≤
+            eta * (dF : ℝ) * (n : ℝ) := by
+        calc
+          (1 / (16 * Q)) * (((n : ℝ) / 2) * (n : ℝ))
+              = ((1 / (16 * Q)) * ((n : ℝ) / 2)) * (n : ℝ) := by ring
+          _ ≤ (eta * (dF : ℝ)) * (n : ℝ) :=
+                mul_le_mul_of_nonneg_right heta_dF_lower (by positivity)
+          _ = eta * (dF : ℝ) * (n : ℝ) := by ring
+      calc
+        (1 / (32 * Q)) * ((q : ℝ) ^ t) ^ 2
+            = (1 / (16 * Q)) * (((q : ℝ) ^ t / 2) * ((q : ℝ) ^ t)) := by
+              ring
+        _ ≤ (1 / (16 * Q)) * (((n : ℝ) / 2) * (n : ℝ)) :=
+              hscaled_quad_lower
+        _ ≤ eta * (dF : ℝ) * (n : ℝ) := hscaled_n_lower
+    have hpow_split :
+        ((q : ℝ) ^ t) ^ 2 = (q : ℝ) ^ (s - 1) * Q := by
+      have hexp : t + t = (s - 1) + (t - 1) := by
+        dsimp [t]
+        omega
+      calc
+        ((q : ℝ) ^ t) ^ 2 = (q : ℝ) ^ (t + t) := by
+          rw [sq, ← pow_add]
+        _ = (q : ℝ) ^ ((s - 1) + (t - 1)) := by
+          exact congrArg (fun u : ℕ => (q : ℝ) ^ u) hexp
+        _ = (q : ℝ) ^ (s - 1) * (q : ℝ) ^ (t - 1) := by
+          rw [pow_add]
+        _ = (q : ℝ) ^ (s - 1) * Q := by
+          dsimp [Q]
+          norm_num
+    have hRangeProductLower :
+        (1 / 128) * (q : ℝ) ^ (s - 1) ≤ eta * (dF : ℝ) * (n : ℝ) := by
+      have hscale_coeff :
+          (1 / 128 : ℝ) * (q : ℝ) ^ (s - 1) ≤
+            (1 / 32 : ℝ) * (q : ℝ) ^ (s - 1) := by
+        exact mul_le_mul_of_nonneg_right (by norm_num : (1 / 128 : ℝ) ≤ 1 / 32)
+          (by positivity)
+      have hraw_eq :
+          (1 / 32 : ℝ) * (q : ℝ) ^ (s - 1) =
+            (1 / (32 * Q)) * ((q : ℝ) ^ t) ^ 2 := by
+        rw [hpow_split]
+        field_simp [ne_of_gt hQ_pos]
+      exact hscale_coeff.trans (hraw_eq.le.trans hRangeProductLowerRaw)
     -- Remaining work: prove the first-projection range hypotheses
     -- `k ≤ eta * dF * n`, then compare the first projection's output with
     -- the general off-diagonal target.
