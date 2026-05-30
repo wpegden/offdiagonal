@@ -74,6 +74,8 @@
 | RamseyProperty | definition | - | closed |
 | RamseyPropertyCounterexampleTransport | proof | - | closed |
 | RamseyPropertyMonotone | proof | - | closed |
+| RamseyPropertyNonempty | proof | - | closed |
+| RamseyPropertyStep | proof | - | closed |
 | RandomHomomorphismColoringBound | proof | - | open |
 | SamplingKsFreeRamseyBound | proof | - | open |
 | SimpleGraphIndependentSetCount | definition | - | closed |
@@ -81,4 +83,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 63/76 closed
+**Summary:** 65/78 closed

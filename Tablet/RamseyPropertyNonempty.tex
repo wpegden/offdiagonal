@@ -1,0 +1,31 @@
+\begin{helper}
+For every pair of natural numbers \(s,k\), the set
+\(\{n\in\mathbb{N}:\mathrm{RamseyProperty}(s,k,n)\}\) is nonempty.
+\end{helper}
+\begin{proof}
+We prove the claim by induction on \(s\), with an inner induction on \(k\) in
+the successor case.
+
+If \(s=0\), then \(n=0\) has \(\mathrm{RamseyProperty}(0,k,0)\) for every
+\(k\): for any graph on \(\operatorname{Fin}(0)\), the empty finite set is a
+\(0\)-clique.  This is exactly the first alternative in
+\(\noderef{RamseyProperty}\).
+
+Now suppose the claim has been proved for a fixed \(s\) and all \(k\).  We
+prove it for \(s+1\) by induction on \(k\).  If \(k=0\), then \(n=0\) has
+\(\mathrm{RamseyProperty}(s+1,0,0)\), because for any graph on
+\(\operatorname{Fin}(0)\), the empty finite set is a \(0\)-clique in the
+complement graph.  This is the second alternative in
+\(\noderef{RamseyProperty}\).
+
+For the successor step, assume the set of \(n\) satisfying
+\(\mathrm{RamseyProperty}(s+1,k,n)\) is nonempty, and use the outer induction
+hypothesis to choose \(a\) with \(\mathrm{RamseyProperty}(s,k+1,a)\).  Use the
+inner induction hypothesis to choose \(b\) with
+\(\mathrm{RamseyProperty}(s+1,k,b)\).  Then
+\(\noderef{RamseyPropertyStep}\) gives
+\(\mathrm{RamseyProperty}(s+1,k+1,a+b+1)\).  Hence the required set is
+nonempty in the successor case as well.
+
+By the two inductions, the set is nonempty for all natural numbers \(s,k\).
+\end{proof}

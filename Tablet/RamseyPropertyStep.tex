@@ -1,0 +1,40 @@
+\begin{helper}
+Let \(s,k,a,b\) be natural numbers.  If
+\(\mathrm{RamseyProperty}(s,k+1,a)\) and
+\(\mathrm{RamseyProperty}(s+1,k,b)\) both hold, then
+\(\mathrm{RamseyProperty}(s+1,k+1,a+b+1)\) holds.
+\end{helper}
+\begin{proof}
+Let \(G\) be an arbitrary simple graph on a vertex set of size \(a+b+1\),
+identified with \(\operatorname{Fin}(a+b+1)\).  Fix one vertex \(v\).  Among
+the other \(a+b\) vertices, let \(N\) be the set of neighbors of \(v\) and let
+\(M\) be the set of non-neighbors of \(v\).  These two sets partition the
+vertices other than \(v\), so \(|N|+|M|=a+b\).
+
+First suppose \(|N|\ge a\).  Choose a subset \(A\subseteq N\) with
+\(|A|=a\), and identify \(A\) with \(\operatorname{Fin}(a)\) by a bijection.
+Pulling \(G\) back along this bijection gives a graph on
+\(\operatorname{Fin}(a)\).  By the hypothesis
+\(\mathrm{RamseyProperty}(s,k+1,a)\), as interpreted by
+\(\noderef{RamseyProperty}\), this restricted graph has either an \(s\)-clique
+or a \((k+1)\)-clique in its complement.  In the first case, map the
+\(s\)-clique back into \(A\).  Since every vertex of \(A\) is adjacent to
+\(v\), adjoining \(v\) produces an \((s+1)\)-clique in \(G\).  In the second
+case, mapping the complement clique back into \(A\) preserves non-adjacency
+and cardinality, so it is already a \((k+1)\)-clique in \(G^{c}\).
+
+It remains to consider the case \(|N|<a\).  From \(|N|+|M|=a+b\) it follows
+that \(|M|\ge b\).  Choose a subset \(B\subseteq M\) with \(|B|=b\), identify
+\(B\) with \(\operatorname{Fin}(b)\), and pull \(G\) back to a graph on
+\(\operatorname{Fin}(b)\).  By the hypothesis
+\(\mathrm{RamseyProperty}(s+1,k,b)\), there is either an \((s+1)\)-clique in
+this restricted graph or a \(k\)-clique in its complement.  In the first case,
+mapping the clique back into \(B\) gives an \((s+1)\)-clique in \(G\).  In the
+second case, mapping the \(k\)-clique back into \(B\) gives a \(k\)-clique in
+\(G^{c}\); because each vertex of \(B\) is a non-neighbor of \(v\), adjoining
+\(v\) gives a \((k+1)\)-clique in \(G^{c}\).
+
+Thus in all cases \(G\) contains either an \((s+1)\)-clique or a
+\((k+1)\)-clique in its complement.  Since \(G\) was arbitrary, this is exactly
+\(\mathrm{RamseyProperty}(s+1,k+1,a+b+1)\).
+\end{proof}
