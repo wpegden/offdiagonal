@@ -15,4 +15,15 @@ theorem PolarityGraphParameters (K : Type u) [Field K] [Fintype K] (t q : ℕ)
         ((((q ^ t - 1) / (q - 1)) -
           ((q ^ (t - 1) - 1) / (q - 1)) : ℕ) : ℝ)) := by
 -- BODY
-  sorry
+  dsimp [LoopGraphNdLambda]
+  constructor
+  · sorry
+  constructor
+  · dsimp [LoopGraphSymmetric, PolarityGraph]
+    intro x y hxy
+    exact Projectivization.orthogonal_comm.mp hxy
+  constructor
+  · sorry
+  constructor
+  · sorry
+  · exact Real.sqrt_nonneg _
