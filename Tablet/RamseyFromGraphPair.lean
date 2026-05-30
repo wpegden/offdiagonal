@@ -192,6 +192,102 @@ theorem RamseyFromGraphPair {V : Type u} [Fintype V]
     have hsampling_M :
         p * ((dF * n : ℕ) : ℝ) - 1 < (RamseyNumber s k : ℝ) := by
       simpa [hW_card] using hsampling
-    sorry
+    let M : ℝ := ((dF * n : ℕ) : ℝ)
+    let A : ℝ := (Real.exp 1 / (k : ℝ)) * (16 : ℝ) * M
+    have hA_pos : 0 < A := by
+      dsimp [A, M]
+      positivity
+    have hB_eq :
+        B = Real.rpow A (k : ℝ) * Real.rpow eta ((k : ℝ) - w) := by
+      dsimp [B, A, M]
+      rw [Real.rpow_natCast]
+      field_simp [ne_of_gt hkR_pos]
+      ring
+    have hA_rpow_part :
+        Real.rpow (Real.rpow A (k : ℝ)) (-(1 : ℝ) / (k : ℝ)) = A⁻¹ := by
+      have hkR_ne : (k : ℝ) ≠ 0 := ne_of_gt hkR_pos
+      calc
+        Real.rpow (Real.rpow A (k : ℝ)) (-(1 : ℝ) / (k : ℝ))
+            = Real.rpow A ((k : ℝ) * (-(1 : ℝ) / (k : ℝ))) :=
+              (Real.rpow_mul (le_of_lt hA_pos) (k : ℝ) (-(1 : ℝ) / (k : ℝ))).symm
+        _ = Real.rpow A (-1) := by
+              field_simp [hkR_ne]
+        _ = A⁻¹ := by
+              have hA_nonneg : 0 ≤ A := le_of_lt hA_pos
+              have hneg : Real.rpow A (-1) = A⁻¹ := by
+                simpa [Real.rpow_one] using
+                  (Real.rpow_neg (x := A) hA_nonneg (1 : ℝ))
+              exact hneg
+    have heta_rpow_part :
+        Real.rpow (Real.rpow eta ((k : ℝ) - w)) (-(1 : ℝ) / (k : ℝ)) =
+          Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) := by
+      have hkR_ne : (k : ℝ) ≠ 0 := ne_of_gt hkR_pos
+      calc
+        Real.rpow (Real.rpow eta ((k : ℝ) - w)) (-(1 : ℝ) / (k : ℝ))
+            = Real.rpow eta (((k : ℝ) - w) * (-(1 : ℝ) / (k : ℝ))) :=
+              (Real.rpow_mul (le_of_lt heta_pos) ((k : ℝ) - w)
+                (-(1 : ℝ) / (k : ℝ))).symm
+        _ = Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) := by
+              congr 1
+              field_simp [hkR_ne]
+              ring
+    have hp_eq :
+        p = A⁻¹ * Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) := by
+      calc
+        p = Real.rpow B (-(1 : ℝ) / (k : ℝ)) := by rfl
+        _ = Real.rpow
+              (Real.rpow A (k : ℝ) * Real.rpow eta ((k : ℝ) - w))
+              (-(1 : ℝ) / (k : ℝ)) := by
+              rw [hB_eq]
+        _ = Real.rpow (Real.rpow A (k : ℝ)) (-(1 : ℝ) / (k : ℝ)) *
+              Real.rpow (Real.rpow eta ((k : ℝ) - w)) (-(1 : ℝ) / (k : ℝ)) := by
+              exact Real.mul_rpow
+                (x := Real.rpow A (k : ℝ))
+                (y := Real.rpow eta ((k : ℝ) - w))
+                (z := -(1 : ℝ) / (k : ℝ))
+                (le_of_lt (Real.rpow_pos_of_pos hA_pos (k : ℝ)))
+                (le_of_lt (Real.rpow_pos_of_pos heta_pos ((k : ℝ) - w)))
+        _ = A⁻¹ * Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) := by
+              rw [hA_rpow_part, heta_rpow_part]
+    have hpM_eq :
+        p * M =
+          ((k : ℝ) / ((16 : ℝ) * Real.exp 1)) *
+            Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) := by
+      rw [hp_eq]
+      dsimp [A]
+      field_simp [ne_of_gt hkR_pos, ne_of_gt hM_pos, Real.exp_ne_zero 1]
+      exact mul_inv_cancel₀ (ne_of_gt hM_pos)
+    have heta_factor_nonneg :
+        0 ≤ Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) :=
+      le_of_lt (Real.rpow_pos_of_pos heta_pos ((w - (k : ℝ)) / (k : ℝ)))
+    have hconstant :
+        (1 / 50 : ℝ) ≤ 1 / ((16 : ℝ) * Real.exp 1) := by
+      have hexp_lt_three : Real.exp 1 < 3 := Real.exp_one_lt_three
+      have hden_pos : (0 : ℝ) < (16 : ℝ) * Real.exp 1 := by positivity
+      have hden_le_fifty : (16 : ℝ) * Real.exp 1 ≤ 50 := by
+        nlinarith
+      exact one_div_le_one_div_of_le hden_pos hden_le_fifty
+    have hmain_term_le :
+        (1 / 50 : ℝ) * (k : ℝ) *
+            Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) ≤ p * M := by
+      rw [hpM_eq]
+      have hkR_nonneg : 0 ≤ (k : ℝ) := le_of_lt hkR_pos
+      have hcoef_le :
+          (1 / 50 : ℝ) * (k : ℝ) ≤
+            (k : ℝ) / ((16 : ℝ) * Real.exp 1) := by
+        calc
+          (1 / 50 : ℝ) * (k : ℝ)
+              ≤ (1 / ((16 : ℝ) * Real.exp 1)) * (k : ℝ) := by
+                exact mul_le_mul_of_nonneg_right hconstant hkR_nonneg
+          _ = (k : ℝ) / ((16 : ℝ) * Real.exp 1) := by ring
+      exact mul_le_mul_of_nonneg_right hcoef_le heta_factor_nonneg
+    have hsampling_M' :
+        p * M - 1 < (RamseyNumber s k : ℝ) := by
+      simpa [M] using hsampling_M
+    calc
+      (1 / 50 : ℝ) * (k : ℝ) *
+            Real.rpow eta ((w - (k : ℝ)) / (k : ℝ)) - 1
+          ≤ p * M - 1 := by linarith
+      _ ≤ (RamseyNumber s k : ℝ) := le_of_lt hsampling_M'
   · intro hkRange
     sorry
