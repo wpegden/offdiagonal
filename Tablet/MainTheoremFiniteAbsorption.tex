@@ -1,5 +1,5 @@
 \begin{helper}
-Fix \(s>0\).  Suppose that for some threshold \(k_0\) and some constant
+Fix \(s\ge4\).  Suppose that for some threshold \(k_0\) and some constant
 \(C>0\), every \(k\ge k_0\) with \(k\ge2\) satisfies
 \[
   C\frac{k^{s-2}}{(\log k)^{2s-6}}\le r(s,k).
@@ -20,7 +20,8 @@ Let \(A=\{k\in\mathbb N: 2\le k<k_0\}\).  If \(A\) is empty, then every
 \(k\ge2\) also satisfies \(k\ge k_0\), so the assumed large-\(k\) bound holds
 with \(c=C\).
 
-Now suppose \(A\) is nonempty.  For each \(k\in A\), \(\noderef{RamseyNumberPositive}\)
+Now suppose \(A\) is nonempty.  Since \(s\ge4\), in particular \(s>0\).
+For each \(k\in A\), \(\noderef{RamseyNumberPositive}\)
 gives \(r(s,k)>0\), and \(T(k)>0\), so the ratio \(r(s,k)/T(k)\) is positive.
 Because \(A\) is finite and nonempty, this ratio has a minimum over \(A\); call
 one minimizing value \(R_{\min}>0\).  Put

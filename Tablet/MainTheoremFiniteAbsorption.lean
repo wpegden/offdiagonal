@@ -3,7 +3,7 @@ import Tablet.RamseyNumberPositive
 -- [TABLET NODE: MainTheoremFiniteAbsorption]
 
 theorem MainTheoremFiniteAbsorption (s k0 : ℕ) (C : ℝ)
-    (hs : 0 < s) (hC : 0 < C)
+    (hs : 4 ≤ s) (hC : 0 < C)
     (hlarge : ∀ k : ℕ, k0 ≤ k → 2 ≤ k →
       C * ((k : ℝ) ^ (s - 2)) / ((Real.log (k : ℝ)) ^ (2 * s - 6)) ≤
         (RamseyNumber s k : ℝ)) :
@@ -32,7 +32,7 @@ theorem MainTheoremFiniteAbsorption (s k0 : ℕ) (C : ℝ)
       exact (Finset.mem_filter.mp hkmin_mem).2
     have hratio_pos : 0 < ratio kmin := by
       have hram_pos : 0 < (RamseyNumber s kmin : ℝ) := by
-        exact_mod_cast RamseyNumberPositive s kmin hs (by omega)
+        exact_mod_cast RamseyNumberPositive s kmin (by omega) (by omega)
       have hTk_pos : 0 < T kmin := hT_pos kmin hkmin2
       change 0 < (RamseyNumber s kmin : ℝ) / T kmin
       exact div_pos hram_pos hTk_pos
