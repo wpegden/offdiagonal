@@ -1,6 +1,7 @@
 import Tablet.ComplementPolarityPairHsFree
 import Tablet.LoopGraphComplementNdLambda
 import Tablet.MainTheoremEtaBounds
+import Tablet.MainTheoremDyadicGaloisScale
 import Tablet.MainTheoremFiniteAbsorption
 import Tablet.MainTheoremLargeKComparison
 import Tablet.MainTheoremPolaritySetup
@@ -19,6 +20,7 @@ theorem MainTheorem :
       ∃ k0 : ℕ, ∃ C : ℝ, 0 < C ∧ ∀ k : ℕ, k0 ≤ k → 2 ≤ k →
         C * ((k : ℝ) ^ (s - 2)) / ((Real.log (k : ℝ)) ^ (2 * s - 6)) ≤
           (RamseyNumber s k : ℝ) := by
+    rcases MainTheoremDyadicGaloisScale s hs with ⟨kScale, hScale⟩
     sorry
   rcases hlarge with ⟨k0, C, hC, hlarge_bound⟩
   exact MainTheoremFiniteAbsorption s k0 C hs hC hlarge_bound

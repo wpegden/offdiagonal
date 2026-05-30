@@ -1,0 +1,47 @@
+\begin{helper}
+Fix an integer \(s\ge4\).  For all sufficiently large \(k\), there is an
+integer \(m\ge1\).  If \(q=2^m\), then the Galois field
+\(\mathbb F_{2^m}\) has \(q\) elements and
+\[
+  \frac{k}{2(\log k)^2}\le q\le \frac{k}{(\log k)^2}.
+\]
+Moreover \(\log q\le \log k\) and \(\log q>0\).
+\end{helper}
+\begin{proof}
+The only analytic input is that \((\log x)^2=o(x)\) as \(x\to\infty\).
+Therefore, after increasing the lower threshold for \(k\), we have both
+\[
+  (\log k)^2\le \frac{k}{2}
+  \qquad\text{and}\qquad
+  1\le \log k .
+\]
+The first inequality and positivity of \((\log k)^2\) imply
+\[
+  2\le \frac{k}{(\log k)^2}.
+\]
+Put \(x=k/(\log k)^2\).  Since \(x\ge1\), the Archimedean discreteness of
+successive powers of \(2\) gives an integer \(m\ge0\) with
+\[
+  2^m\le x<2^{m+1}.
+\]
+The stronger bound \(x\ge2\) rules out \(m=0\), so \(m\ge1\).  With
+\(q=2^m\), the displayed inequalities give \(q\le x\) and
+\[
+  \frac{x}{2}<q,
+\]
+hence in particular \(x/2\le q\).  Substituting \(x=k/(\log k)^2\) gives
+\[
+  \frac{k}{2(\log k)^2}\le q\le \frac{k}{(\log k)^2}.
+\]
+Since \(1\le\log k\), we have \(1\le(\log k)^2\), and therefore
+\[
+  q\le \frac{k}{(\log k)^2}\le k.
+\]
+The real logarithm is monotone on positive reals, so \(\log q\le\log k\).
+Also \(m\ge1\), hence \(q=2^m\ge2>1\), and so \(\log q>0\).
+
+Finally, the field used later is the concrete Galois field
+\(\mathbb F_{2^m}\), formalized as \(\mathrm{GaloisField}(2,m)\).  Since
+\(m\ne0\), the standard cardinality theorem for Galois fields gives
+\(|\mathbb F_{2^m}|=2^m=q\).
+\end{proof}

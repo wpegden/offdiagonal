@@ -102,6 +102,7 @@
 | LoopGraphZeroSumEuclideanEigenpairNonprincipal | proof | - | closed |
 | LoopGraphZeroSumEuclideanEigenvalueBound | proof | - | closed |
 | MainTheorem | proof | - | open |
+| MainTheoremDyadicGaloisScale | proof | - | closed |
 | MainTheoremEtaBounds | proof | - | closed |
 | MainTheoremFiniteAbsorption | proof | - | closed |
 | MainTheoremLargeKComparison | proof | - | closed |
@@ -155,4 +156,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 148/150 closed
+**Summary:** 149/151 closed
