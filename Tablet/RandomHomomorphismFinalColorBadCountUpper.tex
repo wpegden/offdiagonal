@@ -1,0 +1,51 @@
+\begin{helper}
+Let \(D\) be a digraph on a finite vertex set \(W\), and let \(3\le \ell\).
+Put
+\[
+  \Omega=\{\phi:\ [\ell-1]\to([n]\to W)\}.
+\]
+Call \(\phi\in\Omega\) bad if the coloring
+\(\noderef{RandomHomomorphismColoring}(D,\ell,n,\phi)\) has a final-color
+monochromatic clique on some \(s\)-element set.  Then the number of bad maps is
+at most
+\[
+  \binom ns\,
+  \overrightarrow{i_s}(D)^{\ell-1}\,
+  |W|^{(\ell-1)(n-s)}.
+\]
+\end{helper}
+\begin{proof}
+For each bad \(\phi\), choose one witnessing \(s\)-element set \(S\).  This
+embeds the bad maps into the set of pairs \((\phi,S)\) where \(|S|=s\) and
+every edge inside \(S\) has final color under
+\(\noderef{RandomHomomorphismColoring}\).
+
+Fix such a pair \((\phi,S)\), and list \(S\) increasingly as
+\[
+  v_1<\cdots <v_s .
+\]
+For every first color \(c<\ell\), the final-color assumption on all edges of
+\(S\) implies, by \(\noderef{RandomHomomorphismFinalColorForwardIndependent}\),
+that the tuple
+\[
+  (\phi_c(v_1),\ldots,\phi_c(v_s))
+\]
+is forward independent in \(D\).  Thus the pair \((\phi,S)\) determines:
+the set \(S\); for each \(c<\ell\), one forward-independent \(s\)-tuple in
+\(D\); and for each \(c<\ell\), all values of \(\phi_c\) outside \(S\).
+
+This data determines \(\phi\) uniquely.  Indeed, on \(S\) the increasing list
+identifies every point of \(S\) with a unique index \(i\in[s]\), so the chosen
+forward-independent tuple gives \(\phi_c(v_i)\).  Outside \(S\), the outside
+values are recorded directly.  Hence the number of such pairs is bounded by
+\[
+  \#\{S\subseteq[n]: |S|=s\}\,
+  \overrightarrow{i_s}(D)^{\ell-1}\,
+  |W|^{(\ell-1)(n-s)}.
+\]
+There are exactly \(\binom ns\) choices of \(S\), and
+\(\noderef{ForwardIndependentTupleCount}\) identifies
+\(\overrightarrow{i_s}(D)\) with the number of forward-independent
+\(s\)-tuples.  This gives the claimed upper bound.
+\end{proof}
+

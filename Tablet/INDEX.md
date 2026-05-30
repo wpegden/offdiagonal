@@ -129,9 +129,11 @@
 | RamseyPropertyNonempty | helper | proof | closed | - | - | RamseyPropertyStep |
 | RamseyPropertyStep | helper | proof | closed | - | - | RamseyProperty |
 | RandomHomomorphismColoring | definition | definition | closed | - | - | Digraph |
-| RandomHomomorphismColoringBound | lemma | proof | open | - | - | F2ForwardIndependentNearDiagonalBound, NoMonochromaticCliqueColoring, RandomHomomorphismColoring, RandomHomomorphismF2Setup, RandomHomomorphismFinalColorArithmetic, RandomHomomorphismFinalColorCliqueToForwardIndependent, RandomHomomorphismFinalColorForwardIndependent, RandomHomomorphismFinalColorSelectionFromCount, RandomHomomorphismFirstColorOrderedCliqueFree |
+| RandomHomomorphismColoringBound | lemma | proof | closed | - | - | F2ForwardIndependentNearDiagonalBound, NoMonochromaticCliqueColoring, RandomHomomorphismColoring, RandomHomomorphismF2Setup, RandomHomomorphismFinalColorArithmetic, RandomHomomorphismFinalColorBadCountStrict, RandomHomomorphismFinalColorCliqueToForwardIndependent, RandomHomomorphismFinalColorForwardIndependent, RandomHomomorphismFinalColorSelectionFromCount, RandomHomomorphismFirstColorOrderedCliqueFree |
 | RandomHomomorphismF2Setup | helper | proof | closed | - | - | F2ForwardIndependentNearDiagonalBound |
 | RandomHomomorphismFinalColorArithmetic | helper | proof | closed | - | - | Preamble |
+| RandomHomomorphismFinalColorBadCountStrict | helper | proof | closed | - | - | RandomHomomorphismFinalColorArithmetic, RandomHomomorphismFinalColorBadCountUpper |
+| RandomHomomorphismFinalColorBadCountUpper | helper | proof | closed | - | - | ForwardIndependentTupleCount, RandomHomomorphismFinalColorForwardIndependent |
 | RandomHomomorphismFinalColorCliqueToForwardIndependent | helper | proof | closed | - | - | RandomHomomorphismFinalColorForwardIndependent |
 | RandomHomomorphismFinalColorForwardIndependent | helper | proof | closed | - | - | ForwardIndependentTuple, RandomHomomorphismColoring |
 | RandomHomomorphismFinalColorSelectionFromCount | helper | proof | closed | - | - | RandomHomomorphismColoring |
@@ -143,4 +145,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 139 nodes | **Closed:** 135 | **Open:** 4
+**Total:** 141 nodes | **Closed:** 138 | **Open:** 3

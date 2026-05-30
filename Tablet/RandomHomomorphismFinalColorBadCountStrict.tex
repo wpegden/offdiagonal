@@ -1,0 +1,79 @@
+\begin{helper}
+Let \(D\) be a digraph on a finite vertex set \(W\), let \(3\le\ell\), let
+\(4\le s\le n\), and put
+\[
+  \Omega=\{\phi:\ [\ell-1]\to([n]\to W)\}.
+\]
+Assume
+\[
+  |W|>2^{2s-4},\qquad
+  \overrightarrow{i_s}(D)\le 2^{3s^2/2},
+\]
+and
+\[
+  n\le 2^{(s/2-4)(\ell-1)}.
+\]
+If \(\phi\in\Omega\) is called bad when
+\(\noderef{RandomHomomorphismColoring}(D,\ell,n,\phi)\) has a final-color
+monochromatic \(s\)-clique, then the number of bad \(\phi\) is strictly smaller
+than \(|\Omega|\).
+\end{helper}
+\begin{proof}
+By \(\noderef{RandomHomomorphismFinalColorBadCountUpper}\), the number of bad
+\(\phi\) is at most
+\[
+  \binom ns\,\overrightarrow{i_s}(D)^{\ell-1}\,
+  |W|^{(\ell-1)(n-s)}.
+\]
+The total number of map families is
+\[
+  |\Omega|=|W|^{(\ell-1)n}.
+\]
+Since \(\binom ns\le n^s\), it is enough to compare
+\[
+  n^s\,\overrightarrow{i_s}(D)^{\ell-1}
+\]
+with \(|W|^{s(\ell-1)}\).
+
+The hypotheses give
+\[
+  \overrightarrow{i_s}(D)^{\ell-1}
+  \le 2^{(3s^2/2)(\ell-1)}.
+\]
+Also \(|W|>2^{2s-4}\), and since \(s(\ell-1)>0\), raising to the
+\(s(\ell-1)\)-st power gives the strict inequality
+\[
+  2^{(2s-4)s(\ell-1)}<|W|^{s(\ell-1)}.
+\]
+Multiplying this strict comparison by the positive factor
+\[
+  2^{(-s^2/2+4s)(\ell-1)}
+\]
+and using the exponent identity
+\[
+  (2s-4)s(\ell-1)+(-s^2/2+4s)(\ell-1)
+  =(3s^2/2)(\ell-1),
+\]
+we obtain
+\[
+  \overrightarrow{i_s}(D)^{\ell-1}
+  < |W|^{s(\ell-1)}\,2^{(-s^2/2+4s)(\ell-1)}.
+\]
+Finally, \(\noderef{RandomHomomorphismFinalColorArithmetic}\) applied to the
+assumed bound on \(n\) gives
+\[
+  n^s\,2^{(-s^2/2+4s)(\ell-1)}\le 1.
+\]
+Therefore
+\[
+  n^s\,\overrightarrow{i_s}(D)^{\ell-1}<|W|^{s(\ell-1)}.
+\]
+Multiplying by the positive factor \(|W|^{(\ell-1)(n-s)}\) and using
+\[
+  s(\ell-1)+(\ell-1)(n-s)=(\ell-1)n
+\]
+shows that the upper bound for bad maps is strictly smaller than
+\(|W|^{(\ell-1)n}=|\Omega|\).  Hence the bad subtype has cardinality strictly
+less than \(\Omega\), as claimed.
+\end{proof}
+

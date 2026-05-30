@@ -130,9 +130,11 @@
 | RamseyPropertyNonempty | proof | - | closed |
 | RamseyPropertyStep | proof | - | closed |
 | RandomHomomorphismColoring | definition | - | closed |
-| RandomHomomorphismColoringBound | proof | - | open |
+| RandomHomomorphismColoringBound | proof | - | closed |
 | RandomHomomorphismF2Setup | proof | - | closed |
 | RandomHomomorphismFinalColorArithmetic | proof | - | closed |
+| RandomHomomorphismFinalColorBadCountStrict | proof | - | closed |
+| RandomHomomorphismFinalColorBadCountUpper | proof | - | closed |
 | RandomHomomorphismFinalColorCliqueToForwardIndependent | proof | - | closed |
 | RandomHomomorphismFinalColorForwardIndependent | proof | - | closed |
 | RandomHomomorphismFinalColorSelectionFromCount | proof | - | closed |
@@ -144,4 +146,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 135/139 closed
+**Summary:** 138/141 closed
