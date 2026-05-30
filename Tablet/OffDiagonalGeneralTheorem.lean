@@ -1,4 +1,5 @@
 import Tablet.ComplementPolarityPairHsFree
+import Tablet.OffDiagonalGeneralDyadicScale
 import Tablet.PolarityGraphParameters
 import Tablet.RamseyFromGraphPair
 
@@ -25,8 +26,27 @@ theorem OffDiagonalGeneralTheorem :
       ∃ L0 : ℕ, ∀ s k : ℕ, L0 ≤ s → L0 * s ≤ k →
         Real.rpow ((k : ℝ) / (s : ℝ)) ((1 - delta0) * (s : ℝ)) ≤
           (RamseyNumber s k : ℝ) := by
-    -- Remaining work: formalize the paper construction for the normalized
-    -- parameter `delta0`, using `0 < delta0` and `delta0 < 1 / 10`.
+    rcases OffDiagonalGeneralDyadicScale delta0 hdelta0_pos hdelta0_lt_tenth with
+      ⟨X0, hscale⟩
+    rcases exists_nat_ge X0 with ⟨Lx, hX0_le_Lx⟩
+    refine ⟨max Lx 1, ?_⟩
+    intro s k hs hk
+    let x : ℝ := (k : ℝ) / (s : ℝ)
+    have hs_one : 1 ≤ s := (Nat.le_max_right Lx 1).trans hs
+    have hs_pos_nat : 0 < s := by omega
+    have hs_pos_real : 0 < (s : ℝ) := by exact_mod_cast hs_pos_nat
+    have hmax_le_x : ((max Lx 1 : ℕ) : ℝ) ≤ x := by
+      dsimp [x]
+      rw [le_div_iff₀ hs_pos_real]
+      exact_mod_cast hk
+    have hLx_le_max : (Lx : ℝ) ≤ ((max Lx 1 : ℕ) : ℝ) := by
+      exact_mod_cast Nat.le_max_left Lx 1
+    have hX0_le_x : X0 ≤ x := hX0_le_Lx.trans (hLx_le_max.trans hmax_le_x)
+    rcases hscale x hX0_le_x with
+      ⟨m, hm_pos, hcard, hq_le, hy_le_twoq, hq_lower, hx_ge_one,
+        hlogx_ge_one, hlogq_le_logx, hlogq_pos⟩
+    -- Remaining work: use this dyadic `q = 2^m` package to instantiate the
+    -- polarity construction and apply `RamseyFromGraphPair`.
     sorry
   rcases hnormalized with ⟨L0, hL0⟩
   refine ⟨max L0 1, ?_⟩

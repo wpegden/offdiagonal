@@ -1,0 +1,68 @@
+\begin{helper}
+Let \(\delta\) be a real number with \(0<\delta<1/10\).  There is a real
+threshold \(X_0\) such that, whenever \(x\ge X_0\), there is an integer
+\(m\ge1\).  If \(q=2^m\), then the concrete field
+\(\mathrm{GaloisField}(2,m)\) has \(q\) elements and
+\[
+  q\le \frac{\delta}{100}\frac{x}{\log x}\le 2q.
+\]
+Moreover
+\[
+  x^{1-\delta/2}\le q,\qquad
+  1\le x,\qquad 1\le\log x,\qquad
+  \log q\le\log x,\qquad 0<\log q.
+\]
+\end{helper}
+\begin{proof}
+The proof uses only standard asymptotics and the dyadic pigeonhole step used
+in the paper.  Since \(\log x=o(x)\) and
+\(\log x=o(x^{\delta/2})\) as \(x\to\infty\), choose \(X_0\) so large that
+for every \(x\ge X_0\),
+\[
+  1\le x,\qquad 1\le\log x,\qquad
+  \log x\le \frac{\delta}{200}x,\qquad
+  \log x\le \frac{\delta}{200}x^{\delta/2}.
+\]
+Fix such an \(x\), and put
+\[
+  y=\frac{\delta}{100}\frac{x}{\log x}.
+\]
+The inequality \(\log x\le(\delta/200)x\), together with \(\log x>0\), gives
+\(2\le y\).
+
+Choose \(m\ge0\) with
+\[
+  2^m\le y<2^{m+1}.
+\]
+This is the usual dyadic choice of a power of two below \(y\).  Since
+\(y\ge2\), the case \(m=0\) is impossible, so \(m\ge1\).  Let \(q=2^m\).
+The displayed inequality gives \(q\le y\le2q\), which is the asserted
+two-sided estimate for \((\delta/100)x/\log x\).  Since \(m\ne0\), the
+standard cardinality formula for Galois fields gives
+\[
+  |\mathrm{GaloisField}(2,m)|=2^m=q.
+\]
+
+It remains to record the lower comparison and logarithmic facts.  From
+\(\log x\le(\delta/200)x^{\delta/2}\) and \(x>0\), we have
+\[
+  x^{1-\delta/2}\cdot 2\log x
+    \le x^{1-\delta/2}\cdot 2\cdot\frac{\delta}{200}x^{\delta/2}
+    = \frac{\delta}{100}x,
+\]
+because \(x^{1-\delta/2}x^{\delta/2}=x\).  Dividing by \(2\log x>0\) gives
+\[
+  x^{1-\delta/2}\le \frac{y}{2}.
+\]
+The dyadic upper bound \(y<2q\) gives \(y/2\le q\), hence
+\(x^{1-\delta/2}\le q\).
+
+The inequalities \(1\le x\) and \(1\le\log x\) hold by the choice of \(X_0\).
+Also \(\delta/100\le1\), so
+\[
+  q\le y=\frac{\delta}{100}\frac{x}{\log x}\le \frac{x}{\log x}\le x
+\]
+because \(\log x\ge1\).  Monotonicity of the logarithm on positive reals gives
+\(\log q\le\log x\).  Finally, \(m\ge1\) implies \(q=2^m\ge2>1\), so
+\(0<\log q\).
+\end{proof}

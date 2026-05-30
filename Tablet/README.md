@@ -116,6 +116,7 @@
 | MulticolorTheorem | proof | - | closed |
 | NoMonochromaticCliqueColoring | definition | - | closed |
 | NoSkewBipartiteConfiguration | definition | - | closed |
+| OffDiagonalGeneralDyadicScale | proof | - | closed |
 | OffDiagonalGeneralTheorem | proof | - | open |
 | PolarityGraph | definition | - | closed |
 | PolarityGraphParameters | proof | - | closed |
@@ -157,4 +158,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 151/152 closed
+**Summary:** 152/153 closed
