@@ -98,7 +98,8 @@
 | LoopGraphZeroSumAdjacencyEuclideanOperator | definition | definition | closed | - | - | LoopGraphAdjacencyEuclideanOperatorMapsZeroSum, LoopGraphEuclideanZeroSumSubmodule, LoopGraphNdLambda |
 | LoopGraphZeroSumEuclideanEigenpairNonprincipal | helper | proof | closed | - | - | LoopGraphEuclideanZeroSumSubmodule, LoopGraphNonprincipalEigenvalue |
 | LoopGraphZeroSumEuclideanEigenvalueBound | helper | proof | closed | - | - | LoopGraphNdLambda, LoopGraphZeroSumEuclideanEigenpairNonprincipal |
-| MainTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, PolarityGraphParameters, RamseyFromGraphPair |
+| MainTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, MainTheoremFiniteAbsorption, PolarityGraphParameters, RamseyFromGraphPair |
+| MainTheoremFiniteAbsorption | helper | proof | closed | - | - | RamseyNumberPositive |
 | MulticolorRamseyNumber | definition | definition | closed | - | - | MulticolorRamseyProperty |
 | MulticolorRamseyNumberLowerBoundFromCounterexample | helper | proof | closed | - | - | MulticolorRamseyNumber, MulticolorRamseyPropertyMonotone, MulticolorRamseyPropertyNonempty, NoMonochromaticCliqueColoring |
 | MulticolorRamseyProperty | definition | definition | closed | - | - | Preamble |
@@ -126,6 +127,7 @@
 | RamseyFromGraphPair | theorem | proof | closed | - | - | DigraphToGraphIndependentSetBound, ProductDigraphForwardIndependentBound, SamplingKsFreeRamseyBound |
 | RamseyNumber | definition | definition | closed | - | - | RamseyProperty |
 | RamseyNumberLowerBoundFromCounterexample | helper | proof | closed | - | - | RamseyNumber, RamseyPropertyCounterexampleTransport, RamseyPropertyMonotone, RamseyPropertyNonempty |
+| RamseyNumberPositive | helper | proof | closed | - | - | RamseyNumber, RamseyPropertyNonempty |
 | RamseyProperty | definition | definition | closed | - | - | Preamble |
 | RamseyPropertyCounterexampleTransport | helper | proof | closed | - | - | RamseyProperty |
 | RamseyPropertyMonotone | helper | proof | closed | - | - | RamseyProperty |
@@ -148,4 +150,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 144 nodes | **Closed:** 142 | **Open:** 2
+**Total:** 146 nodes | **Closed:** 144 | **Open:** 2

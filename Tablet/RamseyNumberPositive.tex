@@ -1,0 +1,21 @@
+\begin{helper}
+For positive integers \(s\) and \(k\), the two-color Ramsey number
+\(\noderef{RamseyNumber}(s,k)\) is positive.
+\end{helper}
+\begin{proof}
+By \(\noderef{RamseyNumber}\), the Ramsey number is the least integer \(n\)
+for which the Ramsey property \(R(s,k,n)\) holds.  The set of such \(n\) is
+nonempty by \(\noderef{RamseyPropertyNonempty}\), so this least integer belongs
+to the defining set.
+
+It remains to show that \(R(s,k,0)\) is false.  Consider the unique graph on
+the empty vertex set.  A clique of size \(s\) in this graph would be a finite
+subset of the empty set with cardinality \(s\), but every subset of the empty
+set has cardinality \(0\), contradicting \(s>0\).  Similarly, an independent
+set of size \(k\) would be a subset of the empty set with cardinality \(k\),
+contradicting \(k>0\).  Thus \(R(s,k,0)\) fails.
+
+If \(\noderef{RamseyNumber}(s,k)=0\), then the least element of the nonempty
+defining set would witness \(R(s,k,0)\), contradicting the previous paragraph.
+Therefore \(\noderef{RamseyNumber}(s,k)>0\).
+\end{proof}

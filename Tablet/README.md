@@ -101,6 +101,7 @@
 | LoopGraphZeroSumEuclideanEigenpairNonprincipal | proof | - | closed |
 | LoopGraphZeroSumEuclideanEigenvalueBound | proof | - | closed |
 | MainTheorem | proof | - | open |
+| MainTheoremFiniteAbsorption | proof | - | closed |
 | MulticolorRamseyNumber | definition | - | closed |
 | MulticolorRamseyNumberLowerBoundFromCounterexample | proof | - | closed |
 | MulticolorRamseyProperty | definition | - | closed |
@@ -127,6 +128,7 @@
 | RamseyFromGraphPair | proof | - | closed |
 | RamseyNumber | definition | - | closed |
 | RamseyNumberLowerBoundFromCounterexample | proof | - | closed |
+| RamseyNumberPositive | proof | - | closed |
 | RamseyProperty | definition | - | closed |
 | RamseyPropertyCounterexampleTransport | proof | - | closed |
 | RamseyPropertyMonotone | proof | - | closed |
@@ -149,4 +151,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 142/144 closed
+**Summary:** 144/146 closed

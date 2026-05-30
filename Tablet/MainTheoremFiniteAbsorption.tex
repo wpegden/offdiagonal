@@ -1,0 +1,38 @@
+\begin{helper}
+Fix \(s>0\).  Suppose that for some threshold \(k_0\) and some constant
+\(C>0\), every \(k\ge k_0\) with \(k\ge2\) satisfies
+\[
+  C\frac{k^{s-2}}{(\log k)^{2s-6}}\le r(s,k).
+\]
+Then there is a constant \(c>0\) such that every \(k\ge2\) satisfies
+\[
+  c\frac{k^{s-2}}{(\log k)^{2s-6}}\le r(s,k).
+\]
+\end{helper}
+\begin{proof}
+For \(k\ge2\), set
+\[
+  T(k)=\frac{k^{s-2}}{(\log k)^{2s-6}}.
+\]
+Since \(k>1\), we have \(\log k>0\), and hence \(T(k)>0\).
+
+Let \(A=\{k\in\mathbb N: 2\le k<k_0\}\).  If \(A\) is empty, then every
+\(k\ge2\) also satisfies \(k\ge k_0\), so the assumed large-\(k\) bound holds
+with \(c=C\).
+
+Now suppose \(A\) is nonempty.  For each \(k\in A\), \(\noderef{RamseyNumberPositive}\)
+gives \(r(s,k)>0\), and \(T(k)>0\), so the ratio \(r(s,k)/T(k)\) is positive.
+Because \(A\) is finite and nonempty, this ratio has a minimum over \(A\); call
+one minimizing value \(R_{\min}>0\).  Put
+\[
+  c=\min\{C,R_{\min}\}.
+\]
+Then \(c>0\).  If \(k\ge k_0\), the inequality with \(c\) follows from
+\(c\le C\), \(T(k)>0\), and the assumed large-\(k\) inequality.  If
+\(2\le k<k_0\), then \(k\in A\), so \(R_{\min}\le r(s,k)/T(k)\).  Since
+\(c\le R_{\min}\) and \(T(k)>0\), multiplying by \(T(k)\) gives
+\[
+  cT(k)\le r(s,k).
+\]
+These two cases cover all \(k\ge2\), proving the claim.
+\end{proof}
