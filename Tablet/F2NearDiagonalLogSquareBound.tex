@@ -1,0 +1,34 @@
+\begin{helper}
+For every \(\varepsilon>0\), there is \(s_0\) such that, for every
+integer \(s\ge s_0\),
+\[
+  \frac12\left(\log_2(2es)+\frac32\right)^2
+  \le \frac{\varepsilon s}{4}.
+\]
+\end{helper}
+\begin{proof}
+Put \(C=2e\).  The standard estimate \((\log y)^r=o(y)\) as
+\(y\to\infty\), applied with \(r=1\) and \(r=2\), gives
+\[
+  \frac{(\log(Cx))^2}{x}\to0,\qquad
+  \frac{\log(Cx)}{x}\to0,\qquad
+  \frac1x\to0
+  \qquad (x\to\infty).
+\]
+Since \(\log_2(Cx)=\log(Cx)/\log 2\), expanding the square gives
+\[
+  \frac{\frac12(\log_2(Cx)+3/2)^2}{x}
+  =
+  \frac{1}{2(\log 2)^2}\frac{(\log(Cx))^2}{x}
+  +\frac{3}{2\log 2}\frac{\log(Cx)}{x}
+  +\frac98\frac1x,
+\]
+and therefore the left-hand side tends to \(0\) as \(x\to\infty\).
+Thus, since \(\varepsilon/4>0\), the displayed ratio is \(<\varepsilon/4\)
+for all sufficiently large \(x\).  Applying this to integer \(s\), and
+choosing \(s_0\) at least \(1\), gives
+\[
+  \frac{\frac12(\log_2(2es)+3/2)^2}{s}<\frac{\varepsilon}{4}.
+\]
+Multiplying by the positive number \(s\) yields the desired inequality.
+\end{proof}

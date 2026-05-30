@@ -1,0 +1,92 @@
+\begin{helper}
+For every \(\varepsilon>0\), there are \(\delta>0\) and \(s_0\) such
+that, whenever \(s\ge s_0\), \(a\in\mathbb N\) satisfies
+\(a\le\delta s\), and \(t\in\{1,\ldots,s-1\}\), there is a real number
+\(\lambda\) such that, with \(j=s-t\),
+\[
+  \binom{s+a}{t}\le 2^{(a+j)\lambda},
+\]
+\[
+  a\lambda\le \frac{\varepsilon s}{4},
+\]
+and
+\[
+  j\lambda+\frac{3j}{2}-\frac{j^2}{2}\le \frac{\varepsilon s}{4}.
+\]
+\end{helper}
+\begin{proof}
+Apply \(\noderef{F2NearDiagonalSmallXLogBound}\) with \(\varepsilon\).  It
+gives \(0<\delta\le1\) such that
+\[
+  x\log_2(2e/x)\le\varepsilon/4
+  \qquad(0<x\le\delta). \tag{1}
+\]
+Apply \(\noderef{F2NearDiagonalLogSquareBound}\) with \(\varepsilon\).  It
+gives \(s_1\) such that, for all \(s\ge s_1\),
+\[
+  \frac12(\log_2(2es)+3/2)^2\le\varepsilon s/4. \tag{2}
+\]
+Let \(s_0=\max(s_1,1)\).
+
+Now assume \(s\ge s_0\), \(a\le\delta s\), and
+\(1\le t\le s-1\).  Put \(j=s-t\).  Then \(j\ge1\), \(j\le s\), and
+\[
+  s-j=t.
+\]
+Define
+\[
+  \lambda=\log_2\left(\frac{e(s+a)}{a+1}\right).
+\]
+By \(\noderef{F2NearDiagonalChooseSymmetry}\),
+\[
+  \binom{s+a}{t}=\binom{s+a}{j+a}.
+\]
+Since \(j\ge1\), we have \(a+1\le j+a\).  Applying
+\(\noderef{F2NearDiagonalBinomialLogBound}\) with
+\(n=s+a\), \(m=j+a\), and \(b=a+1\) gives
+\[
+  \binom{s+a}{j+a}
+  \le
+  2^{(j+a)\log_2(e(s+a)/(a+1))}
+  =
+  2^{(a+j)\lambda}.
+\]
+This proves the required binomial control.
+
+It remains to prove the two logarithmic controls.  Since \(\delta\le1\) and
+\(a\le\delta s\), we have \(a\le s\), hence \(s+a\le2s\).  Therefore
+\[
+  \frac{e(s+a)}{a+1}\le 2es.
+\]
+Taking base-\(2\) logarithms gives
+\[
+  \lambda\le \log_2(2es). \tag{3}
+\]
+Using (3) and \(j\ge0\), \(\noderef{F2NearDiagonalQuadraticMaxBound}\)
+gives
+\[
+  j\lambda+\frac{3j}{2}-\frac{j^2}{2}
+  \le \frac12(\log_2(2es)+3/2)^2.
+\]
+Combining this with (2) gives the desired \(j\)-quadratic bound.
+
+For the \(a\lambda\) bound, first suppose \(a=0\).  Then
+\(a\lambda=0\le\varepsilon s/4\).  If \(a>0\), put \(x=a/s\).  Since
+\(s\ge1\), \(x>0\), and the hypothesis \(a\le\delta s\) gives
+\(x\le\delta\).  Also \(s+a\le2s\) and \(a+1\ge a\), so
+\[
+  \frac{e(s+a)}{a+1}
+  \le \frac{2es}{a}
+  =
+  \frac{2e}{x}.
+\]
+Thus \(\lambda\le\log_2(2e/x)\), and by (1),
+\[
+  x\lambda\le x\log_2(2e/x)\le\varepsilon/4.
+\]
+Multiplying by \(s\) and using \(sx=a\) yields
+\[
+  a\lambda\le \varepsilon s/4.
+\]
+All three required controls hold for the displayed value of \(\lambda\).
+\end{proof}

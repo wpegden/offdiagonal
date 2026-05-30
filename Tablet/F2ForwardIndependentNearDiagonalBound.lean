@@ -5,6 +5,7 @@ import Tablet.F2NearDiagonalLargeSPowerBound
 import Tablet.F2NearDiagonalQuadraticMaxBound
 import Tablet.F2NearDiagonalSummationAbsorptionBound
 import Tablet.F2NearDiagonalSummandFromLogControls
+import Tablet.F2NearDiagonalLogControlBundle
 
 -- [TABLET NODE: F2ForwardIndependentNearDiagonalBound]
 

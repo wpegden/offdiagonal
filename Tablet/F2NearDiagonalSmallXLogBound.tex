@@ -1,0 +1,30 @@
+\begin{helper}
+For every \(\varepsilon>0\), there is a real number
+\(\delta\) with \(0<\delta\le 1\) such that, for every real
+\(x\) satisfying \(0<x\le\delta\),
+\[
+  x\log_2\left(\frac{2e}{x}\right)\le \frac{\varepsilon}{4}.
+\]
+\end{helper}
+\begin{proof}
+As \(x\to0^+\), we have \(x\to0\) and \(x\log x\to0\).  Since
+\[
+  x\log\left(\frac{2e}{x}\right)
+  =x\log(2e)-x\log x
+\]
+for \(x>0\), it follows that
+\[
+  x\log\left(\frac{2e}{x}\right)\to0
+  \qquad (x\to0^+).
+\]
+Dividing by the positive constant \(\log 2\) gives
+\[
+  x\log_2\left(\frac{2e}{x}\right)\to0
+  \qquad (x\to0^+).
+\]
+Because \(\varepsilon/4>0\), there is \(\eta>0\) such that the displayed
+quantity is \(<\varepsilon/4\) whenever \(0<x<\eta\).  Taking
+\(\delta=\min(\eta/2,1)\) gives \(0<\delta\le1\), and every
+\(0<x\le\delta\) satisfies \(0<x<\eta\).  Hence the required weak
+inequality follows.
+\end{proof}
