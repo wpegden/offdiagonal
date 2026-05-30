@@ -28,7 +28,27 @@ theorem PolarityGraphParameters (K : Type u) [Field K] [Fintype K] (t q : ℕ)
     intro x y hxy
     exact Projectivization.orthogonal_comm.mp hxy
   constructor
-  · sorry
+  · classical
+    intro v
+    induction v using Projectivization.ind with
+    | h x hx =>
+      dsimp [LoopGraphDegree, PolarityGraph]
+      have hsub :
+          ({ w : Projectivization K (Fin (t + 1) → K) |
+            Projectivization.orthogonal (Projectivization.mk K x hx) w } :
+              Finset (Projectivization K (Fin (t + 1) → K))).card =
+            Fintype.card
+              { w : Projectivization K (Fin (t + 1) → K) //
+                Projectivization.orthogonal (Projectivization.mk K x hx) w } := by
+        simpa using (Fintype.card_subtype
+          (fun w : Projectivization K (Fin (t + 1) → K) =>
+            Projectivization.orthogonal (Projectivization.mk K x hx) w)).symm
+      refine hsub.trans ?_
+      change Fintype.card
+          { w : Projectivization K (Fin (t + 1) → K) //
+            Projectivization.orthogonal (Projectivization.mk K x hx) w } =
+        ((q ^ t - 1) / (q - 1))
+      sorry
   constructor
   · sorry
   · exact Real.sqrt_nonneg _
