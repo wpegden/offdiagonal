@@ -246,4 +246,126 @@ theorem SamplingKsFreeRamseyBound {V : Type u} [Fintype V]
               _ = p := hvertex_mass v
       _ = p * (Fintype.card V : ℝ) := by
             simp [mul_comm]
+  have hfixedIndependentSetMass_pow :
+      ∀ I : {S : Finset V // Gᶜ.IsNClique k S},
+        (∑ U : Finset V, if I.val ⊆ U then bernoulliWeight U else 0) = p ^ k := by
+    intro I
+    let base : Finset V := I.val
+    let rest : Finset V := (Finset.univ : Finset V) \ base
+    have hbase_card : base.card = k := by
+      dsimp [base]
+      exact I.property.card_eq
+    have hrest_card : rest.card = Fintype.card V - base.card := by
+      dsimp [rest]
+      rw [Finset.card_sdiff_of_subset (by simp)]
+      simp
+    have hcontains_to_filter :
+        (∑ U : Finset V, if base ⊆ U then bernoulliWeight U else 0) =
+          ∑ U ∈ (Finset.univ : Finset (Finset V)).filter (fun U => base ⊆ U),
+            bernoulliWeight U := by
+      rw [← Finset.sum_filter]
+    have hfilter_to_rest :
+        (∑ U ∈ (Finset.univ : Finset (Finset V)).filter (fun U => base ⊆ U),
+            bernoulliWeight U) =
+          ∑ T ∈ rest.powerset, bernoulliWeight (base ∪ T) := by
+      symm
+      refine Finset.sum_bij
+        (fun T _ => base ∪ T)
+        ?hIndHi ?hIndInj ?hIndSurj ?hIndVal
+      · intro T hT
+        exact Finset.mem_filter.mpr ⟨by simp, by simp⟩
+      · intro T₁ hT₁ T₂ hT₂ heq
+        have hdisj₁ : Disjoint base T₁ := by
+          refine Finset.disjoint_left.mpr ?_
+          intro x hxbase hxT
+          have hsub := Finset.mem_powerset.mp hT₁
+          have hxrest : x ∈ rest := hsub hxT
+          exact (Finset.mem_sdiff.mp hxrest).2 hxbase
+        have hdisj₂ : Disjoint base T₂ := by
+          refine Finset.disjoint_left.mpr ?_
+          intro x hxbase hxT
+          have hsub := Finset.mem_powerset.mp hT₂
+          have hxrest : x ∈ rest := hsub hxT
+          exact (Finset.mem_sdiff.mp hxrest).2 hxbase
+        calc
+          T₁ = (base ∪ T₁) \ base := (Finset.union_sdiff_cancel_left hdisj₁).symm
+          _ = (base ∪ T₂) \ base := by
+            simpa using congrArg (fun U : Finset V => U \ base) heq
+          _ = T₂ := Finset.union_sdiff_cancel_left hdisj₂
+      · intro U hU
+        have hbaseU : base ⊆ U := (Finset.mem_filter.mp hU).2
+        refine ⟨U \ base, ?_, ?_⟩
+        · exact Finset.mem_powerset.mpr (by
+            intro x hx
+            dsimp [rest]
+            exact Finset.mem_sdiff.mpr ⟨by simp, (Finset.mem_sdiff.mp hx).2⟩)
+        · simpa [Finset.union_comm] using Finset.sdiff_union_of_subset hbaseU
+      · intro T hT
+        rfl
+    calc
+      (∑ U : Finset V, if I.val ⊆ U then bernoulliWeight U else 0)
+          = ∑ U : Finset V, if base ⊆ U then bernoulliWeight U else 0 := by
+            dsimp [base]
+      _ = ∑ T ∈ rest.powerset, bernoulliWeight (base ∪ T) := by
+            rw [hcontains_to_filter, hfilter_to_rest]
+      _ = ∑ T ∈ rest.powerset,
+            p ^ k * (p ^ T.card * (1 - p) ^ (rest.card - T.card)) := by
+            refine Finset.sum_congr rfl ?_
+            intro T hT
+            dsimp [bernoulliWeight]
+            have hdisj : Disjoint base T := by
+              refine Finset.disjoint_left.mpr ?_
+              intro x hxbase hxT
+              have hsub := Finset.mem_powerset.mp hT
+              have hxrest : x ∈ rest := hsub hxT
+              exact (Finset.mem_sdiff.mp hxrest).2 hxbase
+            have hcard_union : (base ∪ T).card = base.card + T.card := by
+              rw [Finset.card_union_of_disjoint hdisj]
+            have hdiff :
+                Fintype.card V - (base ∪ T).card = rest.card - T.card := by
+              rw [hcard_union, hrest_card]
+              omega
+            rw [hdiff, hcard_union, hbase_card]
+            rw [pow_add]
+            ring
+      _ = p ^ k * ∑ T ∈ rest.powerset,
+            p ^ T.card * (1 - p) ^ (rest.card - T.card) := by
+            rw [Finset.mul_sum]
+      _ = p ^ k * (p + (1 - p)) ^ rest.card := by
+            rw [Finset.sum_pow_mul_eq_add_pow]
+      _ = p ^ k := by
+            ring_nf
+  have hfixedIndependentSetMass :
+      ∀ I : {S : Finset V // Gᶜ.IsNClique k S},
+        (∑ U : Finset V, if I.val ⊆ U then bernoulliWeight U else 0) =
+          Real.rpow p (k : ℝ) := by
+    intro I
+    calc
+      (∑ U : Finset V, if I.val ⊆ U then bernoulliWeight U else 0) =
+          p ^ k := hfixedIndependentSetMass_pow I
+      _ = Real.rpow p (k : ℝ) := by
+            exact (Real.rpow_natCast p k).symm
+  have hsumFixedIndependentSetMasses :
+      (∑ I : {S : Finset V // Gᶜ.IsNClique k S},
+          (∑ U : Finset V, if I.val ⊆ U then bernoulliWeight U else 0)) =
+        Real.rpow p (k : ℝ) *
+          ((SimpleGraphIndependentSetCount G k : ℕ) : ℝ) := by
+    let independentSets := {S : Finset V // Gᶜ.IsNClique k S}
+    have hcount_independentSets :
+        ((Fintype.card independentSets : ℕ) : ℝ) =
+          ((SimpleGraphIndependentSetCount G k : ℕ) : ℝ) := by
+      simp [SimpleGraphIndependentSetCount, independentSets]
+    calc
+      (∑ I : {S : Finset V // Gᶜ.IsNClique k S},
+          (∑ U : Finset V, if I.val ⊆ U then bernoulliWeight U else 0))
+          = ∑ I : independentSets, Real.rpow p (k : ℝ) := by
+            refine Finset.sum_congr rfl ?_
+            intro I hI
+            exact hfixedIndependentSetMass I
+      _ = ((Fintype.card independentSets : ℕ) : ℝ) * Real.rpow p (k : ℝ) := by
+            simp
+      _ = Real.rpow p (k : ℝ) *
+          ((SimpleGraphIndependentSetCount G k : ℕ) : ℝ) := by
+            rw [hcount_independentSets]
+            ring
   sorry
