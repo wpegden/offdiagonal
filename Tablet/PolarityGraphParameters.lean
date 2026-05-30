@@ -1,3 +1,7 @@
+import Mathlib.FieldTheory.Finiteness
+import Mathlib.LinearAlgebra.Dual.Basis
+import Mathlib.LinearAlgebra.Dual.Lemmas
+import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 import Mathlib.LinearAlgebra.Projectivization.Cardinality
 import Tablet.LoopGraphNdLambda
 import Tablet.PolarityGraph
@@ -480,5 +484,188 @@ theorem PolarityGraphParameters (K : Type u) [Field K] [Fintype K] (t q : ℕ)
               Projectivization.mk K z hz
             rw [Projectivization.map_mk]
             rfl
-    sorry
+    have htoDual_dot
+        (x z : Fin (t + 1) → K) :
+        ((Pi.basisFun K (Fin (t + 1))).toDualEquiv x) z = x ⬝ᵥ z := by
+      let b := Pi.basisFun K (Fin (t + 1))
+      rw [Module.Basis.toDualEquiv_apply]
+      change b.toDual x z = x ⬝ᵥ z
+      calc
+        b.toDual x z = b.toDual x (∑ i, z i • b i) := by
+          have hzsum : (∑ i, z i • b i) = z := by
+            simpa [b] using b.sum_repr z
+          rw [hzsum]
+        _ = ∑ i, z i * (b.toDual x (b i)) := by
+          simp [map_sum, smul_eq_mul]
+        _ = ∑ i, z i * x i := by
+          apply Finset.sum_congr rfl
+          intro i _
+          rw [Module.Basis.toDual_apply_left]
+          simp [b]
+        _ = x ⬝ᵥ z := by
+          rw [dotProduct]
+          apply Finset.sum_congr rfl
+          intro i _
+          ring
+    have hcommonNeighborFunctional_surjective
+        (u : Projectivization K (Fin (t + 1) → K)) (hu : u ≠ v0) :
+        Function.Surjective (commonNeighborFunctional u) := by
+      let V := Fin (t + 1) → K
+      let b := Pi.basisFun K (Fin (t + 1))
+      let rowDual : Fin 2 → Module.Dual K V :=
+        fun i => b.toDualEquiv (![Projectivization.rep v0, Projectivization.rep u] i)
+      have hrowDual_li : LinearIndependent K rowDual := by
+        have hmap := (hrep_linearIndependent_of_ne u hu).map'
+          (f := b.toDualEquiv.toLinearMap) (by simp)
+        simpa [rowDual] using hmap
+      let rowFun : Fin 2 → V → K := fun i z => rowDual i z
+      have hrowFun_li : LinearIndependent K rowFun := by
+        rw [Fintype.linearIndependent_iff] at hrowDual_li ⊢
+        intro g hg i
+        apply hrowDual_li g
+        apply LinearMap.ext
+        intro z
+        have hz := congr_fun hg z
+        simpa [rowFun] using hz
+      have hspan : Submodule.span K (Set.range (flip rowFun)) = ⊤ := by
+        exact (span_flip_eq_top_iff_linearIndependent (f := rowFun)).mpr hrowFun_li
+      have hrange :
+          LinearMap.range (commonNeighborFunctional u) =
+            Submodule.span K (Set.range (flip rowFun)) := by
+        apply le_antisymm
+        · intro w hw
+          rcases hw with ⟨z, rfl⟩
+          apply Submodule.subset_span
+          refine ⟨z, ?_⟩
+          ext i
+          fin_cases i
+          · simpa [commonNeighborFunctional, rowFun, rowDual] using
+              (htoDual_dot (Projectivization.rep v0) z)
+          · simpa [commonNeighborFunctional, rowFun, rowDual] using
+              (htoDual_dot (Projectivization.rep u) z)
+        · apply Submodule.span_le.mpr
+          rintro w ⟨z, rfl⟩
+          refine ⟨z, ?_⟩
+          ext i
+          fin_cases i
+          · simpa [commonNeighborFunctional, rowFun, rowDual] using
+              (htoDual_dot (Projectivization.rep v0) z).symm
+          · simpa [commonNeighborFunctional, rowFun, rowDual] using
+              (htoDual_dot (Projectivization.rep u) z).symm
+      exact LinearMap.range_eq_top.mp (by rw [hrange, hspan])
+    have hcommonNeighborFunctional_finrank
+        (u : Projectivization K (Fin (t + 1) → K)) (hu : u ≠ v0) :
+        Module.finrank K (LinearMap.ker (commonNeighborFunctional u)) = t - 1 := by
+      let Φ := commonNeighborFunctional u
+      have hsurj : Function.Surjective Φ :=
+        hcommonNeighborFunctional_surjective u hu
+      have hΦ_range : LinearMap.range Φ = ⊤ :=
+        LinearMap.range_eq_top.mpr hsurj
+      have hrange_finrank : Module.finrank K (LinearMap.range Φ) = 2 := by
+        rw [hΦ_range]
+        simp [Module.finrank_fintype_fun_eq_card]
+      have hdomain_finrank :
+          Module.finrank K (Fin (t + 1) → K) = t + 1 := by
+        simp [Module.finrank_fintype_fun_eq_card]
+      have hranknull := LinearMap.finrank_range_add_finrank_ker Φ
+      rw [hrange_finrank, hdomain_finrank] at hranknull
+      have hright : t + 1 = 2 + (t - 1) := by
+        omega
+      have hkplus :
+          2 + Module.finrank K (LinearMap.ker Φ) =
+            2 + (t - 1) := by
+        rw [hranknull, hright]
+      exact Nat.add_left_cancel hkplus
+    have hoffdiag_common_count
+        (u : Projectivization K (Fin (t + 1) → K)) (hu : u ≠ v0) :
+        (Finset.univ.filter
+          (fun w : Projectivization K (Fin (t + 1) → K) =>
+            PolarityGraph K t v0 w ∧ PolarityGraph K t w u)).card =
+          ((q ^ (t - 1) - 1) / (q - 1)) := by
+      have hfilter_subtype :
+          (Finset.univ.filter
+            (fun w : Projectivization K (Fin (t + 1) → K) =>
+              PolarityGraph K t v0 w ∧ PolarityGraph K t w u)).card =
+            Fintype.card
+              { w : Projectivization K (Fin (t + 1) → K) //
+                PolarityGraph K t v0 w ∧ PolarityGraph K t w u } := by
+        simpa using (Fintype.card_subtype
+          (fun w : Projectivization K (Fin (t + 1) → K) =>
+            PolarityGraph K t v0 w ∧ PolarityGraph K t w u)).symm
+      rcases hcommonNeighborFunctional_range u with ⟨ψ, hψ_inj, hψ_range⟩
+      haveI : Fintype (LinearMap.ker (commonNeighborFunctional u)) :=
+        Fintype.ofFinite (LinearMap.ker (commonNeighborFunctional u))
+      haveI : Fintype (Projectivization K (LinearMap.ker (commonNeighborFunctional u))) :=
+        Fintype.ofFinite (Projectivization K (LinearMap.ker (commonNeighborFunctional u)))
+      have hsubtype_card :
+          Fintype.card
+              { w : Projectivization K (Fin (t + 1) → K) //
+                PolarityGraph K t v0 w ∧ PolarityGraph K t w u } =
+            Fintype.card
+              (Projectivization K (LinearMap.ker (commonNeighborFunctional u))) := by
+        let eRange :
+            Projectivization K (LinearMap.ker (commonNeighborFunctional u)) ≃
+              Set.range ψ :=
+          Equiv.ofInjective ψ hψ_inj
+        let eSet : Set.range ψ ≃
+            { w : Projectivization K (Fin (t + 1) → K) //
+              PolarityGraph K t v0 w ∧ PolarityGraph K t w u } :=
+          Equiv.setCongr hψ_range
+        exact (Fintype.card_congr (eRange.trans eSet)).symm
+      have hker_card :
+          Nat.card (LinearMap.ker (commonNeighborFunctional u)) = q ^ (t - 1) := by
+        rw [Module.natCard_eq_pow_finrank
+          (K := K) (V := LinearMap.ker (commonNeighborFunctional u))]
+        rw [hcommonNeighborFunctional_finrank u hu]
+        rw [Nat.card_eq_fintype_card (α := K), ← hq]
+      rw [hfilter_subtype, hsubtype_card]
+      rw [← Nat.card_eq_fintype_card]
+      rw [Projectivization.card'']
+      rw [hker_card]
+      rw [Nat.card_eq_fintype_card (α := K), ← hq]
+    have hcounts :
+        ∀ u : Projectivization K (Fin (t + 1) → K),
+          (Finset.univ.filter
+            (fun w : Projectivization K (Fin (t + 1) → K) =>
+              PolarityGraph K t v0 w ∧ PolarityGraph K t w u)).card =
+            if u = v0 then ((q ^ t - 1) / (q - 1))
+            else ((q ^ (t - 1) - 1) / (q - 1)) := by
+      intro u
+      by_cases hu : u = v0
+      · subst u
+        simp [hdiag_common_count]
+      · simp [hu, hoffdiag_common_count u hu]
+    have had :
+        ((q ^ (t - 1) - 1) / (q - 1)) ≤ ((q ^ t - 1) / (q - 1)) := by
+      have hqpos : 0 < q := by
+        rw [hq]
+        exact Fintype.card_pos
+      have hqone : 1 ≤ q := Nat.succ_le_of_lt hqpos
+      have hpow_le : q ^ (t - 1) ≤ q ^ t :=
+        Nat.pow_le_pow_right hqone (Nat.sub_le t 1)
+      exact Nat.div_le_div_right (Nat.sub_le_sub_right hpow_le 1)
+    have hA2_value :
+        LoopGraphAdjacencyAction (PolarityGraph K t)
+            (fun v => LoopGraphAdjacencyAction (PolarityGraph K t) f v) v0 =
+          ((((q ^ t - 1) / (q - 1)) -
+            ((q ^ (t - 1) - 1) / (q - 1)) : ℕ) : ℝ) * f v0 :=
+      hA2_from_common_counts
+        ((q ^ t - 1) / (q - 1))
+        ((q ^ (t - 1) - 1) / (q - 1)) had hcounts
+    have hmu_sq_mul :
+        mu ^ 2 * f v0 =
+          ((((q ^ t - 1) / (q - 1)) -
+            ((q ^ (t - 1) - 1) / (q - 1)) : ℕ) : ℝ) * f v0 :=
+      hA2_eig.symm.trans hA2_value
+    have hmu_sq :
+        mu ^ 2 =
+          ((((q ^ t - 1) / (q - 1)) -
+            ((q ^ (t - 1) - 1) / (q - 1)) : ℕ) : ℝ) := by
+      exact (mul_left_inj' hv0).mp hmu_sq_mul
+    have hsq_le :
+        mu ^ 2 ≤
+          ((((q ^ t - 1) / (q - 1)) -
+            ((q ^ (t - 1) - 1) / (q - 1)) : ℕ) : ℝ) := by
+      rw [hmu_sq]
+    exact Real.abs_le_sqrt hsq_le
   · exact Real.sqrt_nonneg _

@@ -56,7 +56,7 @@
 | NoSkewBipartiteConfiguration | definition | - | closed |
 | OffDiagonalGeneralTheorem | proof | - | open |
 | PolarityGraph | definition | - | closed |
-| PolarityGraphParameters | proof | - | open |
+| PolarityGraphParameters | proof | - | closed |
 | PolarityGraphSkewFree | proof | - | closed |
 | ProductDigraph | definition | - | closed |
 | ProductDigraphFixedSequenceTupleCount | definition | - | closed |
@@ -84,4 +84,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 69/79 closed
+**Summary:** 70/79 closed

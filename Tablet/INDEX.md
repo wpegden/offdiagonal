@@ -54,7 +54,7 @@
 | NoSkewBipartiteConfiguration | definition | definition | closed | - | - | LoopGraph |
 | OffDiagonalGeneralTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, PolarityGraphParameters, RamseyFromGraphPair |
 | PolarityGraph | definition | definition | closed | - | - | LoopGraph |
-| PolarityGraphParameters | lemma | proof | open | - | - | LoopGraphNdLambda, PolarityGraph |
+| PolarityGraphParameters | lemma | proof | closed | - | - | LoopGraphNdLambda, PolarityGraph |
 | PolarityGraphSkewFree | lemma | proof | closed | - | - | NoSkewBipartiteConfiguration, PolarityGraph |
 | Preamble | preamble | preamble | closed | - | - | - |
 | ProductDigraph | definition | definition | closed | - | - | Digraph, ProductDigraphVertex |
@@ -83,4 +83,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 79 nodes | **Closed:** 69 | **Open:** 10
+**Total:** 79 nodes | **Closed:** 70 | **Open:** 9
