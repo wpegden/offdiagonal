@@ -57,7 +57,7 @@
 | OffDiagonalGeneralTheorem | proof | - | open |
 | PolarityGraph | definition | - | closed |
 | PolarityGraphParameters | proof | - | open |
-| PolarityGraphSkewFree | proof | - | open |
+| PolarityGraphSkewFree | proof | - | closed |
 | ProductDigraph | definition | - | closed |
 | ProductDigraphFixedSequenceTupleCount | definition | - | closed |
 | ProductDigraphFixedSequenceTupleCountLastVertexBound | proof | - | closed |
@@ -84,4 +84,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 68/79 closed
+**Summary:** 69/79 closed
