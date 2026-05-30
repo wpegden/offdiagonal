@@ -5,6 +5,7 @@ import Tablet.SimpleGraphNoIndependentSetFromCountZero
 import Tablet.CloseToDiagonalExponentComparison
 import Tablet.CloseToDiagonalVertexCountLowerBound
 import Tablet.CloseToDiagonalTargetScaleLarge
+import Tablet.CloseToDiagonalZeroCountLowerBound
 
 -- [TABLET NODE: CloseToDiagonalTheorem]
 

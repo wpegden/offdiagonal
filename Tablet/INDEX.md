@@ -7,8 +7,9 @@
 | BinarySequenceWeightSnoc | helper | proof | closed | - | - | BinarySequenceWeight |
 | CloseToDiagonalExponentComparison | helper | proof | closed | - | - | Preamble |
 | CloseToDiagonalTargetScaleLarge | helper | proof | closed | - | - | Preamble |
-| CloseToDiagonalTheorem | theorem | proof | open | - | - | CloseToDiagonalExponentComparison, CloseToDiagonalTargetScaleLarge, CloseToDiagonalVertexCountLowerBound, DigraphToGraphIndependentSetBound, F2ForwardIndependentNearDiagonalBound, SamplingKsFreeRamseyBound, SimpleGraphNoIndependentSetFromCountZero |
+| CloseToDiagonalTheorem | theorem | proof | open | - | - | CloseToDiagonalExponentComparison, CloseToDiagonalTargetScaleLarge, CloseToDiagonalVertexCountLowerBound, CloseToDiagonalZeroCountLowerBound, DigraphToGraphIndependentSetBound, F2ForwardIndependentNearDiagonalBound, SamplingKsFreeRamseyBound, SimpleGraphNoIndependentSetFromCountZero |
 | CloseToDiagonalVertexCountLowerBound | helper | proof | closed | - | - | Preamble |
+| CloseToDiagonalZeroCountLowerBound | helper | proof | closed | - | - | CloseToDiagonalVertexCountLowerBound |
 | ComplementPolarityPairHsFree | lemma | proof | closed | - | - | HsFreePair, LoopGraphComplement, PolarityGraphSkewFree |
 | Digraph | definition | definition | closed | - | - | Preamble |
 | DigraphLoopless | definition | definition | closed | - | - | Digraph |
@@ -130,4 +131,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 126 nodes | **Closed:** 120 | **Open:** 6
+**Total:** 127 nodes | **Closed:** 121 | **Open:** 6

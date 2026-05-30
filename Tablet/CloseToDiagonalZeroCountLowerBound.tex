@@ -1,0 +1,79 @@
+\begin{helper}
+Let \(\varepsilon>0\), and let \(0\le\delta\le1/2\).  Then there is an
+integer \(s_0\ge4\) such that, for all natural numbers \(s,a\) with
+\(s\ge s_0\) and \(a\le\delta s\),
+\[
+  (1-\varepsilon)\frac{s}{e}\,
+  2^{\frac{s+a-1}{2}-\frac{a^2}{2s}}
+  \le
+  2^{2s-3}-2^{s-1}-2^{s-2}+1.
+\]
+\end{helper}
+\begin{proof}
+If \(\varepsilon\ge1\), then \(1-\varepsilon\le0\).  The factor
+\[
+  \frac{s}{e}\,
+  2^{\frac{s+a-1}{2}-\frac{a^2}{2s}}
+\]
+is nonnegative, and the vertex count on the right is also nonnegative.  Thus
+the desired inequality is immediate, for example with \(s_0=4\).
+
+It remains to consider \(0<\varepsilon<1\).  Apply
+\noderef{CloseToDiagonalVertexCountLowerBound} with
+\(\rho=\varepsilon/2\).  We obtain an integer \(s_1\ge4\) such that, for
+all \(s\ge s_1\),
+\[
+  (1-\varepsilon/2)2^{2s-3}
+  \le
+  2^{2s-3}-2^{s-1}-2^{s-2}+1. \tag{1}
+\]
+Increase the threshold if necessary so that \(s_0\ge \max\{s_1,8\}\).
+
+Fix natural numbers \(s,a\) with \(s\ge s_0\) and \(a\le\delta s\).  Since
+\(\delta\le1/2\), we have \(a\le s/2\).  Since \(s>0\), the term
+\(a^2/(2s)\) is nonnegative, so
+\[
+  \frac{s+a-1}{2}-\frac{a^2}{2s}
+  \le
+  \frac{s+a-1}{2}
+  \le
+  \frac{3s}{4}.
+\]
+The function \(x\mapsto2^x\) is increasing, and therefore
+\[
+  2^{\frac{s+a-1}{2}-\frac{a^2}{2s}}
+  \le 2^{3s/4}. \tag{2}
+\]
+Also \(e\ge1\) and \(s\le2^{s-1}\) for every natural number \(s\ge1\), so
+\[
+  \frac{s}{e}\le2^{s-1}. \tag{3}
+\]
+Multiplying (2) and (3) gives
+\[
+  \frac{s}{e}\,
+  2^{\frac{s+a-1}{2}-\frac{a^2}{2s}}
+  \le
+  2^{s-1}2^{3s/4}
+  =
+  2^{7s/4-1}.
+\]
+Because \(s\ge8\), \(7s/4-1\le2s-3\).  Hence
+\[
+  \frac{s}{e}\,
+  2^{\frac{s+a-1}{2}-\frac{a^2}{2s}}
+  \le 2^{2s-3}. \tag{4}
+\]
+Now \(0<\varepsilon<1\), so \(0\le1-\varepsilon\) and
+\(1-\varepsilon\le1-\varepsilon/2\).  Multiplying (4) by
+\(1-\varepsilon\) and then using (1), we get
+\[
+\begin{aligned}
+  (1-\varepsilon)\frac{s}{e}\,
+  2^{\frac{s+a-1}{2}-\frac{a^2}{2s}}
+  &\le (1-\varepsilon)2^{2s-3}\\
+  &\le (1-\varepsilon/2)2^{2s-3}\\
+  &\le 2^{2s-3}-2^{s-1}-2^{s-2}+1.
+\end{aligned}
+\]
+This is the claimed eventual zero-count lower bound.
+\end{proof}
