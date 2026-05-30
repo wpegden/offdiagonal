@@ -18,6 +18,7 @@
 | DigraphToGraphIndependentSetBound | proof | - | closed |
 | ExpanderMixingLemma | proof | - | closed |
 | F2BadTuple | definition | - | closed |
+| F2BadTuplePrefixFiberBound | proof | - | closed |
 | F2BadTupleRank | definition | - | closed |
 | F2BadTupleRankAmbientBound | proof | - | closed |
 | F2BadTupleRankOne | proof | - | closed |
@@ -94,4 +95,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 80/89 closed
+**Summary:** 81/90 closed

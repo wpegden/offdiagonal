@@ -2,6 +2,7 @@ import Tablet.DigraphLoopless
 import Tablet.F2CoordinateDigraphLoopless
 import Tablet.F2CoordinateDigraphTransitiveFree
 import Tablet.F2BadTuple
+import Tablet.F2BadTuplePrefixFiberBound
 import Tablet.F2BadTupleRankAmbientBound
 import Tablet.F2BadTupleRankOne
 import Tablet.F2BadTupleRankStep
@@ -100,4 +101,12 @@ theorem F2ForwardIndependentTuples :
             F2BadTupleRank p k ab.val (i + 1) = F2BadTupleRank p k ab.val i + 1 := by
       intro ab i hi
       exact F2BadTupleRankStep p k ab.val hi
+    have hbad_prefix_fiber_bound :
+        ∀ (ab : Bad) (i : ℕ),
+          Fintype.card
+              {y : Vec //
+                ∀ j : {j : Fin k // j.val < i}, (ab.val j.1).1 ⬝ᵥ y = 1} ≤
+            2 ^ (p - F2BadTupleRank p k ab.val i) := by
+      intro ab i
+      exact F2BadTuplePrefixFiberBound p k ab.val i
     sorry

@@ -1,0 +1,61 @@
+\begin{helper}
+For every \(2k\)-tuple
+\[
+  ab=(a_1,b_1,\ldots,a_k,b_k)\in(\mathbb F_2^p)^{2k}
+\]
+and every prefix parameter \(i\), the number of vectors
+\[
+  y\in\mathbb F_2^p
+\]
+such that
+\[
+  \langle a_j,y\rangle=1
+  \quad\text{for every zero-based index }j<i
+\]
+is at most
+\[
+  2^{p-r_i},
+\]
+where \(r_i\) is the rank quantity from \(\noderef{F2BadTupleRank}\).
+\end{helper}
+\begin{proof}
+Let \(V=\mathbb F_2^p\), and let \(S_i\le V\) be the span of the prefix
+\(a\)-vectors with zero-based index \(j<i\). By \(\noderef{F2BadTupleRank}\),
+\(\dim S_i=r_i\). For each \(a\in V\), the map
+\[
+  \ell_a:V\to\mathbb F_2,\qquad \ell_a(y)=\langle a,y\rangle
+\]
+is linear in \(y\). With respect to the standard basis of \(V\), the assignment
+\(a\mapsto \ell_a\) is a linear equivalence from \(V\) to its dual space: the
+coordinate formula for \(\ell_a(y)\) is exactly the dot product. Hence the span
+\(\Phi_i\) of the functionals \(\ell_{a_j}\), \(j<i\), has dimension
+\[
+  \dim \Phi_i=\dim S_i=r_i.
+\]
+
+Let
+\[
+  H_i=\{z\in V:\ell_{a_j}(z)=0\text{ for every }j<i\}.
+\]
+This is the dual coannihilator of \(\Phi_i\). Finite-dimensional duality gives
+\[
+  \dim H_i=p-\dim\Phi_i=p-r_i.
+\]
+Since \(H_i\) is a vector space over \(\mathbb F_2\), it has exactly
+\(2^{p-r_i}\) elements.
+
+It remains to compare the inhomogeneous solution set
+\[
+  Y_i=\{y\in V:\ell_{a_j}(y)=1\text{ for every }j<i\}
+\]
+with \(H_i\). If \(Y_i\) is empty, the desired bound is immediate. Otherwise
+choose \(y_0\in Y_i\). For each \(y\in Y_i\), the difference \(y-y_0\) lies in
+\(H_i\), because
+\[
+  \ell_{a_j}(y-y_0)=\ell_{a_j}(y)-\ell_{a_j}(y_0)=1-1=0
+\]
+for every \(j<i\). The map \(y\mapsto y-y_0\) is injective, so
+\[
+  |Y_i|\le |H_i|=2^{p-r_i}.
+\]
+\end{proof}
