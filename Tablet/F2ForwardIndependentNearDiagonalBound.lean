@@ -1,4 +1,6 @@
 import Tablet.F2ForwardIndependentTuples
+import Tablet.F2NearDiagonalExponentIdentity
+import Tablet.F2NearDiagonalChooseSymmetry
 
 -- [TABLET NODE: F2ForwardIndependentNearDiagonalBound]
 

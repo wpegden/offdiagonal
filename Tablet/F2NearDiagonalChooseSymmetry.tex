@@ -1,0 +1,18 @@
+\begin{helper}
+Let \(s,a,j\in\mathbb N\) with \(j\le s\). Then
+\[
+  \binom{s+a}{s-j}=\binom{s+a}{j+a}.
+\]
+\end{helper}
+\begin{proof}
+Since \(j\le s\), adding \(a\) to both sides gives \(j+a\le s+a\).  The
+complement of \(j+a\) in the row \(s+a\) is
+\[
+  (s+a)-(j+a)=s-j.
+\]
+By symmetry of binomial coefficients in a fixed row,
+\[
+  \binom{s+a}{(s+a)-(j+a)}=\binom{s+a}{j+a}.
+\]
+Substituting \((s+a)-(j+a)=s-j\) gives the claimed identity.
+\end{proof}

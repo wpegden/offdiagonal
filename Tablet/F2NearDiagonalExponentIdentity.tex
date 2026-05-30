@@ -1,0 +1,37 @@
+\begin{helper}
+Let \(s,k,j\in\mathbb N\) with \(1\le j\le s-1\). Then, after viewing the
+natural-number exponent as a real number,
+\[
+  (s-1)(s-j+k)-\binom{s-j+1}{2}
+  =
+  \frac{s^2}{2}+sk-\frac{3s}{2}-k+\frac{3j}{2}-\frac{j^2}{2}.
+\]
+\end{helper}
+\begin{proof}
+The inequalities \(1\le j\le s-1\) imply \(1\le s\) and
+\[
+  s-j+1\le 2(s-1).
+\]
+Consequently
+\[
+  \binom{s-j+1}{2}
+  =\frac{(s-j+1)(s-j)}2
+  \le (s-1)(s-j+k).
+\]
+Thus the natural subtraction on the left is not truncated, so it agrees with
+ordinary subtraction after casting to \(\mathbb R\).
+
+Using
+\[
+  \binom{s-j+1}{2}=\frac{(s-j)(s-j+1)}2,
+\]
+we compute in \(\mathbb R\):
+\[
+\begin{aligned}
+  (s-1)(s-j+k)-\binom{s-j+1}{2}
+  &=(s-1)(s-j+k)-\frac{(s-j)(s-j+1)}2  \\
+  &=\frac{s^2}{2}+sk-\frac{3s}{2}-k+\frac{3j}{2}-\frac{j^2}{2}.
+\end{aligned}
+\]
+This is the claimed identity.
+\end{proof}
