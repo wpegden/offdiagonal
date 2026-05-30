@@ -4,6 +4,7 @@ import Tablet.MainTheoremEtaBounds
 import Tablet.MainTheoremDyadicGaloisScale
 import Tablet.MainTheoremFiniteAbsorption
 import Tablet.MainTheoremLargeKComparison
+import Tablet.MainTheoremPolarityParameterBounds
 import Tablet.MainTheoremPolaritySetup
 import Tablet.PolarityGraphParameters
 import Tablet.RamseyFromGraphPair

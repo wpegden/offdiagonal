@@ -106,6 +106,7 @@
 | MainTheoremEtaBounds | proof | - | closed |
 | MainTheoremFiniteAbsorption | proof | - | closed |
 | MainTheoremLargeKComparison | proof | - | closed |
+| MainTheoremPolarityParameterBounds | proof | - | closed |
 | MainTheoremPolaritySetup | proof | - | closed |
 | MulticolorRamseyNumber | definition | - | closed |
 | MulticolorRamseyNumberLowerBoundFromCounterexample | proof | - | closed |
@@ -156,4 +157,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 149/151 closed
+**Summary:** 150/152 closed

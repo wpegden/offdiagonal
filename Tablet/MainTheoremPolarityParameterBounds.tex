@@ -1,0 +1,106 @@
+\begin{helper}
+Let \(s\ge4\), let \(m\ge1\), put \(t=s-2\) and \(q=2^m\).  Define
+\[
+  n=\frac{q^{t+1}-1}{q-1},\qquad
+  d_G=\frac{q^t-1}{q-1},\qquad
+  d_F=n-d_G,\qquad
+  a=\frac{q^{t-1}-1}{q-1},
+\]
+and
+\[
+  \lambda=\sqrt{d_G-a},\qquad Q=q^{t-1}.
+\]
+Then \(n,d_F,d_G\) are positive,
+\[
+  q^t\le n\le (t+1)q^t,\qquad
+  q^{t-1}\le d_G\le t q^{t-1},
+\]
+\[
+  d_F=q^t,\qquad d_G-a=q^{t-1},\qquad \lambda^2=Q,
+\]
+and \(Q>0\).  Moreover
+\[
+  \frac1{n^2}\le \frac{\lambda^2}{d_G^2},\qquad
+  \frac{\lambda^2}{d_G^2}\le 1,\qquad
+  \frac{\lambda\lambda}{d_Fd_G}\le 1,
+\]
+and
+\[
+  \max\left\{\frac{\lambda^2}{d_G^2},
+    \frac{\lambda\lambda}{d_Fd_G}\right\}\le \frac1Q.
+\]
+\end{helper}
+\begin{proof}
+Since \(s\ge4\), we have \(t=s-2\ge2\).  Since \(m\ge1\), the number
+\(q=2^m\) satisfies \(q\ge2\).
+
+For any \(r\ge1\), the finite geometric-series identity gives
+\[
+  1+q+\cdots+q^{r-1}=\frac{q^r-1}{q-1}.
+\]
+Applying this with \(r=t+1,t,t-1\), respectively, gives
+\[
+  n=\sum_{i=0}^{t}q^i,\qquad
+  d_G=\sum_{i=0}^{t-1}q^i,\qquad
+  a=\sum_{i=0}^{t-2}q^i.
+\]
+Therefore
+\[
+  n=d_G+q^t,\qquad d_G=a+q^{t-1}.
+\]
+It follows immediately that
+\[
+  d_F=n-d_G=q^t,\qquad d_G-a=q^{t-1}.
+\]
+The displayed formulas also give \(n>0\), \(d_F>0\), and \(d_G>0\).
+
+The lower bounds \(q^t\le n\) and \(q^{t-1}\le d_G\) follow from
+\(n=d_G+q^t\) and \(d_G=a+q^{t-1}\).  For the upper bounds, every term
+\(q^i\) with \(0\le i\le t\) is at most \(q^t\), because \(q\ge1\).  Summing
+over the \(t+1\) terms in \(n\) gives \(n\le(t+1)q^t\).  Similarly, every
+term \(q^i\) with \(0\le i\le t-1\) is at most \(q^{t-1}\), and there are
+\(t\) such terms, so \(d_G\le t q^{t-1}\).
+
+Since \(d_G-a=q^{t-1}\), the definition of \(\lambda\) gives
+\[
+  \lambda^2=(\sqrt{q^{t-1}})^2=q^{t-1}=Q.
+\]
+Also \(Q>0\), since \(q>0\).
+
+It remains to check the real-valued ratio estimates.  From \(d_G\le n\) and
+positivity, \(d_G^2\le n^2\), hence \(1/n^2\le1/d_G^2\).  Since \(Q\ge1\),
+\[
+  \frac1{d_G^2}\le \frac{Q}{d_G^2}
+    =\frac{\lambda^2}{d_G^2},
+\]
+which proves the first ratio lower bound.
+
+The inequality \(Q\le d_G\) and \(d_G\ge1\) imply \(Q\le d_G\le d_G^2\).
+Thus
+\[
+  \frac{\lambda^2}{d_G^2}=\frac{Q}{d_G^2}\le1.
+\]
+Also \(d_F\ge1\), so \(d_G\le d_Fd_G\).  Since \(Q\le d_G\),
+\[
+  \frac{\lambda\lambda}{d_Fd_G}
+    =\frac{\lambda^2}{d_Fd_G}
+    =\frac{Q}{d_Fd_G}\le1.
+\]
+
+For the sharper upper bound, \(Q\le d_G\) gives \(Q^2\le d_G^2\), and hence
+\[
+  \frac{\lambda^2}{d_G^2}
+    =\frac{Q}{d_G^2}\le\frac1Q.
+\]
+Furthermore \(d_F=q^t\ge q^{t-1}=Q\) and \(d_G\ge Q\), so
+\[
+  Q^2\le d_Fd_G.
+\]
+Consequently
+\[
+  \frac{\lambda\lambda}{d_Fd_G}
+    =\frac{Q}{d_Fd_G}\le\frac1Q.
+\]
+Taking the maximum of the two estimates proves the final displayed
+inequality.
+\end{proof}
