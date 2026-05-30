@@ -115,8 +115,9 @@
 | NoMonochromaticCliqueColoring | definition | definition | closed | - | - | Preamble |
 | NoSkewBipartiteConfiguration | definition | definition | closed | - | - | LoopGraph |
 | OffDiagonalGeneralDyadicScale | helper | proof | closed | - | - | Preamble |
+| OffDiagonalGeneralNumericalAbsorption | helper | proof | closed | - | - | F2NearDiagonalLargeSPowerBound |
 | OffDiagonalGeneralPolarityEstimates | helper | proof | closed | - | - | MainTheoremPolarityParameterBounds |
-| OffDiagonalGeneralTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, MainTheoremEtaBounds, MainTheoremPolarityParameterBounds, MainTheoremPolaritySetup, OffDiagonalGeneralDyadicScale, OffDiagonalGeneralPolarityEstimates, PolarityGraphParameters, RamseyFromGraphPair |
+| OffDiagonalGeneralTheorem | theorem | proof | closed | - | - | ComplementPolarityPairHsFree, MainTheoremEtaBounds, MainTheoremPolarityParameterBounds, MainTheoremPolaritySetup, OffDiagonalGeneralDyadicScale, OffDiagonalGeneralNumericalAbsorption, OffDiagonalGeneralPolarityEstimates, PolarityGraphParameters, RamseyFromGraphPair |
 | PolarityGraph | definition | definition | closed | - | - | LoopGraph |
 | PolarityGraphParameters | lemma | proof | closed | - | - | LoopGraphNdLambda, PolarityGraph |
 | PolarityGraphSkewFree | lemma | proof | closed | - | - | NoSkewBipartiteConfiguration, PolarityGraph |
@@ -158,4 +159,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 154 nodes | **Closed:** 153 | **Open:** 1
+**Total:** 155 nodes | **Closed:** 155 | **Open:** 0

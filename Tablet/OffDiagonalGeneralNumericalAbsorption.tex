@@ -1,0 +1,82 @@
+\begin{helper}
+For every real number \(0<\delta<1/10\), there is an integer \(L\) with the
+following property.  Let \(s,k,q\) be natural numbers and let
+\(\eta,w,Q\) be real numbers.  Put \(x=k/s\).  If \(L\le s\), \(Ls\le k\),
+\[
+  Q=q^{s-3},\qquad x^{1-\delta/2}\le q,\qquad
+  0<\eta\le 1,\qquad \eta\le \frac{16}{Q},\qquad
+  w\le \frac{\delta k}{5},
+\]
+then
+\[
+  k\le \frac{1}{128}q^{s-1}
+\]
+and
+\[
+  x^{(1-\delta)s}\le
+  \frac{1}{50}k\,\eta^{(w-k)/k}-1 .
+\]
+\end{helper}
+\begin{proof}
+Apply \(\noderef{F2NearDiagonalLargeSPowerBound}\) with
+\(\epsilon=\delta/100\), and choose \(L\) also so large that
+\(L\ge 1600\), \(L\ge 200/\delta\), and \(L\ge 1000/\delta\).  Then
+\(x=k/s\ge L\), so \(x\ge 1600\), and \(s\ge L\).
+
+First prove the range estimate.  Let \(b=\delta s/200\).  Since
+\(s\ge 200/\delta\), we have \(b\ge 1\), and since \(x\ge 128\),
+\[
+  128\le x\le x^b .
+\]
+The large-power bound gives \(s\le 2^b\), and \(x\ge2\) gives
+\(2^b\le x^b\), hence \(s\le x^b\).  Therefore
+\[
+  128\,s\,x\le x^{1+\delta s/100}.
+\]
+Because \(\delta<1/10\) and \(s\ge4\),
+\[
+  1+\delta s/100\le (1-\delta/2)(s-1).
+\]
+Using \(x^{1-\delta/2}\le q\), we get
+\[
+  128k=128sx\le x^{(1-\delta/2)(s-1)}\le q^{s-1},
+\]
+which is \(k\le q^{s-1}/128\).
+
+It remains to prove the Ramsey-comparison estimate.  Put
+\(a=1-\delta/2\), \(c=1-\delta/5\), \(E=a(s-3)\), and
+\(e=(w-k)/k\).  From \(w\le\delta k/5\) and \(k>0\), we have
+\[
+  e\le -c .
+\]
+Also \(\eta Q\le16\), so \(Q/16\le\eta^{-1}\).  Since \(c>0\),
+\[
+  (Q/16)^c\le \eta^{-c}\le \eta^e .
+\]
+The hypothesis \(x^a\le q\) and \(Q=q^{s-3}\) imply \(x^E\le Q\).  Since
+\(x\ge16\) and \(E\ge1\), this gives
+\[
+  x^{E-1}\le Q/16,
+\]
+and hence \(x^{(E-1)c}\le\eta^e\).
+
+Finally, the choice \(s\ge1000/\delta\) makes the exponent gap nonnegative:
+\[
+  (1-\delta)s\le 1+(E-1)c.
+\]
+Thus
+\[
+  x^{(1-\delta)s}\le x^{1+(E-1)c}\le x\,\eta^e.
+\]
+Since \(s\ge1600\), we have \(2\le s/50\), and therefore
+\[
+  2x^{(1-\delta)s}\le \frac{s}{50}x\,\eta^e
+    =\frac{k}{50}\eta^e .
+\]
+The left-hand side \(x^{(1-\delta)s}\) is at least \(1\), so
+\[
+  x^{(1-\delta)s}+1\le 2x^{(1-\delta)s}
+    \le \frac{k}{50}\eta^e .
+\]
+Rearranging gives the claimed inequality.
+\end{proof}

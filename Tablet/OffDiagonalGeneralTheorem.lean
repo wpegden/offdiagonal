@@ -3,6 +3,7 @@ import Tablet.MainTheoremEtaBounds
 import Tablet.MainTheoremPolarityParameterBounds
 import Tablet.MainTheoremPolaritySetup
 import Tablet.OffDiagonalGeneralDyadicScale
+import Tablet.OffDiagonalGeneralNumericalAbsorption
 import Tablet.OffDiagonalGeneralPolarityEstimates
 import Tablet.PolarityGraphParameters
 import Tablet.RamseyFromGraphPair
@@ -35,20 +36,23 @@ theorem OffDiagonalGeneralTheorem :
     rcases OffDiagonalGeneralDyadicScale delta0 hdelta0_pos hdelta0_lt_tenth with
       ⟨X0, hscale⟩
     rcases exists_nat_ge X0 with ⟨Lx, hX0_le_Lx⟩
-    refine ⟨max Lx 4, ?_⟩
+    rcases OffDiagonalGeneralNumericalAbsorption delta0 hdelta0_pos hdelta0_lt_tenth with
+      ⟨Labsorb, habsorb⟩
+    refine ⟨max (max Lx Labsorb) 4, ?_⟩
     intro s k hs hk
     let x : ℝ := (k : ℝ) / (s : ℝ)
-    have hs4 : 4 ≤ s := (Nat.le_max_right Lx 4).trans hs
+    have hs4 : 4 ≤ s := (Nat.le_max_right (max Lx Labsorb) 4).trans hs
     have hs3 : 3 ≤ s := by omega
     have hs_one : 1 ≤ s := by omega
     have hs_pos_nat : 0 < s := by omega
     have hs_pos_real : 0 < (s : ℝ) := by exact_mod_cast hs_pos_nat
-    have hmax_le_x : ((max Lx 4 : ℕ) : ℝ) ≤ x := by
+    have hmax_le_x : ((max (max Lx Labsorb) 4 : ℕ) : ℝ) ≤ x := by
       dsimp [x]
       rw [le_div_iff₀ hs_pos_real]
       exact_mod_cast hk
-    have hLx_le_max : (Lx : ℝ) ≤ ((max Lx 4 : ℕ) : ℝ) := by
-      exact_mod_cast Nat.le_max_left Lx 4
+    have hLx_le_max : (Lx : ℝ) ≤ ((max (max Lx Labsorb) 4 : ℕ) : ℝ) := by
+      exact_mod_cast (Nat.le_max_left Lx Labsorb).trans
+        (Nat.le_max_left (max Lx Labsorb) 4)
     have hX0_le_x : X0 ≤ x := hX0_le_Lx.trans (hLx_le_max.trans hmax_le_x)
     rcases hscale x hX0_le_x with
       ⟨m, hm_pos, hcard, hq_le, hy_le_twoq, hq_lower, hx_ge_one,
@@ -123,8 +127,9 @@ theorem OffDiagonalGeneralTheorem :
         exact hpow
       omega
     have hk1 : 1 ≤ k := by
-      have hL_pos : 0 < max Lx 4 := by omega
-      have hprod_pos : 0 < max Lx 4 * s := Nat.mul_pos hL_pos hs_pos_nat
+      have hL_pos : 0 < max (max Lx Labsorb) 4 := by omega
+      have hprod_pos : 0 < max (max Lx Labsorb) 4 * s :=
+        Nat.mul_pos hL_pos hs_pos_nat
       exact Nat.succ_le_iff.mpr (lt_of_lt_of_le hprod_pos hk)
     have hw_def : w = 4 * (n : ℝ) * Real.log (n : ℝ) / (dG : ℝ) := rfl
     have hramsey :=
@@ -328,10 +333,25 @@ theorem OffDiagonalGeneralTheorem :
         rw [hpow_split]
         field_simp [ne_of_gt hQ_pos]
       exact hscale_coeff.trans (hraw_eq.le.trans hRangeProductLowerRaw)
-    -- Remaining work: prove the first-projection range hypotheses
-    -- `k ≤ eta * dF * n`, then compare the first projection's output with
-    -- the general off-diagonal target.
-    sorry
+    have hLabsorb_le_L : Labsorb ≤ max (max Lx Labsorb) 4 :=
+      (Nat.le_max_right Lx Labsorb).trans (Nat.le_max_left (max Lx Labsorb) 4)
+    have hLabsorb_le_s : Labsorb ≤ s := hLabsorb_le_L.trans hs
+    have hLabsorb_mul_le_k : Labsorb * s ≤ k :=
+      (Nat.mul_le_mul_right s hLabsorb_le_L).trans hk
+    have hQ_eq_absorb : Q = (q : ℝ) ^ (s - 3) := by
+      have ht_sub : t - 1 = s - 3 := by
+        dsimp [t]
+        omega
+      dsimp [Q]
+      rw [ht_sub]
+      norm_num
+    have hnumeric := habsorb s k q eta w Q hLabsorb_le_s hLabsorb_mul_le_k
+      hQ_eq_absorb (by simpa [q] using hq_lower) heta_pos heta_upper_one
+      heta_upper_Q16 hw_le_delta_k_fifth
+    rcases hnumeric with ⟨hk_q_range, hfinal_compare⟩
+    have hk_eta_range : (k : ℝ) ≤ eta * (dF : ℝ) * (n : ℝ) :=
+      hk_q_range.trans hRangeProductLower
+    exact hfinal_compare.trans (hramsey ⟨hw_le_k, hk_eta_range⟩)
   rcases hnormalized with ⟨L0, hL0⟩
   refine ⟨max L0 1, ?_⟩
   intro s k hs hk

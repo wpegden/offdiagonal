@@ -117,8 +117,9 @@
 | NoMonochromaticCliqueColoring | definition | - | closed |
 | NoSkewBipartiteConfiguration | definition | - | closed |
 | OffDiagonalGeneralDyadicScale | proof | - | closed |
+| OffDiagonalGeneralNumericalAbsorption | proof | - | closed |
 | OffDiagonalGeneralPolarityEstimates | proof | - | closed |
-| OffDiagonalGeneralTheorem | proof | - | open |
+| OffDiagonalGeneralTheorem | proof | - | closed |
 | PolarityGraph | definition | - | closed |
 | PolarityGraphParameters | proof | - | closed |
 | PolarityGraphSkewFree | proof | - | closed |
@@ -159,4 +160,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 153/154 closed
+**Summary:** 155/155 closed
