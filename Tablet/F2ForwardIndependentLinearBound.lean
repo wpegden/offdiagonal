@@ -1,4 +1,5 @@
 import Tablet.F2ForwardIndependentTuples
+import Tablet.F2ForwardIndependentSumBound
 
 -- [TABLET NODE: F2ForwardIndependentLinearBound]
 
@@ -13,4 +14,23 @@ theorem F2ForwardIndependentLinearBound :
                   ((s : ℝ) * (Nat.ceil (C * (s : ℝ)) : ℝ) +
                     (s : ℝ) ^ 2 / 2) := by
 -- BODY
-  sorry
+  classical
+  intro C hC
+  refine ⟨4, ?_⟩
+  intro s hs
+  let k : ℕ := Nat.ceil (C * (s : ℝ))
+  have hs4 : 4 ≤ s := hs
+  have hsk : s ≤ k := by
+    have hreal : (s : ℝ) ≤ C * (s : ℝ) := by
+      have hC_le : (1 : ℝ) ≤ C := le_of_lt hC
+      calc
+        (s : ℝ) = 1 * (s : ℝ) := by ring
+        _ ≤ C * (s : ℝ) :=
+          mul_le_mul_of_nonneg_right hC_le (by positivity : 0 ≤ (s : ℝ))
+    have hceil := Nat.ceil_mono hreal
+    simpa [k, Nat.ceil_natCast] using hceil
+  rcases F2ForwardIndependentTuples s k hs4 hsk with
+    ⟨W, hW, D, hloop, hfree, hcard, hcount⟩
+  refine ⟨W, hW, D, hloop, hfree, hcard, ?_⟩
+  have hsum := F2ForwardIndependentSumBound s k hs4 hsk
+  simpa [k] using le_trans hcount hsum

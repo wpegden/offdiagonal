@@ -1,0 +1,71 @@
+\begin{helper}
+Let \(s,k\in\mathbb N\) with \(4\le s\le k\). Then
+\[
+  \sum_{t=1}^{s-1}\binom{k}{t}
+    2^{(s-1)(t+k)-\binom{t+1}{2}}
+  \le
+  2^{sk+s^2/2},
+\]
+where the exponent on the left is interpreted as the natural-number exponent
+displayed there, and the powers are viewed as real numbers.
+\end{helper}
+\begin{proof}
+Fix \(t\in\{1,\ldots,s-1\}\). The binomial coefficient satisfies
+\[
+  \binom{t+1}{2}=\frac{t(t+1)}2.
+\]
+Since \(t\le s-1\), we have \(t+1\le 2(s-1)\), and hence
+\[
+  \binom{t+1}{2}\le (s-1)(t+k).
+\]
+Thus the natural subtraction in the exponent is ordinary subtraction after
+casting to \(\mathbb R\).
+
+Also,
+\[
+  \binom{t+1}{2}=\frac{t(t+1)}2\ge \frac{t^2}{2}.
+\]
+Therefore
+\[
+\begin{aligned}
+  (s-1)(t+k)-\binom{t+1}{2}
+  &\le (s-1)k+(s-1)t-\frac{t^2}{2} \\
+  &\le (s-1)k+\frac{s^2}{2}.
+\end{aligned}
+\]
+The last inequality follows from
+\((s-t)^2\ge0\), which gives \(st-t^2/2\le s^2/2\), and from
+\((s-1)t\le st\). Since \(2>1\), monotonicity of \(x\mapsto 2^x\) gives
+\[
+  2^{(s-1)(t+k)-\binom{t+1}{2}}
+  \le 2^{(s-1)k+s^2/2}.
+\]
+Multiplying by the nonnegative \(\binom{k}{t}\) and summing over
+\(1\le t\le s-1\), we get
+\[
+  \sum_{t=1}^{s-1}\binom{k}{t}
+    2^{(s-1)(t+k)-\binom{t+1}{2}}
+  \le
+  2^{(s-1)k+s^2/2}
+  \sum_{t=1}^{s-1}\binom{k}{t}.
+\]
+Because \(s\le k\), the index set \(\{1,\ldots,s-1\}\) is contained in
+\(\{0,\ldots,k\}\). Hence Pascal's identity for the sum of a row gives
+\[
+  \sum_{t=1}^{s-1}\binom{k}{t}
+  \le
+  \sum_{t=0}^{k}\binom{k}{t}
+  =
+  2^k.
+\]
+Combining the previous two displays yields
+\[
+  \sum_{t=1}^{s-1}\binom{k}{t}
+    2^{(s-1)(t+k)-\binom{t+1}{2}}
+  \le
+  2^k\cdot 2^{(s-1)k+s^2/2}
+  =
+  2^{sk+s^2/2},
+\]
+which is the desired estimate.
+\end{proof}

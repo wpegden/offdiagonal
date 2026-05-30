@@ -49,8 +49,9 @@
 | F2CoordinateDigraphTransitiveFree | proof | - | closed |
 | F2DotOnePairCard | proof | - | closed |
 | F2DotOnePairEmbedding | proof | - | closed |
-| F2ForwardIndependentLinearBound | proof | - | open |
+| F2ForwardIndependentLinearBound | proof | - | closed |
 | F2ForwardIndependentNearDiagonalBound | proof | - | open |
+| F2ForwardIndependentSumBound | proof | - | closed |
 | F2ForwardIndependentTuples | proof | - | closed |
 | FinsetCenteredIndicatorNormSqLeCard | proof | - | closed |
 | FinsetCenteredIndicatorSumZero | proof | - | closed |
@@ -116,4 +117,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 103/111 closed
+**Summary:** 105/112 closed
