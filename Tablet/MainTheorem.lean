@@ -1,5 +1,6 @@
 import Tablet.ComplementPolarityPairHsFree
 import Tablet.MainTheoremFiniteAbsorption
+import Tablet.MainTheoremLargeKComparison
 import Tablet.PolarityGraphParameters
 import Tablet.RamseyFromGraphPair
 

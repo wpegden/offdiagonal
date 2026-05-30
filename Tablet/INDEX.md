@@ -98,8 +98,9 @@
 | LoopGraphZeroSumAdjacencyEuclideanOperator | definition | definition | closed | - | - | LoopGraphAdjacencyEuclideanOperatorMapsZeroSum, LoopGraphEuclideanZeroSumSubmodule, LoopGraphNdLambda |
 | LoopGraphZeroSumEuclideanEigenpairNonprincipal | helper | proof | closed | - | - | LoopGraphEuclideanZeroSumSubmodule, LoopGraphNonprincipalEigenvalue |
 | LoopGraphZeroSumEuclideanEigenvalueBound | helper | proof | closed | - | - | LoopGraphNdLambda, LoopGraphZeroSumEuclideanEigenpairNonprincipal |
-| MainTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, MainTheoremFiniteAbsorption, PolarityGraphParameters, RamseyFromGraphPair |
+| MainTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, MainTheoremFiniteAbsorption, MainTheoremLargeKComparison, PolarityGraphParameters, RamseyFromGraphPair |
 | MainTheoremFiniteAbsorption | helper | proof | closed | - | - | RamseyNumberPositive |
+| MainTheoremLargeKComparison | helper | proof | closed | - | - | Preamble |
 | MulticolorRamseyNumber | definition | definition | closed | - | - | MulticolorRamseyProperty |
 | MulticolorRamseyNumberLowerBoundFromCounterexample | helper | proof | closed | - | - | MulticolorRamseyNumber, MulticolorRamseyPropertyMonotone, MulticolorRamseyPropertyNonempty, NoMonochromaticCliqueColoring |
 | MulticolorRamseyProperty | definition | definition | closed | - | - | Preamble |
@@ -150,4 +151,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 146 nodes | **Closed:** 144 | **Open:** 2
+**Total:** 147 nodes | **Closed:** 145 | **Open:** 2

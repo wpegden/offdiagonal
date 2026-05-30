@@ -1,0 +1,64 @@
+\begin{helper}
+Fix \(s\ge4\), \(k\ge2\), and real numbers \(A,B,Q,\eta\) with
+\(B>0\), \(Q>0\), and \(\eta>0\).  Suppose
+\[
+  \eta\le \frac{B}{Q},
+\]
+\[
+  A\frac{k^{s-3}}{(\log k)^{2s-6}}\le Q,
+\]
+and
+\[
+  1\le
+  \frac{A}{200B}\frac{k^{s-2}}{(\log k)^{2s-6}}.
+\]
+Then
+\[
+  \frac{A}{200B}\frac{k^{s-2}}{(\log k)^{2s-6}}
+  \le \frac{k}{100\eta}-1.
+\]
+\end{helper}
+\begin{proof}
+Since \(k\ge2\), we have \(k>0\) and \(\log k>0\).  From
+\(\eta\le B/Q\) and \(Q>0\), multiplication by \(Q\) gives
+\[
+  \eta Q\le B.
+\]
+Because \(B>0\) and \(\eta>0\), this is equivalent to
+\[
+  \frac{Q}{B}\le \frac1\eta.
+\]
+Multiplying by \(k/100\ge0\), we obtain
+\[
+  \frac{kQ}{100B}\le \frac{k}{100\eta}. \tag{1}
+\]
+
+The assumed lower bound for \(Q\), multiplied by \(k/(100B)\ge0\), gives
+\[
+  \frac{k}{100B}\cdot
+  A\frac{k^{s-3}}{(\log k)^{2s-6}}
+  \le \frac{kQ}{100B}.
+\]
+Since \(s\ge4\), \(s-2=(s-3)+1\), so \(k^{s-2}=k\,k^{s-3}\).  Therefore
+\[
+  \frac{A}{100B}\frac{k^{s-2}}{(\log k)^{2s-6}}
+  \le \frac{kQ}{100B}. \tag{2}
+\]
+Combining (1) and (2) yields
+\[
+  \frac{A}{100B}\frac{k^{s-2}}{(\log k)^{2s-6}}
+  \le \frac{k}{100\eta}. \tag{3}
+\]
+
+Let
+\[
+  X=\frac{A}{200B}\frac{k^{s-2}}{(\log k)^{2s-6}}.
+\]
+The third hypothesis says \(1\le X\), while the left side of (3) is \(2X\).
+Hence \(X\le 2X-1\).  Using (3), we have
+\[
+  X\le 2X-1
+  \le \frac{k}{100\eta}-1,
+\]
+which is the desired inequality.
+\end{proof}

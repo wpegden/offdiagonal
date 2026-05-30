@@ -102,6 +102,7 @@
 | LoopGraphZeroSumEuclideanEigenvalueBound | proof | - | closed |
 | MainTheorem | proof | - | open |
 | MainTheoremFiniteAbsorption | proof | - | closed |
+| MainTheoremLargeKComparison | proof | - | closed |
 | MulticolorRamseyNumber | definition | - | closed |
 | MulticolorRamseyNumberLowerBoundFromCounterexample | proof | - | closed |
 | MulticolorRamseyProperty | definition | - | closed |
@@ -151,4 +152,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 144/146 closed
+**Summary:** 145/147 closed
