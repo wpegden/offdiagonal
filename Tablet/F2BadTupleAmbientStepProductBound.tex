@@ -1,0 +1,27 @@
+\begin{helper}
+For every \(2k\)-tuple
+\[
+  ab=(a_1,b_1,\ldots,a_k,b_k)\in(\mathbb F_2^p)^{2k}
+\]
+and every prefix length \(i\), let \(r_i\) be the rank quantity from
+\(\noderef{F2BadTupleRank}\). Then
+\[
+  |\mathbb F_2^p|\cdot
+  \left|\{\,y\in\mathbb F_2^p:\langle a_j,y\rangle=1
+      \text{ for every }j<i\,\}\right|
+  \le
+  2^p\,2^{p-r_i}.
+\]
+\end{helper}
+\begin{proof}
+The ambient vector space \(\mathbb F_2^p\) has \(2^p\) elements, since each of
+the \(p\) coordinates has two choices. By
+\(\noderef{F2BadTuplePrefixFiberBound}\), the set of vectors \(y\) satisfying
+the displayed dot-product equations has cardinality at most \(2^{p-r_i}\).
+Multiplying these two bounds gives
+\[
+  |\mathbb F_2^p|\cdot
+  \left|\{\,y:\langle a_j,y\rangle=1\text{ for every }j<i\,\}\right|
+  \le 2^p\,2^{p-r_i}.
+\]
+\end{proof}

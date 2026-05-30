@@ -1,0 +1,22 @@
+\begin{helper}
+For every \(2k\)-tuple
+\[
+  ab=(a_1,b_1,\ldots,a_k,b_k)\in(\mathbb F_2^p)^{2k}
+\]
+and every prefix length \(i\), let
+\[
+  U_i=\operatorname{span}\{a_j: j<i\}.
+\]
+If \(r_i\) is the rank quantity from \(\noderef{F2BadTupleRank}\), then
+\[
+  |U_i|=2^{r_i}.
+\]
+\end{helper}
+\begin{proof}
+By \(\noderef{F2BadTupleRank}\), \(r_i\) is the dimension of the subspace
+\(U_i\) over \(\mathbb F_2\). A finite-dimensional vector space of dimension
+\(d\) over \(\mathbb F_2\) has exactly \(2^d\) elements: choosing coordinates
+with respect to any basis identifies the space with \((\mathbb F_2)^d\), and
+each coordinate has two possible values. Applying this with \(d=r_i\) gives
+\(|U_i|=2^{r_i}\).
+\end{proof}

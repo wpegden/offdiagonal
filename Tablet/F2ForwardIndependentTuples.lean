@@ -1,8 +1,11 @@
 import Tablet.DigraphLoopless
 import Tablet.F2CoordinateDigraphLoopless
 import Tablet.F2CoordinateDigraphTransitiveFree
+import Tablet.F2BadTupleAmbientStepProductBound
 import Tablet.F2BadTuple
+import Tablet.F2BadTupleNonincreaseStepProductBound
 import Tablet.F2BadTuplePrefixFiberBound
+import Tablet.F2BadTuplePrefixSpanCard
 import Tablet.F2BadTupleRankAmbientBound
 import Tablet.F2BadTupleRankIncreaseSetCard
 import Tablet.F2BadTupleRankOne
@@ -117,4 +120,38 @@ theorem F2ForwardIndependentTuples :
               F2BadTupleRank p k ab.val k := by
       intro ab
       exact F2BadTupleRankIncreaseSetCard p k ab.val ab.property hk_pos
+    have hbad_prefix_span_card :
+        ∀ (ab : Bad) (i : ℕ),
+          Nat.card
+              (Submodule.span (ZMod 2)
+                (Set.range (fun j : {j : Fin k // j.val < i} => (ab.val j.1).1))) =
+            2 ^ F2BadTupleRank p k ab.val i := by
+      intro ab i
+      exact F2BadTuplePrefixSpanCard p k ab.val i
+    have hbad_ambient_step_product_bound :
+        ∀ (ab : Bad) (i : ℕ),
+          Fintype.card Vec *
+              Fintype.card
+                {y : Vec //
+                  ∀ j : {j : Fin k // j.val < i}, (ab.val j.1).1 ⬝ᵥ y = 1} ≤
+            2 ^ p * 2 ^ (p - F2BadTupleRank p k ab.val i) := by
+      intro ab i
+      exact F2BadTupleAmbientStepProductBound p k ab.val i
+    have hbad_nonincrease_step_product_bound :
+        ∀ (ab : Bad) (i : ℕ) (hi : i < k),
+          F2BadTupleRank p k ab.val (i + 1) = F2BadTupleRank p k ab.val i →
+            (ab.val ⟨i, hi⟩).1 ∈
+                Submodule.span (ZMod 2)
+                  (Set.range (fun j : {j : Fin k // j.val < i} => (ab.val j.1).1)) ∧
+              Nat.card
+                  (Submodule.span (ZMod 2)
+                    (Set.range (fun j : {j : Fin k // j.val < i} => (ab.val j.1).1))) *
+                  Fintype.card
+                    {y : Vec //
+                      ∀ j : {j : Fin k // j.val < i + 1},
+                        (ab.val j.1).1 ⬝ᵥ y = 1} ≤
+                2 ^ F2BadTupleRank p k ab.val i *
+                  2 ^ (p - F2BadTupleRank p k ab.val i) := by
+      intro ab i hi hsame
+      exact F2BadTupleNonincreaseStepProductBound p k ab.val hi hsame
     sorry

@@ -1,0 +1,33 @@
+\begin{helper}
+For every \(2k\)-tuple
+\[
+  ab=(a_1,b_1,\ldots,a_k,b_k)\in(\mathbb F_2^p)^{2k}
+\]
+and every index \(i<k\), let \(r_i\) be the rank quantity from
+\(\noderef{F2BadTupleRank}\), and let
+\[
+  U_i=\operatorname{span}\{a_j:j<i\}.
+\]
+If \(r_{i+1}=r_i\), then \(a_i\in U_i\), and
+\[
+  |U_i|\cdot
+  \left|\{\,y\in\mathbb F_2^p:\langle a_j,y\rangle=1
+      \text{ for every }j<i+1\,\}\right|
+  \le
+  2^{r_i}\,2^{p-r_i}.
+\]
+\end{helper}
+\begin{proof}
+The span defining \(r_{i+1}\) is obtained from the span defining \(r_i\) by
+adjoining the single vector \(a_i\). If \(a_i\notin U_i\), adjoining \(a_i\)
+adds one independent direction, so the dimension would increase by one:
+\(r_{i+1}=r_i+1\). This contradicts the hypothesis \(r_{i+1}=r_i\). Hence
+\(a_i\in U_i\).
+
+By \(\noderef{F2BadTuplePrefixSpanCard}\), the span \(U_i\) has cardinality
+\(2^{r_i}\). By \(\noderef{F2BadTuplePrefixFiberBound}\), applied to the prefix
+of length \(i+1\), the number of vectors \(y\) satisfying
+\(\langle a_j,y\rangle=1\) for every \(j<i+1\) is at most
+\(2^{p-r_{i+1}}\). Since \(r_{i+1}=r_i\), this upper bound is
+\(2^{p-r_i}\). Multiplying the two bounds gives the stated product estimate.
+\end{proof}
