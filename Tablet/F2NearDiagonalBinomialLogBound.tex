@@ -1,13 +1,12 @@
 \begin{helper}
-Let \(n,m,b\in\mathbb N\).  If \(m>0\), \(b>0\), and \(b\le m\), then
+Let \(n,m,b\in\mathbb N\).  If \(n>0\), \(m>0\), \(b>0\), and \(b\le m\), then
 \[
   \binom{n}{m}\le
   2^{m\log_2\left(e n/b\right)}.
 \]
 \end{helper}
 \begin{proof}
-If \(n=0\), then \(m>0\) gives \(\binom{0}{m}=0\), so the claim is
-immediate.  Assume \(n>0\).  The standard binomial estimate
+Assume \(n>0\), \(m>0\), \(b>0\), and \(b\le m\).  The standard binomial estimate
 \[
   \binom{n}{m}\le \frac{n^m}{m!}
 \]
@@ -34,7 +33,7 @@ Because \(0<b\le m\), we have \(1/m\le1/b\), and hence
   \le
   \left(\frac{en}{b}\right)^m.
 \]
-Finally, \(en/b>0\) in the nonzero case, and
+Finally, \(en/b>0\), and
 \[
   \left(\frac{en}{b}\right)^m
   =

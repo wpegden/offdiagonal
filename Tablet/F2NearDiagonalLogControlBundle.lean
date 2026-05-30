@@ -75,7 +75,8 @@ theorem F2NearDiagonalLogControlBundle (eps : ℝ) (heps : 0 < eps) :
   refine ⟨lambda, ?_, ?_, ?_⟩
   · have hbinom :=
       F2NearDiagonalBinomialLogBound (s + a) (j + a) (a + 1)
-        (by omega : 0 < j + a) (by omega : 0 < a + 1) (by omega : a + 1 ≤ j + a)
+        (by omega : 0 < s + a) (by omega : 0 < j + a) (by omega : 0 < a + 1)
+        (by omega : a + 1 ≤ j + a)
     calc
       ((Nat.choose (s + a) t : ℕ) : ℝ) =
           ((Nat.choose (s + a) (j + a) : ℕ) : ℝ) := by rw [hsym]

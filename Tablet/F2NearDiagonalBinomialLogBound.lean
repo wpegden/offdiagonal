@@ -5,16 +5,12 @@ import Mathlib.Analysis.SpecialFunctions.Log.Base
 
 -- [TABLET NODE: F2NearDiagonalBinomialLogBound]
 
-theorem F2NearDiagonalBinomialLogBound (n m b : ℕ) (hmpos : 0 < m) (hbpos : 0 < b)
-    (hbm : b ≤ m) :
+theorem F2NearDiagonalBinomialLogBound (n m b : ℕ) (hnpos : 0 < n) (hmpos : 0 < m)
+    (hbpos : 0 < b) (hbm : b ≤ m) :
     ((Nat.choose n m : ℕ) : ℝ) ≤
       Real.rpow 2 ((m : ℝ) * Real.logb 2 (Real.exp 1 * (n : ℝ) / (b : ℝ))) := by
 -- BODY
-  by_cases hnzero : n = 0
-  · subst n
-    simp [Nat.choose_eq_zero_of_lt (by omega : 0 < m)]
-  have hnpos_nat : 0 < n := Nat.pos_of_ne_zero hnzero
-  have hnnonneg : 0 ≤ (n : ℝ) := by positivity
+  have hnnonneg : 0 ≤ (n : ℝ) := by exact_mod_cast hnpos.le
   have hmpos_real : 0 < (m : ℝ) := by exact_mod_cast hmpos
   have hbpos_real : 0 < (b : ℝ) := by exact_mod_cast hbpos
   have hmfac_pos : 0 < (m.factorial : ℝ) := by positivity
