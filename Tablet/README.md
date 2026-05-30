@@ -7,6 +7,7 @@
 | BinarySequenceWeight | definition | - | closed |
 | BinarySequenceWeightFiberCard | proof | - | closed |
 | BinarySequenceWeightSnoc | proof | - | closed |
+| CloseToDiagonalExponentComparison | proof | - | closed |
 | CloseToDiagonalTheorem | proof | - | open |
 | ComplementPolarityPairHsFree | proof | - | closed |
 | Digraph | definition | - | closed |
@@ -128,4 +129,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 117/123 closed
+**Summary:** 118/124 closed

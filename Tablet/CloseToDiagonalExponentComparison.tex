@@ -1,0 +1,48 @@
+\begin{helper}
+Let \(s,a\in\mathbb N\) and let \(\delta,\eta\in\mathbb R\).  Assume
+\(s>0\), \(\eta\ge0\), \(\delta\ge0\), and \(a\le\delta s\).  Then
+\[
+  \left(\frac{s+a-1}{2}-\frac{a^2}{2s}\right)
+    -\left(\frac52\delta+\eta\right)
+  \le
+  2s-3-
+  \frac{\frac32s^2+as-\frac52s+\eta s}{s+a}.
+\]
+\end{helper}
+\begin{proof}
+All quantities in the displayed inequalities are interpreted as real numbers.
+Since \(s>0\) and \(a\ge0\), we have \(s+a>0\).  A direct expansion gives
+\[
+\begin{aligned}
+&2s-3-
+  \frac{\frac32s^2+as-\frac52s+\eta s}{s+a}
+  -\left(\frac{s+a-1}{2}-\frac{a^2}{2s}\right)\\
+&\qquad =
+  \frac{a^3}{2s(s+a)}
+  -\frac{5a}{2(s+a)}
+  -\frac{\eta s}{s+a}.
+\end{aligned}
+\]
+The first term on the right is nonnegative.  Also \(a\le\delta s\) and
+\(s>0\) imply \(a/s\le\delta\), while \(s+a\ge s\) gives
+\[
+  \frac{a}{s+a}\le \frac{a}{s}\le\delta.
+\]
+Therefore
+\[
+  -\frac{5a}{2(s+a)}\ge -\frac52\delta.
+\]
+Similarly, \(s/(s+a)\le1\) and \(\eta\ge0\), so
+\[
+  -\frac{\eta s}{s+a}\ge-\eta.
+\]
+Combining these three estimates gives
+\[
+  2s-3-
+  \frac{\frac32s^2+as-\frac52s+\eta s}{s+a}
+  -\left(\frac{s+a-1}{2}-\frac{a^2}{2s}\right)
+  \ge -\frac52\delta-\eta,
+\]
+which is exactly the claimed inequality after moving the final loss term to
+the left hand side.
+\end{proof}
