@@ -1,0 +1,39 @@
+\begin{helper}
+Let \(s,k,m,n\) be natural numbers with \(m\le n\).  If
+\(\mathrm{RamseyProperty}(s,k,m)\) holds, then
+\(\mathrm{RamseyProperty}(s,k,n)\) holds.
+\end{helper}
+\begin{proof}
+Assume \(m\le n\) and assume \(\mathrm{RamseyProperty}(s,k,m)\).  To prove
+\(\mathrm{RamseyProperty}(s,k,n)\), let \(G\) be an arbitrary simple graph on
+\(\operatorname{Fin}(n)\).  Let
+\(\iota:\operatorname{Fin}(m)\hookrightarrow \operatorname{Fin}(n)\) be the
+standard embedding obtained by viewing an index below \(m\) as an index below
+\(n\).  Define a graph \(G_{0}\) on \(\operatorname{Fin}(m)\) by pulling \(G\)
+back along \(\iota\): two vertices \(x,y\in\operatorname{Fin}(m)\) are adjacent
+in \(G_{0}\) exactly when \(\iota(x)\) and \(\iota(y)\) are adjacent in \(G\).
+
+By \(\noderef{RamseyProperty}\), applied to \(G_{0}\) and the assumed
+\(\mathrm{RamseyProperty}(s,k,m)\), there are two cases.  In the first case
+there is a finite set \(S\subseteq\operatorname{Fin}(m)\) which is an
+\(s\)-clique in \(G_{0}\).  Map \(S\) into \(\operatorname{Fin}(n)\) using
+\(\iota\).  Since \(\iota\) is injective, the image has the same cardinality as
+\(S\), namely \(s\).  If two distinct vertices of the image are chosen, their
+preimages in \(S\) are distinct.  The preimages are adjacent in \(G_{0}\)
+because \(S\) is a clique, and by the definition of \(G_{0}\) their images are
+adjacent in \(G\).  Therefore the image of \(S\) is an \(s\)-clique in \(G\).
+
+In the second case there is a finite set
+\(I\subseteq\operatorname{Fin}(m)\) which is a \(k\)-clique in \(G_{0}^{c}\).
+Map \(I\) into \(\operatorname{Fin}(n)\) using \(\iota\).  Again injectivity
+preserves cardinality, so the image has cardinality \(k\).  If two distinct
+vertices of the image are chosen, their preimages in \(I\) are distinct.  Since
+\(I\) is a clique in \(G_{0}^{c}\), the preimages are not adjacent in
+\(G_{0}\); by the pullback definition, their images are not adjacent in \(G\).
+The images are also distinct by injectivity of \(\iota\).  Hence the image is a
+\(k\)-clique in \(G^{c}\).
+
+Thus every graph \(G\) on \(\operatorname{Fin}(n)\) contains either an
+\(s\)-clique or a \(k\)-clique in its complement.  This is exactly
+\(\mathrm{RamseyProperty}(s,k,n)\).
+\end{proof}

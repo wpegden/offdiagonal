@@ -72,11 +72,12 @@
 | RamseyNumber | definition | definition | closed | - | - | RamseyProperty |
 | RamseyProperty | definition | definition | closed | - | - | Preamble |
 | RamseyPropertyCounterexampleTransport | helper | proof | closed | - | - | RamseyProperty |
+| RamseyPropertyMonotone | helper | proof | closed | - | - | RamseyProperty |
 | RandomHomomorphismColoringBound | lemma | proof | open | - | - | F2ForwardIndependentNearDiagonalBound, NoMonochromaticCliqueColoring |
-| SamplingKsFreeRamseyBound | lemma | proof | open | - | - | RamseyNumber, RamseyPropertyCounterexampleTransport, SimpleGraphIndependentSetCount |
+| SamplingKsFreeRamseyBound | lemma | proof | open | - | - | RamseyNumber, RamseyPropertyCounterexampleTransport, RamseyPropertyMonotone, SimpleGraphIndependentSetCount |
 | SimpleGraphIndependentSetCount | definition | definition | closed | - | - | Preamble |
 | SparseNeighborhoodSetBound | lemma | proof | closed | - | - | ExpanderMixingLemma |
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 75 nodes | **Closed:** 62 | **Open:** 13
+**Total:** 76 nodes | **Closed:** 63 | **Open:** 13
