@@ -1,0 +1,53 @@
+\begin{helper}
+Fix natural numbers \(p,m\) and a Boolean rank-increase sequence
+\[
+  z:\{0,\ldots,m\}\to\{\mathrm{false},\mathrm{true}\}.
+\]
+Suppose \(z(m)=\mathrm{true}\), and let \(z'\) be the restricted sequence on
+\(\{0,\ldots,m-1\}\). Then the number of bad tuples of length \(m+1\) with
+fixed increase pattern \(z\), as counted by
+\(\noderef{F2BadTupleFixedIncreaseCount}\), is at most
+\[
+  F2BadTupleFixedIncreaseCount(p,m,z')\cdot
+  2^p\,2^{p-\operatorname{wt}(z)}.
+\]
+Here \(\operatorname{wt}(z)\) denotes the number of true entries of \(z\), as in
+\(\noderef{BinarySequenceWeight}\).
+\end{helper}
+\begin{proof}
+Let \(T\) be the set of bad length-\(m+1\) tuples with fixed increase pattern
+\(z\), and let \(P\) be the set of bad length-\(m\) tuples with fixed increase
+pattern \(z'\). We map a tuple \(ab\in T\) to a pair consisting of its prefix
+\(ab'\in P\) and its final pair \((a_m,b_m)\). The prefix is in \(P\) by
+\(\noderef{F2BadTupleFixedIncreasePrefixRestriction}\).
+
+For any \(ab\in T\), the final rank is the number of rank-increase indices:
+\(\noderef{F2BadTupleRankIncreaseSetCard}\) identifies the final rank with the
+cardinality of the rank-increase set, and the fixed-increase condition
+identifies that set with the true entries of \(z\). Thus the final rank is
+\(\operatorname{wt}(z)\). Replacing only the final second coordinate by \(0\)
+does not change the set of first coordinates, so
+\(\noderef{F2BadTupleRankSnocPrefixLast}\) shows that the dummy tuple obtained
+from the prefix and \(a_m\) also has rank \(\operatorname{wt}(z)\).
+
+The bad-tuple condition gives
+\[
+  \langle a_j,b_m\rangle=1
+  \quad\text{for every }0\le j\le m.
+\]
+Therefore, for each fixed prefix \(ab'\in P\), the possible final pairs
+\((a_m,b_m)\) arising from tuples in \(T\) lie in the last-pair fiber counted by
+\(\noderef{F2BadTupleLastPairAmbientFiberBound}\) with
+\(t=\operatorname{wt}(z)\). That node bounds the size of this fiber by
+\(2^p\,2^{p-\operatorname{wt}(z)}\).
+
+The map from \(T\) into the disjoint union over prefixes \(ab'\in P\) of these
+last-pair fibers is injective: the prefix recovers the first \(m\) pairs, and
+the final pair recovers the last pair. Hence
+\[
+  |T|
+  \le \sum_{ab'\in P} 2^p\,2^{p-\operatorname{wt}(z)}
+  = |P|\,2^p\,2^{p-\operatorname{wt}(z)}.
+\]
+This is exactly the stated inequality.
+\end{proof}

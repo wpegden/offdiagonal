@@ -1,0 +1,22 @@
+\begin{helper}
+Let \(p,m\) be natural numbers and let
+\[
+  ab:\{0,\ldots,m\}\to \mathbb F_2^p\times\mathbb F_2^p.
+\]
+Form the length \(m+1\) tuple obtained by keeping the first \(m\) pairs of
+\(ab\) and replacing the final pair by \(((ab_m)_1,0)\). Then the rank of the
+span of all first coordinates in this modified tuple is equal to the rank of
+the span of all first coordinates in \(ab\).
+\end{helper}
+\begin{proof}
+The rank in \(\noderef{F2BadTupleRank}\) depends only on the set of first
+coordinates of the tuple entries with index less than \(m+1\). We compare
+these two sets directly. For an index \(j<m+1\), either \(j=m\) or \(j<m\).
+If \(j=m\), the modified tuple has final first coordinate \((ab_m)_1\), the
+same first coordinate as \(ab\). If \(j<m\), the modified tuple agrees with
+\(ab\) at \(j\), because its prefix is exactly the restriction of \(ab\) to
+the first \(m\) indices. Thus every first coordinate occurring in the modified
+tuple occurs in \(ab\), and the same two cases show the reverse inclusion.
+The two spans are therefore spans of the same set, so their dimensions, and
+hence the two ranks, are equal.
+\end{proof}
