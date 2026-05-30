@@ -115,7 +115,7 @@
 | NoMonochromaticCliqueColoring | definition | definition | closed | - | - | Preamble |
 | NoSkewBipartiteConfiguration | definition | definition | closed | - | - | LoopGraph |
 | OffDiagonalGeneralDyadicScale | helper | proof | closed | - | - | Preamble |
-| OffDiagonalGeneralTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, OffDiagonalGeneralDyadicScale, PolarityGraphParameters, RamseyFromGraphPair |
+| OffDiagonalGeneralTheorem | theorem | proof | open | - | - | ComplementPolarityPairHsFree, MainTheoremEtaBounds, MainTheoremPolarityParameterBounds, MainTheoremPolaritySetup, OffDiagonalGeneralDyadicScale, PolarityGraphParameters, RamseyFromGraphPair |
 | PolarityGraph | definition | definition | closed | - | - | LoopGraph |
 | PolarityGraphParameters | lemma | proof | closed | - | - | LoopGraphNdLambda, PolarityGraph |
 | PolarityGraphSkewFree | lemma | proof | closed | - | - | NoSkewBipartiteConfiguration, PolarityGraph |
