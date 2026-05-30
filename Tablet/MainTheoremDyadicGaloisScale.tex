@@ -1,47 +1,80 @@
 \begin{helper}
-Fix an integer \(s\ge4\).  For all sufficiently large \(k\), there is an
-integer \(m\ge1\).  If \(q=2^m\), then the Galois field
-\(\mathbb F_{2^m}\) has \(q\) elements and
+Fix an integer \(s\ge4\).  There are an integer \(k_0\) and real constants
+\(A,B,M\) such that
 \[
-  \frac{k}{2(\log k)^2}\le q\le \frac{k}{(\log k)^2}.
+  A>0,\qquad B>0,\qquad M>0,\qquad A\ge1,\qquad B\ge1,
 \]
-Moreover \(\log q\le \log k\) and \(\log q>0\).
+\[
+  100(s+1)^3\le A,\qquad s+1\le M,\qquad
+  B^{s+1}(s+1)^2\le M,\qquad 200B^{s+1}\le M.
+\]
+Moreover, for every integer \(k\ge k_0\), there is an integer \(m\ge1\).
+If \(q=2^m\), then the concrete Galois field
+\(\mathrm{GaloisField}(2,m)\) has \(q\) elements and
+\[
+  \frac{k}{B(\log k)^2}\le q\le \frac{k}{A(\log k)^2}.
+\]
+In addition,
+\[
+  \log q\le \log k,\qquad \log q>0,\qquad
+  1\le \log k,\qquad M(\log k)^{2s+2}\le k.
+\]
 \end{helper}
 \begin{proof}
-The only analytic input is that \((\log x)^2=o(x)\) as \(x\to\infty\).
-Therefore, after increasing the lower threshold for \(k\), we have both
+Put
 \[
-  (\log k)^2\le \frac{k}{2}
-  \qquad\text{and}\qquad
-  1\le \log k .
+  A=10^6(s+1)^4,\qquad B=2A,\qquad
+  M=10^6B^{s+1}(s+1)^{2s+2}.
 \]
-The first inequality and positivity of \((\log k)^2\) imply
+Since \(s+1\ge1\), these constants are positive, \(A\ge1\), and \(B\ge1\).
+The inequality \(100(s+1)^3\le A\) follows from \(s+1\ge1\) and
+\(100\le10^6\).  Also \(s+1\le M\), because \(B^{s+1}\ge1\) and
+\((s+1)^{2s+2}\ge s+1\).  Similarly,
 \[
-  2\le \frac{k}{(\log k)^2}.
+  B^{s+1}(s+1)^2\le M
 \]
-Put \(x=k/(\log k)^2\).  Since \(x\ge1\), the Archimedean discreteness of
-successive powers of \(2\) gives an integer \(m\ge0\) with
+because \((s+1)^{2s+2}\ge (s+1)^2\), and
+\[
+  200B^{s+1}\le M
+\]
+because \((s+1)^{2s+2}\ge1\) and \(200\le10^6\).
+
+The analytic input is that every fixed power of \(\log x\) is
+\(o(x)\) as \(x\to\infty\).  Hence, after increasing \(k_0\) if necessary,
+for every integer \(k\ge k_0\) we have
+\[
+  2\le \frac{k}{A(\log k)^2},\qquad
+  1\le\log k,\qquad
+  M(\log k)^{2s+2}\le k.
+\]
+Fix such a \(k\), and set
+\[
+  x=\frac{k}{A(\log k)^2}.
+\]
+Then \(x\ge1\).  Choose \(m\ge0\) with
 \[
   2^m\le x<2^{m+1}.
 \]
-The stronger bound \(x\ge2\) rules out \(m=0\), so \(m\ge1\).  With
-\(q=2^m\), the displayed inequalities give \(q\le x\) and
+The stronger bound \(x\ge2\) rules out \(m=0\), so \(m\ge1\).  Let
+\(q=2^m\).  The displayed dyadic inequalities give \(q\le x\) and
+\(x/2<q\), hence \(x/2\le q\).  Since \(B=2A\), this is exactly
 \[
-  \frac{x}{2}<q,
+  \frac{k}{B(\log k)^2}\le q\le \frac{k}{A(\log k)^2}.
 \]
-hence in particular \(x/2\le q\).  Substituting \(x=k/(\log k)^2\) gives
-\[
-  \frac{k}{2(\log k)^2}\le q\le \frac{k}{(\log k)^2}.
-\]
-Since \(1\le\log k\), we have \(1\le(\log k)^2\), and therefore
-\[
-  q\le \frac{k}{(\log k)^2}\le k.
-\]
-The real logarithm is monotone on positive reals, so \(\log q\le\log k\).
-Also \(m\ge1\), hence \(q=2^m\ge2>1\), and so \(\log q>0\).
 
-Finally, the field used later is the concrete Galois field
-\(\mathbb F_{2^m}\), formalized as \(\mathrm{GaloisField}(2,m)\).  Since
-\(m\ne0\), the standard cardinality theorem for Galois fields gives
-\(|\mathbb F_{2^m}|=2^m=q\).
+Because \(A\ge1\) and \(1\le\log k\), we have
+\[
+  A(\log k)^2\ge1,
+\]
+and hence \(q\le k/(A(\log k)^2)\le k\).  Monotonicity of the logarithm on
+positive reals gives \(\log q\le\log k\).  Since \(m\ge1\), \(q=2^m\ge2>1\),
+so \(\log q>0\).
+
+Finally, \(m\ne0\), so the standard cardinality theorem for the concrete
+Galois field gives
+\[
+  |\mathrm{GaloisField}(2,m)|=2^m=q.
+\]
+The inequalities \(1\le\log k\) and \(M(\log k)^{2s+2}\le k\) are exactly
+the threshold conditions imposed above.
 \end{proof}
