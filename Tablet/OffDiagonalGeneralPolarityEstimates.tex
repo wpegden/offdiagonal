@@ -1,0 +1,80 @@
+\begin{helper}
+Let \(s,m\) be integers with \(s\ge4\) and \(m\ge1\).  Put
+\[
+  t=s-2,\qquad q=2^m,\qquad
+  n=\frac{q^{t+1}-1}{q-1},\qquad
+  d_G=\frac{q^t-1}{q-1},
+\]
+\[
+  d_F=n-d_G,\qquad
+  a=\frac{q^{t-1}-1}{q-1},\qquad
+  \lambda=\sqrt{d_G-a},\qquad Q=q^{t-1},
+\]
+and
+\[
+  \eta=\max\left\{\frac{\lambda^2}{d_G^2},
+    \frac{\lambda\lambda}{d_Fd_G}\right\}.
+\]
+Then
+\[
+  q^t\le n\le2q^t,\qquad
+  q^{t-1}\le d_G\le2q^{t-1},\qquad
+  d_F=q^t,\qquad \lambda^2=Q,
+\]
+\[
+  \frac n2\le d_F,\qquad
+  \frac{1}{16Q}\le\eta\le\frac{16}{Q}.
+\]
+\end{helper}
+\begin{proof}
+The node \(\noderef{MainTheoremPolarityParameterBounds}\) gives
+\[
+  q^t\le n,\qquad q^{t-1}\le d_G,\qquad d_F=q^t,\qquad
+  \lambda^2=Q,
+\]
+and also \(\eta\le 1/Q\), because \(\eta\) is the maximum of the two displayed
+spectral ratios and that maximum is bounded there by \(1/Q\).  Since \(m\ge1\),
+we have \(q=2^m\ge2\).
+
+We now sharpen the two geometric-series upper bounds.  For every integer
+\(r\ge0\),
+\[
+  \sum_{i=0}^r q^i\le 2q^r.
+\]
+This is proved by induction on \(r\).  The case \(r=0\) is \(1\le2\).  If it
+holds for \(r\), then
+\[
+  \sum_{i=0}^{r+1}q^i
+    \le 2q^r+q^{r+1}
+    =(2+q)q^r
+    \le 2q\,q^r
+    =2q^{r+1},
+\]
+where \(2+q\le2q\) follows from \(q\ge2\).  The standard finite geometric-sum
+identity gives
+\[
+  n=\sum_{i=0}^t q^i,\qquad d_G=\sum_{i=0}^{t-1}q^i.
+\]
+Applying the induction estimate with \(r=t\) and \(r=t-1\), respectively,
+gives
+\[
+  n\le2q^t,\qquad d_G\le2q^{t-1}.
+\]
+Since \(d_F=q^t\), the inequality \(n\le2q^t\) also gives \(n/2\le d_F\).
+
+It remains to prove the lower bound for \(\eta\).  The first term in the
+maximum defining \(\eta\) is at most \(\eta\), and by \(\lambda^2=Q\) it is
+\[
+  \frac{Q}{d_G^2}.
+\]
+The upper bound \(d_G\le2Q\), with \(d_G,Q>0\), implies
+\[
+  d_G^2\le (2Q)^2=4Q^2.
+\]
+Therefore
+\[
+  \frac{1}{4Q}\le \frac{Q}{d_G^2}\le \eta.
+\]
+Since \(1/(16Q)\le1/(4Q)\), we get \(1/(16Q)\le\eta\).  Finally,
+\(\eta\le1/Q\le16/Q\), so the claimed two-sided eta estimate follows.
+\end{proof}

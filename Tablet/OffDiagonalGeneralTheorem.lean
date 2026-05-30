@@ -3,8 +3,11 @@ import Tablet.MainTheoremEtaBounds
 import Tablet.MainTheoremPolarityParameterBounds
 import Tablet.MainTheoremPolaritySetup
 import Tablet.OffDiagonalGeneralDyadicScale
+import Tablet.OffDiagonalGeneralPolarityEstimates
 import Tablet.PolarityGraphParameters
 import Tablet.RamseyFromGraphPair
+
+set_option maxHeartbeats 800000
 
 -- [TABLET NODE: OffDiagonalGeneralTheorem]
 
@@ -129,9 +132,143 @@ theorem OffDiagonalGeneralTheorem :
         (LoopGraphComplement (PolarityGraph K t)) (PolarityGraph K t)
         s n dF dG k lambda lambda eta w hs3 hn3 hdG_pos hk1
         hF hG hFG heta_def hw_def heta_lower heta_upper_one).1
+    have hpaper_estimates := OffDiagonalGeneralPolarityEstimates s m hs4 hm_pos
+    have hpaper_estimates' :
+        q ^ t ≤ n ∧ n ≤ 2 * q ^ t ∧
+          q ^ (t - 1) ≤ dG ∧ dG ≤ 2 * q ^ (t - 1) ∧
+          dF = q ^ t ∧ lambda ^ 2 = Q ∧
+          (n : ℝ) / 2 ≤ (dF : ℝ) ∧
+          1 / (16 * Q) ≤ eta ∧ eta ≤ 16 / Q := by
+      simpa only [t, q, n, dG, dF, a, lambda, Q, eta] using hpaper_estimates
+    rcases hpaper_estimates' with
+      ⟨hqt_le_n_paper, hn_upper_two, hQ_le_dG_nat, hdG_upper_two,
+        hdF_eq_paper, hlambda_sq_paper, hdF_half_n, heta_lower_Q16,
+        heta_upper_Q16⟩
+    have hlogn_nonneg : 0 ≤ Real.log (n : ℝ) :=
+      Real.log_nonneg (by exact_mod_cast (by omega : 1 ≤ n))
+    have hdGR_pos : (0 : ℝ) < dG := by exact_mod_cast hdG_pos
+    have ht_ge_two : 2 ≤ t := by
+      dsimp [t]
+      omega
+    have ht_eq : t = (t - 1) + 1 := by omega
+    have hqt_decomp : (q : ℝ) ^ t = (q : ℝ) ^ (t - 1) * (q : ℝ) := by
+      calc
+        (q : ℝ) ^ t = (q : ℝ) ^ ((t - 1) + 1) :=
+          congrArg (fun u : ℕ => (q : ℝ) ^ u) ht_eq
+        _ = (q : ℝ) ^ (t - 1) * (q : ℝ) := by rw [pow_succ]
+    have hn_upper_two_real : (n : ℝ) ≤ 2 * (q : ℝ) ^ t := by
+      exact_mod_cast hn_upper_two
+    have hQ_le_dG_real : (q : ℝ) ^ (t - 1) ≤ (dG : ℝ) := by
+      exact_mod_cast hQ_le_dG_nat
+    have hn_le_two_q_dG : (n : ℝ) ≤ (2 * (q : ℝ)) * (dG : ℝ) := by
+      calc
+        (n : ℝ) ≤ 2 * (q : ℝ) ^ t := hn_upper_two_real
+        _ = (2 * (q : ℝ)) * ((q : ℝ) ^ (t - 1)) := by
+              rw [hqt_decomp]
+              ring
+        _ ≤ (2 * (q : ℝ)) * (dG : ℝ) :=
+              mul_le_mul_of_nonneg_left hQ_le_dG_real (by positivity)
+    have hn_div_dG_le : (n : ℝ) / (dG : ℝ) ≤ 2 * (q : ℝ) := by
+      rw [div_le_iff₀ hdGR_pos]
+      simpa [mul_comm, mul_left_comm, mul_assoc] using hn_le_two_q_dG
+    have hw_le_sixteen_q_logn :
+        w ≤ 16 * (q : ℝ) * Real.log (n : ℝ) := by
+      have hw_eq : w = 4 * ((n : ℝ) / (dG : ℝ)) * Real.log (n : ℝ) := by
+        dsimp [w]
+        field_simp [ne_of_gt hdGR_pos]
+      calc
+        w = 4 * ((n : ℝ) / (dG : ℝ)) * Real.log (n : ℝ) := hw_eq
+        _ ≤ 4 * (2 * (q : ℝ)) * Real.log (n : ℝ) := by
+              exact mul_le_mul_of_nonneg_right
+                (mul_le_mul_of_nonneg_left hn_div_dG_le (by norm_num)) hlogn_nonneg
+        _ = 8 * (q : ℝ) * Real.log (n : ℝ) := by ring
+        _ ≤ 16 * (q : ℝ) * Real.log (n : ℝ) := by
+              nlinarith [mul_nonneg (by positivity : (0 : ℝ) ≤ (q : ℝ)) hlogn_nonneg]
+    have hq2_nat : 2 ≤ q := by
+      dsimp [q]
+      exact Nat.pow_le_pow_right (by omega : 1 ≤ (2 : ℕ)) hm_pos
+    have hqR_pos : (0 : ℝ) < q := by exact_mod_cast (by omega : 0 < q)
+    have hlogq_pos' : 0 < Real.log (q : ℝ) := by
+      simpa [q] using hlogq_pos
+    have hlogq_nonneg : 0 ≤ Real.log (q : ℝ) := le_of_lt hlogq_pos'
+    have htwo_qt_le_q_succ :
+        2 * (q : ℝ) ^ t ≤ (q : ℝ) ^ (t + 1) := by
+      calc
+        2 * (q : ℝ) ^ t ≤ (q : ℝ) * (q : ℝ) ^ t :=
+          mul_le_mul_of_nonneg_right (by exact_mod_cast hq2_nat) (by positivity)
+        _ = (q : ℝ) ^ (t + 1) := by
+          rw [pow_succ]
+          ring
+    have hn_le_q_succ : (n : ℝ) ≤ (q : ℝ) ^ (t + 1) :=
+      hn_upper_two_real.trans htwo_qt_le_q_succ
+    have hlogn_le_t1_logq :
+        Real.log (n : ℝ) ≤ ((t + 1 : ℕ) : ℝ) * Real.log (q : ℝ) := by
+      have hlog_le : Real.log (n : ℝ) ≤ Real.log ((q : ℝ) ^ (t + 1)) :=
+        Real.log_le_log (by exact_mod_cast hn_pos) hn_le_q_succ
+      calc
+        Real.log (n : ℝ) ≤ Real.log ((q : ℝ) ^ (t + 1)) := hlog_le
+        _ = ((t + 1 : ℕ) : ℝ) * Real.log (q : ℝ) := by
+          rw [Real.log_pow]
+    have ht1_le_s_real : ((t + 1 : ℕ) : ℝ) ≤ (s : ℝ) := by
+      dsimp [t]
+      exact_mod_cast (by omega : s - 2 + 1 ≤ s)
+    have hlogn_le_s_logq :
+        Real.log (n : ℝ) ≤ (s : ℝ) * Real.log (q : ℝ) :=
+      hlogn_le_t1_logq.trans
+        (mul_le_mul_of_nonneg_right ht1_le_s_real hlogq_nonneg)
+    have hw_le_sixteen_s_q_logq :
+        w ≤ 16 * (s : ℝ) * (q : ℝ) * Real.log (q : ℝ) := by
+      calc
+        w ≤ 16 * (q : ℝ) * Real.log (n : ℝ) := hw_le_sixteen_q_logn
+        _ ≤ 16 * (q : ℝ) * ((s : ℝ) * Real.log (q : ℝ)) := by
+          exact mul_le_mul_of_nonneg_left hlogn_le_s_logq (by positivity)
+        _ = 16 * (s : ℝ) * (q : ℝ) * Real.log (q : ℝ) := by ring
+    have hlogx_pos : 0 < Real.log x := lt_of_lt_of_le zero_lt_one hlogx_ge_one
+    have hlogq_le_logx' : Real.log (q : ℝ) ≤ Real.log x := by
+      simpa [q] using hlogq_le_logx
+    have hq_le_y : (q : ℝ) ≤ delta0 / 100 * x / Real.log x := by
+      simpa [q] using hq_le
+    have hq_logq_le_delta_x :
+        (q : ℝ) * Real.log (q : ℝ) ≤ (delta0 / 100) * x := by
+      calc
+        (q : ℝ) * Real.log (q : ℝ)
+            ≤ (delta0 / 100 * x / Real.log x) * Real.log x := by
+              exact mul_le_mul hq_le_y hlogq_le_logx'
+                hlogq_nonneg (by positivity)
+        _ = (delta0 / 100) * x := by
+              field_simp [ne_of_gt hlogx_pos]
+    have hs_mul_x_eq_k : (s : ℝ) * x = (k : ℝ) := by
+      dsimp [x]
+      field_simp [ne_of_gt hs_pos_real]
+    have hw_le_delta_k_fifth : w ≤ delta0 * (k : ℝ) / 5 := by
+      calc
+        w ≤ 16 * (s : ℝ) * (q : ℝ) * Real.log (q : ℝ) :=
+          hw_le_sixteen_s_q_logq
+        _ = 16 * (s : ℝ) * ((q : ℝ) * Real.log (q : ℝ)) := by ring
+        _ ≤ 16 * (s : ℝ) * ((delta0 / 100) * x) := by
+          exact mul_le_mul_of_nonneg_left hq_logq_le_delta_x (by positivity)
+        _ = (4 * delta0 / 25) * ((s : ℝ) * x) := by ring
+        _ = (4 * delta0 / 25) * (k : ℝ) := by rw [hs_mul_x_eq_k]
+        _ ≤ delta0 * (k : ℝ) / 5 := by
+          have hk_nonneg : (0 : ℝ) ≤ k := by positivity
+          have hcoeff : 4 * delta0 / 25 ≤ delta0 / 5 := by nlinarith [hdelta0_pos]
+          calc
+            (4 * delta0 / 25) * (k : ℝ) ≤ (delta0 / 5) * (k : ℝ) :=
+              mul_le_mul_of_nonneg_right hcoeff hk_nonneg
+            _ = delta0 * (k : ℝ) / 5 := by ring
+    have hw_le_k : w ≤ (k : ℝ) := by
+      calc
+        w ≤ delta0 * (k : ℝ) / 5 := hw_le_delta_k_fifth
+        _ ≤ (k : ℝ) := by
+          have hk_nonneg : (0 : ℝ) ≤ k := by positivity
+          have hcoeff : delta0 / 5 ≤ 1 := by nlinarith [hdelta0_lt_tenth]
+          calc
+            delta0 * (k : ℝ) / 5 = (delta0 / 5) * (k : ℝ) := by ring
+            _ ≤ 1 * (k : ℝ) := mul_le_mul_of_nonneg_right hcoeff hk_nonneg
+            _ = (k : ℝ) := by ring
     -- Remaining work: prove the first-projection range hypotheses
-    -- `w ≤ k` and `k ≤ eta * dF * n`, then compare the first projection's
-    -- output with the general off-diagonal target.
+    -- `k ≤ eta * dF * n`, then compare the first projection's output with
+    -- the general off-diagonal target.
     sorry
   rcases hnormalized with ⟨L0, hL0⟩
   refine ⟨max L0 1, ?_⟩
