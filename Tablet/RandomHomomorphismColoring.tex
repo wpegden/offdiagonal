@@ -1,0 +1,13 @@
+\begin{definition}
+Let \(D\) be a digraph on a vertex set \(W\), let \(\ell,n\) be natural
+numbers with \(1\le \ell\), and let
+\[
+  \phi : [\ell-1]\to([n]\to W)
+\]
+be a family of maps, written \(\phi_c:[n]\to W\).
+The coloring \(\mathrm{RandomHomomorphismColoring}(D,\ell,n,\phi)\) assigns a
+color in \([\ell]\) to each unordered edge \(\{x,y\}\) of \([n]\) as follows.
+First order the two endpoints as \(x\le y\).  If there is a color
+\(m<\ell-1\) for which \(D(\phi_m(x),\phi_m(y))\) holds, use the least such
+\(m\).  If there is no such \(m\), use the final color \(\ell-1\).
+\end{definition}

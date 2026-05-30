@@ -1,0 +1,36 @@
+\begin{helper}
+Let \(D\) be a loopless \(T_s\)-free digraph on a vertex set \(W\).  Let
+\(\ell,n\) be natural numbers with \(1\le\ell\), and let
+\(\phi_c:[n]\to W\), for \(c<\ell-1\), be maps.  For every first color
+\(c<\ell-1\) and every strictly increasing tuple
+\[
+  v:[s]\to[n],
+\]
+the coloring \(\noderef{RandomHomomorphismColoring}\) does not assign color
+\(c\) to every edge \(\{v_i,v_j\}\) with \(i<j\).
+\end{helper}
+\begin{proof}
+Suppose, for contradiction, that a first color \(c<\ell-1\) and a strictly
+increasing tuple \(v:[s]\to[n]\) have every edge \(\{v_i,v_j\}\), \(i<j\),
+colored \(c\).  Fix \(i<j\).  Since \(v\) is strictly increasing, the ordered
+endpoints of the unordered edge \(\{v_i,v_j\}\) are \(v_i\le v_j\).  By the
+definition of \(\noderef{RandomHomomorphismColoring}\), an edge can receive a
+first color \(c\) only when the corresponding arc
+\[
+  D(\phi_c(v_i),\phi_c(v_j))
+\]
+is present.  Hence these arcs are present for all \(i<j\).
+
+The map \(i\mapsto \phi_c(v_i)\) is injective.  Indeed, if
+\(\phi_c(v_i)=\phi_c(v_j)\) with \(i\ne j\), then either \(i<j\) or \(j<i\).
+In the first case the arc \(D(\phi_c(v_i),\phi_c(v_j))\) becomes a loop at
+\(\phi_c(v_i)\), and in the second case the arc
+\(D(\phi_c(v_j),\phi_c(v_i))\) becomes the same kind of loop.  Both cases
+contradict the loopless hypothesis \(\noderef{DigraphLoopless}\).
+
+Thus \(i\mapsto\phi_c(v_i)\) is an injective ordered \(s\)-tuple of vertices,
+and the preceding paragraph gives all arcs from earlier indices to later
+indices.  This is exactly a copy of the transitive tournament \(T_s\) in
+\(D\), contradicting \(\noderef{TransitiveTournamentFree}\).  Therefore no
+such monochromatic ordered \(s\)-clique in a first color exists.
+\end{proof}

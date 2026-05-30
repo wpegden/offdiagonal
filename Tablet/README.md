@@ -129,8 +129,10 @@
 | RamseyPropertyMonotone | proof | - | closed |
 | RamseyPropertyNonempty | proof | - | closed |
 | RamseyPropertyStep | proof | - | closed |
+| RandomHomomorphismColoring | definition | - | closed |
 | RandomHomomorphismColoringBound | proof | - | open |
 | RandomHomomorphismF2Setup | proof | - | closed |
+| RandomHomomorphismFirstColorOrderedCliqueFree | proof | - | closed |
 | SamplingKsFreeRamseyBound | proof | - | closed |
 | SimpleGraphIndependentSetCount | definition | - | closed |
 | SimpleGraphNoIndependentSetFromCountZero | proof | - | closed |
@@ -138,4 +140,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 129/133 closed
+**Summary:** 131/135 closed
