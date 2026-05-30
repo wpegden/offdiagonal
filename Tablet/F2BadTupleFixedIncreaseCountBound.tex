@@ -1,0 +1,67 @@
+\begin{helper}
+For every \(p,k\) and every Boolean rank-increase sequence
+\[
+  z:\{0,\ldots,k-1\}\to\{\mathrm{false},\mathrm{true}\}
+\]
+with \(\operatorname{wt}(z)\le p\), the number of bad \(2k\)-tuples with fixed
+increase pattern \(z\) satisfies
+\[
+  F2BadTupleFixedIncreaseCount(p,k,z)
+  \le
+  2^{\,p(\operatorname{wt}(z)+k)-\binom{\operatorname{wt}(z)+1}{2}}.
+\]
+\end{helper}
+\begin{proof}
+We prove the claim by induction on \(k\). For \(k=0\), there is only the empty
+tuple and the empty Boolean sequence. The weight is \(0\), the binomial term is
+\(\binom{1}{2}=0\), and the right-hand side is \(2^0=1\), so the bound is
+immediate from \(\noderef{F2BadTupleFixedIncreaseCount}\).
+
+Assume the claim has been proved for length \(m\), and let
+\[
+  z:\{0,\ldots,m\}\to\{\mathrm{false},\mathrm{true}\}.
+\]
+Let \(z'\) be the restricted sequence \(z'(i)=z(i)\) for \(0\le i<m\). We
+split according to the last bit \(z(m)\).
+
+First suppose \(z(m)=\mathrm{true}\). Then
+\(\noderef{BinarySequenceWeightSnoc}\) gives
+\[
+  \operatorname{wt}(z)=\operatorname{wt}(z')+1.
+\]
+Since \(\operatorname{wt}(z)\le p\), the induction hypothesis applies to
+\(z'\). Combining it with the one-step true-last bound
+\(\noderef{F2BadTupleFixedIncreaseTrueLastBound}\) gives
+\[
+  F2BadTupleFixedIncreaseCount(p,m+1,z)
+  \le
+  2^{p(\operatorname{wt}(z')+m)-\binom{\operatorname{wt}(z')+1}{2}}
+  \cdot 2^p 2^{p-\operatorname{wt}(z)}.
+\]
+With \(u=\operatorname{wt}(z')\), this is exactly the exponent recurrence
+proved in \(\noderef{F2BadTupleFixedIncreaseTrueExponentBound}\), so it is at
+most
+\[
+  2^{p(\operatorname{wt}(z)+m+1)-\binom{\operatorname{wt}(z)+1}{2}}.
+\]
+
+Now suppose \(z(m)=\mathrm{false}\). Then
+\(\noderef{BinarySequenceWeightSnoc}\) gives
+\[
+  \operatorname{wt}(z)=\operatorname{wt}(z').
+\]
+The induction hypothesis applies to \(z'\), and the false-last one-step bound
+\(\noderef{F2BadTupleFixedIncreaseFalseLastBound}\) gives
+\[
+  F2BadTupleFixedIncreaseCount(p,m+1,z)
+  \le
+  2^{p(\operatorname{wt}(z')+m)-\binom{\operatorname{wt}(z')+1}{2}}
+  \cdot 2^{\operatorname{wt}(z)}2^{p-\operatorname{wt}(z)}.
+\]
+Since the weights of \(z\) and \(z'\) are equal, the exponent recurrence
+\(\noderef{F2BadTupleFixedIncreaseFalseExponentBound}\) bounds this by
+\[
+  2^{p(\operatorname{wt}(z)+m+1)-\binom{\operatorname{wt}(z)+1}{2}}.
+\]
+This completes the induction.
+\end{proof}

@@ -3,6 +3,7 @@ import Tablet.F2CoordinateDigraphLoopless
 import Tablet.F2CoordinateDigraphTransitiveFree
 import Tablet.F2BadTupleAmbientStepProductBound
 import Tablet.F2BadTupleFixedIncreasePrefixRestriction
+import Tablet.F2BadTupleFixedIncreaseCountBound
 import Tablet.F2BadTupleFixedIncreaseFalseLastBound
 import Tablet.F2BadTupleFixedIncreaseTrueLastBound
 import Tablet.F2BadTupleFixedIncreaseCount

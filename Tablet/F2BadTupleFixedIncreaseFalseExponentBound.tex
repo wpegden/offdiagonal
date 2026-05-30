@@ -1,0 +1,25 @@
+\begin{helper}
+Let \(p,m,u\) be natural numbers with \(u\le p\). Then
+\[
+2^{p(u+m)-\binom{u+1}{2}}\,
+  \bigl(2^u2^{p-u}\bigr)
+\le
+2^{p(u+m+1)-\binom{u+1}{2}}.
+\]
+This is the exponent recurrence for a fixed rank-increase sequence whose last
+bit is false.
+\end{helper}
+\begin{proof}
+Since \(u\le p\), the product \(2^u2^{p-u}\) is \(2^p\). It remains to compare
+the exponents. The binomial term \(\binom{u+1}{2}\) is at most \(pu\), because
+\[
+  \binom{u+1}{2}=\frac{(u+1)u}{2}\le pu
+\]
+under \(u\le p\); hence it is also at most \(p(u+m)\). Therefore
+\[
+  \bigl(p(u+m)-\binom{u+1}{2}\bigr)+p
+  = p(u+m+1)-\binom{u+1}{2}.
+\]
+Thus multiplying the previous bound by the false-last factor increases the
+power of \(2\) by exactly \(p\), giving the stated inequality.
+\end{proof}

@@ -1,0 +1,30 @@
+\begin{helper}
+Let \(p,m,u\) be natural numbers with \(u+1\le p\). Then
+\[
+2^{p(u+m)-\binom{u+1}{2}}\,
+  \bigl(2^p2^{p-(u+1)}\bigr)
+\le
+2^{p((u+1)+(m+1))-\binom{(u+1)+1}{2}}.
+\]
+This is the exponent recurrence for a fixed rank-increase sequence whose last
+bit is true, where \(u\) is the prefix weight.
+\end{helper}
+\begin{proof}
+Combining powers of \(2\), the left-hand side has exponent
+\[
+  p(u+m)-\binom{u+1}{2}+p+\bigl(p-(u+1)\bigr).
+\]
+The assumption \(u+1\le p\) makes the last subtraction ordinary. As in
+\(\noderef{F2BadTupleFixedIncreaseFalseExponentBound}\), we have
+\(\binom{u+1}{2}\le p(u+m)\), so the displayed exponent is obtained by ordinary
+subtraction from \(p(u+m)\). Also,
+\[
+  \binom{(u+1)+1}{2}=\binom{u+1}{2}+(u+1),
+\]
+and
+\[
+  p((u+1)+(m+1))=p(u+m)+2p.
+\]
+Substituting these two identities shows that the left-hand exponent is exactly
+the right-hand exponent. Hence the stated inequality of powers of \(2\) follows.
+\end{proof}
