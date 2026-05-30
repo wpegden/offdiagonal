@@ -1,0 +1,26 @@
+\begin{helper}
+Let \(p,m\) be natural numbers, and let
+\[
+  ab:\{0,\ldots,m\}\to \mathbb F_2^p\times\mathbb F_2^p
+\]
+be a bad tuple of length \(m+1\). Define its prefix \(ab'\) of length \(m\) by
+\[
+  ab'(i)=ab(i)
+  \qquad(0\le i<m),
+\]
+where the index on the right is the same zero-based index, viewed as an index
+less than \(m+1\). Then \(ab'\) is a bad tuple of length \(m\).
+\end{helper}
+\begin{proof}
+By \(\noderef{F2BadTuple}\), to prove that \(ab'\) is bad we must show that
+for every pair of zero-based indices \(i,j<m\) with \(j\le i\), the dot product
+of the first coordinate of \(ab'(j)\) and the second coordinate of \(ab'(i)\)
+is equal to \(1\). The prefix definition gives \(ab'(j)=ab(j)\) and
+\(ab'(i)=ab(i)\), with the same numerical indices now viewed in
+\(\{0,\ldots,m\}\). Since \(j\le i\) remains true after this inclusion of index
+sets, the badness of \(ab\) gives
+\[
+  \langle a_j,b_i\rangle=1.
+\]
+This is exactly the required badness condition for the prefix tuple.
+\end{proof}

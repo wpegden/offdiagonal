@@ -1,0 +1,26 @@
+\begin{helper}
+Let \(p,m\) be natural numbers, and let
+\[
+  ab:\{0,\ldots,m\}\to \mathbb F_2^p\times\mathbb F_2^p.
+\]
+Let \(ab'\) be the prefix of length \(m\), defined by \(ab'(j)=ab(j)\) for
+zero-based \(j<m\). For every natural number \(i\le m\), the rank of the first
+\(i\) vectors computed from \(ab\) is equal to the rank of the first \(i\)
+vectors computed from \(ab'\):
+\[
+  \mathrm{F2BadTupleRank}(p,m+1,ab,i)
+  =
+  \mathrm{F2BadTupleRank}(p,m,ab',i).
+\]
+\end{helper}
+\begin{proof}
+By \(\noderef{F2BadTupleRank}\), the left-hand side is the dimension of the
+span of all first coordinates \(a_{\ell+1}\) whose zero-based index
+\(\ell\) satisfies \(\ell<i\) inside the length \(m+1\) tuple. Because
+\(i\le m\), every such \(\ell\) also satisfies \(\ell<m\), so it is an index of
+the prefix tuple \(ab'\). Conversely, every zero-based prefix index
+\(\ell<m\) with \(\ell<i\) is also an index of the original length \(m+1\)
+tuple, and \(ab'(\ell)=ab(\ell)\). Thus the two generating sets of vectors are
+identical. Their spans over \(\mathbb F_2\) are therefore identical, and equal
+subspaces have equal dimensions. This is the claimed rank equality.
+\end{proof}

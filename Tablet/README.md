@@ -20,14 +20,17 @@
 | F2BadTuple | definition | - | closed |
 | F2BadTupleAmbientStepProductBound | proof | - | closed |
 | F2BadTupleFixedIncreaseCount | definition | - | closed |
+| F2BadTupleFixedIncreasePrefixRestriction | proof | - | closed |
 | F2BadTupleNonincreaseStepProductBound | proof | - | closed |
 | F2BadTuplePrefixFiberBound | proof | - | closed |
+| F2BadTuplePrefixRestriction | proof | - | closed |
 | F2BadTuplePrefixSpanCard | proof | - | closed |
 | F2BadTupleRank | definition | - | closed |
 | F2BadTupleRankAmbientBound | proof | - | closed |
 | F2BadTupleRankIncreaseSet | definition | - | closed |
 | F2BadTupleRankIncreaseSetCard | proof | - | closed |
 | F2BadTupleRankOne | proof | - | closed |
+| F2BadTupleRankPrefixRestriction | proof | - | closed |
 | F2BadTupleRankStep | proof | - | closed |
 | F2BadTupleRankZero | proof | - | closed |
 | F2CoordinateDigraphLoopless | proof | - | closed |
@@ -101,4 +104,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 87/96 closed
+**Summary:** 90/99 closed

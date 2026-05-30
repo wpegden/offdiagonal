@@ -1,0 +1,34 @@
+\begin{helper}
+Let \(p,m\) be natural numbers, let
+\[
+  ab:\{0,\ldots,m\}\to \mathbb F_2^p\times\mathbb F_2^p,
+\]
+and let \(z:\{0,\ldots,m\}\to\{\mathrm{false},\mathrm{true}\}\) be a Boolean
+rank-increase pattern as in \(\noderef{F2BadTupleFixedIncreaseCount}\).
+Suppose that \(ab\) is bad and that, for every zero-based \(i\le m\), the rank
+sequence of \(ab\) increases from \(r_i\) to \(r_{i+1}\) if and only if
+\(z(i)=\mathrm{true}\). Let \(ab'\) be the prefix tuple of length \(m\), and
+let \(z'\) be the restricted Boolean sequence \(z'(i)=z(i)\) for
+zero-based \(i<m\). Then \(ab'\) is bad, and for every zero-based \(i<m\), the
+rank sequence of \(ab'\) increases from \(r'_i\) to \(r'_{i+1}\) if and only if
+\(z'(i)=\mathrm{true}\).
+\end{helper}
+\begin{proof}
+The badness of \(ab'\) follows immediately from
+\(\noderef{F2BadTuplePrefixRestriction}\). It remains to verify the
+rank-increase pattern. Fix a zero-based index \(i<m\). Since \(i<m\), both
+\(i\le m\) and \(i+1\le m\). Applying
+\(\noderef{F2BadTupleRankPrefixRestriction}\) at the two prefix lengths \(i\)
+and \(i+1\) shows that
+\[
+  r'_i=r_i
+  \quad\text{and}\quad
+  r'_{i+1}=r_{i+1}.
+\]
+Therefore the statement \(r'_{i+1}=r'_i+1\) is exactly the same statement as
+\(r_{i+1}=r_i+1\) for the original tuple. By the assumed fixed-increase
+condition on \(ab\), this original statement is equivalent to
+\(z(i)=\mathrm{true}\). The restricted sequence satisfies \(z'(i)=z(i)\), so
+the prefix rank increases at \(i\) if and only if \(z'(i)=\mathrm{true}\), as
+claimed.
+\end{proof}

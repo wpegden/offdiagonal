@@ -2,6 +2,7 @@ import Tablet.DigraphLoopless
 import Tablet.F2CoordinateDigraphLoopless
 import Tablet.F2CoordinateDigraphTransitiveFree
 import Tablet.F2BadTupleAmbientStepProductBound
+import Tablet.F2BadTupleFixedIncreasePrefixRestriction
 import Tablet.F2BadTupleFixedIncreaseCount
 import Tablet.F2BadTuple
 import Tablet.F2BadTupleNonincreaseStepProductBound
@@ -166,4 +167,29 @@ theorem F2ForwardIndependentTuples :
                         F2BadTupleRank p k ab i.val + 1) ↔ z i = true} := by
       intro z
       rfl
+    have hbad_prefix_restriction_available :
+        ∀ (ab : Fin (k + 1) → Vec × Vec),
+          F2BadTuple p (k + 1) ab →
+            F2BadTuple p k (fun i : Fin k => ab i.castSucc) := by
+      intro ab hbad
+      exact F2BadTuplePrefixRestriction p k ab hbad
+    have hbad_rank_prefix_restriction_available :
+        ∀ (ab : Fin (k + 1) → Vec × Vec) (i : ℕ), i ≤ k →
+          F2BadTupleRank p (k + 1) ab i =
+            F2BadTupleRank p k (fun j : Fin k => ab j.castSucc) i := by
+      intro ab i hi
+      exact F2BadTupleRankPrefixRestriction p k ab i hi
+    have hbad_fixed_increase_prefix_restriction_available :
+        ∀ (ab : Fin (k + 1) → Vec × Vec) (z : Fin (k + 1) → Bool),
+          (F2BadTuple p (k + 1) ab ∧
+              ∀ i : Fin (k + 1),
+                (F2BadTupleRank p (k + 1) ab (i.val + 1) =
+                    F2BadTupleRank p (k + 1) ab i.val + 1) ↔ z i = true) →
+            F2BadTuple p k (fun i : Fin k => ab i.castSucc) ∧
+              ∀ i : Fin k,
+                (F2BadTupleRank p k (fun j : Fin k => ab j.castSucc) (i.val + 1) =
+                    F2BadTupleRank p k (fun j : Fin k => ab j.castSucc) i.val + 1) ↔
+                  z i.castSucc = true := by
+      intro ab z hfixed
+      exact F2BadTupleFixedIncreasePrefixRestriction p k ab z hfixed
     sorry
