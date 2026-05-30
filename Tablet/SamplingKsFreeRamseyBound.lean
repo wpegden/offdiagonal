@@ -368,4 +368,140 @@ theorem SamplingKsFreeRamseyBound {V : Type u} [Fintype V]
           ((SimpleGraphIndependentSetCount G k : ℕ) : ℝ) := by
             rw [hcount_independentSets]
             ring
+  have hinducedIndependentCount_indicator :
+      ∀ U : Finset V,
+        ((SimpleGraphIndependentSetCount (G.induce {x : V | x ∈ U}) k : ℕ) : ℝ) =
+          ∑ I : {S : Finset V // Gᶜ.IsNClique k S},
+            if I.val ⊆ U then (1 : ℝ) else 0 := by
+    intro U
+    let Hverts : Type u := {x : V // x ∈ U}
+    let H : SimpleGraph Hverts := G.induce {x : V | x ∈ U}
+    let independentSets := {S : Finset V // Gᶜ.IsNClique k S}
+    let containedIndependentSets := {I : independentSets // I.val ⊆ U}
+    let inducedIndependentSets := {S : Finset Hverts // Hᶜ.IsNClique k S}
+    have hcount_eq :
+        SimpleGraphIndependentSetCount H k = Fintype.card containedIndependentSets := by
+      letI : DecidablePred (fun S : Finset Hverts => Hᶜ.IsNClique k S) := Classical.decPred _
+      dsimp [SimpleGraphIndependentSetCount]
+      let emb : Hverts ↪ V := ⟨Subtype.val, Subtype.val_injective⟩
+      let toContained : inducedIndependentSets → containedIndependentSets := fun A =>
+        ⟨⟨A.val.map emb, by
+          refine ⟨?_, ?_⟩
+          · intro x hx y hy hxy
+            rcases Finset.mem_map.mp hx with ⟨x', hx', rfl⟩
+            rcases Finset.mem_map.mp hy with ⟨y', hy', rfl⟩
+            have hxy' : x' ≠ y' := by
+              intro hxy_eq
+              exact hxy (by simp [emb, hxy_eq])
+            have hadj := A.property.isClique hx' hy' hxy'
+            change Gᶜ.Adj x'.val y'.val
+            refine ⟨?_, ?_⟩
+            · intro hval
+              exact hxy' (Subtype.ext hval)
+            · exact hadj.2
+          · simpa [emb] using
+              (Finset.card_map (f := emb) (s := A.val)).trans A.property.card_eq⟩, by
+            intro x hx
+            rcases Finset.mem_map.mp hx with ⟨x', hx', rfl⟩
+            exact x'.property⟩
+      let fromContained : containedIndependentSets → inducedIndependentSets := fun B =>
+        ⟨B.val.val.subtype (fun x : V => x ∈ U), by
+          refine ⟨?_, ?_⟩
+          · intro x hx y hy hxy
+            have hxS : x.val ∈ B.val.val := Finset.mem_subtype.mp hx
+            have hyS : y.val ∈ B.val.val := Finset.mem_subtype.mp hy
+            have hxyV : x.val ≠ y.val := by
+              intro hval
+              exact hxy (Subtype.ext hval)
+            have hadj := B.val.property.isClique hxS hyS hxyV
+            change Hᶜ.Adj x y
+            refine ⟨hxy, ?_⟩
+            intro hAdj
+            exact hadj.2 (by simpa [H, SimpleGraph.induce_adj] using hAdj)
+          · rw [Finset.card_subtype]
+            rw [Finset.filter_true_of_mem B.property]
+            exact B.val.property.card_eq⟩
+      have hleft : ∀ A : inducedIndependentSets, fromContained (toContained A) = A := by
+        intro A
+        apply Subtype.ext
+        ext x
+        dsimp [fromContained, toContained, emb]
+        constructor
+        · intro hx
+          have hxmap : (x : V) ∈ A.val.map ⟨Subtype.val, Subtype.val_injective⟩ :=
+            Finset.mem_subtype.mp hx
+          rcases Finset.mem_map.mp hxmap with ⟨y, hy, hxy⟩
+          have : y = x := Subtype.ext hxy
+          simpa [this] using hy
+        · intro hx
+          exact Finset.mem_subtype.mpr (Finset.mem_map.mpr ⟨x, hx, rfl⟩)
+      have hright : ∀ B : containedIndependentSets, toContained (fromContained B) = B := by
+        intro B
+        apply Subtype.ext
+        apply Subtype.ext
+        ext x
+        dsimp [fromContained, toContained, emb]
+        constructor
+        · intro hx
+          rcases Finset.mem_map.mp hx with ⟨y, hy, hxy⟩
+          have hyS : y.val ∈ B.val.val := Finset.mem_subtype.mp hy
+          simpa [← hxy] using hyS
+        · intro hx
+          have hxU : x ∈ U := B.property hx
+          exact Finset.mem_map.mpr ⟨⟨x, hxU⟩, Finset.mem_subtype.mpr hx, rfl⟩
+      let e : inducedIndependentSets ≃ containedIndependentSets := {
+        toFun := toContained
+        invFun := fromContained
+        left_inv := hleft
+        right_inv := hright }
+      exact Fintype.card_congr e
+    have hindicator :
+        ((Fintype.card containedIndependentSets : ℕ) : ℝ) =
+          ∑ I : independentSets, if I.val ⊆ U then (1 : ℝ) else 0 := by
+      change ((Fintype.card {I : independentSets // I.val ⊆ U} : ℕ) : ℝ) =
+        ∑ I : independentSets, if I.val ⊆ U then (1 : ℝ) else 0
+      rw [Fintype.card_subtype (fun I : independentSets => I.val ⊆ U)]
+      rw [← Finset.sum_filter]
+      simp
+    calc
+      ((SimpleGraphIndependentSetCount (G.induce {x : V | x ∈ U}) k : ℕ) : ℝ)
+          = ((SimpleGraphIndependentSetCount H k : ℕ) : ℝ) := by
+            rfl
+      _ = ((Fintype.card containedIndependentSets : ℕ) : ℝ) := by
+            rw [hcount_eq]
+      _ = ∑ I : independentSets, if I.val ⊆ U then (1 : ℝ) else 0 := hindicator
+  have hbernoulliExpectedIndependentCount :
+      (∑ U : Finset V,
+          bernoulliWeight U *
+            ((SimpleGraphIndependentSetCount (G.induce {x : V | x ∈ U}) k : ℕ) : ℝ)) =
+        Real.rpow p (k : ℝ) *
+          ((SimpleGraphIndependentSetCount G k : ℕ) : ℝ) := by
+    calc
+      (∑ U : Finset V,
+          bernoulliWeight U *
+            ((SimpleGraphIndependentSetCount (G.induce {x : V | x ∈ U}) k : ℕ) : ℝ))
+          = ∑ U : Finset V, bernoulliWeight U *
+              (∑ I : {S : Finset V // Gᶜ.IsNClique k S},
+                if I.val ⊆ U then (1 : ℝ) else 0) := by
+            refine Finset.sum_congr rfl ?_
+            intro U hU
+            rw [hinducedIndependentCount_indicator U]
+      _ = ∑ U : Finset V, ∑ I : {S : Finset V // Gᶜ.IsNClique k S},
+              bernoulliWeight U * (if I.val ⊆ U then (1 : ℝ) else 0) := by
+            refine Finset.sum_congr rfl ?_
+            intro U hU
+            rw [Finset.mul_sum]
+      _ = ∑ I : {S : Finset V // Gᶜ.IsNClique k S}, ∑ U : Finset V,
+              bernoulliWeight U * (if I.val ⊆ U then (1 : ℝ) else 0) := by
+            rw [Finset.sum_comm]
+      _ = ∑ I : {S : Finset V // Gᶜ.IsNClique k S},
+            (∑ U : Finset V, if I.val ⊆ U then bernoulliWeight U else 0) := by
+            refine Finset.sum_congr rfl ?_
+            intro I hI
+            refine Finset.sum_congr rfl ?_
+            intro U hU
+            by_cases hIU : I.val ⊆ U <;> simp [hIU]
+      _ = Real.rpow p (k : ℝ) *
+          ((SimpleGraphIndependentSetCount G k : ℕ) : ℝ) :=
+            hsumFixedIndependentSetMasses
   sorry
