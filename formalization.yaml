@@ -1,0 +1,181 @@
+# formalization.yaml (v0.3): repo-root metadata for formalization projects.
+# https://github.com/mathlib-initiative/formalization.yaml
+
+version: "v0.3"
+
+project:
+  name: "Off-diagonal Ramsey number lower bounds (Trellis formalization)"
+  authors:
+    - "Trellis (autonomous formalization system)"
+    - "Wesley Pegden (operator)"
+  license: "Apache-2.0"
+
+sources:
+  - title: "Nearly tight exponents for off-diagonal Ramsey numbers"
+    authors:
+      - "Domagoj Bradač"
+    id: "arXiv:2605.28793v1"
+    type: "preprint"
+    license: "arXiv.org perpetual non-exclusive license (http://arxiv.org/licenses/nonexclusive-distrib/1.0/)"
+    author_contacted: "no"
+    prior_work: ""
+
+# Build environment. Authoritative copies live in lean-toolchain and
+# lake-manifest.json; mirrored here for convenience.
+environment:
+  lean_toolchain: "leanprover/lean4:v4.30.0-rc1"
+  mathlib_rev: "a090f46da78e9af11fee348cd7ee47bf8dd219d2"
+
+status:
+  scope: >-
+    Lean statements and complete, sorry-free proofs of the paper's five main
+    off-diagonal Ramsey lower-bound theorems, together with the supporting
+    Ramsey-number definitions (two-colour and multicolour). One node per
+    declaration; statements were fixed and human-approved before proof work began.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  # Standard Lean/Mathlib axioms only. The project's axiom gate
+  # (APPROVED_AXIOMS.json) records no additional project-specific axioms.
+  axioms:
+    - "propext"
+    - "Classical.choice"
+    - "Quot.sound"
+  main_results:
+    - declaration: "MainTheorem"
+      file: "Tablet/MainTheorem.lean"
+      module: "Tablet.MainTheorem"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      paper_label: "thm:main"
+      literature_dependencies: []
+    - declaration: "OffDiagonalGeneralTheorem"
+      file: "Tablet/OffDiagonalGeneralTheorem.lean"
+      module: "Tablet.OffDiagonalGeneralTheorem"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      paper_label: "thm:off-diagonal-general"
+      literature_dependencies: []
+    - declaration: "LinearOffDiagonalTheorem"
+      file: "Tablet/LinearOffDiagonalTheorem.lean"
+      module: "Tablet.LinearOffDiagonalTheorem"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      paper_label: "thm:k-Ck"
+      literature_dependencies: []
+    - declaration: "CloseToDiagonalTheorem"
+      file: "Tablet/CloseToDiagonalTheorem.lean"
+      module: "Tablet.CloseToDiagonalTheorem"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      paper_label: "thm:close"
+      literature_dependencies: []
+    - declaration: "MulticolorTheorem"
+      file: "Tablet/MulticolorTheorem.lean"
+      module: "Tablet.MulticolorTheorem"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      paper_label: "thm:multicolor"
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: "autonomous"
+      models: ["gpt-5.5"]
+      framework: "Trellis"
+      tool_setup: >-
+        Autonomous Trellis supervisor. A single model (OpenAI gpt-5.5 via the
+        Codex CLI, reasoning effort "xhigh") drove every role: worker,
+        reviewer, and the four independent verifier lanes (correspondence,
+        soundness, paper-faithfulness, substantiveness). Workers run in a
+        bwrap sandbox against a pinned Mathlib; only the Mathlib import prefix
+        is allowed. Theorem statements were gated for human approval after the
+        theorem-stating phase, then proofs were formalized autonomously.
+      cost:
+        wall_time: >-
+          ~36 h active (41.6 h elapsed on 2026-05-28..30 minus ~5.9 h idle
+          waiting for human approval after theorem-stating). Phase split:
+          theorem-stating ~5.5 h, proof-formalization ~30 h, cleanup ~0.3 h.
+        spend_usd: "subscription-based usage (ChatGPT/Codex), not metered per-token"
+        hardware: "API/subscription-based; no local GPU"
+      prompting_notes: >-
+        Role prompts are Trellis's canonical fragments; no paper-specific or
+        proof-specific hints were supplied by hand.
+  spend_usd: "subscription-based usage (ChatGPT/Codex)"
+  notes: >-
+    Single end-to-end Trellis run. One human gate: theorem statements were
+    reviewed and approved before any proof work; no mathematical content,
+    proof steps, or formalization hints were supplied by hand at any phase.
+
+fidelity:
+  divergences: >-
+    None claimed. The run authorized no deviations (DEVIATIONS.md is the policy
+    definition, with no specific authorized departures); proofs follow the
+    paper's path and are fully discharged within Mathlib.
+
+review:
+  status: "agent-reviewed"
+  reviewers:
+    - "Trellis correspondence verifier (gpt-5.5, xhigh)"
+    - "Trellis soundness verifier (gpt-5.5, xhigh)"
+    - "Trellis paper-faithfulness verifier (gpt-5.5, xhigh)"
+    - "Trellis substantiveness verifier (gpt-5.5, xhigh)"
+  notes: >-
+    Every node passed Trellis's four verifier lanes before acceptance:
+    correspondence (Lean statement matches the node's NL statement), soundness
+    (NL proof is line-by-line checkable from children), paper-faithfulness
+    (covering nodes express the paper target), and substantiveness (each node
+    states something the paper uses, non-trivially). Lean closure (sorry-free,
+    builds against pinned Mathlib) is enforced mechanically. Not independently
+    peer-reviewed by a human mathematician.
+
+alignment:
+  namespace: ""
+  statements:
+    - source: "Theorem thm:main"
+      lean: "MainTheorem"
+      module: "Tablet.MainTheorem"
+      status: "proved"
+      note: "r(s,k) >= c_s k^{s-2}/(log k)^{2s-6} for s >= 4."
+    - source: "Theorem thm:off-diagonal-general"
+      lean: "OffDiagonalGeneralTheorem"
+      module: "Tablet.OffDiagonalGeneralTheorem"
+      status: "proved"
+      note: "For every delta>0 there is L with r(s,k) >= (k/s)^{(1-delta)s}."
+    - source: "Theorem thm:k-Ck"
+      lean: "LinearOffDiagonalTheorem"
+      module: "Tablet.LinearOffDiagonalTheorem"
+      status: "proved"
+      note: "r(s, ceil(Cs)) >= (2^{1-1/(2C)})^s for large s, fixed C>1."
+    - source: "Theorem thm:close"
+      lean: "CloseToDiagonalTheorem"
+      module: "Tablet.CloseToDiagonalTheorem"
+      status: "proved"
+      note: "Near-diagonal lower bound for r(s, s+a), a = o(s)."
+    - source: "Theorem thm:multicolor"
+      lean: "MulticolorTheorem"
+      module: "Tablet.MulticolorTheorem"
+      status: "proved"
+      note: "r(s; ell) = Omega(2^{(ell-1)s/2}) for fixed ell >= 3."
+    - source: "Definition: Ramsey property R(s,k,n)"
+      lean: "RamseyProperty"
+      module: "Tablet.RamseyProperty"
+      status: "proved"
+      note: "Semantic-closure definition."
+    - source: "Definition: Ramsey number r(s,k)"
+      lean: "RamseyNumber"
+      module: "Tablet.RamseyNumber"
+      status: "proved"
+      note: "Semantic-closure definition."
+    - source: "Definition: multicolour Ramsey property R_ell(s,n)"
+      lean: "MulticolorRamseyProperty"
+      module: "Tablet.MulticolorRamseyProperty"
+      status: "proved"
+      note: "Semantic-closure definition."
+    - source: "Definition: multicolour Ramsey number r(s; ell)"
+      lean: "MulticolorRamseyNumber"
+      module: "Tablet.MulticolorRamseyNumber"
+      status: "proved"
+      note: "Semantic-closure definition."
+
+acknowledgements: >-
+  Built on Mathlib. Produced by the Trellis autoformalization system.
