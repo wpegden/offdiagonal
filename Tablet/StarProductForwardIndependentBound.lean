@@ -10,17 +10,18 @@ import Tablet.StarProductDigraph
 
 universe u
 
-theorem StarProductForwardIndependentBound (K : Type u) [Field K] [Fintype K]
-    (t q : ℕ)
-    [Fintype (Projectivization K (Fin (t + 1) → K))]
-    [Fintype (ProductDigraphVertex (PolarityGraph K t))]
-    (ht : 2 ≤ t) (hq : q = Fintype.card K) :
+theorem StarProductForwardIndependentBound (t : ℕ) (ht : 2 ≤ t) :
     ∃ C : ℝ, 0 < C ∧
-      ∀ k : ℕ,
-        C ≤ (q : ℝ) →
-          C * (q : ℝ) * (Real.log (q : ℝ)) ^ 2 ≤ (k : ℝ) →
-            ((ForwardIndependentTupleCount
-              (StarProductDigraph (PolarityGraph K t)) k : ℕ) : ℝ) ≤
-              (C * (q : ℝ) ^ t) ^ k := by
+      ∀ (K : Type u) [Field K] [Fintype K]
+        [Fintype (Projectivization K (Fin (t + 1) → K))]
+        [Fintype (ProductDigraphVertex (PolarityGraph K t))],
+        ∀ q : ℕ,
+          q = Fintype.card K →
+            ∀ k : ℕ,
+              C ≤ (q : ℝ) →
+                C * (q : ℝ) * (Real.log (q : ℝ)) ^ 2 ≤ (k : ℝ) →
+                  ((ForwardIndependentTupleCount
+                    (StarProductDigraph (PolarityGraph K t)) k : ℕ) : ℝ) ≤
+                    (C * (q : ℝ) ^ t) ^ k := by
 -- BODY
   sorry
