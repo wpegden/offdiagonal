@@ -166,30 +166,99 @@ before the last such unmarked step.  Thus \(U_\ell^{\sigma_{i-1}}\) is empty,
 contradicting the nonemptiness forced by \(\psi(\sigma_i)=\ell\).  Hence
 each path has at most \(w=Aq\log q\) unmarked vertices.
 
-Finally, the total number of children of any vertex of \(\mathcal T\) is at
-most \(|V(D^*(G))|\).  By the polarity graph parameter bounds, the number of
-ordered edge-pairs is at most \(4q^{2t-1}\) for sufficiently large \(q\).
-Moreover, a root-to-depth-\(k\) path in \(\mathcal T\) is exactly an ordered
-forward independent \(k\)-tuple in \(D^*(G)\), by the construction of
-\(\mathcal T\) and \(\noderef{ForwardIndependentTuple}\); therefore the number
-of such paths is \(\fwi_k(D^*(G))\) by
-\(\noderef{ForwardIndependentTupleCount}\).  Applying
-\(\noderef{MarkedTreePathCounting}\) with
+Finally we verify, explicitly, the hypotheses needed to apply
+\(\noderef{MarkedTreePathCounting}\).  Let \(P\) be the finite set of
+root-to-depth-\(k\) paths in \(\mathcal T\).  Thus an element of \(P\) is a
+chain
 \[
-  \Delta=4q^{2t-1},\qquad h=Aq^t,\qquad w=Aq\log q
+  p=(\sigma_0,\sigma_1,\ldots,\sigma_k),
 \]
-gives
+where \(\sigma_0\) is the empty tuple and \(\sigma_{j+1}\) is a child of
+\(\sigma_j\) for \(0\le j<k\).  Equivalently, \(P\) is the set of ordered
+forward independent \(k\)-tuples in \(D^*(G)\): from such a tuple one records
+its successive prefixes, and from such a path one reads off the appended
+vertices.  This is a bijection by the construction of \(\mathcal T\) and
+\(\noderef{ForwardIndependentTuple}\).  Hence
 \[
-  \fwi_k(D^*(G))
+  |P|=\fwi_k(D^*(G))
+\]
+by \(\noderef{ForwardIndependentTupleCount}\).
+
+The total number of children of any vertex of \(\mathcal T\) is at most
+\(|V(D^*(G))|\).  Since \(V(D^*(G))\) is the set of ordered edge-pairs of
+\(G\), the parameter bounds in (1) give
+\[
+  |V(D^*(G))|\le nd\le 4q^{2t-1}
+\]
+for sufficiently large \(q\).  Put
+\[
+  \Delta=4q^{2t-1},\qquad h=Aq^t,\qquad w=Aq\log q,
+\]
+rounding these quantities upward to integers if necessary; increasing \(A\)
+and then \(C\) by \(t\)-dependent factors absorbs the ceilings.  Since
+\(t\ge2\), choosing \(C\) large enough ensures that, for every \(q\ge C\),
+\[
+  h=Aq^t\le 4q^{2t-1}=\Delta.
+\]
+Choosing \(C\ge e\) and \(C\) large compared with \(A\) also gives
+\[
+  w=Aq\log q\le Cq(\log q)^2\le k,
+\]
+using the hypothesis \(k\ge Cq(\log q)^2\).  These are the two numerical
+hypotheses \(h\le\Delta\) and \(w\le k\) in
+\(\noderef{MarkedTreePathCounting}\).
+
+Define the signature map
+\[
+  \operatorname{sig}:P\to\{0,1\}^k
+\]
+as follows: for a path \(p=(\sigma_0,\ldots,\sigma_k)\) and an index
+\(0\le j<k\), set \(\operatorname{sig}(p)_j=1\) exactly when the child
+\(\sigma_{j+1}\) of \(\sigma_j\) is unmarked, and set
+\(\operatorname{sig}(p)_j=0\) exactly when it is marked.  By the path bound
+proved above, every root-to-depth-\(k\) path has at most \(w\) unmarked
+vertices.  In the notation of \(\noderef{BinarySequenceWeight}\), this says
+\[
+  |\operatorname{sig}(p)|\le w
+\]
+for every \(p\in P\).
+
+It remains to check the fiber bound for a fixed signature
+\(z\in\{0,1\}^k\).  Expose a path \(p\) with \(\operatorname{sig}(p)=z\)
+one step at a time.  Suppose a prefix
+\((\sigma_0,\ldots,\sigma_j)\) has already been chosen.  If \(z_j=1\), then
+the next step is required to be unmarked; there are at most all children of
+\(\sigma_j\), and hence at most \(\Delta\), possibilities.  If \(z_j=0\),
+then the next step is required to be marked; by the construction of the
+marking there are at most \(h\) possibilities.  Therefore, after all \(k\)
+steps have been exposed, the number of paths with signature \(z\) is at most
+\[
+  \Delta^{|z|}h^{k-|z|},
+\]
+where \(|z|\) is the number of \(1\)'s in \(z\), again in the sense of
+\(\noderef{BinarySequenceWeight}\).  This is precisely the per-signature
+fiber hypothesis in \(\noderef{MarkedTreePathCounting}\).
+
+Applying \(\noderef{MarkedTreePathCounting}\) to \(P\) with this signature map
+and the above values of \(\Delta,h,w\) gives
+\[
+  \fwi_k(D^*(G))=|P|
   \le
-  2^k(4q^{2t-1})^w(Aq^t)^{k-w}
-  \le
+  2^k(4q^{2t-1})^w(Aq^t)^{k-w}.
+\]
+For \(q\ge C\), after increasing \(C\) so that \(q\ge4\) and \(Aq^t\ge1\),
+the right hand side is at most
+\[
   2^k q^{2tw}(Aq^t)^k.
 \]
-If \(k\ge Cq(\log q)^2\) and \(C=C(t)\) is chosen large compared with
-\(A\), then \(q^{2tw}\le2^k\).  Thus
+Finally, because \(w=Aq\log q\), another \(t\)-dependent increase of \(C\)
+ensures
+\[
+  q^{2tw}\le2^k
+\]
+whenever \(k\ge Cq(\log q)^2\).  Hence
 \[
   \fwi_k(D^*(G))\le4^k(Aq^t)^k\le(Cq^t)^k,
 \]
-after increasing \(C\) once more.  This proves the lemma.
+after increasing \(C\) once more so that \(C\ge4A\).  This proves the lemma.
 \end{proof}
