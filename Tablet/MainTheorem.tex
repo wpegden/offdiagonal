@@ -1,158 +1,112 @@
 \begin{theorem}
-For any \(s\ge 4\), there is a positive constant \(c_s\) such that for any \(k\ge 2\),
+For any \(s\ge 3\), there is a positive constant \(c_s\) such that for any
+\(k\ge 2\),
 \[
-  r(s,k)\ge c_s\frac{k^{s-2}}{(\log k)^{2s-6}}.
+  r(s,k)\ge c_s\frac{k^{s-1}}{(\log k)^{2s-4}}.
 \]
 \end{theorem}
 \begin{proof}
-Fix \(s\ge4\), and put
-\[
-  t=s-2.
-\]
-Then \(t\ge2\). We first prove the desired lower bound for all sufficiently large \(k\), with all constants allowed to depend on this fixed \(s\).
+Fix \(s\ge3\) and put \(t=s-1\).  Then \(t\ge2\).  We first prove the
+claimed lower bound for all sufficiently large \(k\), allowing constants to
+depend on this fixed \(s\).
 
-Let
+Let \(C=C(t)\) be the constant from
+\(\noderef{StarProductForwardIndependentBound}\), enlarged if necessary.
+For every sufficiently large \(k\), choose a power \(q\) of \(2\) such that
 \[
-  H(Q)=100t^2 Q(\log Q)^2.
+  Cq(\log q)^2\le k\le 4Cq(\log q)^2. \tag{1}
 \]
-For every sufficiently large \(k\), choose \(q\) to be the largest power of \(2\) such that \(H(q)\le k/2\). Since the powers of \(2\) are unbounded, such a \(q\) exists for large \(k\); and since
-\[
-  \frac{H(2q)}{H(q)}
-  =2\left(\frac{\log(2q)}{\log q}\right)^2
-\]
-tends to \(2\), we may require \(k\) large enough that \(H(2q)\le4H(q)\). The maximality of \(q\) gives \(H(2q)>k/2\), hence \(H(q)>k/8\). Therefore
-\[
-  \frac{k}{8}\le 100t^2 q(\log q)^2\le \frac{k}{2}. \tag{1}
-\]
-Because \(q\) is a power of \(2\), there is a finite field \(K\) of order \(q\).
+Such a \(q\) exists because consecutive powers of \(2\) differ by a bounded
+factor and \((\log(2q)/\log q)^2\to1\).  Let \(K\) be the finite field of
+order \(q\), let \(G=G(t,K)\), and let \(D^*(G)\) be the star product digraph
+from \(\noderef{StarProductDigraph}\).
 
-Set
+By \(\noderef{StarProductDigraphTransitiveFree}\), \(D^*(G)\) is
+\(T_{t+1}\)-free.  Since \(t+1=s\), it is \(T_s\)-free.  By
+\(\noderef{StarProductForwardIndependentBound}\) and the lower bound in (1),
 \[
-  G=G(t,K),\qquad F=\overline G,
-\]
-where the complement is the loop-graph complement from \(\noderef{LoopGraphComplement}\). Since \(t=s-2\), \(\noderef{ComplementPolarityPairHsFree}\) gives that \((F,G)\) is \(H_s\)-free.
-
-Define
-\[
-  n=\frac{q^{t+1}-1}{q-1},\qquad
-  d_G=\frac{q^t-1}{q-1},\qquad
-  a=\frac{q^{t-1}-1}{q-1},\qquad
-  \lambda_G=\sqrt{d_G-a}.
-\]
-By \(\noderef{PolarityGraphParameters}\), \(G\) is an \((n,d_G,\lambda_G)\)-graph in the sense of \(\noderef{LoopGraphNdLambda}\). Since
-\[
-  n=1+q+\cdots+q^t,\qquad
-  d_G=1+q+\cdots+q^{t-1},\qquad
-  d_G-a=q^{t-1},
-\]
-we have, for all sufficiently large \(q\),
-\[
-  \frac12q^t\le n\le2q^t,\qquad
-  \frac12q^{t-1}\le d_G\le2q^{t-1},\qquad
-  \lambda_G^2=q^{t-1}. \tag{2}
+  \fwi_k(D^*(G))\le (Cq^t)^k. \tag{2}
 \]
 
-We now verify the corresponding parameters for \(F\). The complement has the same vertex set by \(\noderef{LoopGraphComplement}\), so \(F\) has \(n\) vertices. Symmetry is inherited: if \(xy\in E(F)\), then \(xy\notin E(G)\); if \(yx\in E(G)\), the \(\noderef{LoopGraphSymmetric}\) conclusion for \(G\) would imply \(xy\in E(G)\), a contradiction, so \(yx\notin E(G)\), hence \(yx\in E(F)\).
-
-For degrees, \(\noderef{LoopGraphDegree}\) counts all adjacent vertices, loops included once. For each vertex \(v\), exactly \(d_G\) of the \(n\) possible vertices \(w\) satisfy \(vw\in E(G)\), and by \(\noderef{LoopGraphComplement}\) exactly the remaining \(n-d_G\) satisfy \(vw\in E(F)\). Thus \(F\) is regular of degree
+Apply \(\noderef{DigraphToGraphIndependentSetBound}\) to \(D^*(G)\).  We
+obtain a \(K_s\)-free graph \(\Gamma^*\) on the same vertex set and
 \[
-  d_F=n-d_G=q^t.
+  i_k(\Gamma^*)
+  \le
+  \left(\frac e k\right)^k \fwi_k(D^*(G))
+  \le
+  \left(\frac e k\right)^k(Cq^t)^k. \tag{3}
 \]
-In particular, by (2), \(d_F\ge n/2\).
 
-Finally, the non-principal eigenvalue bound for \(F\) is the same as for \(G\). Let \(A_G\) and \(A_F\) denote the adjacency actions from \(\noderef{LoopGraphAdjacencyAction}\). If \(f\) has coordinate sum zero, then for every vertex \(v\),
+We next estimate the number of vertices.  By
+\(\noderef{PolarityGraphParameters}\), the polarity graph \(G(t,K)\) has
 \[
-  A_Ff(v)=\sum_{w:\,vw\in E(F)}f(w)
-        =\sum_w f(w)-\sum_{w:\,vw\in E(G)}f(w)
-        =-A_Gf(v).
+  |V(G)|=\frac{q^{t+1}-1}{q-1},\qquad
+  d=\frac{q^t-1}{q-1}.
 \]
-Therefore, if \(\mu\) is a non-principal adjacency eigenvalue of \(F\) in the sense of \(\noderef{LoopGraphNonprincipalEigenvalue}\), then \(-\mu\) is a non-principal adjacency eigenvalue of \(G\). Since \(G\) is an \((n,d_G,\lambda_G)\)-graph, \(|\mu|=|-\mu|\le\lambda_G\). Thus \(F\) is an \((n,d_F,\lambda_F)\)-graph with
+For all sufficiently large \(q\), these satisfy
 \[
-  \lambda_F=\lambda_G.
+  |V(G)|\ge q^t/2,\qquad d\ge q^{t-1}/2.
+\]
+The vertices of \(D^*(G)\) are ordered edges of \(G\).  Therefore
+\(\noderef{ProductDigraphVertexCard}\) gives
+\[
+  |V(D^*(G))|=|V(G)|d\ge q^{2t-1}/4. \tag{4}
 \]
 
 Set
 \[
-  \eta=\max\left\{
-    \frac{\lambda_G^2}{d_G^2},
-    \frac{\lambda_F\lambda_G}{d_Fd_G}
-  \right\}.
+  p=\frac{k}{eCq^t}.
 \]
-Using (2), \(d_F=q^t\), and \(\lambda_F=\lambda_G\), we get constants depending only on \(s\) such that, for all large \(q\),
+By the upper bound in (1) and \(t\ge2\), increasing the large-\(k\) threshold
+if necessary gives \(0\le p\le1\).  From (3),
 \[
-  \frac{1}{16q^{t-1}}\le \eta\le\frac{16}{q^{t-1}}. \tag{3}
+  p^k i_k(\Gamma^*)\le1.
 \]
-In particular \(\eta\le1\) for large \(q\). Also \(n\ge q^t/2\), so \(n^2\) grows like \(q^{2t}\), while the lower bound in (3) is a constant multiple of \(q^{-(t-1)}\). Since \(t\ge2\), increasing the large-\(k\) threshold if necessary gives
+Thus \(\noderef{SamplingKsFreeRamseyBound}\) applies and yields
 \[
-  n^{-2}\le\eta. \tag{4}
+  r(s,k)> p|V(D^*(G))|-1.
 \]
-The remaining standing hypotheses of \(\noderef{RamseyFromGraphPair}\), namely \(s,n\ge3\), \(d_G>0\), and \(k\ge1\), also hold for all sufficiently large \(k\).
-
-We next verify the two numerical hypotheses in the second conclusion of \(\noderef{RamseyFromGraphPair}\). First,
+Using (4), we get
 \[
-  \frac{n(\log n)^2}{d_G}
-  =(1+o(1))q\,t^2(\log q)^2,
-\]
-because \(s\), and hence \(t\), is fixed, while \(n=(1+o(1))q^t\) and \(d_G=(1+o(1))q^{t-1}\). Thus for large \(q\),
-\[
-  100\frac{n(\log n)^2}{d_G}
-  \le 200t^2q(\log q)^2
-  \le k, \tag{5}
-\]
-where the last inequality is the upper bound in (1).
-
-Second, from (2) and (3),
-\[
-  \eta d_F n
-  \ge \frac{1}{16q^{t-1}}\cdot \frac n2\cdot n
-  \ge 2^{-7}q^{t+1}. \tag{6}
-\]
-Since \(t\ge2\), the quantity \(q^{t+1}\) eventually dominates \(q(\log q)^2\). Combining this with the lower bound in (1), we get, for large \(q\),
-\[
-  k\le 800t^2q(\log q)^2\le \eta d_F n. \tag{7}
-\]
-
-All hypotheses of the second conclusion of \(\noderef{RamseyFromGraphPair}\) are now checked: \(F\) and \(G\) are the required \((n,d_F,\lambda_F)\)- and \((n,d_G,\lambda_G)\)-graphs, \((F,G)\) is \(H_s\)-free, (3) and (4) give \(n^{-2}\le\eta\le1\), and (5), (7) give
-\[
-  100n(\log n)^2/d_G\le k\le \eta d_Fn.
-\]
-Therefore
-\[
-  r(s,k)\ge \frac{k}{100\eta}-1. \tag{8}
-\]
-
-We now compare this with the claimed expression. The upper bound in (3) gives
-\[
-  \frac{k}{100\eta}\ge \frac{1}{1600}kq^{t-1}. \tag{9}
-\]
-From the lower bound in (1),
-\[
-  k\le 800t^2q(\log q)^2.
-\]
-For large \(k\), \(q\le k\), so \(\log q\le\log k\). Hence
-\[
-  q\ge \frac{k}{800t^2(\log k)^2}. \tag{10}
-\]
-Substituting (10) into (9) yields a positive constant \(C_s\), depending only on \(s\), such that
-\[
-  \frac{k}{100\eta}
+  r(s,k)
+  >
+  \frac{k}{eCq^t}\cdot\frac{q^{2t-1}}4-1
   \ge
-  C_s\frac{k^t}{(\log k)^{2t-2}}.
+  \frac{kq^{t-1}}{20C}-1, \tag{5}
 \]
-Since \(t=s-2\), this is
-\[
-  \frac{k}{100\eta}
-  \ge
-  C_s\frac{k^{s-2}}{(\log k)^{2s-6}}. \tag{11}
-\]
-After increasing the large-\(k\) threshold one last time, the subtraction of \(1\) in (8) can be absorbed into the right hand side of (11). Thus there are constants \(C'_s>0\) and \(k_0\) such that, for all \(k\ge k_0\),
-\[
-  r(s,k)\ge C'_s\frac{k^{s-2}}{(\log k)^{2s-6}}. \tag{12}
-\]
+again after enlarging the threshold only by a constant depending on \(s\).
 
-It remains to include the finitely many integers \(2\le k<k_0\). By \(\noderef{RamseyNumber}\), each \(r(s,k)\) is a positive integer, and \(\log k>0\) for \(k\ge2\). Hence each number
+It remains to compare \(q\) with \(k\).  From the upper bound in (1) and
+\(\log q\le \log k\) for large \(k\), there is a constant \(c'_s>0\) such
+that
 \[
-  r(s,k)\frac{(\log k)^{2s-6}}{k^{s-2}}
+  q\ge c'_s\frac{k}{(\log k)^2}. \tag{6}
 \]
-is positive. The set of such \(k\) is finite, so its minimum is positive when the set is nonempty. Choose \(c_s>0\) to be at most \(C'_s\) and at most that finite minimum. Then (12) handles \(k\ge k_0\), and the choice of \(c_s\) handles \(2\le k<k_0\). This proves the theorem for the fixed \(s\ge4\).
+Substituting (6) into (5) gives a constant \(c''_s>0\) such that, for all
+sufficiently large \(k\),
+\[
+  r(s,k)
+  \ge
+  c''_s\frac{k^t}{(\log k)^{2t-2}}.
+\]
+Since \(t=s-1\), this is
+\[
+  r(s,k)
+  \ge
+  c''_s\frac{k^{s-1}}{(\log k)^{2s-4}}. \tag{7}
+\]
+The subtraction of \(1\) in (5) is absorbed into the positive main term by
+decreasing \(c''_s\) and increasing the large-\(k\) threshold.
+
+Finally, handle the finitely many \(k\) below that threshold.  By
+\(\noderef{RamseyNumber}\), \(r(s,k)\) is a positive integer, and
+\(\log k>0\) for \(k\ge2\).  Hence the finitely many numbers
+\[
+  r(s,k)\frac{(\log k)^{2s-4}}{k^{s-1}}
+\]
+with \(2\le k\) below the threshold have a positive minimum, if there are any.
+Choose \(c_s>0\) no larger than this minimum and no larger than the constant
+in (7).  Then (7) proves the desired inequality for large \(k\), and the
+choice of \(c_s\) proves it for the remaining \(k\ge2\).
 \end{proof}

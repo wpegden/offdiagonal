@@ -99,13 +99,11 @@
 | LoopGraphZeroSumAdjacencyEuclideanOperator | definition | definition | closed | - | - | LoopGraphAdjacencyEuclideanOperatorMapsZeroSum, LoopGraphEuclideanZeroSumSubmodule, LoopGraphNdLambda |
 | LoopGraphZeroSumEuclideanEigenpairNonprincipal | helper | proof | closed | - | - | LoopGraphEuclideanZeroSumSubmodule, LoopGraphNonprincipalEigenvalue |
 | LoopGraphZeroSumEuclideanEigenvalueBound | helper | proof | closed | - | - | LoopGraphNdLambda, LoopGraphZeroSumEuclideanEigenpairNonprincipal |
-| MainTheorem | theorem | proof | closed | - | - | ComplementPolarityPairHsFree, LoopGraphComplementNdLambda, MainTheoremDyadicGaloisScale, MainTheoremEtaBounds, MainTheoremFiniteAbsorption, MainTheoremLargeKComparison, MainTheoremPolarityParameterBounds, MainTheoremPolaritySetup, PolarityGraphParameters, RamseyFromGraphPair |
-| MainTheoremDyadicGaloisScale | helper | proof | closed | - | - | Preamble |
+| MainTheorem | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, PolarityGraphParameters, ProductDigraphVertexCard, RamseyNumber, SamplingKsFreeRamseyBound, StarProductDigraph, StarProductDigraphTransitiveFree, StarProductForwardIndependentBound |
 | MainTheoremEtaBounds | helper | proof | closed | - | - | Preamble |
-| MainTheoremFiniteAbsorption | helper | proof | closed | - | - | RamseyNumberPositive |
-| MainTheoremLargeKComparison | helper | proof | closed | - | - | Preamble |
 | MainTheoremPolarityParameterBounds | helper | proof | closed | - | - | Preamble |
 | MainTheoremPolaritySetup | helper | proof | closed | - | - | ComplementPolarityPairHsFree, LoopGraphComplementNdLambda, PolarityGraphParameters |
+| MarkedTreePathCounting | lemma | proof | open | - | - | BinarySequenceWeight |
 | MulticolorRamseyNumber | definition | definition | closed | - | - | MulticolorRamseyProperty |
 | MulticolorRamseyNumberLowerBoundFromCounterexample | helper | proof | closed | - | - | MulticolorRamseyNumber, MulticolorRamseyPropertyMonotone, MulticolorRamseyPropertyNonempty, NoMonochromaticCliqueColoring |
 | MulticolorRamseyProperty | definition | definition | closed | - | - | Preamble |
@@ -136,7 +134,6 @@
 | RamseyFromGraphPair | theorem | proof | closed | - | - | DigraphToGraphIndependentSetBound, ProductDigraphForwardIndependentBound, SamplingKsFreeRamseyBound |
 | RamseyNumber | definition | definition | closed | - | - | RamseyProperty |
 | RamseyNumberLowerBoundFromCounterexample | helper | proof | closed | - | - | RamseyNumber, RamseyPropertyCounterexampleTransport, RamseyPropertyMonotone, RamseyPropertyNonempty |
-| RamseyNumberPositive | helper | proof | closed | - | - | RamseyNumber, RamseyPropertyNonempty |
 | RamseyProperty | definition | definition | closed | - | - | Preamble |
 | RamseyPropertyCounterexampleTransport | helper | proof | closed | - | - | RamseyProperty |
 | RamseyPropertyMonotone | helper | proof | closed | - | - | RamseyProperty |
@@ -156,7 +153,11 @@
 | SimpleGraphIndependentSetCount | definition | definition | closed | - | - | Preamble |
 | SimpleGraphNoIndependentSetFromCountZero | helper | proof | closed | - | - | SimpleGraphIndependentSetCount |
 | SparseNeighborhoodSetBound | lemma | proof | closed | - | - | ExpanderMixingLemma |
+| StarProductConsistentTuple | definition | definition | closed | - | - | LoopGraph |
+| StarProductDigraph | definition | definition | closed | - | - | Digraph, ProductDigraphVertex |
+| StarProductDigraphTransitiveFree | lemma | proof | open | - | - | PolarityGraph, StarProductDigraph, TransitiveTournamentFree |
+| StarProductForwardIndependentBound | lemma | proof | open | - | - | ExpanderMixingLemma, ForwardIndependentTupleCount, MarkedTreePathCounting, PolarityGraphParameters, ProductDigraphVertex, StarProductConsistentTuple, StarProductDigraph |
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 155 nodes | **Closed:** 155 | **Open:** 0
+**Total:** 156 nodes | **Closed:** 152 | **Open:** 4

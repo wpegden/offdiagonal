@@ -1,0 +1,45 @@
+\begin{lemma}
+Let \(P\) be a finite set of length-\(k\) paths, and let
+\(\sigma:P\to\{0,1\}^k\) be a signature map, where a \(1\) records an
+unmarked step and a \(0\) records a marked step.  Let \(w\le k\) and
+\(h\le\Delta\).  Suppose that every \(p\in P\) has at most \(w\) unmarked
+steps, and suppose that for every binary string \(z\in\{0,1\}^k\), the number
+of paths with signature \(z\) is at most
+\[
+  \Delta^{|z|}h^{k-|z|},
+\]
+where \(|z|\) is the number of \(1\)'s in \(z\).  Then
+\[
+  |P|\le 2^k\Delta^w h^{k-w}.
+\]
+\end{lemma}
+\begin{proof}
+For a binary string \(z\), write \(P_z=\{p\in P:\sigma(p)=z\}\).  The sets
+\(P_z\), as \(z\) ranges over \(\{0,1\}^k\), partition \(P\).  Hence
+\[
+  |P|=\sum_{z\in\{0,1\}^k}|P_z|.
+\]
+If \(P_z\neq\emptyset\), choose \(p\in P_z\).  Then the hypothesis on paths
+gives \(|z|=|\sigma(p)|\le w\).  If \(P_z=\emptyset\), its contribution is
+zero and the same upper bound may be used harmlessly.  Thus only signatures
+with \(|z|\le w\) can contribute.
+
+For each contributing \(z\), the fiber hypothesis gives
+\[
+  |P_z|\le \Delta^{|z|}h^{k-|z|}. \tag{1}
+\]
+Because \(h\le\Delta\) and \(|z|\le w\le k\), the right hand side in (1) is
+at most \(\Delta^w h^{k-w}\).  Indeed, if \(h=0\), then either \(k=w\), in
+which case this is immediate from \(|z|\le w=k\), or \(k>w\), in which case
+every nonzero term has \(k-|z|>0\) and is already \(0\).  If \(h>0\), moving
+one unit of exponent from \(h\) to \(\Delta\) multiplies the monomial by
+\(\Delta/h\ge1\), and repeating this \(w-|z|\) times gives the claim.
+
+There are exactly \(2^k\) binary strings of length \(k\).  Summing the
+uniform bound \(\Delta^w h^{k-w}\) over all signatures therefore yields
+\[
+  |P|
+  \le \sum_{z\in\{0,1\}^k}\Delta^w h^{k-w}
+  =2^k\Delta^w h^{k-w}.
+\]
+\end{proof}

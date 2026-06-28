@@ -1,0 +1,187 @@
+\begin{lemma}
+For every integer \(t\ge2\) there is a constant \(C=C(t)>0\) with the
+following property.  Let \(K\) be a finite field of order \(q\), with
+\(q\ge C\), and let \(G=G(t,K)\).  If
+\[
+  k\ge Cq(\log q)^2,
+\]
+then
+\[
+  \fwi_k(D^*(G))\le (Cq^t)^k.
+\]
+\end{lemma}
+\begin{proof}
+Fix \(t\ge2\).  All constants below are allowed to depend only on \(t\).
+Take \(q\) sufficiently large.  By \(\noderef{PolarityGraphParameters}\), the
+polarity graph \(G=G(t,K)\) is an \((n,d,\lambda)\)-graph with
+\[
+  q^t/2\le n\le2q^t,\qquad
+  q^{t-1}/2\le d\le2q^{t-1},\qquad
+  \lambda\le2\sqrt d. \tag{1}
+\]
+
+Let \(\mathcal T\) be the rooted tree whose vertices are forward independent
+tuples in \(D^*(G)\), with the empty tuple as root, and whose children are
+obtained by appending one more vertex of \(D^*(G)\).  A forward independent
+tuple
+\[
+  ((a_1,b_1),\ldots,(a_m,b_m))
+\]
+is exactly a \(D^*\)-consistent tuple in the sense of
+\(\noderef{StarProductConsistentTuple}\): \(a_i b_i\in E(G)\) for every \(i\),
+and if \(i<j\) and \(a_i b_j\in E(G)\), then \(a_j b_i\in E(G)\).  This is
+just the negation of the arc condition in \(\noderef{StarProductDigraph}\).
+
+We mark children of each vertex of \(\mathcal T\).  Consider a consistent
+tuple
+\[
+  \sigma=(a_1,b_1,\ldots,a_m,b_m).
+\]
+For a projective point \(y\), let
+\[
+  W^\sigma(y)=\operatorname{span}\{b_i:a_i y\in E(G)\},
+  \qquad
+  r^\sigma(y)=\dim W^\sigma(y).
+\]
+If a pair \((a,b)\) extends \(\sigma\), then \(ab\in E(G)\), and for every
+\(i\) with \(a_i b\in E(G)\), consistency forces \(a b_i\in E(G)\).  Thus
+\(a\) is orthogonal to the whole subspace \(W^\sigma(b)\).  Consequently, for
+fixed \(b\), the number of possible \(a\)'s is at most
+\[
+  \frac{q^{t+1-r^\sigma(b)}-1}{q-1}\le 2q^{t-r^\sigma(b)}. \tag{2}
+\]
+In particular, there are no extensions with \(r^\sigma(b)=t+1\).
+
+For \(0\le r\le t+1\), put
+\[
+  U_r^\sigma=\{y:r^\sigma(y)\le r\},\qquad
+  Z_r^\sigma=U_r^\sigma\setminus U_{r-1}^\sigma,
+\]
+with \(U_{-1}^\sigma=\emptyset\).  Fix \(0\le r\le t\) with
+\(|U_r^\sigma|>0\), and choose \(\ell=\ell_r^\sigma\in\{0,\ldots,r\}\) for
+which \(|Z_\ell^\sigma|\) is maximal.  Then
+\[
+  |Z_\ell^\sigma|\ge |U_r^\sigma|/(r+1)\ge |U_r^\sigma|/(2t). \tag{3}
+\]
+
+Call a point \(b\in Z_r^\sigma\) popular if it lies in at least
+\(|Z_\ell^\sigma|/(16q)\) subspaces \(W^\sigma(y)\) with
+\(y\in Z_\ell^\sigma\).  Since each such \(W^\sigma(y)\) has dimension
+\(\ell\), it contains at most \(2q^{\ell-1}\) projective points.  Double
+counting pairs \((b,y)\) with \(b\subseteq W^\sigma(y)\) gives at most
+\(32q^\ell\) popular points in \(Z_r^\sigma\).  We mark every extension
+\((a,b)\) with \(b\) popular.  By (2), this creates at most
+\[
+  \sum_{r=0}^t 32q^{\ell_r^\sigma}\cdot 2q^{t-r}
+  \le 128tq^t \tag{4}
+\]
+marked children.
+
+Next, for the same \(r\), call a point \(a\) poor if
+\[
+  |N_G(a)\cap Z_\ell^\sigma|\le |Z_\ell^\sigma|/(8q).
+\]
+Let \(P_r\) be the set of poor points.  By definition,
+\[
+  e_G(P_r,Z_\ell^\sigma)\le |P_r||Z_\ell^\sigma|/(8q). \tag{5}
+\]
+Applying \(\noderef{ExpanderMixingLemma}\) and using the parameter bounds
+(1), we also have
+\[
+  e_G(P_r,Z_\ell^\sigma)
+  \ge |P_r||Z_\ell^\sigma|/(4q)
+       -4q^{(t-1)/2}\sqrt{|P_r||Z_\ell^\sigma|}. \tag{6}
+\]
+Combining (5) and (6) yields
+\[
+  |P_r||Z_\ell^\sigma|\le 1024q^{t+1}. \tag{7}
+\]
+Since \(|Z_r^\sigma|\le |Z_\ell^\sigma|\), a second application of
+\(\noderef{ExpanderMixingLemma}\), again using (1), gives
+\[
+  e_G(P_r,Z_r^\sigma)\le 5000q^t. \tag{8}
+\]
+Mark every extension \((a,b)\) for which \(a\) is poor with respect to
+\(r^\sigma(b)\).  Summing (8) over \(0\le r\le t\), this contributes at most
+\[
+  10^4tq^t \tag{9}
+\]
+additional marked children.
+
+Choose \(A=A(t)\) so large that the sum of the bounds in (4) and (9) is at
+most \(Aq^t\).  Thus every vertex of \(\mathcal T\) has at most
+\[
+  h=Aq^t
+\]
+marked children.  We now prove that every path has at most
+\[
+  w=Aq\log q
+\]
+unmarked vertices, after increasing \(A\) if necessary.
+
+Suppose \(\sigma'=\sigma\cup(a,b)\) is an unmarked child.  Put
+\(r=r^\sigma(b)\) and \(\ell=\ell_r^\sigma\).  Since \(a\) is not poor,
+\[
+  |N_G(a)\cap Z_\ell^\sigma|\ge |Z_\ell^\sigma|/(8q).
+\]
+Since \(b\) is not popular, it belongs to at most
+\(|Z_\ell^\sigma|/(16q)\) of the subspaces \(W^\sigma(y)\) with
+\(y\in Z_\ell^\sigma\).  Hence there are at least
+\(|Z_\ell^\sigma|/(16q)\) points \(y\in Z_\ell^\sigma\) such that
+\(ay\in E(G)\) and \(b\not\subseteq W^\sigma(y)\).  For each such \(y\),
+the dimension \(r^\sigma(y)=\ell\) increases to \(\ell+1\) after appending
+\((a,b)\).  Therefore
+\[
+  |U_\ell^{\sigma'}|
+  \le |U_\ell^\sigma|-|Z_\ell^\sigma|/(16q). \tag{10}
+\]
+By (3), \( |U_\ell^\sigma|\le |U_r^\sigma|\le 2t|Z_\ell^\sigma|\).  Thus
+\[
+  |U_\ell^{\sigma'}|
+  \le \left(1-\frac1{32tq}\right)|U_\ell^\sigma|. \tag{11}
+\]
+Record \(\psi(\sigma')=\ell\) for such an unmarked child.  The same argument
+also shows that, whenever \(\psi(\sigma')=\ell\), the preceding set
+\(U_\ell^\sigma\) is nonempty.
+
+Now take any root-to-vertex path
+\(\sigma_0,\sigma_1,\ldots,\sigma_m\), with \(\sigma_0\) the root.  If it
+had more than \(w\) unmarked vertices, then by pigeonhole there would be an
+\(\ell\in\{0,\ldots,t\}\) for which at least \(w/(t+1)\) of them satisfy
+\(\psi=\ell\).  Along the path the sets \(U_\ell\) are nonincreasing, and at
+each such unmarked step they shrink by the factor in (11).  Since
+\(|U_\ell^{\sigma_0}|\le n\le2q^t\), choosing \(A(t)\) sufficiently large
+gives
+\[
+  |U_\ell^{\sigma_{i-1}}|
+  \le
+  2q^t
+  \left(1-\frac1{32tq}\right)^{w/(t+1)-1}
+  <1
+\]
+before the last such unmarked step.  Thus \(U_\ell^{\sigma_{i-1}}\) is empty,
+contradicting the nonemptiness forced by \(\psi(\sigma_i)=\ell\).  Hence
+each path has at most \(w=Aq\log q\) unmarked vertices.
+
+Finally, the total number of children of any vertex of \(\mathcal T\) is at
+most \(|V(D^*(G))|\).  By the polarity graph parameter bounds, the number of
+ordered edge-pairs is at most \(4q^{2t-1}\) for sufficiently large \(q\).
+Applying \(\noderef{MarkedTreePathCounting}\) with
+\[
+  \Delta=4q^{2t-1},\qquad h=Aq^t,\qquad w=Aq\log q
+\]
+gives
+\[
+  \fwi_k(D^*(G))
+  \le
+  2^k(4q^{2t-1})^w(Aq^t)^{k-w}
+  \le
+  2^k q^{2tw}(Aq^t)^k.
+\]
+If \(k\ge Cq(\log q)^2\) and \(C=C(t)\) is chosen large compared with
+\(A\), then \(q^{2tw}\le2^k\).  Thus
+\[
+  \fwi_k(D^*(G))\le4^k(Aq^t)^k\le(Cq^t)^k,
+\]
+after increasing \(C\) once more.  This proves the lemma.
+\end{proof}

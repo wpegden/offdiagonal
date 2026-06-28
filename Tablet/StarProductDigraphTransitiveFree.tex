@@ -1,0 +1,59 @@
+\begin{lemma}
+Let \(K\) be a finite field, let \(t\ge2\), and let \(G=G(t,K)\) be the
+polarity graph.  Then the star product digraph \(D^*(G)\) is
+\(T_{t+1}\)-free.
+\end{lemma}
+\begin{proof}
+Suppose, for a contradiction, that vertices
+\[
+  (a_1,b_1),(a_2,b_2),\ldots,(a_{t+1},b_{t+1})
+\]
+form a copy of \(T_{t+1}\) in \(D^*(G)\) in this order.  Choose nonzero
+vectors
+\[
+  x_1,y_1,\ldots,x_{t+1},y_{t+1}\in K^{t+1}
+\]
+representing these projective points.  By the definition of
+\(\noderef{StarProductDigraph}\), for every \(i\) we have
+\[
+  \langle x_i,y_i\rangle=0,
+\]
+and for every \(i<j\) we have
+\[
+  \langle x_i,y_j\rangle=0
+  \quad\text{and}\quad
+  \langle x_j,y_i\rangle\ne0. \tag{1}
+\]
+Only the nonzero relations \(\langle x_{i+1},y_i\rangle\ne0\) for
+\(1\le i\le t\) will be needed, together with one auxiliary vector.  Since
+\(y_{t+1}\ne0\), there is a vector \(x_{t+2}\in K^{t+1}\) with
+\(\langle x_{t+2},y_{t+1}\rangle\ne0\).
+
+We claim that \(y_1,\ldots,y_{t+1}\) are linearly independent.  Suppose not.
+Let
+\[
+  \sum_{j=1}^{t+1}\alpha_j y_j=0
+\]
+be a nontrivial linear relation, and let \(i\) be the least index with
+\(\alpha_i\ne0\).  Then
+\[
+  \sum_{j=i}^{t+1}\alpha_j y_j=0.
+\]
+Take the inner product with \(x_{i+1}\), where \(x_{t+2}\) is used if
+\(i=t+1\).  For every \(j\ge i+1\), relation (1) gives
+\(\langle x_{i+1},y_j\rangle=0\); if \(i=t+1\) this is vacuous.  Therefore
+\[
+  \alpha_i\langle x_{i+1},y_i\rangle=0.
+\]
+The second relation in (1), or the defining choice of \(x_{t+2}\) when
+\(i=t+1\), says that the inner product factor is nonzero.  Hence
+\(\alpha_i=0\), contradicting the choice of \(i\).  This proves the claim.
+
+The \(t+1\) vectors \(y_1,\ldots,y_{t+1}\) are therefore a basis of the
+\((t+1)\)-dimensional vector space \(K^{t+1}\).  Now \(x_1\) is orthogonal to
+every one of them: it is orthogonal to \(y_1\) because \((a_1,b_1)\) is a
+vertex of \(D^*(G)\), and it is orthogonal to \(y_j\) for every \(j>1\) by
+the arc relation from \((a_1,b_1)\) to \((a_j,b_j)\).  A vector orthogonal to
+a basis is the zero vector, so \(x_1=0\).  This contradicts that \(x_1\)
+represents a projective point.  Hence no such transitive tournament exists.
+\end{proof}

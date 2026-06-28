@@ -101,13 +101,11 @@
 | LoopGraphZeroSumAdjacencyEuclideanOperator | definition | - | closed |
 | LoopGraphZeroSumEuclideanEigenpairNonprincipal | proof | - | closed |
 | LoopGraphZeroSumEuclideanEigenvalueBound | proof | - | closed |
-| MainTheorem | proof | - | closed |
-| MainTheoremDyadicGaloisScale | proof | - | closed |
+| MainTheorem | proof | - | open |
 | MainTheoremEtaBounds | proof | - | closed |
-| MainTheoremFiniteAbsorption | proof | - | closed |
-| MainTheoremLargeKComparison | proof | - | closed |
 | MainTheoremPolarityParameterBounds | proof | - | closed |
 | MainTheoremPolaritySetup | proof | - | closed |
+| MarkedTreePathCounting | proof | - | open |
 | MulticolorRamseyNumber | definition | - | closed |
 | MulticolorRamseyNumberLowerBoundFromCounterexample | proof | - | closed |
 | MulticolorRamseyProperty | definition | - | closed |
@@ -137,7 +135,6 @@
 | RamseyFromGraphPair | proof | - | closed |
 | RamseyNumber | definition | - | closed |
 | RamseyNumberLowerBoundFromCounterexample | proof | - | closed |
-| RamseyNumberPositive | proof | - | closed |
 | RamseyProperty | definition | - | closed |
 | RamseyPropertyCounterexampleTransport | proof | - | closed |
 | RamseyPropertyMonotone | proof | - | closed |
@@ -157,7 +154,11 @@
 | SimpleGraphIndependentSetCount | definition | - | closed |
 | SimpleGraphNoIndependentSetFromCountZero | proof | - | closed |
 | SparseNeighborhoodSetBound | proof | - | closed |
+| StarProductConsistentTuple | definition | - | closed |
+| StarProductDigraph | definition | - | closed |
+| StarProductDigraphTransitiveFree | proof | - | open |
+| StarProductForwardIndependentBound | proof | - | open |
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 155/155 closed
+**Summary:** 152/156 closed
