@@ -21,9 +21,9 @@ polarity graph \(G=G(t,K)\) is an \((n,d,\lambda)\)-graph with
 \]
 
 Let \(\mathcal T\) be the rooted tree whose vertices are forward independent
-tuples in \(D^*(G)\), with the empty tuple as root, and whose children are
-obtained by appending one more vertex of \(D^*(G)\).  A forward independent
-tuple
+tuples in \(D^*(G)\), in the sense of \(\noderef{ForwardIndependentTuple}\),
+with the empty tuple as root, and whose children are obtained by appending one
+more vertex of \(D^*(G)\).  A forward independent tuple
 \[
   ((a_1,b_1),\ldots,(a_m,b_m))
 \]
@@ -31,6 +31,9 @@ is exactly a \(D^*\)-consistent tuple in the sense of
 \(\noderef{StarProductConsistentTuple}\): \(a_i b_i\in E(G)\) for every \(i\),
 and if \(i<j\) and \(a_i b_j\in E(G)\), then \(a_j b_i\in E(G)\).  This is
 just the negation of the arc condition in \(\noderef{StarProductDigraph}\).
+When \(G=G(t,K)\), \(\noderef{PolarityGraph}\) identifies the vertices of
+\(G\) with projective points and identifies the adjacency relation
+\(xy\in E(G)\) with orthogonality \(x\perp y\).
 
 We mark children of each vertex of \(\mathcal T\).  Consider a consistent
 tuple
@@ -166,7 +169,12 @@ each path has at most \(w=Aq\log q\) unmarked vertices.
 Finally, the total number of children of any vertex of \(\mathcal T\) is at
 most \(|V(D^*(G))|\).  By the polarity graph parameter bounds, the number of
 ordered edge-pairs is at most \(4q^{2t-1}\) for sufficiently large \(q\).
-Applying \(\noderef{MarkedTreePathCounting}\) with
+Moreover, a root-to-depth-\(k\) path in \(\mathcal T\) is exactly an ordered
+forward independent \(k\)-tuple in \(D^*(G)\), by the construction of
+\(\mathcal T\) and \(\noderef{ForwardIndependentTuple}\); therefore the number
+of such paths is \(\fwi_k(D^*(G))\) by
+\(\noderef{ForwardIndependentTupleCount}\).  Applying
+\(\noderef{MarkedTreePathCounting}\) with
 \[
   \Delta=4q^{2t-1},\qquad h=Aq^t,\qquad w=Aq\log q
 \]
