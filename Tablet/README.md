@@ -156,9 +156,9 @@
 | SparseNeighborhoodSetBound | proof | - | closed |
 | StarProductConsistentTuple | definition | - | closed |
 | StarProductDigraph | definition | - | closed |
-| StarProductDigraphTransitiveFree | proof | - | open |
+| StarProductDigraphTransitiveFree | proof | - | closed |
 | StarProductForwardIndependentBound | proof | - | open |
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 153/156 closed
+**Summary:** 154/156 closed

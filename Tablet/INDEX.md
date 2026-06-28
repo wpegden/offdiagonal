@@ -155,9 +155,9 @@
 | SparseNeighborhoodSetBound | lemma | proof | closed | - | - | ExpanderMixingLemma |
 | StarProductConsistentTuple | definition | definition | closed | - | - | LoopGraph |
 | StarProductDigraph | definition | definition | closed | - | - | Digraph, ProductDigraphVertex |
-| StarProductDigraphTransitiveFree | lemma | proof | open | - | - | PolarityGraph, StarProductDigraph, TransitiveTournamentFree |
+| StarProductDigraphTransitiveFree | lemma | proof | closed | - | - | PolarityGraph, StarProductDigraph, TransitiveTournamentFree |
 | StarProductForwardIndependentBound | lemma | proof | open | - | - | ExpanderMixingLemma, ForwardIndependentTupleCount, MarkedTreePathCounting, PolarityGraphParameters, ProductDigraphVertex, StarProductConsistentTuple, StarProductDigraph |
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 156 nodes | **Closed:** 153 | **Open:** 3
+**Total:** 156 nodes | **Closed:** 154 | **Open:** 2
