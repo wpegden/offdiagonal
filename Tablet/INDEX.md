@@ -103,7 +103,7 @@
 | MainTheoremEtaBounds | helper | proof | closed | - | - | Preamble |
 | MainTheoremPolarityParameterBounds | helper | proof | closed | - | - | Preamble |
 | MainTheoremPolaritySetup | helper | proof | closed | - | - | ComplementPolarityPairHsFree, LoopGraphComplementNdLambda, PolarityGraphParameters |
-| MarkedTreePathCounting | lemma | proof | open | - | - | BinarySequenceWeight |
+| MarkedTreePathCounting | lemma | proof | closed | - | - | BinarySequenceWeight |
 | MulticolorRamseyNumber | definition | definition | closed | - | - | MulticolorRamseyProperty |
 | MulticolorRamseyNumberLowerBoundFromCounterexample | helper | proof | closed | - | - | MulticolorRamseyNumber, MulticolorRamseyPropertyMonotone, MulticolorRamseyPropertyNonempty, NoMonochromaticCliqueColoring |
 | MulticolorRamseyProperty | definition | definition | closed | - | - | Preamble |
@@ -160,4 +160,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 156 nodes | **Closed:** 152 | **Open:** 4
+**Total:** 156 nodes | **Closed:** 153 | **Open:** 3

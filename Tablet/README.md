@@ -105,7 +105,7 @@
 | MainTheoremEtaBounds | proof | - | closed |
 | MainTheoremPolarityParameterBounds | proof | - | closed |
 | MainTheoremPolaritySetup | proof | - | closed |
-| MarkedTreePathCounting | proof | - | open |
+| MarkedTreePathCounting | proof | - | closed |
 | MulticolorRamseyNumber | definition | - | closed |
 | MulticolorRamseyNumberLowerBoundFromCounterexample | proof | - | closed |
 | MulticolorRamseyProperty | definition | - | closed |
@@ -161,4 +161,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 152/156 closed
+**Summary:** 153/156 closed
