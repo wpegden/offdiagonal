@@ -1,0 +1,41 @@
+\begin{helper}
+Let \(Z\) be a nonempty finite set, let \(W(y)\) be a finite set of points
+for each \(y\in Z\), and let \(P\) be a finite set of popular points.  Assume
+\(q>0\).  Suppose every \(b\in P\) lies in at least
+\[
+  |Z|/(16q)
+\]
+of the sets \(W(y)\), and suppose that for every \(y\in Z\) the set
+\(W(y)\) contains at most
+\[
+  2q^\ell/q
+\]
+points of \(P\).  Then
+\[
+  |P|\le 32q^\ell .
+\]
+\end{helper}
+\begin{proof}
+Double-count the incidence set
+\[
+  I=\{(b,y): b\in P,\ y\in Z,\ b\in W(y)\}.
+\]
+Counting first by \(b\), the popularity assumption gives
+\[
+  |I|=\sum_{b\in P}|\{y\in Z:b\in W(y)\}|
+      \ge |P|\cdot |Z|/(16q).
+\]
+Counting first by \(y\), the fiber-size assumption gives
+\[
+  |I|=\sum_{y\in Z}|W(y)\cap P|
+      \le |Z|\cdot 2q^\ell/q.
+\]
+Since \(|Z|>0\) and \(q>0\), we may divide the resulting inequality
+\[
+  |P|\cdot |Z|/(16q)\le |Z|\cdot 2q^\ell/q
+\]
+by the positive factor \(|Z|/q\).  This yields
+\[
+  |P|\le 16\cdot 2q^\ell=32q^\ell .
+\]
+\end{proof}

@@ -1,0 +1,58 @@
+\begin{helper}
+Let \(q>0\), let \(X,Y,e_\ell,e_r,L\) be real numbers with \(X\ge0\) and
+\(Y\le X\).  Suppose the poor-vertex definition and the first expander-mixing
+lower bound give
+\[
+  e_\ell\le X/(8q),
+  \qquad
+  X/(4q)-L\sqrt X\le e_\ell.
+\]
+Assume also \(L\ge0\) and
+\[
+  64q^2L^2\le1024q^{t+1}.
+\]
+Finally suppose the second expander-mixing application gives
+\[
+  e_r\le (4/q)Y+L\sqrt Y
+\]
+and its square-root term satisfies
+\[
+  L\sqrt{1024q^{t+1}}\le904q^t.
+\]
+Then
+\[
+  e_r\le5000q^t.
+\]
+\end{helper}
+\begin{proof}
+Combining the first two displayed inequalities gives
+\[
+  X/(4q)-L\sqrt X\le X/(8q),
+\]
+and hence
+\[
+  X/(8q)\le L\sqrt X.
+\]
+If \(X=0\), then \(X\le1024q^{t+1}\) is immediate.  Otherwise
+\(\sqrt X>0\).  Multiplying by \(8q>0\) and dividing by \(\sqrt X\) gives
+\[
+  \sqrt X\le 8qL.
+\]
+Squaring and using \(64q^2L^2\le1024q^{t+1}\), we obtain
+\[
+  X\le (8qL)^2=64q^2L^2\le1024q^{t+1}. \tag{1}
+\]
+Since \(Y\le X\), (1) also gives \(Y\le1024q^{t+1}\).  Therefore
+\[
+  (4/q)Y\le (4/q)\,1024q^{t+1}=4096q^t.
+\]
+Moreover \(L\ge0\) and monotonicity of the square root give
+\[
+  L\sqrt Y\le L\sqrt{1024q^{t+1}}\le904q^t.
+\]
+Substituting these two bounds into the second mixing upper bound yields
+\[
+  e_r\le4096q^t+904q^t=5000q^t,
+\]
+as claimed.
+\end{proof}

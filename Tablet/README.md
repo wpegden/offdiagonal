@@ -158,11 +158,16 @@
 | StarProductConsistentTuple | definition | - | closed |
 | StarProductDigraph | definition | - | closed |
 | StarProductDigraphTransitiveFree | proof | - | closed |
+| StarProductFixedBExtensionBound | proof | - | closed |
 | StarProductForwardIndependentBound | proof | - | open |
 | StarProductForwardIndependentChildCountLeVertices | proof | - | closed |
 | StarProductForwardIndependentConsistentTuple | proof | - | closed |
+| StarProductMarkedChildrenBound | proof | - | closed |
 | StarProductPolarityVertexCountBound | proof | - | closed |
+| StarProductPoorExpanderMixingBound | proof | - | closed |
+| StarProductPopularDoubleCountingBound | proof | - | closed |
+| StarProductUnmarkedStepShrink | proof | - | closed |
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 158/160 closed
+**Summary:** 163/165 closed

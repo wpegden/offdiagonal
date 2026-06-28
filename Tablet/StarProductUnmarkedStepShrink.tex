@@ -1,0 +1,42 @@
+\begin{helper}
+Let \(U'\subseteq U\) be finite sets, and let \(G\subseteq U\) be a set
+disjoint from \(U'\).  Let \(Z\) be another finite set, and assume
+\(t>0\) and \(q>0\).  If
+\[
+  |G|\ge |Z|/(16q)
+  \qquad\text{and}\qquad
+  |U|\le2t|Z|,
+\]
+then
+\[
+  |U'|\le\left(1-\frac1{32tq}\right)|U|.
+\]
+\end{helper}
+\begin{proof}
+Since \(U'\subseteq U\), \(G\subseteq U\), and \(U'\cap G=\emptyset\), the
+union \(U'\cup G\) is a subset of \(U\) and its size is
+\[
+  |U'\cup G|=|U'|+|G|.
+\]
+Thus
+\[
+  |U'|+|G|\le |U|,
+\]
+so
+\[
+  |U'|\le |U|-|G|. \tag{1}
+\]
+The lower bound on \(G\) gives
+\[
+  |U'|\le |U|-|Z|/(16q). \tag{2}
+\]
+From \(|U|\le2t|Z|\), and since \(t,q>0\), we get
+\[
+  |U|/(32tq)\le |Z|/(16q). \tag{3}
+\]
+Combining (2) and (3) yields
+\[
+  |U'|\le |U|-|U|/(32tq)
+  =\left(1-\frac1{32tq}\right)|U|.
+\]
+\end{proof}

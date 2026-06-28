@@ -1,0 +1,23 @@
+\begin{helper}
+Let \(q,t,A\) be natural numbers.  Suppose the number of children marked by
+the popular-\(b\) rule is at most \(128tq^t\), and the number marked by the
+poor-\(a\) rule is at most \(10000tq^t\).  If \(A\ge10128t\), then the total
+number of marked children is at most
+\[
+  Aq^t.
+\]
+\end{helper}
+\begin{proof}
+Adding the two marking contributions gives
+\[
+  \#\mathrm{popular}+\#\mathrm{poor}
+  \le128tq^t+10000tq^t
+  =(128+10000)tq^t
+  =10128tq^t.
+\]
+Since \(A\ge10128t\), multiplying by the nonnegative integer \(q^t\) gives
+\[
+  10128tq^t\le Aq^t.
+\]
+The desired bound follows by transitivity.
+\end{proof}

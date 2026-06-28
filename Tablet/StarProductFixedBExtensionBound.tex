@@ -1,0 +1,38 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\).  Let \(W^\perp\) be a subspace
+of \(K^{t+1}\) of dimension \(t+1-r\), and let \(E\) be a finite set of
+projective points in \(\mathbb P(K^{t+1})\).  Suppose every point of \(E\)
+is the image of a point of \(\mathbb P(W^\perp)\) under the natural inclusion
+\(\mathbb P(W^\perp)\to\mathbb P(K^{t+1})\), and suppose
+\[
+  \sum_{i=0}^{t-r} q^i\le 2q^{t-r}.
+\]
+Then
+\[
+  |E|\le 2q^{t-r}.
+\]
+\end{helper}
+\begin{proof}
+Choose, for each \(a\in E\), one projective point
+\(\widetilde a\in\mathbb P(W^\perp)\) mapping to \(a\).  The projectivized
+linear inclusion \(W^\perp\hookrightarrow K^{t+1}\) is injective on
+projective points, so if \(\widetilde a=\widetilde a'\), then their images
+are equal and hence \(a=a'\).  Thus this choice gives an injection
+\[
+  E\hookrightarrow \mathbb P(W^\perp).
+\]
+Therefore
+\[
+  |E|\le |\mathbb P(W^\perp)|.
+\]
+Since \(W^\perp\) has dimension \(t+1-r\) over the field of order \(q\), the
+standard finite projective-space count gives
+\[
+  |\mathbb P(W^\perp)|=\sum_{i=0}^{t-r}q^i.
+\]
+The assumed geometric-series bound then gives
+\[
+  |E|\le \sum_{i=0}^{t-r}q^i\le 2q^{t-r},
+\]
+as required.
+\end{proof}

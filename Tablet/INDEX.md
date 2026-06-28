@@ -157,11 +157,16 @@
 | StarProductConsistentTuple | definition | definition | closed | - | - | LoopGraph |
 | StarProductDigraph | definition | definition | closed | - | - | Digraph, ProductDigraphVertex |
 | StarProductDigraphTransitiveFree | lemma | proof | closed | - | - | PolarityGraph, StarProductDigraph, TransitiveTournamentFree |
-| StarProductForwardIndependentBound | lemma | proof | open | - | - | ExpanderMixingLemma, ForwardIndependentTupleCount, ForwardIndependentTupleCountSuccSnoc, MarkedTreePathCounting, PolarityGraphParameters, ProductDigraphVertex, StarProductConsistentTuple, StarProductDigraph, StarProductForwardIndependentChildCountLeVertices, StarProductForwardIndependentConsistentTuple, StarProductPolarityVertexCountBound |
+| StarProductFixedBExtensionBound | helper | proof | closed | - | - | Preamble |
+| StarProductForwardIndependentBound | lemma | proof | open | - | - | ExpanderMixingLemma, ForwardIndependentTupleCount, ForwardIndependentTupleCountSuccSnoc, MarkedTreePathCounting, PolarityGraphParameters, ProductDigraphVertex, StarProductConsistentTuple, StarProductDigraph, StarProductFixedBExtensionBound, StarProductForwardIndependentChildCountLeVertices, StarProductForwardIndependentConsistentTuple, StarProductMarkedChildrenBound, StarProductPolarityVertexCountBound, StarProductPoorExpanderMixingBound, StarProductPopularDoubleCountingBound, StarProductUnmarkedStepShrink |
 | StarProductForwardIndependentChildCountLeVertices | helper | proof | closed | - | - | ForwardIndependentTuple, StarProductDigraph |
 | StarProductForwardIndependentConsistentTuple | helper | proof | closed | - | - | ForwardIndependentTuple, ProductDigraphVertex, StarProductConsistentTuple, StarProductDigraph |
+| StarProductMarkedChildrenBound | helper | proof | closed | - | - | Preamble |
 | StarProductPolarityVertexCountBound | helper | proof | closed | - | - | PolarityGraphParameters, ProductDigraphVertexCard |
+| StarProductPoorExpanderMixingBound | helper | proof | closed | - | - | Preamble |
+| StarProductPopularDoubleCountingBound | helper | proof | closed | - | - | Preamble |
+| StarProductUnmarkedStepShrink | helper | proof | closed | - | - | Preamble |
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 160 nodes | **Closed:** 158 | **Open:** 2
+**Total:** 165 nodes | **Closed:** 163 | **Open:** 2

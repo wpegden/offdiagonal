@@ -6,9 +6,14 @@ import Tablet.PolarityGraphParameters
 import Tablet.ProductDigraphVertex
 import Tablet.StarProductConsistentTuple
 import Tablet.StarProductDigraph
+import Tablet.StarProductFixedBExtensionBound
 import Tablet.StarProductForwardIndependentChildCountLeVertices
 import Tablet.StarProductForwardIndependentConsistentTuple
+import Tablet.StarProductMarkedChildrenBound
+import Tablet.StarProductPoorExpanderMixingBound
+import Tablet.StarProductPopularDoubleCountingBound
 import Tablet.StarProductPolarityVertexCountBound
+import Tablet.StarProductUnmarkedStepShrink
 
 -- [TABLET NODE: StarProductForwardIndependentBound]
 
