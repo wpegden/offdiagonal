@@ -74,6 +74,7 @@
 | FinsetCenteredIndicatorSumZero | proof | - | closed |
 | ForwardIndependentTuple | definition | - | closed |
 | ForwardIndependentTupleCount | definition | - | closed |
+| ForwardIndependentTupleCountSuccSnoc | proof | - | closed |
 | HsFreePair | definition | - | closed |
 | LinearOffDiagonalSamplingLowerBound | proof | - | closed |
 | LinearOffDiagonalTheorem | proof | - | closed |
@@ -158,7 +159,10 @@
 | StarProductDigraph | definition | - | closed |
 | StarProductDigraphTransitiveFree | proof | - | closed |
 | StarProductForwardIndependentBound | proof | - | open |
+| StarProductForwardIndependentChildCountLeVertices | proof | - | closed |
+| StarProductForwardIndependentConsistentTuple | proof | - | closed |
+| StarProductPolarityVertexCountBound | proof | - | closed |
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 154/156 closed
+**Summary:** 158/160 closed

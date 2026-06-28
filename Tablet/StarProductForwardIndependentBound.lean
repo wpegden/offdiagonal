@@ -1,10 +1,14 @@
 import Tablet.ExpanderMixingLemma
 import Tablet.ForwardIndependentTupleCount
+import Tablet.ForwardIndependentTupleCountSuccSnoc
 import Tablet.MarkedTreePathCounting
 import Tablet.PolarityGraphParameters
 import Tablet.ProductDigraphVertex
 import Tablet.StarProductConsistentTuple
 import Tablet.StarProductDigraph
+import Tablet.StarProductForwardIndependentChildCountLeVertices
+import Tablet.StarProductForwardIndependentConsistentTuple
+import Tablet.StarProductPolarityVertexCountBound
 
 -- [TABLET NODE: StarProductForwardIndependentBound]
 

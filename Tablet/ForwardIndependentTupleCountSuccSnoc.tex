@@ -1,0 +1,27 @@
+\begin{helper}
+Let \(D\) be a finite digraph.  For every \(m\ge0\), the number of forward
+independent \((m+1)\)-tuples in \(D\) is equal to the number of pairs
+\[
+  (p,x),
+\]
+where \(p\) is an ordered \(m\)-tuple of vertices, \(x\) is one further
+vertex, and the tuple obtained by appending \(x\) to \(p\) is forward
+independent.
+\end{helper}
+\begin{proof}
+By \(\noderef{ForwardIndependentTupleCount}\), the left hand side counts
+ordered maps \(v:\{0,\ldots,m\}\to V(D)\) satisfying
+\(\noderef{ForwardIndependentTuple}\).  Such a tuple determines the pair
+\[
+  \bigl((v_0,\ldots,v_{m-1}),\,v_m\bigr),
+\]
+and appending \(v_m\) back to the prefix gives the original tuple, so the
+resulting appended tuple is forward independent.
+
+Conversely, a pair \((p,x)\) whose appended tuple is forward independent
+determines exactly that appended \((m+1)\)-tuple.  These two constructions
+are inverse to each other: taking prefix and last entry of an appended tuple
+recovers \((p,x)\), while appending the last entry to the prefix of a tuple
+recovers the tuple itself.  Thus they give a bijection between the two
+finite sets being counted, and the cardinalities are equal.
+\end{proof}

@@ -1,0 +1,16 @@
+\begin{helper}
+Let \(G\) be a loop graph and let \(p\) be any finite prefix of vertices in
+the star product digraph \(D^*(G)\).  The number of possible children
+obtained by appending one vertex \(x\in V(D^*(G))\) so that the appended
+tuple is forward independent is at most \(|V(D^*(G))|\).
+\end{helper}
+\begin{proof}
+By \(\noderef{ProductDigraphVertex}\) and \(\noderef{StarProductDigraph}\),
+the possible appended vertices are elements of the vertex set of \(D^*(G)\).
+The children under consideration form the subset of those vertices \(x\) for
+which appending \(x\) to the fixed prefix \(p\) satisfies
+\(\noderef{ForwardIndependentTuple}\).  The map that sends such a child to
+its appended vertex \(x\) is simply the inclusion of this subset into
+\(V(D^*(G))\), and is injective.  Therefore the number of such children is
+at most the total number of vertices of \(D^*(G)\).
+\end{proof}

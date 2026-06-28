@@ -72,6 +72,7 @@
 | FinsetCenteredIndicatorSumZero | helper | proof | closed | - | - | Preamble |
 | ForwardIndependentTuple | definition | definition | closed | - | - | Digraph |
 | ForwardIndependentTupleCount | definition | definition | closed | - | - | ForwardIndependentTuple |
+| ForwardIndependentTupleCountSuccSnoc | helper | proof | closed | - | - | ForwardIndependentTupleCount |
 | HsFreePair | definition | definition | closed | - | - | LoopGraph |
 | LinearOffDiagonalSamplingLowerBound | helper | proof | closed | - | - | CloseToDiagonalVertexCountLowerBound |
 | LinearOffDiagonalTheorem | theorem | proof | closed | - | - | CloseToDiagonalSamplingAlgebra, DigraphToGraphIndependentSetBound, F2ForwardIndependentLinearBound, LinearOffDiagonalSamplingLowerBound, LinearOffDiagonalVertexCountDominates, RamseyNumberLowerBoundFromCounterexample, SamplingKsFreeRamseyBound, SimpleGraphNoIndependentSetFromCountZero |
@@ -156,8 +157,11 @@
 | StarProductConsistentTuple | definition | definition | closed | - | - | LoopGraph |
 | StarProductDigraph | definition | definition | closed | - | - | Digraph, ProductDigraphVertex |
 | StarProductDigraphTransitiveFree | lemma | proof | closed | - | - | PolarityGraph, StarProductDigraph, TransitiveTournamentFree |
-| StarProductForwardIndependentBound | lemma | proof | open | - | - | ExpanderMixingLemma, ForwardIndependentTupleCount, MarkedTreePathCounting, PolarityGraphParameters, ProductDigraphVertex, StarProductConsistentTuple, StarProductDigraph |
+| StarProductForwardIndependentBound | lemma | proof | open | - | - | ExpanderMixingLemma, ForwardIndependentTupleCount, ForwardIndependentTupleCountSuccSnoc, MarkedTreePathCounting, PolarityGraphParameters, ProductDigraphVertex, StarProductConsistentTuple, StarProductDigraph, StarProductForwardIndependentChildCountLeVertices, StarProductForwardIndependentConsistentTuple, StarProductPolarityVertexCountBound |
+| StarProductForwardIndependentChildCountLeVertices | helper | proof | closed | - | - | ForwardIndependentTuple, StarProductDigraph |
+| StarProductForwardIndependentConsistentTuple | helper | proof | closed | - | - | ForwardIndependentTuple, ProductDigraphVertex, StarProductConsistentTuple, StarProductDigraph |
+| StarProductPolarityVertexCountBound | helper | proof | closed | - | - | PolarityGraphParameters, ProductDigraphVertexCard |
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 156 nodes | **Closed:** 154 | **Open:** 2
+**Total:** 160 nodes | **Closed:** 158 | **Open:** 2

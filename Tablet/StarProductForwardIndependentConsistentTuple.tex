@@ -1,0 +1,42 @@
+\begin{helper}
+Let \(G\) be a loop graph and let
+\[
+  v_i=(a_i,b_i)\in V(D^*(G)),\qquad i\in\{1,\ldots,k\},
+\]
+be a \(k\)-tuple of vertices of the star product digraph.  Then this
+\(k\)-tuple is forward independent in \(D^*(G)\) if and only if the
+coordinate \(2k\)-tuple \((a_1,b_1,\ldots,a_k,b_k)\) is \(D^*\)-consistent:
+\[
+  a_i b_i\in E(G)\quad\text{for every }i,
+\]
+and, whenever \(i<j\) and \(a_i b_j\in E(G)\), one has
+\[
+  a_j b_i\in E(G).
+\]
+\end{helper}
+\begin{proof}
+By \(\noderef{ProductDigraphVertex}\), the assertion
+\((a_i,b_i)\in V(D^*(G))\) already means \(a_i b_i\in E(G)\) for every
+\(i\).  By \(\noderef{StarProductDigraph}\), there is an arc from
+\((a_i,b_i)\) to \((a_j,b_j)\) exactly when
+\[
+  a_i b_j\in E(G)\quad\text{and}\quad a_j b_i\notin E(G).
+\]
+
+Assume first that the tuple is forward independent in the sense of
+\(\noderef{ForwardIndependentTuple}\).  Fix \(i<j\) and suppose
+\(a_i b_j\in E(G)\).  If \(a_j b_i\notin E(G)\), then the displayed
+criterion from \(\noderef{StarProductDigraph}\) gives an arc from the
+\(i\)-th vertex to the \(j\)-th vertex, contradicting forward independence.
+Hence \(a_j b_i\in E(G)\).  Together with the vertex conditions above, this
+is exactly \(D^*\)-consistency as defined in
+\(\noderef{StarProductConsistentTuple}\).
+
+Conversely, suppose the coordinate tuple is \(D^*\)-consistent.  If
+\(i<j\) and there were an arc from \((a_i,b_i)\) to \((a_j,b_j)\), then
+\(\noderef{StarProductDigraph}\) would give both \(a_i b_j\in E(G)\) and
+\(a_j b_i\notin E(G)\).  The consistency condition from
+\(\noderef{StarProductConsistentTuple}\) applied to \(i<j\) and
+\(a_i b_j\in E(G)\) gives \(a_j b_i\in E(G)\), a contradiction.  Thus no
+forward arc exists, so the tuple is forward independent.
+\end{proof}

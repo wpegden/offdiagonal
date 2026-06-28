@@ -1,0 +1,35 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\), let \(t\ge2\), and let
+\(G=G(t,K)\) be the polarity graph.  Suppose the polarity parameters satisfy
+\[
+  n=\frac{q^{t+1}-1}{q-1}\le 2q^t,\qquad
+  d=\frac{q^t-1}{q-1}\le 2q^{t-1}.
+\]
+Then the vertex set of the star product digraph satisfies
+\[
+  |V(D^*(G))|\le 4q^{2t-1}.
+\]
+\end{helper}
+\begin{proof}
+By \(\noderef{PolarityGraphParameters}\), the polarity graph is an
+\((n,d,\lambda)\)-loop graph with
+\[
+  n=\frac{q^{t+1}-1}{q-1},\qquad
+  d=\frac{q^t-1}{q-1}.
+\]
+The vertex set of \(D^*(G)\) is the product-digraph vertex type from
+\(\noderef{ProductDigraphVertex}\), and \(\noderef{ProductDigraphVertexCard}\)
+counts it as
+\[
+  |V(D^*(G))|=dn.
+\]
+Using the two assumed upper bounds gives
+\[
+  dn\le (2q^{t-1})(2q^t)=4q^{(t-1)+t}.
+\]
+Since \(t\ge2\), the exponent satisfies
+\[
+  (t-1)+t=2t-1.
+\]
+Therefore \(|V(D^*(G))|\le4q^{2t-1}\), as claimed.
+\end{proof}
