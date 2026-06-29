@@ -1,0 +1,27 @@
+\begin{lemma}
+For every prefix \(p\) and every \(r\ge0\), if
+\(\ell_r^p\) is the layer choice of \(\noderef{StarProductLayerChoice}\),
+then
+\[
+  |U_r^p|\le (r+1)|Z_{\ell_r^p}^p|.
+\]
+\end{lemma}
+\begin{proof}
+By \(\noderef{StarProductRankAtMostSet}\), the set \(U_r^p\) consists of
+the points \(y\) whose rank \(r^p(y)\) is at most \(r\).  By
+\(\noderef{StarProductRankLayer}\), the layer \(Z_s^p\) consists of the
+points whose rank is exactly \(s\).  Hence every \(y\in U_r^p\) belongs to
+the layer \(Z_{r^p(y)}^p\), and the index \(r^p(y)\) lies in
+\(\{0,\ldots,r\}\).  Thus \(U_r^p\) is contained in the union of the
+\(r+1\) layers \(Z_s^p\) for \(0\le s\le r\).
+
+The cardinality of a finite union is at most the sum of the cardinalities of
+the sets being unioned.  Therefore
+\[
+  |U_r^p|\le \sum_{s=0}^r |Z_s^p|.
+\]
+For each \(s\le r\), \(\noderef{StarProductLayerChoiceMax}\) gives
+\(|Z_s^p|\le |Z_{\ell_r^p}^p|\).  The sum has \(r+1\) terms, so it is at
+most \((r+1)|Z_{\ell_r^p}^p|\).  Combining the two inequalities proves the
+claim.
+\end{proof}

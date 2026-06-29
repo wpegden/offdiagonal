@@ -1,0 +1,20 @@
+\begin{lemma}
+For every prefix \(p\) and every \(r\ge0\), if
+\(\ell_r^p\) is the layer choice of \(\noderef{StarProductLayerChoice}\),
+then, as an inequality of real numbers,
+\[
+  |Z_{\ell_r^p}^p|\ge \frac{|U_r^p|}{r+1}.
+\]
+\end{lemma}
+\begin{proof}
+By \(\noderef{StarProductRankAtMostCardLeSuccMulLayerChoice}\),
+\[
+  |U_r^p|\le (r+1)|Z_{\ell_r^p}^p|.
+\]
+The number \(r+1\) is positive.  Dividing both sides of the displayed
+inequality by \(r+1\) gives
+\[
+  \frac{|U_r^p|}{r+1}\le |Z_{\ell_r^p}^p|,
+\]
+which is the desired real lower bound.
+\end{proof}

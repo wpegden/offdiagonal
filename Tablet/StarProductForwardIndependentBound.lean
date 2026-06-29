@@ -15,6 +15,10 @@ import Tablet.StarProductForwardIndependentConsistentTuple
 import Tablet.StarProductDeltaPowerLeQPower
 import Tablet.StarProductFinalNumericalAbsorption
 import Tablet.StarProductHLeDelta
+import Tablet.StarProductLayerChoiceLe
+import Tablet.StarProductLayerChoiceMax
+import Tablet.StarProductLayerChoicePositive
+import Tablet.StarProductLayerChoiceRealLowerBound
 import Tablet.StarProductMarkedTreeCountingBridge
 import Tablet.StarProductMarkedChildrenBound
 import Tablet.StarProductPathUnmarkedBound

@@ -170,6 +170,11 @@
 | StarProductForwardIndependentConsistentTuple | proof | - | closed |
 | StarProductHLeDelta | proof | - | closed |
 | StarProductIteratedShrink | proof | - | closed |
+| StarProductLayerChoice | definition | - | closed |
+| StarProductLayerChoiceLe | proof | - | closed |
+| StarProductLayerChoiceMax | proof | - | closed |
+| StarProductLayerChoicePositive | proof | - | closed |
+| StarProductLayerChoiceRealLowerBound | proof | - | closed |
 | StarProductMarkedChildrenBound | proof | - | closed |
 | StarProductMarkedTreeCountingBridge | proof | - | closed |
 | StarProductMarkedTupleFiberBound | proof | - | closed |
@@ -185,6 +190,7 @@
 | StarProductPrefixRank | definition | - | closed |
 | StarProductPrefixSpan | definition | - | closed |
 | StarProductQPowerLeTwoPow | proof | - | closed |
+| StarProductRankAtMostCardLeSuccMulLayerChoice | proof | - | closed |
 | StarProductRankAtMostSet | definition | - | closed |
 | StarProductRankLayer | definition | - | closed |
 | StarProductShrinkCollapseForLaterExponents | proof | - | closed |
@@ -194,4 +200,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 187/189 closed
+**Summary:** 193/195 closed

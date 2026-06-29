@@ -164,11 +164,16 @@
 | StarProductDigraphTransitiveFree | lemma | proof | closed | - | - | PolarityGraph, StarProductDigraph, TransitiveTournamentFree |
 | StarProductFinalNumericalAbsorption | helper | proof | closed | - | - | Preamble |
 | StarProductFixedBExtensionBound | helper | proof | closed | - | - | Preamble |
-| StarProductForwardIndependentBound | lemma | proof | open | - | - | ExpanderMixingLemma, ForwardIndependentTupleCount, ForwardIndependentTupleCountSuccSnoc, MarkedTreePathCounting, PolarityGraphParameters, ProductDigraphVertex, StarProductConcreteAllChildrenBound, StarProductConcreteMarkedChildrenCertificate, StarProductConcretePathUnmarkedCertificate, StarProductConsistentTuple, StarProductDeltaPowerLeQPower, StarProductDigraph, StarProductFinalNumericalAbsorption, StarProductFixedBExtensionBound, StarProductForwardIndependentChildCountLeVertices, StarProductForwardIndependentConsistentTuple, StarProductHLeDelta, StarProductMarkedChildrenBound, StarProductMarkedTreeCountingBridge, StarProductPathUnmarkedBound, StarProductPolarityVertexCountBound, StarProductPoorExpanderMixingBound, StarProductPopularDoubleCountingBound, StarProductQPowerLeTwoPow, StarProductShrinkCollapseForLaterExponents, StarProductShrinkThresholdCollapse, StarProductUnmarkedStepShrink, StarProductWLeK |
+| StarProductForwardIndependentBound | lemma | proof | open | - | - | ExpanderMixingLemma, ForwardIndependentTupleCount, ForwardIndependentTupleCountSuccSnoc, MarkedTreePathCounting, PolarityGraphParameters, ProductDigraphVertex, StarProductConcreteAllChildrenBound, StarProductConcreteMarkedChildrenCertificate, StarProductConcretePathUnmarkedCertificate, StarProductConsistentTuple, StarProductDeltaPowerLeQPower, StarProductDigraph, StarProductFinalNumericalAbsorption, StarProductFixedBExtensionBound, StarProductForwardIndependentChildCountLeVertices, StarProductForwardIndependentConsistentTuple, StarProductHLeDelta, StarProductLayerChoiceLe, StarProductLayerChoiceMax, StarProductLayerChoicePositive, StarProductLayerChoiceRealLowerBound, StarProductMarkedChildrenBound, StarProductMarkedTreeCountingBridge, StarProductPathUnmarkedBound, StarProductPolarityVertexCountBound, StarProductPoorExpanderMixingBound, StarProductPopularDoubleCountingBound, StarProductQPowerLeTwoPow, StarProductShrinkCollapseForLaterExponents, StarProductShrinkThresholdCollapse, StarProductUnmarkedStepShrink, StarProductWLeK |
 | StarProductForwardIndependentChildCountLeVertices | helper | proof | closed | - | - | ForwardIndependentTuple, StarProductDigraph |
 | StarProductForwardIndependentConsistentTuple | helper | proof | closed | - | - | ForwardIndependentTuple, ProductDigraphVertex, StarProductConsistentTuple, StarProductDigraph |
 | StarProductHLeDelta | helper | proof | closed | - | - | Preamble |
 | StarProductIteratedShrink | helper | proof | closed | - | - | Preamble |
+| StarProductLayerChoice | definition | definition | closed | - | - | StarProductRankLayer |
+| StarProductLayerChoiceLe | lemma | proof | closed | - | - | StarProductLayerChoice |
+| StarProductLayerChoiceMax | lemma | proof | closed | - | - | StarProductLayerChoice |
+| StarProductLayerChoicePositive | lemma | proof | closed | - | - | StarProductRankAtMostCardLeSuccMulLayerChoice |
+| StarProductLayerChoiceRealLowerBound | lemma | proof | closed | - | - | StarProductRankAtMostCardLeSuccMulLayerChoice |
 | StarProductMarkedChildrenBound | helper | proof | closed | - | - | Preamble |
 | StarProductMarkedTreeCountingBridge | helper | proof | closed | - | - | ForwardIndependentTupleCount, MarkedTreePathCounting, StarProductMarkedTupleFiberBound |
 | StarProductMarkedTupleFiberBound | helper | proof | closed | - | - | BinarySequenceWeightSnoc, StarProductMarkedTupleFiberCount |
@@ -184,6 +189,7 @@
 | StarProductPrefixRank | definition | definition | closed | - | - | StarProductPrefixSpan |
 | StarProductPrefixSpan | definition | definition | closed | - | - | PolarityGraph, ProductDigraphVertex |
 | StarProductQPowerLeTwoPow | helper | proof | closed | - | - | Preamble |
+| StarProductRankAtMostCardLeSuccMulLayerChoice | lemma | proof | closed | - | - | StarProductLayerChoiceMax, StarProductRankAtMostSet |
 | StarProductRankAtMostSet | definition | definition | closed | - | - | StarProductPrefixRank |
 | StarProductRankLayer | definition | definition | closed | - | - | StarProductPrefixRank |
 | StarProductShrinkCollapseForLaterExponents | helper | proof | closed | - | - | Preamble |
@@ -193,4 +199,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 189 nodes | **Closed:** 187 | **Open:** 2
+**Total:** 195 nodes | **Closed:** 193 | **Open:** 2
