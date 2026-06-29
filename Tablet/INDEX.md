@@ -158,6 +158,12 @@
 | StarProductConcreteMarked | definition | definition | closed | - | - | StarProductPoorChild, StarProductPopularChild |
 | StarProductConcreteMarkedChildrenCertificate | helper | proof | closed | - | - | ForwardIndependentTuple, StarProductConcreteMarked, StarProductDigraph, StarProductMarkedChildrenBound |
 | StarProductConcretePathUnmarkedCertificate | helper | proof | closed | - | - | BinarySequenceWeight, StarProductConcreteMarked, StarProductMarkedTupleSignature, StarProductPathRankAtMostSize, StarProductPathUnmarkedBound |
+| StarProductConcreteUnmarkedExtensionNonempty | lemma | proof | closed | - | - | StarProductLayerChoicePositive |
+| StarProductConcreteUnmarkedExtensionShrink | lemma | proof | closed | - | - | StarProductConcreteMarked, StarProductForwardIndependentExtensionRankLe, StarProductLayerChoiceLe, StarProductRankAtMostCardLeSuccMulLayerChoice, StarProductRankAtMostSetSnocSubset, StarProductRankIncreasesOnGoodExtension, StarProductUnmarkedStepShrink |
+| StarProductConcreteUnmarkedPathNonempty | lemma | proof | closed | - | - | StarProductConcreteMarked, StarProductConcreteUnmarkedExtensionNonempty, StarProductConcreteUnmarkedPsiApply, StarProductForwardIndependentExtensionRankLe, StarProductMarkedTupleSignature, StarProductPathRankAtMostSize |
+| StarProductConcreteUnmarkedPathShrink | lemma | proof | closed | - | - | StarProductConcreteMarked, StarProductConcreteUnmarkedExtensionShrink, StarProductConcreteUnmarkedPsiApply, StarProductForwardIndependentExtensionRankLe, StarProductMarkedTupleSignature, StarProductPathRankAtMostSize |
+| StarProductConcreteUnmarkedPsi | definition | definition | closed | - | - | StarProductLayerChoiceLe |
+| StarProductConcreteUnmarkedPsiApply | lemma | proof | closed | - | - | StarProductConcreteUnmarkedPsi |
 | StarProductConsistentTuple | definition | definition | closed | - | - | LoopGraph |
 | StarProductDeltaPowerLeQPower | helper | proof | closed | - | - | Preamble |
 | StarProductDigraph | definition | definition | closed | - | - | Digraph, ProductDigraphVertex |
@@ -166,9 +172,10 @@
 | StarProductFinalNumericalAbsorption | helper | proof | closed | - | - | Preamble |
 | StarProductFixedBExtensionBound | helper | proof | closed | - | - | Preamble |
 | StarProductFixedBRankLeExtensionBound | helper | proof | closed | - | - | StarProductExtensionOrthogonalToPrefixSpan, StarProductFixedBExtensionBound, StarProductPrefixRank |
-| StarProductForwardIndependentBound | lemma | proof | open | - | - | ExpanderMixingLemma, ForwardIndependentTupleCount, ForwardIndependentTupleCountSuccSnoc, MarkedTreePathCounting, PolarityGraphParameters, ProductDigraphVertex, StarProductConcreteAllChildrenBound, StarProductConcreteMarkedChildrenCertificate, StarProductConcretePathUnmarkedCertificate, StarProductConsistentTuple, StarProductDeltaPowerLeQPower, StarProductDigraph, StarProductExtensionOrthogonalToPrefixSpan, StarProductFinalNumericalAbsorption, StarProductFixedBExtensionBound, StarProductFixedBRankLeExtensionBound, StarProductForwardIndependentChildCountLeVertices, StarProductForwardIndependentConsistentTuple, StarProductFullRankNoForwardIndependentExtension, StarProductHLeDelta, StarProductLayerChoiceLe, StarProductLayerChoiceMax, StarProductLayerChoicePositive, StarProductLayerChoiceRealLowerBound, StarProductMarkedChildrenBound, StarProductMarkedTreeCountingBridge, StarProductPathUnmarkedBound, StarProductPolarityVertexCountBound, StarProductPoorChildrenBound, StarProductPoorExpanderMixingBound, StarProductPopularChildrenBound, StarProductPopularDoubleCountingBound, StarProductQPowerLeTwoPow, StarProductShrinkCollapseForLaterExponents, StarProductShrinkThresholdCollapse, StarProductUnmarkedStepShrink, StarProductWLeK |
+| StarProductForwardIndependentBound | lemma | proof | open | - | - | ExpanderMixingLemma, ForwardIndependentTupleCount, ForwardIndependentTupleCountSuccSnoc, MarkedTreePathCounting, PolarityGraphParameters, ProductDigraphVertex, StarProductConcreteAllChildrenBound, StarProductConcreteMarkedChildrenCertificate, StarProductConcretePathUnmarkedCertificate, StarProductConcreteUnmarkedPathNonempty, StarProductConcreteUnmarkedPathShrink, StarProductConsistentTuple, StarProductDeltaPowerLeQPower, StarProductDigraph, StarProductExtensionOrthogonalToPrefixSpan, StarProductFinalNumericalAbsorption, StarProductFixedBExtensionBound, StarProductFixedBRankLeExtensionBound, StarProductForwardIndependentChildCountLeVertices, StarProductForwardIndependentConsistentTuple, StarProductFullRankNoForwardIndependentExtension, StarProductHLeDelta, StarProductLayerChoiceLe, StarProductLayerChoiceMax, StarProductLayerChoicePositive, StarProductLayerChoiceRealLowerBound, StarProductMarkedChildrenBound, StarProductMarkedTreeCountingBridge, StarProductPathRankAtMostSizeMono, StarProductPathUnmarkedBound, StarProductPolarityVertexCountBound, StarProductPoorChildrenBound, StarProductPoorExpanderMixingBound, StarProductPopularChildrenBound, StarProductPopularDoubleCountingBound, StarProductQPowerLeTwoPow, StarProductShrinkCollapseForLaterExponents, StarProductShrinkThresholdCollapse, StarProductUnmarkedStepShrink, StarProductWLeK |
 | StarProductForwardIndependentChildCountLeVertices | helper | proof | closed | - | - | ForwardIndependentTuple, StarProductDigraph |
 | StarProductForwardIndependentConsistentTuple | helper | proof | closed | - | - | ForwardIndependentTuple, ProductDigraphVertex, StarProductConsistentTuple, StarProductDigraph |
+| StarProductForwardIndependentExtensionRankLe | lemma | proof | closed | - | - | StarProductFullRankNoForwardIndependentExtension |
 | StarProductFullRankNoForwardIndependentExtension | helper | proof | closed | - | - | StarProductExtensionOrthogonalToPrefixSpan, StarProductPrefixRank |
 | StarProductGeometricSumLeTwoPow | helper | proof | closed | - | - | Preamble |
 | StarProductHLeDelta | helper | proof | closed | - | - | Preamble |
@@ -184,6 +191,7 @@
 | StarProductMarkedTupleFiberCount | definition | definition | closed | - | - | ForwardIndependentTuple, StarProductMarkedTupleSignature |
 | StarProductMarkedTupleSignature | definition | definition | closed | - | - | StarProductDigraph |
 | StarProductPathRankAtMostSize | definition | definition | closed | - | - | StarProductRankAtMostSet |
+| StarProductPathRankAtMostSizeMono | lemma | proof | closed | - | - | StarProductPathRankAtMostSize, StarProductRankAtMostSetSnocSubset |
 | StarProductPathUnmarkedBound | helper | proof | closed | - | - | StarProductIteratedShrink |
 | StarProductPolarityParameterBounds | helper | proof | closed | - | - | Preamble |
 | StarProductPolarityVertexCountBound | helper | proof | closed | - | - | PolarityGraphParameters, ProductDigraphVertexCard |
@@ -199,10 +207,14 @@
 | StarProductPopularSecondCoordinates | definition | definition | closed | - | - | StarProductLayerChoice, StarProductPopularChild |
 | StarProductPopularSecondCoordinatesBound | helper | proof | closed | - | - | StarProductLayerChoicePositive, StarProductPopularDoubleCountingBound, StarProductPopularSecondCoordinates, StarProductSubspacePointsBound |
 | StarProductPrefixRank | definition | definition | closed | - | - | StarProductPrefixSpan |
+| StarProductPrefixRankSnocMonotone | lemma | proof | closed | - | - | StarProductPrefixRank, StarProductPrefixSpanSnocLe |
 | StarProductPrefixSpan | definition | definition | closed | - | - | PolarityGraph, ProductDigraphVertex |
+| StarProductPrefixSpanSnocLe | lemma | proof | closed | - | - | StarProductPrefixSpan |
 | StarProductQPowerLeTwoPow | helper | proof | closed | - | - | Preamble |
 | StarProductRankAtMostCardLeSuccMulLayerChoice | lemma | proof | closed | - | - | StarProductLayerChoiceMax, StarProductRankAtMostSet |
 | StarProductRankAtMostSet | definition | definition | closed | - | - | StarProductPrefixRank |
+| StarProductRankAtMostSetSnocSubset | lemma | proof | closed | - | - | StarProductPrefixRankSnocMonotone, StarProductRankAtMostSet |
+| StarProductRankIncreasesOnGoodExtension | lemma | proof | closed | - | - | StarProductPrefixRank, StarProductPrefixSpanSnocLe |
 | StarProductRankLayer | definition | definition | closed | - | - | StarProductPrefixRank |
 | StarProductShrinkCollapseForLaterExponents | helper | proof | closed | - | - | Preamble |
 | StarProductShrinkThresholdCollapse | helper | proof | closed | - | - | Preamble |
@@ -213,4 +225,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 209 nodes | **Closed:** 207 | **Open:** 2
+**Total:** 221 nodes | **Closed:** 219 | **Open:** 2

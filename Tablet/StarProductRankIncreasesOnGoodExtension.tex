@@ -1,0 +1,22 @@
+\begin{lemma}
+Let \(p'=\operatorname{snoc}(p,x)\).  Suppose \(r^p(y)=\ell\), the first
+coordinate \(x.1\) is adjacent to \(y\), and
+\(\operatorname{rep}(x.2)\notin W^p(y)\).  Then
+\[
+  \ell+1\le r^{p'}(y).
+\]
+\end{lemma}
+\begin{proof}
+Let \(W=W^p(y)\) and \(W'=W^{p'}(y)\).  By
+\(\noderef{StarProductPrefixSpanSnocLe}\), \(W\subseteq W'\).  Since
+\(x.1\) is adjacent to \(y\), the newly appended index contributes the vector
+\(\operatorname{rep}(x.2)\) as a generator of \(W'\), so the one-dimensional
+span of \(\operatorname{rep}(x.2)\) is also contained in \(W'\).  Thus
+\[
+  W+\langle\operatorname{rep}(x.2)\rangle\subseteq W'.
+\]
+Because \(\operatorname{rep}(x.2)\notin W\), adjoining this vector raises
+finrank by one.  Since \(r^p(y)=\ell\), the finrank of
+\(W+\langle\operatorname{rep}(x.2)\rangle\) is \(\ell+1\).  Monotonicity of
+finrank under the displayed inclusion gives \(\ell+1\le r^{p'}(y)\).
+\end{proof}

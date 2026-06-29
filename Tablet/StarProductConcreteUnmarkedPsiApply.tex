@@ -1,0 +1,16 @@
+\begin{lemma}
+Let \(i<k\).  If the rank of the second coordinate of \(v_i\) over the prefix
+\((v_0,\ldots,v_{i-1})\) is at most \(t\), then
+\[
+  \psi_v(i+1)=\ell_{r}^{(v_0,\ldots,v_{i-1})},
+\]
+where \(r\) is that rank.
+\end{lemma}
+\begin{proof}
+This is the defining in-range case of
+\(\noderef{StarProductConcreteUnmarkedPsi}\).  The hypotheses \(i<k\) give
+\(1\le i+1\le k\), so the definition uses the prefix of length \(i\) and the
+child \(v_i\).  The assumed rank bound \(r\le t\) rules out the fallback value
+\(0\), and the definition therefore returns the layer choice
+\(\ell_r^{(v_0,\ldots,v_{i-1})}\).
+\end{proof}

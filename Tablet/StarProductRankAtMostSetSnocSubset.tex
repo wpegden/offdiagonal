@@ -1,0 +1,14 @@
+\begin{lemma}
+Let \(p'=\operatorname{snoc}(p,x)\).  For every integer \(l\),
+\[
+  U_l^{p'}\subseteq U_l^p,
+\]
+where \(U_l^p=\{y:r^p(y)\le l\}\) is the set
+\(\noderef{StarProductRankAtMostSet}\).
+\end{lemma}
+\begin{proof}
+Take \(y\in U_l^{p'}\).  Then \(r^{p'}(y)\le l\) by
+\(\noderef{StarProductRankAtMostSet}\).  By
+\(\noderef{StarProductPrefixRankSnocMonotone}\), \(r^p(y)\le r^{p'}(y)\).
+Hence \(r^p(y)\le l\), so \(y\in U_l^p\).
+\end{proof}

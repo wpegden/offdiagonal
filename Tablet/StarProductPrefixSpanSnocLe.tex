@@ -1,0 +1,17 @@
+\begin{lemma}
+Let \(p\) be a prefix and let \(p'=\operatorname{snoc}(p,x)\).  For every
+projective point \(y\),
+\[
+  W^p(y)\subseteq W^{p'}(y),
+\]
+where \(W^p(y)\) is the prefix span of \(\noderef{StarProductPrefixSpan}\).
+\end{lemma}
+\begin{proof}
+By \(\noderef{StarProductPrefixSpan}\), \(W^p(y)\) is spanned by the vectors
+\(\operatorname{rep}(p_i.2)\) for indices \(i\) of the old prefix such that
+\(p_i.1\) is adjacent to \(y\).  The same old index \(i\) occurs in the
+appended prefix \(p'\) as \(i.\operatorname{castSucc}\), and the corresponding
+first and second coordinates are unchanged.  Therefore every generator used
+for \(W^p(y)\) is also a generator used for \(W^{p'}(y)\).  Taking spans gives
+the claimed submodule inclusion.
+\end{proof}

@@ -1,0 +1,17 @@
+\begin{lemma}
+Along any path \(v_0,\ldots,v_{k-1}\), for every \(i<k\) and every
+\(l\in\{0,\ldots,t\}\),
+\[
+  |U_l^{(v_0,\ldots,v_i)}|\le |U_l^{(v_0,\ldots,v_{i-1})}|.
+\]
+Equivalently, the quantity \(\noderef{StarProductPathRankAtMostSize}\) is
+nonincreasing when the prefix is extended by one vertex.
+\end{lemma}
+\begin{proof}
+The length-\(i+1\) prefix of the path is the old length-\(i\) prefix with the
+vertex \(v_i\) appended.  Applying
+\(\noderef{StarProductRankAtMostSetSnocSubset}\) to this appended prefix gives
+an inclusion of the new \(U_l\) set into the old \(U_l\) set.  Taking
+cardinalities, and then using the definition
+\(\noderef{StarProductPathRankAtMostSize}\), gives the stated inequality.
+\end{proof}

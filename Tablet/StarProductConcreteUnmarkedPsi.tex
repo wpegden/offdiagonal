@@ -1,0 +1,18 @@
+\begin{definition}
+For a path \(v:\{0,\ldots,k-1\}\to V(D^*(G(t,K)))\), define
+\[
+  \psi_v(n)\in\{0,\ldots,t\}
+\]
+as follows.  If \(1\le n\le k\), let \(i=n-1\), let \(p_i\) be the prefix
+\((v_0,\ldots,v_{i-1})\), let \(x=v_i\), and put
+\[
+  r=r^{p_i}(x.2).
+\]
+If \(r\le t\), set
+\[
+  \psi_v(n)=\ell_r^{p_i},
+\]
+where \(\ell_r^{p_i}\) is the layer choice of
+\(\noderef{StarProductLayerChoice}\).  If \(n\) is outside the range
+\([1,k]\), or if the fallback case \(r>t\) occurs, set \(\psi_v(n)=0\).
+\end{definition}

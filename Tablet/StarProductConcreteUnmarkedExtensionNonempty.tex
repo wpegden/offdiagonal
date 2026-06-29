@@ -1,0 +1,18 @@
+\begin{lemma}
+For any prefix \(p\) and child \(x\), put
+\[
+  r=r^p(x.2),\qquad \ell=\ell_r^p.
+\]
+Then \(U_\ell^p\) is nonempty; in Lean's real-valued cardinal notation,
+\[
+  1\le |U_\ell^p|.
+\]
+\end{lemma}
+\begin{proof}
+The point \(x.2\) lies in \(U_r^p\), because its rank is exactly \(r\).  Thus
+\(U_r^p\) has positive cardinality.  Applying
+\(\noderef{StarProductLayerChoicePositive}\) shows that the selected layer
+\(Z_\ell^p\) has positive cardinality.  Since \(Z_\ell^p\subseteq U_\ell^p\),
+the set \(U_\ell^p\) also has positive cardinality, equivalently real
+cardinality at least \(1\).
+\end{proof}

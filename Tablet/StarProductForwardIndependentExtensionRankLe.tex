@@ -1,0 +1,14 @@
+\begin{lemma}
+If \(x\) is a forward-independent extension of a prefix \(p\), then
+\[
+  r^p(x.2)\le t.
+\]
+\end{lemma}
+\begin{proof}
+The span \(W^p(x.2)\) is a subspace of the \((t+1)\)-dimensional ambient
+space, so its rank is at most \(t+1\).  If the rank were exactly \(t+1\), then
+\(\noderef{StarProductFullRankNoForwardIndependentExtension}\) would say that
+the appended tuple \(\operatorname{snoc}(p,x)\) is not forward independent,
+contrary to the hypothesis.  Hence the rank is not \(t+1\), and the bound
+\(r^p(x.2)\le t+1\) leaves only \(r^p(x.2)\le t\).
+\end{proof}

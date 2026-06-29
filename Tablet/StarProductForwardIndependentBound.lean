@@ -8,6 +8,8 @@ import Tablet.StarProductConsistentTuple
 import Tablet.StarProductConcreteAllChildrenBound
 import Tablet.StarProductConcreteMarkedChildrenCertificate
 import Tablet.StarProductConcretePathUnmarkedCertificate
+import Tablet.StarProductConcreteUnmarkedPathNonempty
+import Tablet.StarProductConcreteUnmarkedPathShrink
 import Tablet.StarProductDigraph
 import Tablet.StarProductExtensionOrthogonalToPrefixSpan
 import Tablet.StarProductFixedBExtensionBound
@@ -25,6 +27,7 @@ import Tablet.StarProductLayerChoiceRealLowerBound
 import Tablet.StarProductMarkedTreeCountingBridge
 import Tablet.StarProductMarkedChildrenBound
 import Tablet.StarProductPathUnmarkedBound
+import Tablet.StarProductPathRankAtMostSizeMono
 import Tablet.StarProductPoorChildrenBound
 import Tablet.StarProductPoorExpanderMixingBound
 import Tablet.StarProductPopularChildrenBound

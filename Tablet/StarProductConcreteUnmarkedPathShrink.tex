@@ -1,0 +1,29 @@
+\begin{lemma}
+Let \(v\) be a forward-independent path and let
+\(\psi=\noderef{StarProductConcreteUnmarkedPsi}\).  For every unmarked step
+\(i+1\),
+\[
+  |U_{\psi(i+1)}^{(v_0,\ldots,v_i)}|
+  \le
+  \left(1-\frac{1}{32tq}\right)
+  |U_{\psi(i+1)}^{(v_0,\ldots,v_{i-1})}|.
+\]
+\end{lemma}
+\begin{proof}
+Let \(p_i=(v_0,\ldots,v_{i-1})\) and \(x=v_i\).  The prefix \(p_i\) with
+\(x\) appended is forward independent because it is an initial segment of the
+forward-independent path.  The signature bit for step \(i\) is true precisely
+when the concrete marker \(\noderef{StarProductConcreteMarked}\) is false for
+the child \(x\); this is the definition
+\(\noderef{StarProductMarkedTupleSignature}\).
+
+By \(\noderef{StarProductForwardIndependentExtensionRankLe}\), the rank
+\(r^{p_i}(x.2)\) is at most \(t\).  Thus
+\(\noderef{StarProductConcreteUnmarkedPsiApply}\) identifies
+\(\psi(i+1)\) with the chosen layer \(\ell_r^{p_i}\).  Applying
+\(\noderef{StarProductConcreteUnmarkedExtensionShrink}\) to the
+forward-independent unmarked extension \(p_i\mapsto p_i\cup\{x\}\) gives the
+shrink inequality for \(U_{\ell_r^{p_i}}\).  Replacing
+\(\ell_r^{p_i}\) by the identified value \(\psi(i+1)\) is exactly the displayed
+path-level inequality.
+\end{proof}

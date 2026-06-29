@@ -1,0 +1,19 @@
+\begin{lemma}
+Let \(v\) be a forward-independent path.  For every unmarked step
+\(i+1\), the predecessor set selected by
+\(\psi=\noderef{StarProductConcreteUnmarkedPsi}\) is nonempty:
+\[
+  1\le |U_{\psi(i+1)}^{(v_0,\ldots,v_{i-1})}|.
+\]
+\end{lemma}
+\begin{proof}
+Let \(p_i=(v_0,\ldots,v_{i-1})\) and \(x=v_i\).  The restriction of the
+forward-independent path to the prefix \(p_i\) with \(x\) appended is forward
+independent.  Hence \(\noderef{StarProductForwardIndependentExtensionRankLe}\)
+gives \(r^{p_i}(x.2)\le t\).  Therefore
+\(\noderef{StarProductConcreteUnmarkedPsiApply}\) identifies
+\(\psi(i+1)\) with the layer choice \(\ell_{r}^{p_i}\).  Finally,
+\(\noderef{StarProductConcreteUnmarkedExtensionNonempty}\) says that
+\(U_{\ell_r^{p_i}}^{p_i}\) has real cardinality at least \(1\).  Substituting
+the identified value of \(\psi(i+1)\) proves the claim.
+\end{proof}

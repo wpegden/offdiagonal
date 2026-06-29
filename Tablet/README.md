@@ -159,6 +159,12 @@
 | StarProductConcreteMarked | definition | - | closed |
 | StarProductConcreteMarkedChildrenCertificate | proof | - | closed |
 | StarProductConcretePathUnmarkedCertificate | proof | - | closed |
+| StarProductConcreteUnmarkedExtensionNonempty | proof | - | closed |
+| StarProductConcreteUnmarkedExtensionShrink | proof | - | closed |
+| StarProductConcreteUnmarkedPathNonempty | proof | - | closed |
+| StarProductConcreteUnmarkedPathShrink | proof | - | closed |
+| StarProductConcreteUnmarkedPsi | definition | - | closed |
+| StarProductConcreteUnmarkedPsiApply | proof | - | closed |
 | StarProductConsistentTuple | definition | - | closed |
 | StarProductDeltaPowerLeQPower | proof | - | closed |
 | StarProductDigraph | definition | - | closed |
@@ -170,6 +176,7 @@
 | StarProductForwardIndependentBound | proof | - | open |
 | StarProductForwardIndependentChildCountLeVertices | proof | - | closed |
 | StarProductForwardIndependentConsistentTuple | proof | - | closed |
+| StarProductForwardIndependentExtensionRankLe | proof | - | closed |
 | StarProductFullRankNoForwardIndependentExtension | proof | - | closed |
 | StarProductGeometricSumLeTwoPow | proof | - | closed |
 | StarProductHLeDelta | proof | - | closed |
@@ -185,6 +192,7 @@
 | StarProductMarkedTupleFiberCount | definition | - | closed |
 | StarProductMarkedTupleSignature | definition | - | closed |
 | StarProductPathRankAtMostSize | definition | - | closed |
+| StarProductPathRankAtMostSizeMono | proof | - | closed |
 | StarProductPathUnmarkedBound | proof | - | closed |
 | StarProductPolarityParameterBounds | proof | - | closed |
 | StarProductPolarityVertexCountBound | proof | - | closed |
@@ -200,10 +208,14 @@
 | StarProductPopularSecondCoordinates | definition | - | closed |
 | StarProductPopularSecondCoordinatesBound | proof | - | closed |
 | StarProductPrefixRank | definition | - | closed |
+| StarProductPrefixRankSnocMonotone | proof | - | closed |
 | StarProductPrefixSpan | definition | - | closed |
+| StarProductPrefixSpanSnocLe | proof | - | closed |
 | StarProductQPowerLeTwoPow | proof | - | closed |
 | StarProductRankAtMostCardLeSuccMulLayerChoice | proof | - | closed |
 | StarProductRankAtMostSet | definition | - | closed |
+| StarProductRankAtMostSetSnocSubset | proof | - | closed |
+| StarProductRankIncreasesOnGoodExtension | proof | - | closed |
 | StarProductRankLayer | definition | - | closed |
 | StarProductShrinkCollapseForLaterExponents | proof | - | closed |
 | StarProductShrinkThresholdCollapse | proof | - | closed |
@@ -214,4 +226,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 207/209 closed
+**Summary:** 219/221 closed

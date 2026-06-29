@@ -1,0 +1,57 @@
+\begin{lemma}
+Let \(p'=\operatorname{snoc}(p,x)\) be a forward-independent extension.  Put
+\[
+  r=r^p(x.2),\qquad \ell=\ell_r^p
+\]
+with \(\ell_r^p\) given by \(\noderef{StarProductLayerChoice}\).  If the child
+\(x\) is not marked by the concrete marking rule
+\(\noderef{StarProductConcreteMarked}\), then
+\[
+  |U_\ell^{p'}|
+  \le
+  \left(1-\frac{1}{32tq}\right)|U_\ell^p|.
+\]
+\end{lemma}
+\begin{proof}
+By \(\noderef{StarProductForwardIndependentExtensionRankLe}\), the rank
+\(r=r^p(x.2)\) is at most \(t\).  Since the concrete marker
+\(\noderef{StarProductConcreteMarked}\) marks exactly those rank-at-most-\(t\)
+children whose second coordinate is popular or whose first coordinate is poor,
+the unmarked hypothesis implies that \(x\) is neither popular nor poor, in the
+senses of \(\noderef{StarProductPopularChild}\) and
+\(\noderef{StarProductPoorChild}\).
+
+Let \(Z=Z_\ell^p\).  Let \(N\subseteq Z\) be the points adjacent to \(x.1\),
+let \(B\subseteq Z\) be the points \(y\) for which
+\(\operatorname{rep}(x.2)\in W^p(y)\), and let \(G=N\setminus B\).  Since
+\(x.1\) is not poor, \(|N|>|Z|/(8q)\).  Since \(x.2\) is not popular,
+\(|B|<|Z|/(16q)\).  The elementary inequality
+\(|N|\le |G|+|B|\) therefore gives \(|G|\ge |Z|/(16q)\).
+
+We apply \(\noderef{StarProductUnmarkedStepShrink}\) with
+\[
+  U=U_\ell^p,\qquad U'=U_\ell^{p'},\qquad \text{good}=G.
+\]
+The inclusion \(U'\subseteq U\) is
+\(\noderef{StarProductRankAtMostSetSnocSubset}\).  Also \(G\subseteq U\)
+because \(G\subseteq Z_\ell^p\).  If \(y\in G\), then \(r^p(y)=\ell\), \(x.1\)
+is adjacent to \(y\), and \(\operatorname{rep}(x.2)\notin W^p(y)\); hence
+\(\noderef{StarProductRankIncreasesOnGoodExtension}\) gives
+\(\ell+1\le r^{p'}(y)\), so \(y\notin U_\ell^{p'}\).  Thus \(U'\) is disjoint
+from \(G\).
+
+It remains to verify the size comparison required by
+\(\noderef{StarProductUnmarkedStepShrink}\).  Since
+\(\ell\le r\) by \(\noderef{StarProductLayerChoiceLe}\), we have
+\(U_\ell^p\subseteq U_r^p\).  By
+\(\noderef{StarProductRankAtMostCardLeSuccMulLayerChoice}\),
+\[
+  |U_r^p|\le (r+1)|Z_\ell^p|.
+\]
+Because \(r\le t\) and \(t\ge2\), \(r+1\le2t\).  Hence
+\[
+  |U_\ell^p|\le2t|Z_\ell^p|.
+\]
+All hypotheses of \(\noderef{StarProductUnmarkedStepShrink}\) are now
+verified, and that lemma gives the displayed shrink inequality.
+\end{proof}
