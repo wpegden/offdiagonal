@@ -4,6 +4,7 @@ import Tablet.Preamble
 -- [TABLET NODE: StarProductFinalNumericalAbsorption]
 
 theorem StarProductFinalNumericalAbsorption (A C : ℝ) (t q k w : ℕ)
+    (ht : 1 ≤ t)
     (hB_nonneg : 0 ≤ A * (q : ℝ) ^ t)
     (hB_ge_one : 1 ≤ A * (q : ℝ) ^ t)
     (hDeltaPow :

@@ -21,7 +21,11 @@ Assume also that every unmarked index has nonempty preceding set,
   1\le U_{\psi(i+1)}(i)
   \qquad(0\le i<m),
 \]
-and that for every integer \(c\ge \lfloor w/(t+1)\rfloor-1\),
+and that for every nonnegative integer \(c\) satisfying
+\[
+  c\ge
+  \max\left\{\left\lfloor\frac{w}{t+1}\right\rfloor-1,0\right\},
+\]
 \[
   N\rho^c<1.
 \]
@@ -41,12 +45,14 @@ class
 \]
 has more than \(\lfloor w/(t+1)\rfloor\) elements.
 
-Let \(i^*\) be the largest element of \(S_\ell\).  Every other element of
-\(S_\ell\) lies in \(\{1,\ldots,i^*-1\}\), so
+Let \(i^*\) be the largest element of \(S_\ell\), and put
+\(r=\lfloor w/(t+1)\rfloor\).  Since \(|S_\ell|>r\), deleting \(i^*\)
+leaves at least \(r\) elements.  Every other element of \(S_\ell\) lies in
+\(\{1,\ldots,i^*-1\}\), so in particular
 \[
   |S_\ell\cap\{1,\ldots,i^*-1\}|
-    \ge |S_\ell|-1
-    \ge \left\lfloor\frac{w}{t+1}\right\rfloor-1. \tag{1}
+    \ge
+    \max\left\{\left\lfloor\frac{w}{t+1}\right\rfloor-1,0\right\}. \tag{1}
 \]
 Apply \(\noderef{StarProductIteratedShrink}\) to the single sequence
 \(U_\ell\), with selected indices those unmarked indices whose label is
