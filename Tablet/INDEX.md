@@ -100,7 +100,8 @@
 | LoopGraphZeroSumAdjacencyEuclideanOperator | definition | definition | closed | - | - | LoopGraphAdjacencyEuclideanOperatorMapsZeroSum, LoopGraphEuclideanZeroSumSubmodule, LoopGraphNdLambda |
 | LoopGraphZeroSumEuclideanEigenpairNonprincipal | helper | proof | closed | - | - | LoopGraphEuclideanZeroSumSubmodule, LoopGraphNonprincipalEigenvalue |
 | LoopGraphZeroSumEuclideanEigenvalueBound | helper | proof | closed | - | - | LoopGraphNdLambda, LoopGraphZeroSumEuclideanEigenpairNonprincipal |
-| MainTheorem | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, PolarityGraphParameters, ProductDigraphVertexCard, RamseyNumber, SamplingKsFreeRamseyBound, StarProductDigraph, StarProductDigraphTransitiveFree, StarProductForwardIndependentBound |
+| MainTheorem | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, MainTheoremDyadicFieldScale, PolarityGraphParameters, ProductDigraphVertexCard, RamseyNumber, SamplingKsFreeRamseyBound, StarProductDigraph, StarProductDigraphTransitiveFree, StarProductForwardIndependentBound |
+| MainTheoremDyadicFieldScale | helper | proof | closed | - | - | Preamble |
 | MainTheoremEtaBounds | helper | proof | closed | - | - | Preamble |
 | MainTheoremPolarityParameterBounds | helper | proof | closed | - | - | Preamble |
 | MainTheoremPolaritySetup | helper | proof | closed | - | - | ComplementPolarityPairHsFree, LoopGraphComplementNdLambda, PolarityGraphParameters |
@@ -231,4 +232,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 227 nodes | **Closed:** 226 | **Open:** 1
+**Total:** 228 nodes | **Closed:** 227 | **Open:** 1

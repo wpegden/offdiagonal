@@ -1,0 +1,96 @@
+\begin{helper}
+Let \(C>0\).  There are constants \(c>0\) and \(K_0\) such that for every
+integer \(k\) with \(k\ge K_0\), there is an integer \(m\ge1\) with the
+following properties.  If \(q=2^m\) and \(K=\mathrm{GaloisField}(2,m)\), then
+\[
+  |K|=q,\qquad Cq(\log q)^2\le k\le 4Cq(\log q)^2,
+\]
+\[
+  C\le q,\qquad q\ge4,\qquad \log q\le\log k,\qquad
+  c\frac{k}{(\log k)^2}\le q .
+\]
+\end{helper}
+\begin{proof}
+Set
+\[
+  c=\frac1{2C}>0.
+\]
+We shall choose \(K_0\) large enough that all the following estimates hold
+for every real \(x\ge K_0\).  First require
+\[
+  1\le x,\qquad 1\le\log x,\qquad \frac1C\le\log x.
+\]
+Next, using \((\log x)^2=o(x)\), require
+\[
+  (\log x)^2\le \frac{x}{2C^2},
+  \qquad
+  (\log x)^2\le \frac{x}{8C}.
+\]
+Finally, using \(\log\log x=o(\log x)\) and the fact that the constant
+\(\log(2C)\) is \(o(\log x)\), require
+\[
+  \log(2C)+2\log\log x\le \frac14\log x.
+\]
+
+Now fix an integer \(k\) with \(k\ge K_0\), and put
+\[
+  y=\frac{k}{2C(\log k)^2}.
+\]
+The two estimates for \((\log k)^2\) give \(y\ge C\) and \(y\ge4\).  Choose
+\(n\ge0\) with
+\[
+  2^n\le y<2^{n+1}.
+\]
+This is the standard dyadic choice of a power of two below \(y\).  Set
+\[
+  m=n+1,\qquad q=2^m.
+\]
+Then \(m\ge1\) and
+\[
+  y\le q\le2y=\frac{k}{C(\log k)^2}. \tag{1}
+\]
+Since \(q\ge y\), the inequalities \(C\le q\), \(q\ge4\), and
+\[
+  \frac1{2C}\frac{k}{(\log k)^2}\le q
+\]
+follow immediately.  The last displayed inequality is exactly the asserted
+lower comparison with the chosen value of \(c\).
+
+Because \(m\ne0\), the standard cardinality formula for Galois fields gives
+\[
+  |\mathrm{GaloisField}(2,m)|=2^m=q.
+\]
+Also, the upper bound in (1) and \(1\le C(\log k)^2\) give \(q\le k\).  Hence
+monotonicity of the logarithm yields \(\log q\le\log k\).
+
+It remains to check the two scale inequalities.  From the upper bound in
+(1) and \(\log q\le\log k\),
+\[
+  Cq(\log q)^2
+  \le C\frac{k}{C(\log k)^2}(\log k)^2
+  = k.
+\]
+For the other direction, the lower bound \(y\le q\) gives
+\[
+  k\le 2Cq(\log k)^2. \tag{2}
+\]
+The logarithmic large-\(k\) estimate gives
+\[
+  \log y
+  =\log k-\log(2C)-2\log\log k
+  \ge \frac34\log k.
+\]
+Since \(y\le q\), this implies
+\[
+  \log k\le \frac43\log q.
+\]
+Therefore
+\[
+  (\log k)^2\le \frac{16}{9}(\log q)^2\le2(\log q)^2.
+\]
+Combining this with (2) gives
+\[
+  k\le4Cq(\log q)^2,
+\]
+as required.
+\end{proof}

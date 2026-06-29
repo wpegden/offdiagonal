@@ -103,6 +103,7 @@
 | LoopGraphZeroSumEuclideanEigenpairNonprincipal | proof | - | closed |
 | LoopGraphZeroSumEuclideanEigenvalueBound | proof | - | closed |
 | MainTheorem | proof | - | open |
+| MainTheoremDyadicFieldScale | proof | - | closed |
 | MainTheoremEtaBounds | proof | - | closed |
 | MainTheoremPolarityParameterBounds | proof | - | closed |
 | MainTheoremPolaritySetup | proof | - | closed |
@@ -232,4 +233,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 226/227 closed
+**Summary:** 227/228 closed
