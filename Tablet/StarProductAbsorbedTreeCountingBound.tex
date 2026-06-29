@@ -1,0 +1,80 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\), let \(t\ge2\), and let
+\(A,k\) be nonnegative integers and \(C\in\mathbb R\).  Put
+\[
+  w=\left\lfloor A q\log q\right\rfloor,
+  \qquad
+  \Delta=4q^{2t-1}.
+\]
+Assume the projective parameter upper bounds
+\[
+  \frac{q^{t+1}-1}{q-1}\le 2q^t,\qquad
+  \frac{q^t-1}{q-1}\le 2q^{t-1}.
+\]
+Assume also
+\[
+  10128t\le A,\qquad A\le4q^{t-1},\qquad A\le C,
+  \qquad 1\le\log q,
+\]
+\[
+  2tA\le C\log2,\qquad 4A\le C,\qquad Aq^t\ge1,\qquad q\ge4,
+\]
+\[
+  Cq(\log q)^2\le k,
+\]
+and assume the explicit floor-exponent lower bound
+\[
+  32tq\log(4q^t)<\frac{w}{t+1}-1,
+\]
+where \(w/(t+1)-1\) denotes truncated natural-number division and
+subtraction.  Then
+\[
+  \fwi_k(D^*(G(t,K)))\le (Cq^t)^k.
+\]
+\end{helper}
+\begin{proof}
+By \(\noderef{StarProductFloorWeightSideConditions}\), applied to the
+displayed value of \(w\), the floor inequality and shrink threshold hold:
+\[
+  w\le Aq\log q
+\]
+and
+\[
+  \left(1-\frac{1}{32tq}\right)^{w/(t+1)-1}<\frac{1}{4q^t}.
+\]
+The hypotheses \(t\ge2\) and \(q\ge4\) supply the auxiliary requirements
+\(t\ge1\) and \(q\ge1\) in that node.
+
+Apply \(\noderef{StarProductConcreteTreeCountingBound}\) with this \(w\) and
+with \(\Delta=4q^{2t-1}\).  Its hypothesis \(4q^{2t-1}\le\Delta\) is equality,
+and its remaining hypotheses are exactly the assumed projective parameter
+bounds, \(10128t\le A\), \(A\le4q^{t-1}\), \(A\le C\),
+\(1\le\log q\), \(w\le Aq\log q\), \(Cq(\log q)^2\le k\), and the shrink
+threshold just obtained.  Hence
+\[
+  \fwi_k(D^*(G(t,K)))
+  \le
+  2^k(4q^{2t-1})^w(Aq^t)^{k-w}.        \tag{1}
+\]
+
+We now absorb the right-hand side of (1).  First,
+\(\noderef{StarProductDeltaPowerLeQPower}\), using \(t\ge1\) and \(q\ge4\),
+gives
+\[
+  (4q^{2t-1})^w\le q^{2tw}.
+\]
+Second, \(\noderef{StarProductQPowerLeTwoPow}\), using \(A\ge0\),
+\(2tA\le C\log2\), \(q\ge2\), \(w\le Aq\log q\), and
+\(Cq(\log q)^2\le k\), gives
+\[
+  q^{2tw}\le2^k.
+\]
+Finally, the assumptions \(t\ge1\), \(Aq^t\ge0\), \(Aq^t\ge1\), the two
+power inequalities above, and \(4A\le C\) are precisely the hypotheses of
+\(\noderef{StarProductFinalNumericalAbsorption}\).  Therefore
+\[
+  2^k(4q^{2t-1})^w(Aq^t)^{k-w}\le(Cq^t)^k.
+\]
+Combining this with (1) proves the claimed bound
+\(\fwi_k(D^*(G(t,K)))\le(Cq^t)^k\).
+\end{proof}

@@ -155,6 +155,7 @@
 | SimpleGraphIndependentSetCount | definition | - | closed |
 | SimpleGraphNoIndependentSetFromCountZero | proof | - | closed |
 | SparseNeighborhoodSetBound | proof | - | closed |
+| StarProductAbsorbedTreeCountingBound | proof | - | closed |
 | StarProductConcreteAllChildrenBound | proof | - | closed |
 | StarProductConcreteMarked | definition | - | closed |
 | StarProductConcreteMarkedChildrenBound | proof | - | closed |
@@ -230,4 +231,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 223/225 closed
+**Summary:** 224/226 closed
