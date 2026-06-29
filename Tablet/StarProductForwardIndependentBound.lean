@@ -5,6 +5,9 @@ import Tablet.MarkedTreePathCounting
 import Tablet.PolarityGraphParameters
 import Tablet.ProductDigraphVertex
 import Tablet.StarProductConsistentTuple
+import Tablet.StarProductConcreteAllChildrenBound
+import Tablet.StarProductConcreteMarkedChildrenCertificate
+import Tablet.StarProductConcretePathUnmarkedCertificate
 import Tablet.StarProductDigraph
 import Tablet.StarProductFixedBExtensionBound
 import Tablet.StarProductForwardIndependentChildCountLeVertices

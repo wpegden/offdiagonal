@@ -154,13 +154,17 @@
 | SimpleGraphIndependentSetCount | definition | definition | closed | - | - | Preamble |
 | SimpleGraphNoIndependentSetFromCountZero | helper | proof | closed | - | - | SimpleGraphIndependentSetCount |
 | SparseNeighborhoodSetBound | lemma | proof | closed | - | - | ExpanderMixingLemma |
+| StarProductConcreteAllChildrenBound | helper | proof | closed | - | - | StarProductForwardIndependentChildCountLeVertices, StarProductPolarityVertexCountBound |
+| StarProductConcreteMarked | definition | definition | closed | - | - | StarProductPoorChild, StarProductPopularChild |
+| StarProductConcreteMarkedChildrenCertificate | helper | proof | closed | - | - | ForwardIndependentTuple, StarProductConcreteMarked, StarProductDigraph, StarProductMarkedChildrenBound |
+| StarProductConcretePathUnmarkedCertificate | helper | proof | closed | - | - | BinarySequenceWeight, StarProductConcreteMarked, StarProductMarkedTupleSignature, StarProductPathRankAtMostSize, StarProductPathUnmarkedBound |
 | StarProductConsistentTuple | definition | definition | closed | - | - | LoopGraph |
 | StarProductDeltaPowerLeQPower | helper | proof | closed | - | - | Preamble |
 | StarProductDigraph | definition | definition | closed | - | - | Digraph, ProductDigraphVertex |
 | StarProductDigraphTransitiveFree | lemma | proof | closed | - | - | PolarityGraph, StarProductDigraph, TransitiveTournamentFree |
 | StarProductFinalNumericalAbsorption | helper | proof | closed | - | - | Preamble |
 | StarProductFixedBExtensionBound | helper | proof | closed | - | - | Preamble |
-| StarProductForwardIndependentBound | lemma | proof | open | - | - | ExpanderMixingLemma, ForwardIndependentTupleCount, ForwardIndependentTupleCountSuccSnoc, MarkedTreePathCounting, PolarityGraphParameters, ProductDigraphVertex, StarProductConsistentTuple, StarProductDeltaPowerLeQPower, StarProductDigraph, StarProductFinalNumericalAbsorption, StarProductFixedBExtensionBound, StarProductForwardIndependentChildCountLeVertices, StarProductForwardIndependentConsistentTuple, StarProductHLeDelta, StarProductMarkedChildrenBound, StarProductMarkedTreeCountingBridge, StarProductPathUnmarkedBound, StarProductPolarityVertexCountBound, StarProductPoorExpanderMixingBound, StarProductPopularDoubleCountingBound, StarProductQPowerLeTwoPow, StarProductShrinkCollapseForLaterExponents, StarProductShrinkThresholdCollapse, StarProductUnmarkedStepShrink, StarProductWLeK |
+| StarProductForwardIndependentBound | lemma | proof | open | - | - | ExpanderMixingLemma, ForwardIndependentTupleCount, ForwardIndependentTupleCountSuccSnoc, MarkedTreePathCounting, PolarityGraphParameters, ProductDigraphVertex, StarProductConcreteAllChildrenBound, StarProductConcreteMarkedChildrenCertificate, StarProductConcretePathUnmarkedCertificate, StarProductConsistentTuple, StarProductDeltaPowerLeQPower, StarProductDigraph, StarProductFinalNumericalAbsorption, StarProductFixedBExtensionBound, StarProductForwardIndependentChildCountLeVertices, StarProductForwardIndependentConsistentTuple, StarProductHLeDelta, StarProductMarkedChildrenBound, StarProductMarkedTreeCountingBridge, StarProductPathUnmarkedBound, StarProductPolarityVertexCountBound, StarProductPoorExpanderMixingBound, StarProductPopularDoubleCountingBound, StarProductQPowerLeTwoPow, StarProductShrinkCollapseForLaterExponents, StarProductShrinkThresholdCollapse, StarProductUnmarkedStepShrink, StarProductWLeK |
 | StarProductForwardIndependentChildCountLeVertices | helper | proof | closed | - | - | ForwardIndependentTuple, StarProductDigraph |
 | StarProductForwardIndependentConsistentTuple | helper | proof | closed | - | - | ForwardIndependentTuple, ProductDigraphVertex, StarProductConsistentTuple, StarProductDigraph |
 | StarProductHLeDelta | helper | proof | closed | - | - | Preamble |
@@ -170,11 +174,18 @@
 | StarProductMarkedTupleFiberBound | helper | proof | closed | - | - | BinarySequenceWeightSnoc, StarProductMarkedTupleFiberCount |
 | StarProductMarkedTupleFiberCount | definition | definition | closed | - | - | ForwardIndependentTuple, StarProductMarkedTupleSignature |
 | StarProductMarkedTupleSignature | definition | definition | closed | - | - | StarProductDigraph |
+| StarProductPathRankAtMostSize | definition | definition | closed | - | - | StarProductRankAtMostSet |
 | StarProductPathUnmarkedBound | helper | proof | closed | - | - | StarProductIteratedShrink |
 | StarProductPolarityVertexCountBound | helper | proof | closed | - | - | PolarityGraphParameters, ProductDigraphVertexCard |
+| StarProductPoorChild | definition | definition | closed | - | - | StarProductRankLayer |
 | StarProductPoorExpanderMixingBound | helper | proof | closed | - | - | Preamble |
+| StarProductPopularChild | definition | definition | closed | - | - | StarProductPrefixSpan, StarProductRankLayer |
 | StarProductPopularDoubleCountingBound | helper | proof | closed | - | - | Preamble |
+| StarProductPrefixRank | definition | definition | closed | - | - | StarProductPrefixSpan |
+| StarProductPrefixSpan | definition | definition | closed | - | - | PolarityGraph, ProductDigraphVertex |
 | StarProductQPowerLeTwoPow | helper | proof | closed | - | - | Preamble |
+| StarProductRankAtMostSet | definition | definition | closed | - | - | StarProductPrefixRank |
+| StarProductRankLayer | definition | definition | closed | - | - | StarProductPrefixRank |
 | StarProductShrinkCollapseForLaterExponents | helper | proof | closed | - | - | Preamble |
 | StarProductShrinkThresholdCollapse | helper | proof | closed | - | - | Preamble |
 | StarProductUnmarkedStepShrink | helper | proof | closed | - | - | Preamble |
@@ -182,4 +193,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 178 nodes | **Closed:** 176 | **Open:** 2
+**Total:** 189 nodes | **Closed:** 187 | **Open:** 2

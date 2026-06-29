@@ -1,0 +1,45 @@
+\begin{helper}
+Fix a length-\(k\) star-product tuple \(v\) and the concrete marking rule
+of \(\noderef{StarProductConcreteMarked}\).  Let \(U_\ell(i)\) be the
+prefix rank-at-most sizes from \(\noderef{StarProductPathRankAtMostSize}\).
+Suppose the unmarked steps of \(v\) are assigned labels
+\(\psi(i)\in\{0,\ldots,t\}\), and suppose that the sequences
+\(U_\ell(i)\) satisfy the hypotheses of \(\noderef{StarProductPathUnmarkedBound}\):
+initially \(U_\ell(0)\le N\); at every unmarked step \(i+1\) the labelled
+sequence shrinks by a factor \(\rho\); all other labelled sequences are
+nonincreasing; the predecessor set for every unmarked step is nonempty; and
+the collapse inequality
+\[
+  N\rho^c<1
+\]
+holds for every \(c\ge w/(t+1)-1\) in the truncated natural-number sense.
+Then the marked-tuple signature of \(v\) has weight at most \(w\).
+\end{helper}
+\begin{proof}
+Let \(\operatorname{sig}\) be the marked-tuple signature of \(v\) from
+\(\noderef{StarProductMarkedTupleSignature}\).  By its definition, a
+one-bit of \(\operatorname{sig}\) is exactly an unmarked extension step.
+Index the step corresponding to \(j\in\{0,\ldots,k-1\}\) by the natural
+number \(j+1\).  This index shift is a bijection from the one-bits of
+\(\operatorname{sig}\) to the unmarked indices in \(\{1,\ldots,k\}\).
+Therefore the binary weight
+\[
+  |\operatorname{sig}|
+\]
+is exactly the cardinality of the unmarked-index set counted by
+\(\noderef{StarProductPathUnmarkedBound}\).
+
+The hypotheses of the present helper are precisely the initial bound,
+shrink bound, monotonicity bound, nonemptiness bound, and collapse bound
+required by \(\noderef{StarProductPathUnmarkedBound}\), with
+\[
+  U_\ell(i)=|U_\ell^{v_{\le i}}|
+\]
+as defined in \(\noderef{StarProductPathRankAtMostSize}\).  Applying
+\(\noderef{StarProductPathUnmarkedBound}\) gives that the shifted unmarked
+index set has size at most \(w\).  By the bijective index shift above, this
+is exactly
+\[
+  |\operatorname{sig}|\le w.
+\]
+\end{proof}

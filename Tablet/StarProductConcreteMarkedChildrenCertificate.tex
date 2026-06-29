@@ -1,0 +1,32 @@
+\begin{helper}
+Fix the concrete marking rule of \(\noderef{StarProductConcreteMarked}\).
+Suppose that for every forward independent prefix of length \(m<k\), the
+number of legal popular children is at most \(128tq^t\), and the number of
+legal poor children is at most \(10000tq^t\).  If \(A\) is chosen so that
+\[
+  10128t\le A
+\]
+and \(h\ge Aq^t\), then every such prefix has at most \(h\) legal marked
+children.
+\end{helper}
+\begin{proof}
+Fix a forward independent prefix \(p\).  A legal child marked by the rule
+\(\noderef{StarProductConcreteMarked}\) is, by definition of the rule,
+either popular in the sense of \(\noderef{StarProductPopularChild}\) or poor
+in the sense of \(\noderef{StarProductPoorChild}\).  Therefore the set of
+legal marked children injects into the disjoint union of the legal popular
+children and the legal poor children.  Its size is at most the sum of the
+two sizes.
+
+By the two hypotheses, this sum is at most
+\[
+  128tq^t+10000tq^t.
+\]
+The arithmetic helper \(\noderef{StarProductMarkedChildrenBound}\), applied
+with the same constants, converts this into
+\[
+  128tq^t+10000tq^t\le Aq^t.
+\]
+Finally \(Aq^t\le h\), so the number of legal marked children is at most
+\(h\).
+\end{proof}

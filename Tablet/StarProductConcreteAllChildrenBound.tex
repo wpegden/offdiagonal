@@ -1,0 +1,25 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\), let \(t\ge2\), and let
+\(\Delta\) be at least \(4q^{2t-1}\).  Assume the standard projective
+cardinality estimates
+\[
+  |V(G(t,K))|\le 2q^t,\qquad d(G(t,K))\le2q^{t-1}.
+\]
+Then every forward independent prefix in \(D^*(G(t,K))\), of every length
+\(m<k\), has at most \(\Delta\) legal one-step extensions.
+\end{helper}
+\begin{proof}
+Fix a prefix \(p\).  Every legal child is, after forgetting legality, a
+vertex of the star-product digraph.  Hence
+\(\noderef{StarProductForwardIndependentChildCountLeVertices}\) gives
+\[
+  \#\{\text{legal children of }p\}\le |V(D^*(G(t,K)))|.
+\]
+The vertex set of \(D^*(G(t,K))\) is the set of ordered adjacent pairs in
+\(G(t,K)\).  Using the projective vertex and degree estimates,
+\(\noderef{StarProductPolarityVertexCountBound}\) gives
+\[
+  |V(D^*(G(t,K)))|\le 4q^{2t-1}.
+\]
+Since \(\Delta\ge4q^{2t-1}\), the desired bound follows.
+\end{proof}

@@ -155,6 +155,10 @@
 | SimpleGraphIndependentSetCount | definition | - | closed |
 | SimpleGraphNoIndependentSetFromCountZero | proof | - | closed |
 | SparseNeighborhoodSetBound | proof | - | closed |
+| StarProductConcreteAllChildrenBound | proof | - | closed |
+| StarProductConcreteMarked | definition | - | closed |
+| StarProductConcreteMarkedChildrenCertificate | proof | - | closed |
+| StarProductConcretePathUnmarkedCertificate | proof | - | closed |
 | StarProductConsistentTuple | definition | - | closed |
 | StarProductDeltaPowerLeQPower | proof | - | closed |
 | StarProductDigraph | definition | - | closed |
@@ -171,11 +175,18 @@
 | StarProductMarkedTupleFiberBound | proof | - | closed |
 | StarProductMarkedTupleFiberCount | definition | - | closed |
 | StarProductMarkedTupleSignature | definition | - | closed |
+| StarProductPathRankAtMostSize | definition | - | closed |
 | StarProductPathUnmarkedBound | proof | - | closed |
 | StarProductPolarityVertexCountBound | proof | - | closed |
+| StarProductPoorChild | definition | - | closed |
 | StarProductPoorExpanderMixingBound | proof | - | closed |
+| StarProductPopularChild | definition | - | closed |
 | StarProductPopularDoubleCountingBound | proof | - | closed |
+| StarProductPrefixRank | definition | - | closed |
+| StarProductPrefixSpan | definition | - | closed |
 | StarProductQPowerLeTwoPow | proof | - | closed |
+| StarProductRankAtMostSet | definition | - | closed |
+| StarProductRankLayer | definition | - | closed |
 | StarProductShrinkCollapseForLaterExponents | proof | - | closed |
 | StarProductShrinkThresholdCollapse | proof | - | closed |
 | StarProductUnmarkedStepShrink | proof | - | closed |
@@ -183,4 +194,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 176/178 closed
+**Summary:** 187/189 closed
