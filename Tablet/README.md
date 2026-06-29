@@ -107,6 +107,7 @@
 | MainTheoremEtaBounds | proof | - | closed |
 | MainTheoremPolarityParameterBounds | proof | - | closed |
 | MainTheoremPolaritySetup | proof | - | closed |
+| MainTheoremSamplingBridge | proof | - | closed |
 | MarkedTreePathCounting | proof | - | closed |
 | MulticolorRamseyNumber | definition | - | closed |
 | MulticolorRamseyNumberLowerBoundFromCounterexample | proof | - | closed |
@@ -203,6 +204,7 @@
 | StarProductPathUnmarkedBound | proof | - | closed |
 | StarProductPolarityParameterBounds | proof | - | closed |
 | StarProductPolarityVertexCountBound | proof | - | closed |
+| StarProductPolarityVertexCountLowerBound | proof | - | closed |
 | StarProductPoorChild | definition | - | closed |
 | StarProductPoorChildrenBound | proof | - | closed |
 | StarProductPoorExpanderMixingBound | proof | - | closed |
@@ -233,4 +235,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 227/228 closed
+**Summary:** 229/230 closed

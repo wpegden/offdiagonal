@@ -1,5 +1,6 @@
 import Tablet.DigraphToGraphIndependentSetBound
 import Tablet.MainTheoremDyadicFieldScale
+import Tablet.MainTheoremSamplingBridge
 import Tablet.PolarityGraphParameters
 import Tablet.ProductDigraphVertexCard
 import Tablet.RamseyNumber

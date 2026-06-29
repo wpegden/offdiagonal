@@ -100,11 +100,12 @@
 | LoopGraphZeroSumAdjacencyEuclideanOperator | definition | definition | closed | - | - | LoopGraphAdjacencyEuclideanOperatorMapsZeroSum, LoopGraphEuclideanZeroSumSubmodule, LoopGraphNdLambda |
 | LoopGraphZeroSumEuclideanEigenpairNonprincipal | helper | proof | closed | - | - | LoopGraphEuclideanZeroSumSubmodule, LoopGraphNonprincipalEigenvalue |
 | LoopGraphZeroSumEuclideanEigenvalueBound | helper | proof | closed | - | - | LoopGraphNdLambda, LoopGraphZeroSumEuclideanEigenpairNonprincipal |
-| MainTheorem | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, MainTheoremDyadicFieldScale, PolarityGraphParameters, ProductDigraphVertexCard, RamseyNumber, SamplingKsFreeRamseyBound, StarProductDigraph, StarProductDigraphTransitiveFree, StarProductForwardIndependentBound |
+| MainTheorem | theorem | proof | open | - | - | DigraphToGraphIndependentSetBound, MainTheoremDyadicFieldScale, MainTheoremSamplingBridge, PolarityGraphParameters, ProductDigraphVertexCard, RamseyNumber, SamplingKsFreeRamseyBound, StarProductDigraph, StarProductDigraphTransitiveFree, StarProductForwardIndependentBound |
 | MainTheoremDyadicFieldScale | helper | proof | closed | - | - | Preamble |
 | MainTheoremEtaBounds | helper | proof | closed | - | - | Preamble |
 | MainTheoremPolarityParameterBounds | helper | proof | closed | - | - | Preamble |
 | MainTheoremPolaritySetup | helper | proof | closed | - | - | ComplementPolarityPairHsFree, LoopGraphComplementNdLambda, PolarityGraphParameters |
+| MainTheoremSamplingBridge | helper | proof | closed | - | - | DigraphToGraphIndependentSetBound, RamseyNumber, SamplingKsFreeRamseyBound, StarProductDigraph, StarProductDigraphTransitiveFree, StarProductForwardIndependentBound, StarProductPolarityVertexCountLowerBound |
 | MarkedTreePathCounting | lemma | proof | closed | - | - | BinarySequenceWeight |
 | MulticolorRamseyNumber | definition | definition | closed | - | - | MulticolorRamseyProperty |
 | MulticolorRamseyNumberLowerBoundFromCounterexample | helper | proof | closed | - | - | MulticolorRamseyNumber, MulticolorRamseyPropertyMonotone, MulticolorRamseyPropertyNonempty, NoMonochromaticCliqueColoring |
@@ -202,6 +203,7 @@
 | StarProductPathUnmarkedBound | helper | proof | closed | - | - | StarProductIteratedShrink |
 | StarProductPolarityParameterBounds | helper | proof | closed | - | - | Preamble |
 | StarProductPolarityVertexCountBound | helper | proof | closed | - | - | PolarityGraphParameters, ProductDigraphVertexCard |
+| StarProductPolarityVertexCountLowerBound | helper | proof | closed | - | - | PolarityGraphParameters, ProductDigraphVertexCard, StarProductPolarityParameterBounds |
 | StarProductPoorChild | definition | definition | closed | - | - | StarProductRankLayer |
 | StarProductPoorChildrenBound | helper | proof | closed | - | - | StarProductFullRankNoForwardIndependentExtension, StarProductPoorRankChildrenBound |
 | StarProductPoorExpanderMixingBound | helper | proof | closed | - | - | Preamble |
@@ -232,4 +234,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 228 nodes | **Closed:** 227 | **Open:** 1
+**Total:** 230 nodes | **Closed:** 229 | **Open:** 1

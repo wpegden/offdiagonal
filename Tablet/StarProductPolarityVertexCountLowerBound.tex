@@ -1,0 +1,34 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\), let \(t\ge2\), and let
+\(G=G(t,K)\) be the polarity graph.  Then the vertex set of the star product
+digraph satisfies
+\[
+  \frac{q^{2t-1}}4 \le |V(D^*(G))|.
+\]
+\end{helper}
+\begin{proof}
+Put
+\[
+  n=\frac{q^{t+1}-1}{q-1},\qquad
+  d=\frac{q^t-1}{q-1}.
+\]
+By \(\noderef{PolarityGraphParameters}\), the polarity graph \(G(t,K)\) is an
+\((n,d,\lambda)\)-loop graph for the corresponding value of \(\lambda\).  The
+vertex set of \(D^*(G)\) is the product-digraph vertex type from
+\(\noderef{ProductDigraphVertex}\), so \(\noderef{ProductDigraphVertexCard}\)
+gives
+\[
+  |V(D^*(G))|=dn.
+\]
+The polarity parameter estimates in
+\(\noderef{StarProductPolarityParameterBounds}\) give
+\[
+  q^t\le n,\qquad q^{t-1}\le d.
+\]
+Multiplying these two inequalities yields
+\[
+  q^{2t-1}=q^{t-1}q^t\le dn=|V(D^*(G))|,
+\]
+where \((t-1)+t=2t-1\) because \(t\ge2\).  Since \(q^{2t-1}\ge0\), this
+stronger inequality implies \(q^{2t-1}/4\le |V(D^*(G))|\).
+\end{proof}

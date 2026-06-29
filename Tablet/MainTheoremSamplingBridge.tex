@@ -1,0 +1,79 @@
+\begin{helper}
+For every integer \(t\ge2\), there is a constant \(C=C(t)>0\) with the
+following property.  Let \(K\) be a finite field of order \(q\), and put
+\(D^*=D^*(G(t,K))\).  For every \(k\ge1\), if
+\[
+  C\le q,\qquad Cq(\log q)^2\le k,\qquad k\le eCq^t,
+\]
+then
+\[
+  \frac{kq^{t-1}}{4eC}-1 < r(t+1,k).
+\]
+\end{helper}
+\begin{proof}
+Fix \(t\ge2\), and take the constant \(C>0\) supplied by
+\(\noderef{StarProductForwardIndependentBound}\).  Let \(K,q,k\) satisfy the
+displayed hypotheses, and write \(D^*=D^*(G(t,K))\) for the star product
+digraph from \(\noderef{StarProductDigraph}\).
+
+By \(\noderef{StarProductDigraphTransitiveFree}\), the digraph \(D^*\) is
+\(T_{t+1}\)-free.  Since \(k\ge1\), \(\noderef{DigraphToGraphIndependentSetBound}\)
+gives a \(K_{t+1}\)-free graph \(\Gamma\) on the same vertex set as \(D^*\)
+such that
+\[
+  i_k(\Gamma)
+  \le
+  \left(\frac e k\right)^k \fwi_k(D^*).
+\]
+Here \(i_k\) and \(\fwi_k\) are the counts formalized in
+\(\noderef{SimpleGraphIndependentSetCount}\) and
+\(\noderef{ForwardIndependentTupleCount}\), respectively.
+The hypotheses \(C\le q\) and \(Cq(\log q)^2\le k\) allow us to apply
+\(\noderef{StarProductForwardIndependentBound}\) to \(K\), so
+\[
+  \fwi_k(D^*)\le (Cq^t)^k.
+\]
+Combining the two bounds gives
+\[
+  i_k(\Gamma)\le \left(\frac e k\right)^k (Cq^t)^k. \tag{1}
+\]
+
+Set
+\[
+  p=\frac{k}{eCq^t}.
+\]
+The positivity of \(C\), \(q\), and \(k\) gives \(p\ge0\), while the hypothesis
+\(k\le eCq^t\) gives \(p\le1\).  Multiplying (1) by \(p^k\) yields
+\[
+  p^k i_k(\Gamma)
+  \le
+  \left(\frac{k}{eCq^t}\right)^k
+  \left(\frac e k\right)^k
+  (Cq^t)^k
+  =1.
+\]
+Thus \(\noderef{SamplingKsFreeRamseyBound}\) applies to \(\Gamma\) and gives
+\[
+  p\,|V(D^*)|-1 < r(t+1,k). \tag{2}
+\]
+The notation \(r(t+1,k)\) is the Ramsey number from \(\noderef{RamseyNumber}\).
+
+Finally, \(\noderef{StarProductPolarityVertexCountLowerBound}\) gives
+\[
+  \frac{q^{2t-1}}4\le |V(D^*)|.
+\]
+Because \(p\ge0\), multiplying this inequality by \(p\) and substituting the
+definition of \(p\) gives
+\[
+  \frac{kq^{t-1}}{4eC}
+  =
+  \frac{k}{eCq^t}\cdot\frac{q^{2t-1}}4
+  \le
+  p\,|V(D^*)|.
+\]
+Combining this with (2) proves
+\[
+  \frac{kq^{t-1}}{4eC}-1<r(t+1,k),
+\]
+as claimed.
+\end{proof}
