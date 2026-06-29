@@ -1,0 +1,44 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\), let \(p\) be a prefix of
+vertices of \(D^*(G(t,K))\), and fix a projective point \(b\).  Suppose
+\[
+  r^p(b)=r,\qquad r\le t,
+\]
+and suppose the geometric-series bound
+\[
+  \sum_{i=0}^{t-r} q^i\le 2q^{t-r}
+\]
+holds.  Let \(E\) be a finite set of projective points \(a\) such that each
+\(a\in E\) occurs as the first coordinate of a legal forward-independent
+extension \((a,b)\) of \(p\) with this fixed second coordinate \(b\).  Then
+\[
+  |E|\le 2q^{t-r}.
+\]
+\end{helper}
+\begin{proof}
+Let \(W=W^p(b)\).  By \(\noderef{StarProductPrefixRank}\), the equality
+\(r^p(b)=r\) says that \(\dim_K W=r\).  Let \(W^\perp\) be the orthogonal
+complement of \(W\) with respect to the standard dot product on
+\(K^{t+1}\).  The standard dot product is nondegenerate on \(K^{t+1}\), so
+\[
+  \dim_K W^\perp=(t+1)-\dim_K W=t+1-r.
+\]
+
+Fix \(a\in E\).  By the defining property of \(E\), there is a legal
+extension \(x=(a,b)\) of \(p\).  Applying
+\(\noderef{StarProductExtensionOrthogonalToPrefixSpan}\) to this extension
+shows that \(\operatorname{rep}(a)\cdot v=0\) for every \(v\in W\).  By
+symmetry of the dot product this is exactly the assertion that
+\(\operatorname{rep}(a)\in W^\perp\).  Since \(\operatorname{rep}(a)\ne0\),
+the point \(a\) is the image of a point of the projective space
+\(\mathbb P(W^\perp)\) under the natural inclusion
+\(\mathbb P(W^\perp)\to\mathbb P(K^{t+1})\).
+
+Thus every element of \(E\) lifts to \(\mathbb P(W^\perp)\).  The subspace
+\(W^\perp\) has dimension \(t+1-r\), and the assumed geometric-series bound
+is precisely the numerical hypothesis of
+\(\noderef{StarProductFixedBExtensionBound}\).  That node therefore gives
+\[
+  |E|\le 2q^{t-r}.
+\]
+\end{proof}

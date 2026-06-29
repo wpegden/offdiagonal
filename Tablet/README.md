@@ -163,11 +163,14 @@
 | StarProductDeltaPowerLeQPower | proof | - | closed |
 | StarProductDigraph | definition | - | closed |
 | StarProductDigraphTransitiveFree | proof | - | closed |
+| StarProductExtensionOrthogonalToPrefixSpan | proof | - | closed |
 | StarProductFinalNumericalAbsorption | proof | - | closed |
 | StarProductFixedBExtensionBound | proof | - | closed |
+| StarProductFixedBRankLeExtensionBound | proof | - | closed |
 | StarProductForwardIndependentBound | proof | - | open |
 | StarProductForwardIndependentChildCountLeVertices | proof | - | closed |
 | StarProductForwardIndependentConsistentTuple | proof | - | closed |
+| StarProductFullRankNoForwardIndependentExtension | proof | - | closed |
 | StarProductHLeDelta | proof | - | closed |
 | StarProductIteratedShrink | proof | - | closed |
 | StarProductLayerChoice | definition | - | closed |
@@ -200,4 +203,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 193/195 closed
+**Summary:** 196/198 closed

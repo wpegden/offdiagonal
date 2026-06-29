@@ -1,0 +1,24 @@
+\begin{helper}
+Let \(K\) be a field, let \(p\) be a prefix of vertices of
+\(D^*(G(t,K))\), and fix a projective point \(b\).  If
+\[
+  r^p(b)=t+1,
+\]
+then there is no vertex \(x=(a,b)\) with second coordinate \(b\) such that
+the appended tuple \(\operatorname{snoc}(p,x)\) is forward independent in
+\(D^*(G(t,K))\).
+\end{helper}
+\begin{proof}
+Suppose, for contradiction, that such a vertex \(x=(a,b)\) exists and that
+the appended tuple is forward independent.  By
+\(\noderef{StarProductExtensionOrthogonalToPrefixSpan}\),
+\(\operatorname{rep}(a)\cdot v=0\) for every vector \(v\in W^p(b)\).
+
+By \(\noderef{StarProductPrefixRank}\), the hypothesis \(r^p(b)=t+1\) says
+that \(W^p(b)\) has the full dimension of \(K^{t+1}\).  Hence
+\(W^p(b)=K^{t+1}\).  The preceding orthogonality conclusion therefore says
+that \(\operatorname{rep}(a)\cdot v=0\) for every vector
+\(v\in K^{t+1}\).  Nondegeneracy of the standard dot product forces
+\(\operatorname{rep}(a)=0\), contradicting that a projective representative
+is nonzero.  Therefore no such forward-independent extension exists.
+\end{proof}

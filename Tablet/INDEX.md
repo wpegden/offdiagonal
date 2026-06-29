@@ -162,11 +162,14 @@
 | StarProductDeltaPowerLeQPower | helper | proof | closed | - | - | Preamble |
 | StarProductDigraph | definition | definition | closed | - | - | Digraph, ProductDigraphVertex |
 | StarProductDigraphTransitiveFree | lemma | proof | closed | - | - | PolarityGraph, StarProductDigraph, TransitiveTournamentFree |
+| StarProductExtensionOrthogonalToPrefixSpan | helper | proof | closed | - | - | StarProductForwardIndependentConsistentTuple, StarProductPrefixSpan |
 | StarProductFinalNumericalAbsorption | helper | proof | closed | - | - | Preamble |
 | StarProductFixedBExtensionBound | helper | proof | closed | - | - | Preamble |
-| StarProductForwardIndependentBound | lemma | proof | open | - | - | ExpanderMixingLemma, ForwardIndependentTupleCount, ForwardIndependentTupleCountSuccSnoc, MarkedTreePathCounting, PolarityGraphParameters, ProductDigraphVertex, StarProductConcreteAllChildrenBound, StarProductConcreteMarkedChildrenCertificate, StarProductConcretePathUnmarkedCertificate, StarProductConsistentTuple, StarProductDeltaPowerLeQPower, StarProductDigraph, StarProductFinalNumericalAbsorption, StarProductFixedBExtensionBound, StarProductForwardIndependentChildCountLeVertices, StarProductForwardIndependentConsistentTuple, StarProductHLeDelta, StarProductLayerChoiceLe, StarProductLayerChoiceMax, StarProductLayerChoicePositive, StarProductLayerChoiceRealLowerBound, StarProductMarkedChildrenBound, StarProductMarkedTreeCountingBridge, StarProductPathUnmarkedBound, StarProductPolarityVertexCountBound, StarProductPoorExpanderMixingBound, StarProductPopularDoubleCountingBound, StarProductQPowerLeTwoPow, StarProductShrinkCollapseForLaterExponents, StarProductShrinkThresholdCollapse, StarProductUnmarkedStepShrink, StarProductWLeK |
+| StarProductFixedBRankLeExtensionBound | helper | proof | closed | - | - | StarProductExtensionOrthogonalToPrefixSpan, StarProductFixedBExtensionBound, StarProductPrefixRank |
+| StarProductForwardIndependentBound | lemma | proof | open | - | - | ExpanderMixingLemma, ForwardIndependentTupleCount, ForwardIndependentTupleCountSuccSnoc, MarkedTreePathCounting, PolarityGraphParameters, ProductDigraphVertex, StarProductConcreteAllChildrenBound, StarProductConcreteMarkedChildrenCertificate, StarProductConcretePathUnmarkedCertificate, StarProductConsistentTuple, StarProductDeltaPowerLeQPower, StarProductDigraph, StarProductExtensionOrthogonalToPrefixSpan, StarProductFinalNumericalAbsorption, StarProductFixedBExtensionBound, StarProductFixedBRankLeExtensionBound, StarProductForwardIndependentChildCountLeVertices, StarProductForwardIndependentConsistentTuple, StarProductFullRankNoForwardIndependentExtension, StarProductHLeDelta, StarProductLayerChoiceLe, StarProductLayerChoiceMax, StarProductLayerChoicePositive, StarProductLayerChoiceRealLowerBound, StarProductMarkedChildrenBound, StarProductMarkedTreeCountingBridge, StarProductPathUnmarkedBound, StarProductPolarityVertexCountBound, StarProductPoorExpanderMixingBound, StarProductPopularDoubleCountingBound, StarProductQPowerLeTwoPow, StarProductShrinkCollapseForLaterExponents, StarProductShrinkThresholdCollapse, StarProductUnmarkedStepShrink, StarProductWLeK |
 | StarProductForwardIndependentChildCountLeVertices | helper | proof | closed | - | - | ForwardIndependentTuple, StarProductDigraph |
 | StarProductForwardIndependentConsistentTuple | helper | proof | closed | - | - | ForwardIndependentTuple, ProductDigraphVertex, StarProductConsistentTuple, StarProductDigraph |
+| StarProductFullRankNoForwardIndependentExtension | helper | proof | closed | - | - | StarProductExtensionOrthogonalToPrefixSpan, StarProductPrefixRank |
 | StarProductHLeDelta | helper | proof | closed | - | - | Preamble |
 | StarProductIteratedShrink | helper | proof | closed | - | - | Preamble |
 | StarProductLayerChoice | definition | definition | closed | - | - | StarProductRankLayer |
@@ -199,4 +202,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 195 nodes | **Closed:** 193 | **Open:** 2
+**Total:** 198 nodes | **Closed:** 196 | **Open:** 2

@@ -1,0 +1,37 @@
+\begin{helper}
+Let \(K\) be a field, let \(p=(x_i)_{i<m}\) be a prefix of vertices of
+\(D^*(G(t,K))\), and write \(x_i=(a_i,b_i)\).  Let
+\(x=(a,b)\) be a further vertex such that the appended tuple
+\(\operatorname{snoc}(p,x)\) is forward independent in \(D^*(G(t,K))\).
+Then the representative vector of \(a\) is orthogonal to every vector in
+\(W^p(b)\):
+\[
+  \operatorname{rep}(a)\cdot v=0
+  \qquad\text{for every }v\in W^p(b).
+\]
+\end{helper}
+\begin{proof}
+By \(\noderef{StarProductForwardIndependentConsistentTuple}\), the forward
+independence of the appended tuple is equivalent to
+\(D^*\)-consistency of the coordinate tuple in the sense of
+\(\noderef{StarProductConsistentTuple}\).  Thus, for every old index \(i<m\),
+if \(a_i b\in E(G(t,K))\), then consistency applied to the pair of indices
+\(i<m\) and the new last index gives \(a b_i\in E(G(t,K))\).
+
+By \(\noderef{PolarityGraph}\), the edge relation in \(G(t,K)\) is
+orthogonality of projective representatives.  Hence the implication just
+proved says that every generator \(\operatorname{rep}(b_i)\) occurring in
+the spanning set defining \(W^p(b)\) has
+\[
+  \operatorname{rep}(a)\cdot \operatorname{rep}(b_i)=0.
+\]
+By \(\noderef{StarProductPrefixSpan}\), \(W^p(b)\) is the \(K\)-linear span
+of exactly these generators.  The map
+\[
+  v\longmapsto \operatorname{rep}(a)\cdot v
+\]
+is a \(K\)-linear functional, so its zero set is a subspace.  Since all
+generators of \(W^p(b)\) lie in this zero set, the whole span \(W^p(b)\)
+lies in this zero set.  Therefore
+\(\operatorname{rep}(a)\cdot v=0\) for every \(v\in W^p(b)\).
+\end{proof}
