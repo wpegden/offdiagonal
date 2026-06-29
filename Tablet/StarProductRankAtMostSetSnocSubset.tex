@@ -9,6 +9,8 @@ where \(U_l^p=\{y:r^p(y)\le l\}\) is the set
 \begin{proof}
 Take \(y\in U_l^{p'}\).  Then \(r^{p'}(y)\le l\) by
 \(\noderef{StarProductRankAtMostSet}\).  By
-\(\noderef{StarProductPrefixRankSnocMonotone}\), \(r^p(y)\le r^{p'}(y)\).
+\(\noderef{StarProductPrefixSpanSnocLe}\), the span defining \(r^p(y)\) is a
+subspace of the span defining \(r^{p'}(y)\).  Since finrank is monotone under
+subspace inclusion, \(r^p(y)\le r^{p'}(y)\).
 Hence \(r^p(y)\le l\), so \(y\in U_l^p\).
 \end{proof}

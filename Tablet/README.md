@@ -218,7 +218,6 @@
 | StarProductPopularSecondCoordinates | definition | - | closed |
 | StarProductPopularSecondCoordinatesBound | proof | - | closed |
 | StarProductPrefixRank | definition | - | closed |
-| StarProductPrefixRankSnocMonotone | proof | - | closed |
 | StarProductPrefixSpan | definition | - | closed |
 | StarProductPrefixSpanSnocLe | proof | - | closed |
 | StarProductQPowerLeTwoPow | proof | - | closed |
@@ -236,4 +235,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 231/231 closed
+**Summary:** 230/230 closed

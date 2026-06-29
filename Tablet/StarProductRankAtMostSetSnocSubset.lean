@@ -1,5 +1,5 @@
 import Mathlib.Tactic
-import Tablet.StarProductPrefixRankSnocMonotone
+import Tablet.StarProductPrefixSpanSnocLe
 import Tablet.StarProductRankAtMostSet
 
 -- [TABLET NODE: StarProductRankAtMostSetSnocSubset]
@@ -21,6 +21,10 @@ theorem StarProductRankAtMostSetSnocSubset (K : Type u) [Field K] (t : ℕ)
   have hnew : StarProductPrefixRank K t
         (@Fin.snoc m (fun _ => ProductDigraphVertex (PolarityGraph K t)) p x) y ≤ l := by
     simpa [StarProductRankAtMostSet] using hy
-  have holdle := StarProductPrefixRankSnocMonotone K t p x y
+  have holdle : StarProductPrefixRank K t p y ≤
+      StarProductPrefixRank K t
+        (@Fin.snoc m (fun _ => ProductDigraphVertex (PolarityGraph K t)) p x) y := by
+    simpa [StarProductPrefixRank] using
+      (Submodule.finrank_mono (StarProductPrefixSpanSnocLe K t p x y))
   exact by
     simp [StarProductRankAtMostSet, le_trans holdle hnew]

@@ -217,13 +217,12 @@
 | StarProductPopularSecondCoordinates | definition | definition | closed | - | - | StarProductLayerChoice, StarProductPopularChild |
 | StarProductPopularSecondCoordinatesBound | helper | proof | closed | - | - | StarProductLayerChoicePositive, StarProductPopularDoubleCountingBound, StarProductPopularSecondCoordinates, StarProductSubspacePointsBound |
 | StarProductPrefixRank | definition | definition | closed | - | - | StarProductPrefixSpan |
-| StarProductPrefixRankSnocMonotone | lemma | proof | closed | - | - | StarProductPrefixRank, StarProductPrefixSpanSnocLe |
 | StarProductPrefixSpan | definition | definition | closed | - | - | PolarityGraph, ProductDigraphVertex |
 | StarProductPrefixSpanSnocLe | lemma | proof | closed | - | - | StarProductPrefixSpan |
 | StarProductQPowerLeTwoPow | helper | proof | closed | - | - | Preamble |
 | StarProductRankAtMostCardLeSuccMulLayerChoice | lemma | proof | closed | - | - | StarProductLayerChoiceMax, StarProductRankAtMostSet |
 | StarProductRankAtMostSet | definition | definition | closed | - | - | StarProductPrefixRank |
-| StarProductRankAtMostSetSnocSubset | lemma | proof | closed | - | - | StarProductPrefixRankSnocMonotone, StarProductRankAtMostSet |
+| StarProductRankAtMostSetSnocSubset | lemma | proof | closed | - | - | StarProductPrefixSpanSnocLe, StarProductRankAtMostSet |
 | StarProductRankIncreasesOnGoodExtension | lemma | proof | closed | - | - | StarProductPrefixRank, StarProductPrefixSpanSnocLe |
 | StarProductRankLayer | definition | definition | closed | - | - | StarProductPrefixRank |
 | StarProductShrinkCollapseForLaterExponents | helper | proof | closed | - | - | Preamble |
@@ -235,4 +234,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 231 nodes | **Closed:** 231 | **Open:** 0
+**Total:** 230 nodes | **Closed:** 230 | **Open:** 0
