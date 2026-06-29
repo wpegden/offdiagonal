@@ -11,6 +11,8 @@ import Tablet.ProductDigraphTupleHasShrinkingSequence
 import Tablet.LoopGraphDegree
 import Tablet.TransitiveTournamentFree
 
+set_option linter.unusedVariables false
+
 -- [TABLET NODE: ProductDigraphForwardIndependentBound]
 
 universe u
