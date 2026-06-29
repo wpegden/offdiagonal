@@ -1,0 +1,68 @@
+\begin{helper}
+Let \(A,t,q\) be nonnegative integers with \(t\ge1\) and \(q\ge1\).  Define
+\[
+  w=\left\lfloor A q\log q\right\rfloor .
+\]
+Assume that the truncated natural-number exponent satisfies
+\[
+  32tq\log(4q^t)<\frac{w}{t+1}-1 .
+\]
+Then
+\[
+  w\le A q\log q
+\]
+and
+\[
+  \left(1-\frac{1}{32tq}\right)^{w/(t+1)-1}
+  <\frac{1}{4q^t}.
+\]
+Here \(w/(t+1)-1\) denotes natural-number subtraction after integer division,
+as in the Lean statement.
+\end{helper}
+\begin{proof}
+Since \(q\ge1\), we have \(\log q\ge0\).  Thus
+\[
+  A q\log q\ge0.
+\]
+For a nonnegative real number \(x\), its natural-number floor satisfies
+\(\lfloor x\rfloor\le x\).  Applying this to \(x=Aq\log q\) gives
+\[
+  w=\lfloor Aq\log q\rfloor\le Aq\log q.
+\]
+
+Put
+\[
+  e=\frac{w}{t+1}-1,\qquad D=32tq,\qquad M=4q^t.
+\]
+The hypotheses \(t\ge1\) and \(q\ge1\) give \(D>0\), \(D\ge1\), and
+\(M>0\).  Hence \(0\le 1/D\le1\), so \(1-1/D\ge0\).  The elementary
+exponential inequality \(1-x\le e^{-x}\), applied with \(x=1/D\), gives
+\[
+  1-\frac1D\le \exp(-1/D).
+\]
+Raising both sides to the nonnegative integer power \(e\) gives
+\[
+  \left(1-\frac1D\right)^e\le \exp(-1/D)^e
+  =\exp(-e/D).
+\]
+
+The assumed lower bound \(D\log M<e\), divided by the positive number \(D\),
+gives
+\[
+  \log M<e/D.
+\]
+Equivalently,
+\[
+  -e/D<-\log M.
+\]
+Since the exponential function is strictly increasing and \(M>0\),
+\[
+  \exp(-e/D)<\exp(-\log M)=\frac1M.
+\]
+Combining the last two displayed inequalities yields
+\[
+  \left(1-\frac1D\right)^e<\frac1M.
+\]
+Substituting back \(D=32tq\), \(M=4q^t\), and
+\(e=w/(t+1)-1\) gives the required shrink threshold.
+\end{proof}

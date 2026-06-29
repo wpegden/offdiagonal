@@ -176,6 +176,7 @@
 | StarProductFinalNumericalAbsorption | proof | - | closed |
 | StarProductFixedBExtensionBound | proof | - | closed |
 | StarProductFixedBRankLeExtensionBound | proof | - | closed |
+| StarProductFloorWeightSideConditions | proof | - | closed |
 | StarProductForwardIndependentBound | proof | - | open |
 | StarProductForwardIndependentChildCountLeVertices | proof | - | closed |
 | StarProductForwardIndependentConsistentTuple | proof | - | closed |
@@ -229,4 +230,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 222/224 closed
+**Summary:** 223/225 closed
