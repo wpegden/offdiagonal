@@ -1,0 +1,24 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\).  For every \(n\ge0\),
+\[
+  \sum_{i=0}^{n}q^i\le 2q^n .
+\]
+\end{helper}
+\begin{proof}
+Since \(K\) is a field, it has at least two elements, so \(q\ge2\).  We prove
+the estimate by induction on \(n\).  For \(n=0\) the left hand side is \(1\),
+which is at most \(2\).
+
+Assume the claim for \(n\).  Then
+\[
+  \sum_{i=0}^{n+1}q^i
+  =\sum_{i=0}^{n}q^i+q^{n+1}
+  \le 2q^n+q^{n+1}
+  =(2+q)q^n.
+\]
+Because \(q\ge2\), we have \(2+q\le2q\).  Hence
+\[
+  (2+q)q^n\le (2q)q^n=2q^{n+1}.
+\]
+This completes the induction.
+\end{proof}

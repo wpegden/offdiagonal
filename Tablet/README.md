@@ -171,6 +171,7 @@
 | StarProductForwardIndependentChildCountLeVertices | proof | - | closed |
 | StarProductForwardIndependentConsistentTuple | proof | - | closed |
 | StarProductFullRankNoForwardIndependentExtension | proof | - | closed |
+| StarProductGeometricSumLeTwoPow | proof | - | closed |
 | StarProductHLeDelta | proof | - | closed |
 | StarProductIteratedShrink | proof | - | closed |
 | StarProductLayerChoice | definition | - | closed |
@@ -189,7 +190,11 @@
 | StarProductPoorChild | definition | - | closed |
 | StarProductPoorExpanderMixingBound | proof | - | closed |
 | StarProductPopularChild | definition | - | closed |
+| StarProductPopularChildrenBound | proof | - | closed |
 | StarProductPopularDoubleCountingBound | proof | - | closed |
+| StarProductPopularRankChildrenBound | proof | - | closed |
+| StarProductPopularSecondCoordinates | definition | - | closed |
+| StarProductPopularSecondCoordinatesBound | proof | - | closed |
 | StarProductPrefixRank | definition | - | closed |
 | StarProductPrefixSpan | definition | - | closed |
 | StarProductQPowerLeTwoPow | proof | - | closed |
@@ -198,9 +203,11 @@
 | StarProductRankLayer | definition | - | closed |
 | StarProductShrinkCollapseForLaterExponents | proof | - | closed |
 | StarProductShrinkThresholdCollapse | proof | - | closed |
+| StarProductSubspacePoints | definition | - | closed |
+| StarProductSubspacePointsBound | proof | - | closed |
 | StarProductUnmarkedStepShrink | proof | - | closed |
 | StarProductWLeK | proof | - | closed |
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 196/198 closed
+**Summary:** 203/205 closed

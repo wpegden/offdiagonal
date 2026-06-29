@@ -26,6 +26,7 @@ import Tablet.StarProductMarkedTreeCountingBridge
 import Tablet.StarProductMarkedChildrenBound
 import Tablet.StarProductPathUnmarkedBound
 import Tablet.StarProductPoorExpanderMixingBound
+import Tablet.StarProductPopularChildrenBound
 import Tablet.StarProductPopularDoubleCountingBound
 import Tablet.StarProductPolarityVertexCountBound
 import Tablet.StarProductQPowerLeTwoPow

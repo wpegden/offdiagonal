@@ -1,0 +1,43 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\), let \(p\) be a prefix, and fix a
+rank \(r\le t\).  The number of legal popular children \(x=(a,b)\) of \(p\),
+in the sense of \(\noderef{StarProductPopularChild}\),
+whose second coordinate has prefix rank \(r^p(b)=r\) is at most
+\[
+  64q^t .
+\]
+Popularity is with respect to the layer choice
+\(\ell^p_r=\noderef{StarProductLayerChoice}\).
+\end{helper}
+\begin{proof}
+Let \(B=\operatorname{Pop}^p_r\), the set of popular second coordinates from
+\(\noderef{StarProductPopularSecondCoordinates}\).  By
+\(\noderef{StarProductPopularSecondCoordinatesBound}\),
+\[
+  |B|\le 32q^{\ell^p_r}.
+\]
+For a fixed \(b\in B\), the defining membership \(b\in Z^p_r\) from
+\(\noderef{StarProductRankLayer}\) gives \(r^p(b)=r\).  Since \(r\le t\),
+the fixed-second-coordinate estimate
+\(\noderef{StarProductFixedBRankLeExtensionBound}\), together with the
+geometric-series estimate \(\noderef{StarProductGeometricSumLeTwoPow}\),
+shows that there are at most \(2q^{t-r}\) legal choices of the first
+coordinate \(a\) extending \(p\) with this fixed \(b\).  A legal child with
+fixed \(b\) is determined by its first coordinate, so there are at most
+\(2q^{t-r}\) such children.
+
+Thus the rank-\(r\) popular children are covered by the union, over
+\(b\in B\), of sets of size at most \(2q^{t-r}\).  Hence their number is at
+most
+\[
+  |B|\cdot 2q^{t-r}
+  \le 32q^{\ell^p_r}\cdot 2q^{t-r}.
+\]
+By \(\noderef{StarProductLayerChoiceLe}\), \(\ell^p_r\le r\).  Since
+\(q>0\), \(q^{\ell^p_r}\le q^r\), and therefore
+\[
+  32q^{\ell^p_r}\cdot 2q^{t-r}
+  \le 64q^r q^{t-r}
+  =64q^t.
+\]
+\end{proof}

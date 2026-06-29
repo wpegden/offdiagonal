@@ -1,0 +1,38 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\), and suppose \(t\ge2\).  For
+every length \(m<k\) and every legal forward-independent prefix \(p\), the
+number of legal children \(x\) satisfying
+\[
+  \noderef{StarProductPopularChild}
+\]
+for the concrete layer choice
+\(\ell^p_r=\noderef{StarProductLayerChoice}\) is at most
+\[
+  128tq^t .
+\]
+\end{helper}
+\begin{proof}
+Partition legal popular children according to the rank
+\[
+  r=r^p(b)
+\]
+of their second coordinate \(b\).  The rank is the dimension of the prefix
+span \(W^p(b)\), by \(\noderef{StarProductPrefixRank}\), so it is at most
+\(t+1\).  If \(r=t+1\), then
+\(\noderef{StarProductFullRankNoForwardIndependentExtension}\) says that no
+legal forward-independent extension with second coordinate \(b\) exists.
+Thus every legal popular child has rank \(r\le t\).
+
+For each fixed \(r\le t\), \(\noderef{StarProductPopularRankChildrenBound}\)
+bounds the number of legal popular children of rank \(r\) by \(64q^t\).
+There are \(t+1\) possible ranks \(0,1,\ldots,t\), so the total number of
+legal popular children is at most
+\[
+  (t+1)\cdot 64q^t.
+\]
+Since \(t\ge2\), we have \(t+1\le2t\).  Therefore
+\[
+  (t+1)\cdot64q^t\le 128tq^t,
+\]
+as required.
+\end{proof}

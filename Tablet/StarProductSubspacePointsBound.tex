@@ -1,0 +1,31 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\).  Fix a prefix \(p\) and a
+projective point \(y\).  If the prefix span \(W^p(y)\) of
+\(\noderef{StarProductPrefixSpan}\) has dimension \(d\), then the set
+\(\operatorname{Pts}(W^p(y))\) of \(\noderef{StarProductSubspacePoints}\)
+satisfies
+\[
+  |\operatorname{Pts}(W^p(y))|\le 2q^d/q .
+\]
+\end{helper}
+\begin{proof}
+Let \(W=W^p(y)\).  Every projective point \(b\) counted by
+\(\operatorname{Pts}(W)\) has \(\operatorname{rep}(b)\in W\).  Therefore
+\(b\) lifts to the projective space \(\mathbb P(W)\), namely to the point
+represented by \(\operatorname{rep}(b)\) viewed as a nonzero vector of \(W\).
+The natural map \(\mathbb P(W)\to\mathbb P(K^{t+1})\) induced by inclusion
+is injective, so
+\[
+  |\operatorname{Pts}(W)|\le |\mathbb P(W)|.
+\]
+Since \(\dim W=d\), the standard projective-space cardinality formula gives
+\[
+  |\mathbb P(W)|=\sum_{i=0}^{d-1}q^i .
+\]
+If \(d=0\), this sum is \(0\), and the desired inequality is immediate.  If
+\(d=n+1\), then \(\noderef{StarProductGeometricSumLeTwoPow}\) gives
+\[
+  \sum_{i=0}^{n}q^i\le 2q^n=2q^{n+1}/q=2q^d/q,
+\]
+because \(q>0\).  Combining these estimates proves the claim.
+\end{proof}

@@ -1,0 +1,42 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\).  For every prefix \(p\) and
+rank \(r\), the set \(\operatorname{Pop}^p_r\) of
+\(\noderef{StarProductPopularSecondCoordinates}\) has size at most
+\[
+  32q^{\ell^p_r},
+\]
+where \(\ell^p_r=\noderef{StarProductLayerChoice}\).
+\end{helper}
+\begin{proof}
+If \(U^p_r\) of \(\noderef{StarProductRankAtMostSet}\) is empty, then
+\(Z^p_r\) of \(\noderef{StarProductRankLayer}\) is empty, and
+\(\operatorname{Pop}^p_r\subseteq Z^p_r\) is empty.  The bound is then
+trivial.
+
+Assume \(U^p_r\) is nonempty.  By
+\(\noderef{StarProductLayerChoicePositive}\), the chosen layer
+\(Z^p_{\ell^p_r}\) is nonempty.  Apply the double-counting lemma
+\(\noderef{StarProductPopularDoubleCountingBound}\) with
+\[
+  P=\operatorname{Pop}^p_r,\qquad
+  Z=Z^p_{\ell^p_r},\qquad
+  W(y)=\operatorname{Pts}(W^p(y)).
+\]
+For \(b\in P\), the definition
+\(\noderef{StarProductPopularSecondCoordinates}\) says exactly that \(b\)
+belongs to at least \(|Z|/(16q)\) of the sets \(W(y)\).
+
+For \(y\in Z\), the definition \(\noderef{StarProductRankLayer}\) of
+\(Z^p_{\ell^p_r}\) says \(\dim W^p(y)=\ell^p_r\), by
+\(\noderef{StarProductPrefixRank}\).
+Therefore \(\noderef{StarProductSubspacePointsBound}\) gives
+\[
+  |W(y)|\le 2q^{\ell^p_r}/q.
+\]
+The intersection \(W(y)\cap P\) is no larger than \(W(y)\).  Thus the fiber
+hypothesis of \(\noderef{StarProductPopularDoubleCountingBound}\) holds, and
+that node gives
+\[
+  |\operatorname{Pop}^p_r|\le 32q^{\ell^p_r}.
+\]
+\end{proof}
