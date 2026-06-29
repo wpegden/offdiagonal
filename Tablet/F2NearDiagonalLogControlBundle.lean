@@ -1,7 +1,6 @@
 import Tablet.F2NearDiagonalSmallXLogBound
 import Tablet.F2NearDiagonalLogSquareBound
 import Tablet.F2NearDiagonalBinomialLogBound
-import Tablet.F2NearDiagonalChooseSymmetry
 import Tablet.F2NearDiagonalQuadraticMaxBound
 
 -- [TABLET NODE: F2NearDiagonalLogControlBundle]
@@ -49,8 +48,9 @@ theorem F2NearDiagonalLogControlBundle (eps : ℝ) (heps : 0 < eps) :
     dsimp [j]
     omega
   have hsym : Nat.choose (s + a) t = Nat.choose (s + a) (j + a) := by
-    have h := F2NearDiagonalChooseSymmetry s a j hj_le_s
-    simpa [hsub] using h
+    have hle : j + a ≤ s + a := by omega
+    have hcompl : s + a - (j + a) = s - j := by omega
+    simpa [hcompl, hsub] using Nat.choose_symm hle
   have hR_pos :
       0 < Real.exp 1 * ((s + a : ℕ) : ℝ) / ((a + 1 : ℕ) : ℝ) := by
     positivity

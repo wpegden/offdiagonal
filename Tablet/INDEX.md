@@ -55,14 +55,13 @@
 | F2DotOnePairCard | helper | proof | closed | - | - | Preamble |
 | F2DotOnePairEmbedding | helper | proof | closed | - | - | F2DotOnePairCard |
 | F2ForwardIndependentLinearBound | lemma | proof | closed | - | - | F2ForwardIndependentSumBound, F2ForwardIndependentTuples |
-| F2ForwardIndependentNearDiagonalBound | lemma | proof | closed | - | - | F2ForwardIndependentTuples, F2NearDiagonalChooseSymmetry, F2NearDiagonalExponentIdentity, F2NearDiagonalLargeSPowerBound, F2NearDiagonalLogControlBundle, F2NearDiagonalQuadraticMaxBound, F2NearDiagonalSummandFromLogControls, F2NearDiagonalSummationAbsorptionBound |
+| F2ForwardIndependentNearDiagonalBound | lemma | proof | closed | - | - | F2ForwardIndependentTuples, F2NearDiagonalExponentIdentity, F2NearDiagonalLargeSPowerBound, F2NearDiagonalLogControlBundle, F2NearDiagonalQuadraticMaxBound, F2NearDiagonalSummandFromLogControls, F2NearDiagonalSummationAbsorptionBound |
 | F2ForwardIndependentSumBound | helper | proof | closed | - | - | Preamble |
 | F2ForwardIndependentTuples | lemma | proof | closed | - | - | BinarySequenceWeightFiberCard, DigraphLoopless, F2BadTuple, F2BadTupleAmbientStepProductBound, F2BadTupleCountBoundNat, F2BadTupleFinalRankFiberBound, F2BadTupleFixedIncreaseCount, F2BadTupleFixedIncreaseCountBound, F2BadTupleFixedIncreaseFalseLastBound, F2BadTupleFixedIncreasePrefixRestriction, F2BadTupleFixedIncreaseTrueLastBound, F2BadTupleLastPairAmbientFiberBound, F2BadTupleLastPairSpanFiberBound, F2BadTupleNonincreaseStepProductBound, F2BadTuplePrefixFiberBound, F2BadTuplePrefixSpanCard, F2BadTupleRankAmbientBound, F2BadTupleRankIncreaseSetCard, F2BadTupleRankOne, F2BadTupleRankStep, F2BadTupleRankZero, F2CoordinateDigraphLoopless, F2CoordinateDigraphTransitiveFree, F2DotOnePairEmbedding, ForwardIndependentTupleCount, TransitiveTournamentFree |
 | F2NearDiagonalBinomialLogBound | helper | proof | closed | - | - | Preamble |
-| F2NearDiagonalChooseSymmetry | helper | proof | closed | - | - | Preamble |
 | F2NearDiagonalExponentIdentity | helper | proof | closed | - | - | Preamble |
 | F2NearDiagonalLargeSPowerBound | helper | proof | closed | - | - | Preamble |
-| F2NearDiagonalLogControlBundle | helper | proof | closed | - | - | F2NearDiagonalBinomialLogBound, F2NearDiagonalChooseSymmetry, F2NearDiagonalLogSquareBound, F2NearDiagonalQuadraticMaxBound, F2NearDiagonalSmallXLogBound |
+| F2NearDiagonalLogControlBundle | helper | proof | closed | - | - | F2NearDiagonalBinomialLogBound, F2NearDiagonalLogSquareBound, F2NearDiagonalQuadraticMaxBound, F2NearDiagonalSmallXLogBound |
 | F2NearDiagonalLogSquareBound | helper | proof | closed | - | - | Preamble |
 | F2NearDiagonalQuadraticMaxBound | helper | proof | closed | - | - | Preamble |
 | F2NearDiagonalSmallXLogBound | helper | proof | closed | - | - | Preamble |
@@ -236,4 +235,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 232 nodes | **Closed:** 232 | **Open:** 0
+**Total:** 231 nodes | **Closed:** 231 | **Open:** 0

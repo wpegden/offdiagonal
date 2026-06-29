@@ -1,6 +1,5 @@
 import Tablet.F2ForwardIndependentTuples
 import Tablet.F2NearDiagonalExponentIdentity
-import Tablet.F2NearDiagonalChooseSymmetry
 import Tablet.F2NearDiagonalLargeSPowerBound
 import Tablet.F2NearDiagonalQuadraticMaxBound
 import Tablet.F2NearDiagonalSummationAbsorptionBound

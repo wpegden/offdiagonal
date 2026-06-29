@@ -61,7 +61,6 @@
 | F2ForwardIndependentSumBound | proof | - | closed |
 | F2ForwardIndependentTuples | proof | - | closed |
 | F2NearDiagonalBinomialLogBound | proof | - | closed |
-| F2NearDiagonalChooseSymmetry | proof | - | closed |
 | F2NearDiagonalExponentIdentity | proof | - | closed |
 | F2NearDiagonalLargeSPowerBound | proof | - | closed |
 | F2NearDiagonalLogControlBundle | proof | - | closed |
@@ -237,4 +236,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 232/232 closed
+**Summary:** 231/231 closed
