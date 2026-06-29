@@ -1,0 +1,21 @@
+\begin{helper}
+There is a real number \(Q_0\) such that every integer \(q\ge Q_0\) satisfies
+\[
+  4(\log q)^2\le e q.
+\]
+\end{helper}
+\begin{proof}
+The standard asymptotic estimate \((\log x)^2=o(x)\) says that, for every
+positive constant \(\epsilon\), all sufficiently large real \(x\) satisfy
+\[
+  |(\log x)^2|\le \epsilon |x|.
+\]
+Apply this with \(\epsilon=e/4\).  For positive integers \(q\) beyond the
+resulting threshold, both \(q\) and \((\log q)^2\) are nonnegative, so the
+absolute values may be removed and
+\[
+  (\log q)^2\le \frac e4 q.
+\]
+Multiplying by \(4\) gives the stated bound.
+\end{proof}
+

@@ -102,11 +102,14 @@
 | LoopGraphZeroSumAdjacencyEuclideanOperator | definition | - | closed |
 | LoopGraphZeroSumEuclideanEigenpairNonprincipal | proof | - | closed |
 | LoopGraphZeroSumEuclideanEigenvalueBound | proof | - | closed |
-| MainTheorem | proof | - | open |
+| MainTheorem | proof | - | closed |
 | MainTheoremDyadicFieldScale | proof | - | closed |
 | MainTheoremEtaBounds | proof | - | closed |
+| MainTheoremLinearLogSqGrowth | proof | - | closed |
+| MainTheoremLogSquaredPowerBound | proof | - | closed |
 | MainTheoremPolarityParameterBounds | proof | - | closed |
 | MainTheoremPolaritySetup | proof | - | closed |
+| MainTheoremRamseyPositive | proof | - | closed |
 | MainTheoremSamplingBridge | proof | - | closed |
 | MarkedTreePathCounting | proof | - | closed |
 | MulticolorRamseyNumber | definition | - | closed |
@@ -235,4 +238,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 229/230 closed
+**Summary:** 233/233 closed
