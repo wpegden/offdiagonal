@@ -1,0 +1,99 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\), let \(t\ge2\), let
+\(A,k,w,\Delta\) be nonnegative integers, and let \(C\in\mathbb R\).  Assume
+the projective parameter upper bounds
+\[
+  \frac{q^{t+1}-1}{q-1}\le 2q^t,\qquad
+  \frac{q^t-1}{q-1}\le 2q^{t-1},
+\]
+and assume
+\[
+  4q^{2t-1}\le\Delta,\qquad 10128t\le A.
+\]
+Assume also, in real-number inequalities, that
+\[
+  A\le 4q^{t-1},\qquad A\le C,\qquad 1\le\log q,
+\]
+\[
+  w\le Aq\log q,\qquad Cq(\log q)^2\le k,
+\]
+and that the concrete shrink threshold holds:
+\[
+  \left(1-\frac{1}{32tq}\right)^{w/(t+1)-1}
+  < \frac{1}{4q^t},
+\]
+where the exponent \(w/(t+1)-1\) is the truncated natural-number exponent.
+Then, for the concrete marking rule
+\[
+  \noderef{StarProductConcreteMarked}
+  \quad\text{with}\quad
+  \ell(p,r)=\noderef{StarProductLayerChoice}(p,r),
+\]
+one has
+\[
+  \fwi_k(D^*(G(t,K)))
+  \le 2^k\Delta^w(Aq^t)^{k-w}.
+\]
+\end{helper}
+\begin{proof}
+We verify the hypotheses of the tree-counting bridge
+\(\noderef{StarProductMarkedTreeCountingBridge}\) for
+\[
+  G=G(t,K),\qquad
+  h=Aq^t,
+\]
+and for the concrete marking rule displayed in the statement.
+
+First, the finite-field parameter estimate
+\(\noderef{StarProductPolarityParameterBounds}\) gives \(q\ge2\), and hence
+\(q\ge1\).  Since \(h=Aq^t\), the inequality \(h\le Aq^t\) required by
+\(\noderef{StarProductHLeDelta}\) is an equality.  Together with the
+assumptions \(A\le4q^{t-1}\) and \(4q^{2t-1}\le\Delta\), that node gives
+\[
+  h=Aq^t\le\Delta.
+\]
+
+Next, applying \(\noderef{StarProductWLeK}\) with the real parameters
+\(A\) and \(C\) gives
+\[
+  w\le k.
+\]
+Indeed its hypotheses are exactly \(A\ge0\), which is automatic because
+\(A\) is a natural number, together with \(A\le C\), \(1\le\log q\),
+\(w\le Aq\log q\), and \(Cq(\log q)^2\le k\).
+
+For the path hypothesis in
+\(\noderef{StarProductMarkedTreeCountingBridge}\), fix a forward independent
+\(k\)-tuple \(v\) in \(D^*(G(t,K))\).  The shrink-threshold assumption is
+precisely the hypothesis of
+\(\noderef{StarProductConcretePathWeightBound}\), so that node gives
+\[
+  \bigl|\operatorname{sig}(v)\bigr|\le w
+\]
+for the concrete marked-tuple signature.
+
+For the all-children hypothesis, the assumed upper bounds on the projective
+vertex and degree parameters and the inequality \(4q^{2t-1}\le\Delta\) are
+exactly the hypotheses of \(\noderef{StarProductConcreteAllChildrenBound}\).
+Thus every legal forward-independent prefix of length \(m<k\) has at most
+\(\Delta\) legal children.
+
+For the marked-children hypothesis, apply
+\(\noderef{StarProductConcreteMarkedChildrenBound}\) with \(h=Aq^t\).  Its
+condition \(Aq^t\le h\) is again equality, and the remaining numerical
+hypothesis is \(10128t\le A\), which is assumed.  Therefore every legal
+prefix of length \(m<k\) has at most \(h=Aq^t\) legal children marked by the
+concrete rule.
+
+All hypotheses of \(\noderef{StarProductMarkedTreeCountingBridge}\) are now
+verified: \(w\le k\), \(h\le\Delta\), every full path has at most \(w\)
+unmarked steps, every prefix has at most \(\Delta\) legal children, and every
+prefix has at most \(h\) marked legal children.  Applying the bridge yields
+\[
+  \fwi_k(D^*(G(t,K)))\le 2^k\Delta^w h^{k-w}.
+\]
+Substituting \(h=Aq^t\) gives exactly
+\[
+  \fwi_k(D^*(G(t,K)))\le 2^k\Delta^w(Aq^t)^{k-w}.
+\]
+\end{proof}
