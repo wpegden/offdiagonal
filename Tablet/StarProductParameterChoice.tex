@@ -1,0 +1,96 @@
+\begin{helper}
+Let \(t\ge2\) be an integer.  There are a natural number \(A=A(t)\) and a
+real number \(C=C(t)>0\) such that
+\[
+  10128t\le A,\qquad A\le C,\qquad 4A\le C,\qquad 2tA\le C\log 2,
+\]
+and such that every integer \(q\) with \(q\ge C\) satisfies
+\[
+  q\ge4,\qquad 1\le\log q,\qquad A\le 4q^{t-1},\qquad 1\le Aq^t,
+\]
+together with the floor-exponent bound
+\[
+  32tq\log(4q^t)
+  <
+  \left(\left\lfloor Aq\log q\right\rfloor/(t+1)-1\right),
+\]
+where the division and subtraction on the right are natural-number truncated
+division and subtraction.
+\end{helper}
+\begin{proof}
+Set
+\[
+  A=
+  10128t+100000\,t(t+1)(t+4)+2(t+1)+2
+\]
+and
+\[
+  C=\max\left\{4,\ 4A,\ \frac{2tA}{\log2}\right\}.
+\]
+Since \(\log2>0\), this \(C\) is positive, and the displayed definition gives
+\(4\le C\), \(4A\le C\), and \((2tA)/\log2\le C\).  Multiplying the last
+inequality by the positive number \(\log2\) gives \(2tA\le C\log2\).  Also
+\(A\le4A\le C\), and the first summand in the definition of \(A\) gives
+\(10128t\le A\).
+
+Now let \(q\) be an integer with \(q\ge C\).  From \(4\le C\le q\) we get
+\(q\ge4\).  Since \(\log3>1\) and the logarithm is increasing on positive
+arguments, \(q\ge4\) implies \(1\le\log q\).  Because \(A\le C\le q\) and
+\(t\ge2\), we have \(1\le t-1\), so \(q\le q^{t-1}\).  Hence
+\[
+  A\le q\le q^{t-1}\le4q^{t-1}.
+\]
+Also \(A\ge1\) and \(q^t\ge1\), so \(1\le Aq^t\).
+
+It remains to prove the floor-exponent estimate.  Put
+\[
+  B=32tq\log(4q^t).
+\]
+As \(q\ge4\), the argument \(4q^t\) is at least \(1\), so \(B\ge0\).  We have
+\[
+  \log(4q^t)=\log4+t\log q.
+\]
+Moreover \(\log4\le4\le4\log q\), because \(1\le\log q\).  Therefore
+\[
+  \log(4q^t)\le(t+4)\log q,
+\]
+and hence
+\[
+  B\le 32t(t+4)\,q\log q. \tag{1}
+\]
+Since \(q\log q\ge1\), (1) gives
+\[
+  (t+1)(B+2)+1
+  \le
+  \bigl(32t(t+1)(t+4)+2(t+1)+1\bigr)q\log q.
+\]
+The chosen value of \(A\) is strictly larger than the coefficient
+\[
+  32t(t+1)(t+4)+2(t+1)+1,
+\]
+so
+\[
+  (t+1)(B+2)+1<Aq\log q. \tag{2}
+\]
+
+Let \(x=Aq\log q\), \(d=t+1\), and \(n=\lfloor x\rfloor\).  The standard
+floor inequality \(x-1<n\), together with (2), gives
+\[
+  d(B+2)<n.
+\]
+Dividing by \(d>0\) yields \(B+2<n/d\), where this occurrence of \(n/d\) is
+the real quotient.  For natural division, write \(n\div d\) for the quotient.
+Then \(n<((n\div d)+1)d\), since the remainder of \(n\) modulo \(d\) is
+strictly smaller than \(d\).  Thus the real quotient \(n/d\) is strictly less
+than \((n\div d)+1\).  Combining the two inequalities gives
+\[
+  B+1< n\div d
+\]
+for the natural quotient.  In particular \(n\div d\ge1\), so natural
+subtraction by \(1\) casts to real subtraction, and we conclude
+\[
+  B< (n\div d)-1.
+\]
+Substituting \(n=\lfloor Aq\log q\rfloor\) and \(d=t+1\) is exactly the
+claimed floor-exponent bound.
+\end{proof}

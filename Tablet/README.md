@@ -178,7 +178,7 @@
 | StarProductFixedBExtensionBound | proof | - | closed |
 | StarProductFixedBRankLeExtensionBound | proof | - | closed |
 | StarProductFloorWeightSideConditions | proof | - | closed |
-| StarProductForwardIndependentBound | proof | - | open |
+| StarProductForwardIndependentBound | proof | - | closed |
 | StarProductForwardIndependentChildCountLeVertices | proof | - | closed |
 | StarProductForwardIndependentConsistentTuple | proof | - | closed |
 | StarProductForwardIndependentExtensionRankLe | proof | - | closed |
@@ -196,6 +196,7 @@
 | StarProductMarkedTupleFiberBound | proof | - | closed |
 | StarProductMarkedTupleFiberCount | definition | - | closed |
 | StarProductMarkedTupleSignature | definition | - | closed |
+| StarProductParameterChoice | proof | - | closed |
 | StarProductPathRankAtMostSize | definition | - | closed |
 | StarProductPathRankAtMostSizeMono | proof | - | closed |
 | StarProductPathUnmarkedBound | proof | - | closed |
@@ -231,4 +232,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 224/226 closed
+**Summary:** 226/227 closed

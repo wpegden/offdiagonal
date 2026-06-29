@@ -37,6 +37,7 @@ import Tablet.StarProductPoorChildrenBound
 import Tablet.StarProductPoorExpanderMixingBound
 import Tablet.StarProductPopularChildrenBound
 import Tablet.StarProductPopularDoubleCountingBound
+import Tablet.StarProductParameterChoice
 import Tablet.StarProductPolarityVertexCountBound
 import Tablet.StarProductQPowerLeTwoPow
 import Tablet.StarProductShrinkCollapseForLaterExponents
@@ -62,4 +63,15 @@ theorem StarProductForwardIndependentBound (t : ℕ) (ht : 2 ≤ t) :
                     (StarProductDigraph (PolarityGraph K t)) k : ℕ) : ℝ) ≤
                     (C * (q : ℝ) ^ t) ^ k := by
 -- BODY
-  sorry
+  classical
+  rcases StarProductParameterChoice t ht with
+    ⟨A, C, hC_pos, hA_marked, hA_le_C, hC_absorb, hscale, hq_side⟩
+  refine ⟨C, hC_pos, ?_⟩
+  intro K _ _ _ _ q hq k hCq hk
+  obtain ⟨_, _, _, _, _, hn, _, hd, _, _⟩ :=
+    StarProductPolarityParameterBounds K t q ht hq
+  rcases hq_side q hCq with ⟨hq_four, hlog_ge_one, hA_delta, hB_ge_one, hexp⟩
+  exact
+    StarProductAbsorbedTreeCountingBound K t q A k C ht hq hn hd
+      hA_marked hA_delta hA_le_C hlog_ge_one hscale hC_absorb hB_ge_one
+      hq_four hk hexp
