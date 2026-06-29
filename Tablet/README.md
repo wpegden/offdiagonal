@@ -157,6 +157,7 @@
 | SparseNeighborhoodSetBound | proof | - | closed |
 | StarProductConcreteAllChildrenBound | proof | - | closed |
 | StarProductConcreteMarked | definition | - | closed |
+| StarProductConcreteMarkedChildrenBound | proof | - | closed |
 | StarProductConcreteMarkedChildrenCertificate | proof | - | closed |
 | StarProductConcretePathUnmarkedCertificate | proof | - | closed |
 | StarProductConcretePathWeightBound | proof | - | closed |
@@ -227,4 +228,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 220/222 closed
+**Summary:** 221/223 closed

@@ -6,6 +6,7 @@ import Tablet.PolarityGraphParameters
 import Tablet.ProductDigraphVertex
 import Tablet.StarProductConsistentTuple
 import Tablet.StarProductConcreteAllChildrenBound
+import Tablet.StarProductConcreteMarkedChildrenBound
 import Tablet.StarProductConcreteMarkedChildrenCertificate
 import Tablet.StarProductConcretePathWeightBound
 import Tablet.StarProductConcretePathUnmarkedCertificate

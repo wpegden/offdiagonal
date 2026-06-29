@@ -1,0 +1,32 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\), and suppose \(t\ge2\).  Use the
+concrete layer choice
+\[
+  \ell(p,r)=\noderef{StarProductLayerChoice}(p,r)
+\]
+and the resulting concrete marking rule
+\(\noderef{StarProductConcreteMarked}\).  If \(A\) is chosen so that
+\[
+  10128t\le A
+\]
+and \(h\ge Aq^t\), then for every \(m<k\) and every legal
+forward-independent prefix \(p\), the number of legal children marked by the
+concrete rule is at most \(h\).
+\end{helper}
+\begin{proof}
+Fix \(m<k\) and a legal forward-independent prefix \(p\).  The concrete
+layer choice is the definition \(\noderef{StarProductLayerChoice}\) specified
+in the statement.  With this choice,
+\(\noderef{StarProductPopularChildrenBound}\) says that the legal popular
+children of \(p\) are at most \(128tq^t\), and
+\(\noderef{StarProductPoorChildrenBound}\) says that the legal poor children
+of \(p\) are at most \(10000tq^t\).
+
+The abstract counting certificate
+\(\noderef{StarProductConcreteMarkedChildrenCertificate}\) applies to this
+same concrete layer choice.  Its hypotheses are exactly the two concrete
+popular and poor bounds just cited, together with \(10128t\le A\) and
+\(Aq^t\le h\).  Therefore the set of legal children for which
+\(\noderef{StarProductConcreteMarked}\) returns true has cardinality at most
+\(h\), as required.
+\end{proof}
