@@ -29,9 +29,8 @@ theorem DigraphOrderedGraphCliqueFree {W : Type u} [Fintype W]
     rw [Finset.orderEmbOfFin_apply]
     apply (Finset.mem_sort (s := R) (r := fun a b : ℕ => a ≤ b)).mp
     have hi_len : i.1 < (R.sort (fun a b : ℕ => a ≤ b)).length := by
-      simpa [Finset.length_sort, hRcard] using i.2
-    simpa using
-      (List.get_mem (l := R.sort (fun a b : ℕ => a ≤ b)) ⟨i.1, hi_len⟩)
+      simp [Finset.length_sort, hRcard]
+    simp
   have hpre : ∀ i : Fin s, ∃ w ∈ S, r w = rank i := by
     intro i
     have hi : rank i ∈ S.image r := by
