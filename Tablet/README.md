@@ -156,18 +156,27 @@
 | SimpleGraphNoIndependentSetFromCountZero | proof | - | closed |
 | SparseNeighborhoodSetBound | proof | - | closed |
 | StarProductConsistentTuple | definition | - | closed |
+| StarProductDeltaPowerLeQPower | proof | - | closed |
 | StarProductDigraph | definition | - | closed |
 | StarProductDigraphTransitiveFree | proof | - | closed |
+| StarProductFinalNumericalAbsorption | proof | - | closed |
 | StarProductFixedBExtensionBound | proof | - | closed |
 | StarProductForwardIndependentBound | proof | - | open |
 | StarProductForwardIndependentChildCountLeVertices | proof | - | closed |
 | StarProductForwardIndependentConsistentTuple | proof | - | closed |
+| StarProductHLeDelta | proof | - | closed |
+| StarProductIteratedShrink | proof | - | closed |
 | StarProductMarkedChildrenBound | proof | - | closed |
+| StarProductPathUnmarkedBound | proof | - | closed |
 | StarProductPolarityVertexCountBound | proof | - | closed |
 | StarProductPoorExpanderMixingBound | proof | - | closed |
 | StarProductPopularDoubleCountingBound | proof | - | closed |
+| StarProductQPowerLeTwoPow | proof | - | closed |
+| StarProductShrinkCollapseForLaterExponents | proof | - | closed |
+| StarProductShrinkThresholdCollapse | proof | - | closed |
 | StarProductUnmarkedStepShrink | proof | - | closed |
+| StarProductWLeK | proof | - | closed |
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 163/165 closed
+**Summary:** 172/174 closed

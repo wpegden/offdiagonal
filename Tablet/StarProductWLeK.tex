@@ -1,0 +1,31 @@
+\begin{helper}
+Let \(A,C\in\mathbb R\) and let \(q,k,w\) be nonnegative integers.  Suppose
+\[
+  A\ge0,\qquad A\le C,\qquad 1\le\log q,
+\]
+\[
+  w\le Aq\log q,
+  \qquad
+  Cq(\log q)^2\le k.
+\]
+Then \(w\le k\).
+\end{helper}
+\begin{proof}
+Since \(A\ge0\) and \(A\le C\), we have \(C\ge0\).  Also \(q\ge0\) and
+\(\log q\ge1\), hence \(\log q\ge0\).  Therefore
+\[
+  Aq\log q\le Cq\log q.
+\]
+The inequality \(\log q\ge1\) also gives
+\[
+  \log q\le(\log q)^2,
+\]
+and multiplying by the nonnegative factor \(Cq\) yields
+\[
+  Cq\log q\le Cq(\log q)^2.
+\]
+Combining these inequalities with the hypotheses gives
+\[
+  w\le Aq\log q\le Cq(\log q)^2\le k.
+\]
+\end{proof}

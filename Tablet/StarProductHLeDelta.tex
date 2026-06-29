@@ -1,0 +1,26 @@
+\begin{helper}
+Let \(A\in\mathbb R\) and let \(t,q,h,\Delta\) be nonnegative integers with
+\(t\ge2\) and \(q\ge1\).  Suppose
+\[
+  h\le Aq^t,\qquad A\le4q^{t-1},\qquad 4q^{2t-1}\le\Delta.
+\]
+Then \(h\le\Delta\).
+\end{helper}
+\begin{proof}
+Since \(q^t\ge0\), multiplying \(A\le4q^{t-1}\) by \(q^t\) gives
+\[
+  Aq^t\le4q^{t-1}q^t.
+\]
+Because \(t\ge2\), we have
+\[
+  (t-1)+t=2t-1.
+\]
+Therefore
+\[
+  4q^{t-1}q^t=4q^{(t-1)+t}=4q^{2t-1}.
+\]
+Combining this with \(h\le Aq^t\) and \(4q^{2t-1}\le\Delta\) gives
+\[
+  h\le\Delta.
+\]
+\end{proof}

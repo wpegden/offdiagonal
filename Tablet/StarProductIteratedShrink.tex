@@ -1,0 +1,39 @@
+\begin{helper}
+Let \(U(0),\ldots,U(m)\) be real numbers, let \(N,\rho\in\mathbb R\), and
+let \(S\subseteq\{1,\ldots,m\}\).  Assume \(\rho\ge0\), \(U(0)\le N\), and
+for every \(0\le i<m\),
+\[
+  i+1\in S \implies U(i+1)\le \rho U(i),
+  \qquad
+  i+1\notin S \implies U(i+1)\le U(i).
+\]
+Then for every \(0\le i\le m\),
+\[
+  U(i)\le N\rho^{|S\cap\{1,\ldots,i\}|}.
+\]
+\end{helper}
+\begin{proof}
+We prove the assertion by induction on \(i\).  For \(i=0\) the set
+\(S\cap\{1,\ldots,0\}\) is empty, so the desired inequality is exactly
+\(U(0)\le N\).
+
+Assume the claim has been proved at \(i<m\).  If \(i+1\in S\), then
+\[
+  U(i+1)\le \rho U(i)
+  \le \rho\,N\rho^{|S\cap\{1,\ldots,i\}|}
+  = N\rho^{|S\cap\{1,\ldots,i\}|+1}.
+\]
+Since \(i+1\in S\), the number of selected indices in
+\(\{1,\ldots,i+1\}\) is exactly
+\(|S\cap\{1,\ldots,i\}|+1\), giving the required bound.
+
+If \(i+1\notin S\), then
+\[
+  U(i+1)\le U(i)\le N\rho^{|S\cap\{1,\ldots,i\}|}.
+\]
+In this case adding \(i+1\) does not change the selected-index count, so
+\[
+  |S\cap\{1,\ldots,i+1\}|=|S\cap\{1,\ldots,i\}|.
+\]
+This is again the desired inequality.  The induction is complete.
+\end{proof}

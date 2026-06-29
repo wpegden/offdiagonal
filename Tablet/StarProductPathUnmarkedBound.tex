@@ -1,0 +1,70 @@
+\begin{helper}
+Fix nonnegative integers \(t,m,w\), real numbers \(N,\rho\), and for each
+\(\ell\in\{0,\ldots,t\}\) a sequence \(U_\ell(0),\ldots,U_\ell(m)\).  Suppose
+some indices \(i\in\{1,\ldots,m\}\) are called unmarked and each unmarked
+index has a label \(\psi(i)\in\{0,\ldots,t\}\).  Assume \(\rho\ge0\),
+\[
+  U_\ell(0)\le N\qquad\text{for every }\ell,
+\]
+and for every \(0\le i<m\):
+if \(i+1\) is unmarked, then
+\[
+  U_{\psi(i+1)}(i+1)\le \rho\,U_{\psi(i+1)}(i);
+\]
+while for every label \(\ell\), if \(i+1\) is not an unmarked index with
+label \(\ell\), then
+\[
+  U_\ell(i+1)\le U_\ell(i).
+\]
+Assume also that every unmarked index has nonempty preceding set,
+\[
+  1\le U_{\psi(i+1)}(i)
+  \qquad(0\le i<m),
+\]
+and that for every integer \(c\ge \lfloor w/(t+1)\rfloor-1\),
+\[
+  N\rho^c<1.
+\]
+Then the number of unmarked indices in \(\{1,\ldots,m\}\) is at most \(w\).
+\end{helper}
+\begin{proof}
+Let \(S\) be the set of unmarked indices.  Suppose, for contradiction, that
+\(|S|>w\).  Coloring each element of \(S\) by its label \(\psi(i)\) gives
+\(t+1\) color classes.  Since
+\[
+  (t+1)\left\lfloor\frac{w}{t+1}\right\rfloor\le w<|S|,
+\]
+the finite pigeonhole principle gives a label \(\ell\) for which the color
+class
+\[
+  S_\ell=\{i\in S:\psi(i)=\ell\}
+\]
+has more than \(\lfloor w/(t+1)\rfloor\) elements.
+
+Let \(i^*\) be the largest element of \(S_\ell\).  Every other element of
+\(S_\ell\) lies in \(\{1,\ldots,i^*-1\}\), so
+\[
+  |S_\ell\cap\{1,\ldots,i^*-1\}|
+    \ge |S_\ell|-1
+    \ge \left\lfloor\frac{w}{t+1}\right\rfloor-1. \tag{1}
+\]
+Apply \(\noderef{StarProductIteratedShrink}\) to the single sequence
+\(U_\ell\), with selected indices those unmarked indices whose label is
+\(\ell\).  The hypotheses above say exactly that selected steps shrink by
+the factor \(\rho\) and all other steps are nonincreasing.  Hence
+\[
+  U_\ell(i^*-1)
+  \le
+  N\rho^{|S_\ell\cap\{1,\ldots,i^*-1\}|}.
+\]
+By (1) and the assumed collapse bound, the right-hand side is \(<1\).  Thus
+\[
+  U_\ell(i^*-1)<1.
+\]
+On the other hand, \(i^*\) is unmarked and has label \(\ell\), so the
+nonemptiness hypothesis gives
+\[
+  1\le U_{\psi(i^*)}(i^*-1)=U_\ell(i^*-1),
+\]
+a contradiction.  Therefore \(|S|\le w\).
+\end{proof}

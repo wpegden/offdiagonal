@@ -1,0 +1,24 @@
+\begin{helper}
+Let \(q,t,e\) be nonnegative integers and let \(N,\rho\in\mathbb R\).  Suppose
+\[
+  N\le 2q^t,\qquad \rho^e\ge0,\qquad q^t>0,\qquad
+  \rho^e<\frac{1}{4q^t}.
+\]
+Then
+\[
+  N\rho^e<1.
+\]
+\end{helper}
+\begin{proof}
+Since \(\rho^e\ge0\), multiplying \(N\le2q^t\) by \(\rho^e\) gives
+\[
+  N\rho^e\le 2q^t\rho^e.
+\]
+The quantity \(2q^t\) is positive, so the strict bound on \(\rho^e\) gives
+\[
+  2q^t\rho^e
+  <2q^t\cdot\frac{1}{4q^t}
+  =\frac12.
+\]
+Thus \(N\rho^e<1/2<1\).
+\end{proof}

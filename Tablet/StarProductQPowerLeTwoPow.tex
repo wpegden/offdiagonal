@@ -1,0 +1,38 @@
+\begin{helper}
+Let \(A,C\in\mathbb R\) and let \(t,q,k,w\) be nonnegative integers.  Suppose
+\[
+  A\ge0,\qquad 2tA\le C\log2,\qquad q\ge2,
+\]
+\[
+  w\le Aq\log q,
+  \qquad
+  Cq(\log q)^2\le k.
+\]
+Then
+\[
+  q^{2tw}\le2^k.
+\]
+\end{helper}
+\begin{proof}
+Since \(q\ge2\), \(q>0\) and \(\log q\ge0\).  Taking logarithms, it is enough
+to prove
+\[
+  (2tw)\log q\le k\log2.
+\]
+The bound \(w\le Aq\log q\), multiplied by the nonnegative factor
+\(2t\log q\), gives
+\[
+  (2tw)\log q\le (2tA)q(\log q)^2.
+\]
+The scale hypothesis \(2tA\le C\log2\), multiplied by the nonnegative factor
+\(q(\log q)^2\), gives
+\[
+  (2tA)q(\log q)^2\le Cq(\log q)^2\log2.
+\]
+Finally, \(Cq(\log q)^2\le k\) and \(\log2>0\) imply
+\[
+  Cq(\log q)^2\log2\le k\log2.
+\]
+Thus \((2tw)\log q\le k\log2\).  Since \(q>0\), this logarithmic inequality
+is equivalent to \(q^{2tw}\le2^k\).
+\end{proof}

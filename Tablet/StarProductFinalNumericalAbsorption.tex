@@ -1,0 +1,46 @@
+\begin{helper}
+Let \(A,C\in\mathbb R\) and let \(t,q,k,w\) be nonnegative integers.  Suppose
+\[
+  Aq^t\ge0,\qquad Aq^t\ge1,
+\]
+\[
+  \bigl(4q^{2t-1}\bigr)^w\le q^{2tw},
+  \qquad
+  q^{2tw}\le2^k,
+  \qquad
+  4A\le C.
+\]
+Then
+\[
+  2^k\bigl(4q^{2t-1}\bigr)^w(Aq^t)^{k-w}\le (Cq^t)^k.
+\]
+\end{helper}
+\begin{proof}
+Put \(B=Aq^t\).  By hypothesis \(B\ge1\), so in particular \(B\ge0\), and
+\[
+  B^{k-w}\le B^k
+\]
+because \(k-w\le k\) for natural-number subtraction.  Using the two supplied
+power bounds, we obtain
+\[
+\begin{aligned}
+  2^k(4q^{2t-1})^w B^{k-w}
+  &\le 2^k q^{2tw} B^{k-w} \\
+  &\le 2^k2^k B^{k-w} \\
+  &\le 2^k2^k B^k.
+\end{aligned}
+\]
+The last expression is
+\[
+  2^k2^kB^k=(4B)^k=(4Aq^t)^k.
+\]
+Since \(4A\le C\) and \(q^t\ge0\),
+\[
+  4Aq^t\le Cq^t.
+\]
+Raising to the \(k\)-th power gives
+\[
+  (4Aq^t)^k\le(Cq^t)^k.
+\]
+Combining the displayed inequalities proves the claim.
+\end{proof}

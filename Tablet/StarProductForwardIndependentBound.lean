@@ -9,11 +9,19 @@ import Tablet.StarProductDigraph
 import Tablet.StarProductFixedBExtensionBound
 import Tablet.StarProductForwardIndependentChildCountLeVertices
 import Tablet.StarProductForwardIndependentConsistentTuple
+import Tablet.StarProductDeltaPowerLeQPower
+import Tablet.StarProductFinalNumericalAbsorption
+import Tablet.StarProductHLeDelta
 import Tablet.StarProductMarkedChildrenBound
+import Tablet.StarProductPathUnmarkedBound
 import Tablet.StarProductPoorExpanderMixingBound
 import Tablet.StarProductPopularDoubleCountingBound
 import Tablet.StarProductPolarityVertexCountBound
+import Tablet.StarProductQPowerLeTwoPow
+import Tablet.StarProductShrinkCollapseForLaterExponents
+import Tablet.StarProductShrinkThresholdCollapse
 import Tablet.StarProductUnmarkedStepShrink
+import Tablet.StarProductWLeK
 
 -- [TABLET NODE: StarProductForwardIndependentBound]
 
