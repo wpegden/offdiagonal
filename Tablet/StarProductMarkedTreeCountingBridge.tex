@@ -1,0 +1,50 @@
+\begin{helper}
+Let \(G\) be a loop graph and let \(D^*(G)\) be its star-product digraph.
+Fix a marking rule on children of forward independent prefixes, and let
+\(\operatorname{sig}\) be the marked-tuple signature from
+\(\noderef{StarProductMarkedTupleSignature}\).  Let \(k,w,\Delta,h\) be
+nonnegative integers with \(w\le k\) and \(h\le\Delta\).  Suppose that every
+forward independent \(k\)-tuple \(v\) in \(D^*(G)\) has at most \(w\)
+unmarked steps, that is,
+\[
+  |\operatorname{sig}(v)|\le w.
+\]
+Assume also that every forward independent prefix of length \(m<k\) has at
+most \(\Delta\) legal forward-independent children and at most \(h\) legal
+marked children.  Then
+\[
+  \fwi_k(D^*(G))\le 2^k\Delta^w h^{k-w}.
+\]
+\end{helper}
+\begin{proof}
+Let \(P\) be the finite set of forward independent \(k\)-tuples in
+\(D^*(G)\).  By \(\noderef{ForwardIndependentTupleCount}\), its cardinality
+is \(\fwi_k(D^*(G))\).  Define
+\[
+  \operatorname{sig}:P\to\{0,1\}^k
+\]
+by the marked-tuple signature of \(\noderef{StarProductMarkedTupleSignature}\).
+The assumed path condition says exactly that every \(p\in P\) has signature
+weight at most \(w\).
+
+It remains to verify the fiber hypothesis of
+\(\noderef{MarkedTreePathCounting}\).  Fix a binary string \(z\).  The fiber
+\(\{p\in P:\operatorname{sig}(p)=z\}\) is precisely the fixed-signature
+star-product fiber counted by \(\noderef{StarProductMarkedTupleFiberCount}\).
+The prefix hypotheses on all legal children and on marked legal children are
+therefore exactly the hypotheses of
+\(\noderef{StarProductMarkedTupleFiberBound}\), which gives
+\[
+  |\{p\in P:\operatorname{sig}(p)=z\}|
+  \le \Delta^{|z|}h^{k-|z|}.
+\]
+
+Now all hypotheses of \(\noderef{MarkedTreePathCounting}\) hold: \(w\le k\),
+\(h\le\Delta\), every path has at most \(w\) one-bits, and every signature
+fiber has the displayed bound.  Applying that lemma gives
+\[
+  |P|\le 2^k\Delta^w h^{k-w}.
+\]
+Replacing \(|P|\) by \(\fwi_k(D^*(G))\) via
+\(\noderef{ForwardIndependentTupleCount}\) proves the claim.
+\end{proof}

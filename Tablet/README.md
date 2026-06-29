@@ -167,6 +167,10 @@
 | StarProductHLeDelta | proof | - | closed |
 | StarProductIteratedShrink | proof | - | closed |
 | StarProductMarkedChildrenBound | proof | - | closed |
+| StarProductMarkedTreeCountingBridge | proof | - | closed |
+| StarProductMarkedTupleFiberBound | proof | - | closed |
+| StarProductMarkedTupleFiberCount | definition | - | closed |
+| StarProductMarkedTupleSignature | definition | - | closed |
 | StarProductPathUnmarkedBound | proof | - | closed |
 | StarProductPolarityVertexCountBound | proof | - | closed |
 | StarProductPoorExpanderMixingBound | proof | - | closed |
@@ -179,4 +183,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 172/174 closed
+**Summary:** 176/178 closed

@@ -12,6 +12,7 @@ import Tablet.StarProductForwardIndependentConsistentTuple
 import Tablet.StarProductDeltaPowerLeQPower
 import Tablet.StarProductFinalNumericalAbsorption
 import Tablet.StarProductHLeDelta
+import Tablet.StarProductMarkedTreeCountingBridge
 import Tablet.StarProductMarkedChildrenBound
 import Tablet.StarProductPathUnmarkedBound
 import Tablet.StarProductPoorExpanderMixingBound

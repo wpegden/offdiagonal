@@ -1,0 +1,71 @@
+\begin{helper}
+Let \(G\) be a loop graph and let \(D^*(G)\) be its star-product digraph.
+Fix a marking rule for children of forward independent prefixes, using the
+signature convention of \(\noderef{StarProductMarkedTupleSignature}\).  Let
+\(\Delta,h\) be nonnegative integers.  Assume that for every
+forward independent prefix \(\sigma\) of length \(m<k\):
+\[
+  \#\{x:\sigma x\text{ is forward independent}\}\le \Delta,
+\]
+and
+\[
+  \#\{x:\sigma x\text{ is forward independent and }x\text{ is marked
+  from }\sigma\}\le h.
+\]
+Then, for every binary string \(z\in\{0,1\}^k\), the number of forward
+independent \(k\)-tuples in \(D^*(G)\) with marked-tuple signature \(z\) is
+at most
+\[
+  \Delta^{|z|}h^{k-|z|}.
+\]
+\end{helper}
+\begin{proof}
+We prove the statement by induction on \(k\).  If \(k=0\), there is only the
+empty tuple, its signature is the empty string, and the claimed bound is
+\(\Delta^0h^0=1\).
+
+Assume the result for length \(m\), and consider a string
+\(z\in\{0,1\}^{m+1}\).  Let \(z'\) be its prefix of length \(m\), and let
+\(\epsilon\) be its last bit.  Every forward independent \((m+1)\)-tuple
+\[
+  v=(v_0,\ldots,v_m)
+\]
+with signature \(z\) has a forward independent prefix
+\[
+  p=(v_0,\ldots,v_{m-1})
+\]
+with signature \(z'\): forward independence restricts to prefixes by
+\(\noderef{ForwardIndependentTuple}\), and for each prefix index \(i<m\) the
+signature bit is computed from the same earlier prefix and the same vertex
+\(v_i\).
+
+Thus the full tuple is determined injectively by its prefix \(p\) and its
+last vertex \(v_m\).  For a fixed prefix \(p\), if \(\epsilon=1\), then the
+last step is unmarked, and we use only the hypothesis that there are at most
+\(\Delta\) legal forward-independent extensions of \(p\).  If
+\(\epsilon=0\), then the last step is marked, and the second hypothesis gives
+at most \(h\) legal marked extensions of \(p\).  Therefore the number of
+tuples with signature \(z\) is at most the number of prefixes with signature
+\(z'\), multiplied by \(\Delta\) in the last-bit-one case and by \(h\) in
+the last-bit-zero case.
+
+By the induction hypothesis, the number of such prefixes is at most
+\[
+  \Delta^{|z'|}h^{m-|z'|}.
+\]
+If \(\epsilon=1\), then
+\(\noderef{BinarySequenceWeightSnoc}\) gives \(|z|=|z'|+1\), so multiplying
+by \(\Delta\) yields
+\[
+  \Delta^{|z'|+1}h^{m-|z'|}
+  =\Delta^{|z|}h^{(m+1)-|z|}.
+\]
+If \(\epsilon=0\), then
+\(\noderef{BinarySequenceWeightSnoc}\) gives \(|z|=|z'|\), so multiplying by
+\(h\) yields
+\[
+  \Delta^{|z'|}h^{m-|z'|+1}
+  =\Delta^{|z|}h^{(m+1)-|z|}.
+\]
+These two cases complete the induction.
+\end{proof}
