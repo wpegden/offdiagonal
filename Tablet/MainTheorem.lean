@@ -1,7 +1,6 @@
 import Tablet.DigraphToGraphIndependentSetBound
 import Tablet.MainTheoremDyadicFieldScale
 import Tablet.MainTheoremLinearLogSqGrowth
-import Tablet.MainTheoremLogSquaredPowerBound
 import Tablet.MainTheoremRamseyPositive
 import Tablet.MainTheoremSamplingBridge
 import Tablet.PolarityGraphParameters
@@ -37,7 +36,9 @@ theorem MainTheorem :
     omega
   rcases MainTheoremSamplingBridge t ht with ⟨C, hC, hbridge⟩
   rcases MainTheoremDyadicFieldScale C hC with ⟨cD, hcD, XD, hdyadic⟩
-  rcases MainTheoremLogSquaredPowerBound with ⟨Q0, hlogsq_power⟩
+  rcases MainTheoremLinearLogSqGrowth (Real.exp 1) 4 (Real.exp_pos 1)
+      (by norm_num : (0 : ℝ) < 4) with
+    ⟨Q0, hlogsq_growth⟩
   let Bq : ℝ := max Q0 1
   have hBq_pos : 0 < Bq := by
     dsimp [Bq]
@@ -134,7 +135,18 @@ theorem MainTheorem :
       exact (le_max_left Q0 1).trans (hBq_le_scale.trans hq_lower)
     have hlogsq_bound :
         4 * (Real.log (q : ℝ)) ^ 2 ≤ Real.exp 1 * (q : ℝ) :=
-      hlogsq_power q hQ0_le_q
+      by
+        have hlogsq_growth_q :
+            (4 : ℝ) ≤
+              Real.exp 1 * (q : ℝ) / (Real.log (q : ℝ)) ^ 2 :=
+          hlogsq_growth q hQ0_le_q
+        have hq_gt_one : (1 : ℝ) < (q : ℝ) := by
+          exact_mod_cast (by omega : 1 < q)
+        have hlogq_pos : 0 < Real.log (q : ℝ) := Real.log_pos hq_gt_one
+        have hlogsq_pos : 0 < (Real.log (q : ℝ)) ^ 2 :=
+          sq_pos_of_ne_zero hlogq_pos.ne'
+        rw [le_div_iff₀ hlogsq_pos] at hlogsq_growth_q
+        exact hlogsq_growth_q
     have hq_sq_le_qt : (q : ℝ) ^ 2 ≤ (q : ℝ) ^ t :=
       pow_le_pow_right₀ hq_ge_one (by omega : 2 ≤ t)
     have hbridge_side :

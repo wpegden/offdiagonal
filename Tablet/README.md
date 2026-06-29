@@ -106,7 +106,6 @@
 | MainTheoremDyadicFieldScale | proof | - | closed |
 | MainTheoremEtaBounds | proof | - | closed |
 | MainTheoremLinearLogSqGrowth | proof | - | closed |
-| MainTheoremLogSquaredPowerBound | proof | - | closed |
 | MainTheoremPolarityParameterBounds | proof | - | closed |
 | MainTheoremPolaritySetup | proof | - | closed |
 | MainTheoremRamseyPositive | proof | - | closed |
@@ -238,4 +237,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 233/233 closed
+**Summary:** 232/232 closed

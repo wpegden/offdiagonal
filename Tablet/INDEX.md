@@ -100,11 +100,10 @@
 | LoopGraphZeroSumAdjacencyEuclideanOperator | definition | definition | closed | - | - | LoopGraphAdjacencyEuclideanOperatorMapsZeroSum, LoopGraphEuclideanZeroSumSubmodule, LoopGraphNdLambda |
 | LoopGraphZeroSumEuclideanEigenpairNonprincipal | helper | proof | closed | - | - | LoopGraphEuclideanZeroSumSubmodule, LoopGraphNonprincipalEigenvalue |
 | LoopGraphZeroSumEuclideanEigenvalueBound | helper | proof | closed | - | - | LoopGraphNdLambda, LoopGraphZeroSumEuclideanEigenpairNonprincipal |
-| MainTheorem | theorem | proof | closed | - | - | DigraphToGraphIndependentSetBound, MainTheoremDyadicFieldScale, MainTheoremLinearLogSqGrowth, MainTheoremLogSquaredPowerBound, MainTheoremRamseyPositive, MainTheoremSamplingBridge, PolarityGraphParameters, ProductDigraphVertexCard, RamseyNumber, SamplingKsFreeRamseyBound, StarProductDigraph, StarProductDigraphTransitiveFree, StarProductForwardIndependentBound |
+| MainTheorem | theorem | proof | closed | - | - | DigraphToGraphIndependentSetBound, MainTheoremDyadicFieldScale, MainTheoremLinearLogSqGrowth, MainTheoremRamseyPositive, MainTheoremSamplingBridge, PolarityGraphParameters, ProductDigraphVertexCard, RamseyNumber, SamplingKsFreeRamseyBound, StarProductDigraph, StarProductDigraphTransitiveFree, StarProductForwardIndependentBound |
 | MainTheoremDyadicFieldScale | helper | proof | closed | - | - | Preamble |
 | MainTheoremEtaBounds | helper | proof | closed | - | - | Preamble |
 | MainTheoremLinearLogSqGrowth | helper | proof | closed | - | - | Preamble |
-| MainTheoremLogSquaredPowerBound | helper | proof | closed | - | - | Preamble |
 | MainTheoremPolarityParameterBounds | helper | proof | closed | - | - | Preamble |
 | MainTheoremPolaritySetup | helper | proof | closed | - | - | ComplementPolarityPairHsFree, LoopGraphComplementNdLambda, PolarityGraphParameters |
 | MainTheoremRamseyPositive | helper | proof | closed | - | - | RamseyNumberLowerBoundFromCounterexample |
@@ -237,4 +236,4 @@
 | TransitiveTournamentFree | definition | definition | closed | - | - | Digraph |
 | TupleIncreasingPermutationFiberCount | helper | proof | closed | - | - | Preamble |
 
-**Total:** 233 nodes | **Closed:** 233 | **Open:** 0
+**Total:** 232 nodes | **Closed:** 232 | **Open:** 0
