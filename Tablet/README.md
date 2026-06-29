@@ -159,6 +159,7 @@
 | StarProductConcreteMarked | definition | - | closed |
 | StarProductConcreteMarkedChildrenCertificate | proof | - | closed |
 | StarProductConcretePathUnmarkedCertificate | proof | - | closed |
+| StarProductConcretePathWeightBound | proof | - | closed |
 | StarProductConcreteUnmarkedExtensionNonempty | proof | - | closed |
 | StarProductConcreteUnmarkedExtensionShrink | proof | - | closed |
 | StarProductConcreteUnmarkedPathNonempty | proof | - | closed |
@@ -226,4 +227,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 219/221 closed
+**Summary:** 220/222 closed

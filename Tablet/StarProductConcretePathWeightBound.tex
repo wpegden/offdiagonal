@@ -1,0 +1,79 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\), let \(t\ge2\), and let
+\[
+  v=(v_0,\ldots,v_{k-1})
+\]
+be a forward-independent \(k\)-tuple in the star-product digraph
+\(D^*(G(t,K))\).  Use the concrete marking rule
+\(\noderef{StarProductConcreteMarked}\) with the concrete layer choice
+\(\ell(p,r)=\noderef{StarProductLayerChoice}(p,r)\), and use the concrete
+unmarked label
+\[
+  \psi=\noderef{StarProductConcreteUnmarkedPsi}.
+\]
+If
+\[
+  \left(1-\frac{1}{32tq}\right)^{w/(t+1)-1}
+  <\frac{1}{4q^t}
+\]
+in the truncated natural-number exponent \(w/(t+1)-1\), then the marked-tuple
+signature of \(v\) has binary weight at most \(w\).
+\end{helper}
+\begin{proof}
+Put
+\[
+  \rho=1-\frac{1}{32tq},\qquad N=2q^t.
+\]
+Because \(K\) is a finite field of order \(q\), the parameter bounds in
+\(\noderef{StarProductPolarityParameterBounds}\) give \(q\ge2\).  Since also
+\(t\ge2\), the denominator \(32tq\) is positive and at least \(1\).  Hence
+\[
+  0\le \rho\le 1.
+\]
+
+We first verify the initial bound for the rank-at-most sets from
+\(\noderef{StarProductPathRankAtMostSize}\).  For any label
+\(\ell\in\{0,\ldots,t\}\), the set \(U_\ell(0)\) is a subset of the full
+projective vertex set.  By \(\noderef{PolarityGraphParameters}\), the number
+of projective vertices is
+\[
+  n=\frac{q^{t+1}-1}{q-1}.
+\]
+The upper estimate in \(\noderef{StarProductPolarityParameterBounds}\) gives
+\[
+  n\le 2q^t=N.
+\]
+Therefore \(U_\ell(0)\le N\) for every \(\ell\).
+
+The shrink and nonemptiness hypotheses for the concrete label \(\psi\) are
+exactly \(\noderef{StarProductConcreteUnmarkedPathShrink}\) and
+\(\noderef{StarProductConcreteUnmarkedPathNonempty}\).  For monotonicity,
+\(\noderef{StarProductPathRankAtMostSizeMono}\) says that every
+\(U_\ell(i)\) is nonincreasing when one more vertex is appended, so it
+applies in particular at all steps not selected as an unmarked step with
+label \(\ell\).
+
+It remains to supply the collapse hypothesis required by
+\(\noderef{StarProductConcretePathUnmarkedCertificate}\).  The assumed base
+inequality says
+\[
+  \rho^{w/(t+1)-1}<\frac{1}{4q^t}.
+\]
+Together with \(N\le2q^t\), positivity of \(q^t\), and nonnegativity of the
+power of \(\rho\), \(\noderef{StarProductShrinkThresholdCollapse}\) gives
+\[
+  N\rho^{w/(t+1)-1}<1.
+\]
+Since \(N\ge0\) and \(0\le\rho\le1\),
+\(\noderef{StarProductShrinkCollapseForLaterExponents}\) extends this to
+\[
+  N\rho^c<1
+\]
+for every integer \(c\ge w/(t+1)-1\).
+
+All hypotheses of \(\noderef{StarProductConcretePathUnmarkedCertificate}\)
+are now verified with the concrete layer choice, the concrete marker, the
+concrete unmarked label \(\psi\), \(\rho=1-1/(32tq)\), and \(N=2q^t\).
+Applying that certificate gives precisely that the marked-tuple signature of
+\(v\) has weight at most \(w\).
+\end{proof}

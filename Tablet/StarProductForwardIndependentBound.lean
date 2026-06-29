@@ -7,6 +7,7 @@ import Tablet.ProductDigraphVertex
 import Tablet.StarProductConsistentTuple
 import Tablet.StarProductConcreteAllChildrenBound
 import Tablet.StarProductConcreteMarkedChildrenCertificate
+import Tablet.StarProductConcretePathWeightBound
 import Tablet.StarProductConcretePathUnmarkedCertificate
 import Tablet.StarProductConcreteUnmarkedPathNonempty
 import Tablet.StarProductConcreteUnmarkedPathShrink
