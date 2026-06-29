@@ -1,6 +1,8 @@
 import Mathlib.Tactic
 import Tablet.Preamble
 
+set_option linter.unusedVariables false
+
 -- [TABLET NODE: StarProductFinalNumericalAbsorption]
 
 theorem StarProductFinalNumericalAbsorption (A C : ℝ) (t q k w : ℕ)
