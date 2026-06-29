@@ -1,0 +1,38 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\), and suppose \(t\ge2\).  For
+every length \(m<k\) and every legal forward-independent prefix \(p\), the
+number of legal children \(x\) satisfying
+\[
+  \noderef{StarProductPoorChild}
+\]
+for the concrete layer choice
+\(\ell^p_r=\noderef{StarProductLayerChoice}\) is at most
+\[
+  10000tq^t .
+\]
+\end{helper}
+\begin{proof}
+Partition the legal poor children according to the rank
+\[
+  r=r^p(b)
+\]
+of their second coordinate \(b\).  By \(\noderef{StarProductPrefixRank}\),
+this rank is at most \(t+1\).  If \(r=t+1\), then
+\(\noderef{StarProductFullRankNoForwardIndependentExtension}\) says that no
+legal forward-independent extension with second coordinate \(b\) exists.
+Thus every legal poor child has rank \(r\le t\).
+
+For each fixed \(r\le t\),
+\(\noderef{StarProductPoorRankChildrenBound}\) bounds the number of legal
+poor children of rank \(r\) by \(5000q^t\).  There are \(t+1\) possible
+ranks \(0,1,\ldots,t\), so the total number of legal poor children is at
+most
+\[
+  (t+1)\cdot5000q^t.
+\]
+Since \(t\ge2\), we have \(t+1\le2t\).  Therefore
+\[
+  (t+1)\cdot5000q^t\le10000tq^t,
+\]
+as required.
+\end{proof}

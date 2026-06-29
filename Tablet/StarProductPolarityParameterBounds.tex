@@ -1,0 +1,59 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\), and let \(t\ge2\).  Define
+\[
+  n=\frac{q^{t+1}-1}{q-1},\qquad
+  d=\frac{q^t-1}{q-1},\qquad
+  a=\frac{q^{t-1}-1}{q-1},
+\]
+and let \(\lambda=\sqrt{d-a}\), with \(d-a\) interpreted as the natural
+number subtraction of these displayed parameters.  Then
+\[
+  q\ge2,\qquad 0<n,\qquad 0<d,
+\]
+\[
+  q^t\le n\le2q^t,\qquad
+  q^{t-1}\le d\le2q^{t-1},
+\]
+and
+\[
+  d-a=q^{t-1},\qquad \lambda^2=q^{t-1}.
+\]
+\end{helper}
+\begin{proof}
+Since \(K\) is a field, \(0\ne1\), so a finite field has at least two
+elements.  Hence \(q=|K|\ge2\).
+
+For \(q\ge2\), the usual finite geometric-sum identity gives
+\[
+  n=\sum_{i=0}^{t}q^i,\qquad
+  d=\sum_{i=0}^{t-1}q^i,\qquad
+  a=\sum_{i=0}^{t-2}q^i.
+\]
+Therefore
+\[
+  n=d+q^t,\qquad d=a+q^{t-1}.
+\]
+The displayed identities immediately imply \(q^t\le n\) and
+\(q^{t-1}\le d\), and they also give
+\[
+  d-a=q^{t-1}.
+\]
+
+It remains to prove the upper bounds.  Since \(q\ge2\), the sum of all
+terms below the top term in a geometric progression is strictly smaller
+than the top term:
+\[
+  \sum_{i=0}^{t-1}q^i<q^t,\qquad
+  \sum_{i=0}^{t-2}q^i<q^{t-1}.
+\]
+Using \(n=d+q^t\) and \(d=a+q^{t-1}\), these inequalities yield
+\[
+  n\le2q^t,\qquad d\le2q^{t-1}.
+\]
+The lower bounds also show \(n>0\) and \(d>0\).  Finally,
+\(\lambda=\sqrt{d-a}\) and \(d-a=q^{t-1}\); since the radicand is
+nonnegative, the square-root identity gives
+\[
+  \lambda^2=q^{t-1}.
+\]
+\end{proof}

@@ -1,0 +1,71 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\), let \(t\ge2\), and fix a
+prefix \(p\).  For \(r\le t\), put
+\[
+  Z_\ell=Z^p_{\ell^p_r},
+  \qquad \ell^p_r=\noderef{StarProductLayerChoice},
+\]
+and let
+\[
+  P_r=\{a:\ |N_{G(t,K)}(a)\cap Z_\ell|\le |Z_\ell|/(8q)\}.
+\]
+Then, with \(Z_r=Z^p_r\) as in \(\noderef{StarProductRankLayer}\),
+\[
+  e_{G(t,K)}(P_r,Z_r)\le 5000q^t .
+\]
+\end{helper}
+\begin{proof}
+Let \(G=G(t,K)\).  By the definition of \(P_r\), for every
+\(a\in P_r\),
+\[
+  |N_G(a)\cap Z_\ell|\le |Z_\ell|/(8q).
+\]
+Summing this inequality over all \(a\in P_r\), and using the edge-count
+definition \(\noderef{LoopGraphEdgeCountBetween}\), gives
+\[
+  e_G(P_r,Z_\ell)\le |P_r||Z_\ell|/(8q). \tag{1}
+\]
+
+Set
+\[
+  X=|P_r||Z_\ell|,\qquad Y=|P_r||Z_r|.
+\]
+The layer choice is maximal among \(Z^p_s\) for \(s\le r\).  Applying
+\(\noderef{StarProductLayerChoiceMax}\) with \(s=r\) gives
+\[
+  |Z_r|\le |Z_\ell|,
+\]
+and hence \(Y\le X\).
+
+Let \(n,d,\lambda\) be the polarity parameters from
+\(\noderef{PolarityGraphParameters}\).  The arithmetic bounds of
+\(\noderef{StarProductPolarityParameterBounds}\) give
+\[
+  d/n\ge 1/(4q),\qquad d/n\le 4/q,\qquad \lambda^2=q^{t-1}.
+\]
+Applying \(\noderef{ExpanderMixingLemma}\) to \((P_r,Z_\ell)\) and using
+\(d/n\ge1/(4q)\) yields
+\[
+  X/(4q)-\lambda\sqrt X\le e_G(P_r,Z_\ell). \tag{2}
+\]
+Applying the same lemma to \((P_r,Z_r)\) and using \(d/n\le4/q\) yields
+\[
+  e_G(P_r,Z_r)\le (4/q)Y+\lambda\sqrt Y. \tag{3}
+\]
+
+From \(\lambda^2=q^{t-1}\) and \(q>0\), we have
+\[
+  64q^2\lambda^2\le1024q^{t+1}
+\]
+and
+\[
+  \lambda\sqrt{1024q^{t+1}}\le904q^t.
+\]
+Now \((1)\), \((2)\), \(Y\le X\), \((3)\), and the two displayed numerical
+estimates are exactly the hypotheses of
+\(\noderef{StarProductPoorExpanderMixingBound}\).  That helper gives
+\[
+  e_G(P_r,Z_r)\le5000q^t,
+\]
+as required.
+\end{proof}

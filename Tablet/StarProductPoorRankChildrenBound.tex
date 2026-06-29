@@ -1,0 +1,39 @@
+\begin{helper}
+Let \(K\) be a finite field of order \(q\), let \(t\ge2\), fix a prefix
+\(p\), and let \(r\le t\).  Among legal forward-independent children
+\(x=(a,b)\) of \(p\) whose second coordinate has rank \(r\), at most
+\[
+  5000q^t
+\]
+are poor in the sense of \(\noderef{StarProductPoorChild}\) for the
+concrete layer choice \(\ell^p_r=\noderef{StarProductLayerChoice}\).
+\end{helper}
+\begin{proof}
+Let \(Z_\ell=Z^p_{\ell^p_r}\), and let
+\[
+  P_r=\{a:\ |N_{G(t,K)}(a)\cap Z_\ell|\le |Z_\ell|/(8q)\}.
+\]
+This is exactly the first-coordinate poor set appearing in
+\(\noderef{StarProductPoorRankEdgeBound}\).
+
+Take a legal poor child \(x=(a,b)\) of rank \(r\).  Since \(x\) is a vertex
+of the product digraph, \(\noderef{ProductDigraphVertex}\) says
+\(ab\in E(G(t,K))\).  Since \(x\) is poor and its second-coordinate rank is
+\(r\), the definition \(\noderef{StarProductPoorChild}\) says precisely that
+\[
+  a\in P_r.
+\]
+The rank condition says \(b\in Z_r\), by
+\(\noderef{StarProductRankLayer}\).  Therefore \(x=(a,b)\) determines an
+edge counted by \(e_{G(t,K)}(P_r,Z_r)\).
+
+This map from legal poor rank-\(r\) children to ordered edges between
+\(P_r\) and \(Z_r\) is injective, because a child of the product digraph is
+the ordered pair \((a,b)\).  Hence the number of such children is at most
+\[
+  e_{G(t,K)}(P_r,Z_r).
+\]
+By \(\noderef{StarProductPoorRankEdgeBound}\), this edge count is at most
+\(5000q^t\).  Thus the legal poor children of rank \(r\) are at most
+\(5000q^t\), as claimed.
+\end{proof}

@@ -25,6 +25,7 @@ import Tablet.StarProductLayerChoiceRealLowerBound
 import Tablet.StarProductMarkedTreeCountingBridge
 import Tablet.StarProductMarkedChildrenBound
 import Tablet.StarProductPathUnmarkedBound
+import Tablet.StarProductPoorChildrenBound
 import Tablet.StarProductPoorExpanderMixingBound
 import Tablet.StarProductPopularChildrenBound
 import Tablet.StarProductPopularDoubleCountingBound

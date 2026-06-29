@@ -186,9 +186,13 @@
 | StarProductMarkedTupleSignature | definition | - | closed |
 | StarProductPathRankAtMostSize | definition | - | closed |
 | StarProductPathUnmarkedBound | proof | - | closed |
+| StarProductPolarityParameterBounds | proof | - | closed |
 | StarProductPolarityVertexCountBound | proof | - | closed |
 | StarProductPoorChild | definition | - | closed |
+| StarProductPoorChildrenBound | proof | - | closed |
 | StarProductPoorExpanderMixingBound | proof | - | closed |
+| StarProductPoorRankChildrenBound | proof | - | closed |
+| StarProductPoorRankEdgeBound | proof | - | closed |
 | StarProductPopularChild | definition | - | closed |
 | StarProductPopularChildrenBound | proof | - | closed |
 | StarProductPopularDoubleCountingBound | proof | - | closed |
@@ -210,4 +214,4 @@
 | TransitiveTournamentFree | definition | - | closed |
 | TupleIncreasingPermutationFiberCount | proof | - | closed |
 
-**Summary:** 203/205 closed
+**Summary:** 207/209 closed
