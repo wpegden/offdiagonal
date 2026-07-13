@@ -14,7 +14,7 @@ sources:
   - title: "Nearly tight exponents for off-diagonal Ramsey numbers"
     authors:
       - "Domagoj Bradač"
-    id: "arXiv:2605.28793v1"
+    id: "arXiv:2605.28793v3"
     type: "preprint"
     license: "arXiv.org perpetual non-exclusive license (http://arxiv.org/licenses/nonexclusive-distrib/1.0/)"
     author_contacted: "no"
@@ -32,6 +32,11 @@ status:
     off-diagonal Ramsey lower-bound theorems, together with the supporting
     Ramsey-number definitions (two-colour and multicolour). One node per
     declaration; statements were fixed and human-approved before proof work began.
+    The formalization corresponds to v3 of the paper: the original run formalized
+    v1, and a second Trellis run in revision mode then updated thm:main to v3's
+    stronger bound (k^{s-1}/(log k)^{2s-4} for s >= 3, previously
+    k^{s-2}/(log k)^{2s-6} for s >= 4); the other four targets are identical in
+    both paper versions and unchanged from the original run.
   sorry_count: 0
   sorry_in_definitions: 0
   # Standard Lean/Mathlib axioms only. The project's axiom gate
@@ -92,9 +97,11 @@ automation:
         theorem-stating phase, then proofs were formalized autonomously.
       cost:
         wall_time: >-
-          ~36 h active (41.6 h elapsed on 2026-05-28..30 minus ~5.9 h idle
-          waiting for human approval after theorem-stating). Phase split:
-          theorem-stating ~5.5 h, proof-formalization ~30 h, cleanup ~0.3 h.
+          Original run: ~36 h active (41.6 h elapsed on 2026-05-28..30 minus
+          ~5.9 h idle waiting for human approval after theorem-stating). Phase
+          split: theorem-stating ~5.5 h, proof-formalization ~30 h, cleanup
+          ~0.3 h. Revision run: ~29 h elapsed on 2026-06-28..29 (42 revision
+          cycles), including operator-gated pauses.
         spend_usd: "subscription-based usage (ChatGPT/Codex), not metered per-token"
         hardware: "API/subscription-based; no local GPU"
       prompting_notes: >-
@@ -102,9 +109,13 @@ automation:
         proof-specific hints were supplied by hand.
   spend_usd: "subscription-based usage (ChatGPT/Codex)"
   notes: >-
-    Single end-to-end Trellis run. One human gate: theorem statements were
-    reviewed and approved before any proof work; no mathematical content,
-    proof steps, or formalization hints were supplied by hand at any phase.
+    Two end-to-end Trellis runs with the same model setup. The original run
+    formalized paper v1. A second run in Trellis's revision mode (2026-06-28..29)
+    diffed paper v1 against v3, re-stated thm:main to v3's stronger bound,
+    rebuilt its supporting proof tree, and re-verified to completion. In each
+    run the only human gate was review-and-approval of the (re)stated theorem
+    statements before proof work; no mathematical content, proof steps, or
+    formalization hints were supplied by hand at any phase of either run.
 
 fidelity:
   divergences: >-
@@ -135,7 +146,7 @@ alignment:
       lean: "MainTheorem"
       module: "Tablet.MainTheorem"
       status: "proved"
-      note: "r(s,k) >= c_s k^{s-2}/(log k)^{2s-6} for s >= 4."
+      note: "r(s,k) >= c_s k^{s-1}/(log k)^{2s-4} for s >= 3 (paper v3 statement)."
     - source: "Theorem thm:off-diagonal-general"
       lean: "OffDiagonalGeneralTheorem"
       module: "Tablet.OffDiagonalGeneralTheorem"
