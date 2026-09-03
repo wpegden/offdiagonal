@@ -102,6 +102,25 @@ automation:
           split: theorem-stating ~5.5 h, proof-formalization ~30 h, cleanup
           ~0.3 h. Revision run: ~29 h elapsed on 2026-06-28..29 (42 revision
           cycles), including operator-gated pauses.
+        token_usage: >-
+          Telemetry covers the ORIGINAL run only (2026-05-28..30); the revision run
+          was executed on a different machine and produced no cost ledger, so the
+          figures below are a lower bound on the project total. Original run:
+          gpt-5.5 across 529 model bursts covering worker, reviewer and the four
+          verifier lanes: 14,723,232,712 input tokens, of which 14,219,630,976
+          (96.6%) were served from prompt cache, and 39,111,886 output tokens, of
+          which 16,248,567 were reasoning tokens. By role: worker 151 bursts
+          (10.29 B input / 24.46 M output), reviewer 362 bursts (4.40 B / 14.47 M),
+          stuck-math-audit 16 bursts (34.8 M / 0.19 M). By phase: proof-formalization
+          420 bursts, theorem-stating 106, cleanup 3.
+        api_rate_equivalent_usd: >-
+          No per-token spend was incurred: the run was carried on a ChatGPT/Codex
+          subscription. For comparison only, priced at the published gpt-5.5 API
+          list rates in force at the time ($5.00 per M input tokens, $0.50 per M
+          cached input, $30.00 per M output), the original run's token usage would
+          correspond to approximately $2,798. The cached-input rate dominates:
+          96.6% of input was cache-served, so the uncached input was 503,601,736
+          tokens. This figure is an accounting comparison, not a bill.
         spend_usd: "subscription-based usage (ChatGPT/Codex), not metered per-token"
         hardware: "API/subscription-based; no local GPU"
       prompting_notes: >-
